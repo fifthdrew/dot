@@ -20,3 +20,7 @@ export PATH=/opt/firefox/firefox:$PATH
 
 # fix terminal colors 
 export TERM="xterm-256color"
+
+# to import .bashrc config
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+

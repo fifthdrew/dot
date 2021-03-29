@@ -123,3 +123,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # path to firefox
 export PATH=/opt/firefox/firefox:$PATH
+
+source ~/.profile
