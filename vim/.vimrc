@@ -7,6 +7,10 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 set encoding=utf-8
+set hidden
+set number
+set relativenumber
+set mouse=a
 
 if exists('+termguicolors')
 	set termguicolors
