@@ -6,8 +6,10 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 set encoding=utf-8
-" important!!
-set termguicolors
+
+if exists('+termguicolors')
+	set termguicolors
+endif
 
 let g:airline_powerline_fonts = 1
 "let g:airline_theme='powerlineish'
