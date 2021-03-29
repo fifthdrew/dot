@@ -11,9 +11,13 @@ set hidden
 set number
 set relativenumber
 set mouse=a
-
 if exists('+termguicolors')
 	set termguicolors
+endif
+if has('nvim')
+	" this set command enable
+	" visualization when searching
+	set inccommand=split
 endif
 
 let g:airline_powerline_fonts = 1
