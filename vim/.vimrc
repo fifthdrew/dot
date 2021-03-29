@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'edkolev/tmuxline.vim'
 	Plug 'franbach/miramare'
+	Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 set encoding=utf-8
