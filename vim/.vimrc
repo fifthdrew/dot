@@ -31,5 +31,12 @@ let g:miramare_enable_italic = 1
 let g:miramare_disable_italic_comment = 1
 let g:miramare_enable_bold = 1
 
+let mapleader="\<space>"
+
 colorscheme miramare
 "colorscheme default
+
+nnoremap <leader>; A;<esc>
+nnoremap <leader>v :vsplit ~/dotfiles/vim/.vimrc<cr>
+nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> :q
+
