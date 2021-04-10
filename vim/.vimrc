@@ -21,25 +21,30 @@ if has('nvim')
 	set inccommand=split
 endif
 
+" VIM-AIRLINE CONFIG	
 let g:airline_powerline_fonts = 1
 "let g:airline_theme='powerlineish'
 "let g:airline_theme='simple'
 "let g:airline_theme = 'miramare'
 let g:airline_theme = 'nord'
 
+" TMUXLINE CONFIG
 let g:tmuxline_powerline_separators = 1
 
+" MIRAMARE THEME CONFIG
 let g:miramare_enable_italic = 1
 let g:miramare_disable_italic_comment = 1
 let g:miramare_enable_bold = 1
 
 let mapleader="\<space>"
 
+" SET THEME
 colorscheme nord
+"colorscheme miramare
 "colorscheme miramare
 "colorscheme default
 
 nnoremap <leader>; A;<esc>
 nnoremap <leader>v :vsplit ~/dotfiles/vim/.vimrc<cr>
-nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> :q
+nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> 
 
