@@ -2,9 +2,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'edkolev/tmuxline.vim'
-	Plug 'franbach/miramare'
 	Plug 'sheerun/vim-polyglot'
-	Plug 'arcticicestudio/nord-vim'
+	Plug 'chriskempson/base16-vim'
 call plug#end()
 
 set encoding=utf-8
@@ -16,35 +15,27 @@ if exists('+termguicolors')
 	set termguicolors
 endif
 if has('nvim')
-	" this set command enable
-	" visualization when searching
+	" set searching visualization
 	set inccommand=split
 endif
 
+let base16colorspace=256
+
 " VIM-AIRLINE CONFIG	
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
-"let g:airline_theme='powerlineish'
-"let g:airline_theme='simple'
-"let g:airline_theme = 'miramare'
-let g:airline_theme = 'nord'
+let g:airline_theme = 'base16_classic'
 
 " TMUXLINE CONFIG
 let g:tmuxline_powerline_separators = 1
 
-" MIRAMARE THEME CONFIG
-let g:miramare_enable_italic = 1
-let g:miramare_disable_italic_comment = 1
-let g:miramare_enable_bold = 1
-
+" LEADER KEY CONFIG
 let mapleader="\<space>"
-
-" SET THEME
-colorscheme nord
-"colorscheme miramare
-"colorscheme miramare
-"colorscheme default
-
 nnoremap <leader>; A;<esc>
 nnoremap <leader>v :vsplit ~/dotfiles/vim/.vimrc<cr>
 nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> 
+nnoremap <Leader>b :ls<CR>:b<Space>
 
+" SET THEME
+colorscheme base16-classic-dark
