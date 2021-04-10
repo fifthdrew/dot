@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'edkolev/tmuxline.vim'
 	Plug 'franbach/miramare'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 set encoding=utf-8
@@ -23,7 +24,8 @@ endif
 let g:airline_powerline_fonts = 1
 "let g:airline_theme='powerlineish'
 "let g:airline_theme='simple'
-let g:airline_theme = 'miramare'
+"let g:airline_theme = 'miramare'
+let g:airline_theme = 'nord'
 
 let g:tmuxline_powerline_separators = 1
 
@@ -33,7 +35,8 @@ let g:miramare_enable_bold = 1
 
 let mapleader="\<space>"
 
-colorscheme miramare
+colorscheme nord
+"colorscheme miramare
 "colorscheme default
 
 nnoremap <leader>; A;<esc>
