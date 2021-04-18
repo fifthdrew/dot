@@ -28,7 +28,7 @@ let base16colorspace=256
 
 " VIM-AIRLINE AND VIN-AIRLINE-THEME CONFIG	
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16_classic'
 
