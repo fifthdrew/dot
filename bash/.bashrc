@@ -125,3 +125,4 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=/opt/firefox/firefox:$PATH
 
 source ~/.profile
+source "$HOME/.cargo/env"
