@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/vanderson/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="aphrodite"
 
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
 else
-   export EDITOR='mvim'
+   export EDITOR='nvim'
 fi
 
 # path to firefox
@@ -20,5 +20,6 @@ export PATH=/opt/firefox/firefox:$PATH
 
 # fix terminal colors 
 export TERM="xterm-256color"
+
 
 
