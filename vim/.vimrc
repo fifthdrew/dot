@@ -8,12 +8,16 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 colorscheme base16-classic-dark
+"colorscheme base16-default-dark 
+"colorscheme darkblue
 syntax on
 
 set autoindent
 set ignorecase
 set smartcase
 set linebreak
+set path+=**
+set wildmenu 
 set hlsearch
 set incsearch
 set hidden
@@ -29,11 +33,13 @@ let base16colorspace=256
 " VIM-AIRLINE AND VIN-AIRLINE-THEME CONFIG	
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16_classic'
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'base16'
+"let g:airline_theme = 'base16_classic'
+"let g:airline_theme = 'dark'
 
 " TMUXLINE CONFIG
-let g:tmuxline_powerline_separators = 1
+let g:tmuxline_powerline_separators = 0
 
 " LEADER KEY CONFIG
 let mapleader="\<space>"
