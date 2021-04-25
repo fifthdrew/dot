@@ -1,0 +1,39 @@
+set $base00 #151515
+set $base01 #202020
+set $base02 #303030
+set $base03 #505050
+set $base04 #B0B0B0
+set $base05 #D0D0D0
+set $base06 #E0E0E0
+set $base07 #F5F5F5
+set $base08 #AC4142
+set $base09 #D28445
+set $base0A #F4BF75
+set $base0B #90A959
+set $base0C #75B5AA
+set $base0D #6A9FB5
+set $base0E #AA759F
+set $base0F #8F5536
+
+bar {
+    status_command i3status
+
+    colors {
+        background $base00
+        separator  $base01
+        statusline $base04
+
+        focused_workspace   $base05 $base0D $base00
+        active_workspace    $base05 $base03 $base00
+        inactive_workspace  $base03 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base00 $base0A $base00
+    }
+}
+
+client.focused          $base05 $base0D $base00 $base0D $base0C
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
