@@ -5,11 +5,15 @@ call plug#begin('~/.vim/plugged')
 	Plug 'sheerun/vim-polyglot'
 	Plug 'chriskempson/base16-vim'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'sainnhe/everforest'
 call plug#end()
 
+"colorscheme base16-classic-light
 colorscheme base16-classic-dark
+"colorscheme everforest
 syntax on
 
+set background=dark
 set autoindent
 set ignorecase
 set smartcase
@@ -33,6 +37,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'base16_classic'
+"let g:airline_theme = 'everforest'
 
 " TMUXLINE CONFIG
 let g:tmuxline_powerline_separators = 0
@@ -42,10 +47,13 @@ let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 
+" EVERFOREST THEME CONFIG
+"let g:everforest_background = 'hard'
+
 " LEADER KEY CONFIG
 let mapleader="\<space>"
 nnoremap <leader>; A;<esc>
 nnoremap <leader>v :vsplit ~/dotfiles/vim/.vimrc<cr>
 nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> 
 nnoremap <Leader>b :ls<CR>:b<Space>
-
+nnoremap <Leader>t :terminal<cr>
