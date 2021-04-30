@@ -8,9 +8,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'sainnhe/everforest'
 call plug#end()
 
-"colorscheme base16-classic-light
 colorscheme base16-classic-dark
-"colorscheme everforest
 syntax on
 
 set background=dark
@@ -36,8 +34,7 @@ let base16colorspace=256
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'base16_classic'
-"let g:airline_theme = 'everforest'
+let g:airline_theme = 'base16'
 
 " TMUXLINE CONFIG
 let g:tmuxline_powerline_separators = 0
@@ -46,9 +43,6 @@ let g:tmuxline_powerline_separators = 0
 let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
-
-" EVERFOREST THEME CONFIG
-"let g:everforest_background = 'hard'
 
 " LEADER KEY CONFIG
 let mapleader="\<space>"
