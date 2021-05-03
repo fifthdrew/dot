@@ -3,13 +3,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'edkolev/tmuxline.vim'
 	Plug 'sheerun/vim-polyglot'
-	Plug 'chriskempson/base16-vim'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'sainnhe/everforest'
+	Plug 'victorze/foo'
+	Plug 'chriskempson/base16-vim'
 call plug#end()
 
-colorscheme base16-classic-dark
-syntax on
+syntax enable
+colorscheme hyper
 
 set background=dark
 set autoindent
@@ -34,7 +34,7 @@ let base16colorspace=256
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'base16'
+let g:airline_theme = 'minimalist'
 
 " TMUXLINE CONFIG
 let g:tmuxline_powerline_separators = 0
