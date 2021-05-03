@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 syntax enable
-colorscheme hyper
+colorscheme base16-classic-dark
 
 set background=dark
 set autoindent
