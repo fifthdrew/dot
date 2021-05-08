@@ -27,7 +27,7 @@ set laststatus=2
 " BASE16 COLOR CONFIG	
 let base16colorspace=256
 
-" NETRW CONFIG
+" NETRW CONFIG 
 let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
@@ -36,8 +36,11 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " LEADER KEY CONFIG
 let mapleader="\<space>"
+
+" MY CUSTOM COMMANDS
 nnoremap <leader>; A;<esc>
 nnoremap <leader>v :vsplit ~/dotfiles/vim/.vimrc<cr>
 nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> 
-nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Leader>b :ls<cr>:b<Space>
 nnoremap <Leader>t :terminal<cr>
+nnoremap <Leader>html :-1read ~/dotfiles/vim/.vim/.snippets/.skeleton.html<CR>3jwf>a
