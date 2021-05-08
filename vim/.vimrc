@@ -1,15 +1,11 @@
 call plug#begin('~/.vim/plugged')
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'edkolev/tmuxline.vim'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'victorze/foo'
 	Plug 'chriskempson/base16-vim'
 call plug#end()
 
 syntax enable
-colorscheme base16-classic-dark
+colorscheme base16-tomorrow-night
 
 set background=dark
 set autoindent
@@ -26,23 +22,17 @@ set mouse=a
 set encoding=utf-8
 set backspace=indent,eol,start
 set termguicolors
+set laststatus=2
 
 " BASE16 COLOR CONFIG	
 let base16colorspace=256
-
-" VIM-AIRLINE AND VIN-AIRLINE-THEME CONFIG	
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 0
-let g:airline_theme = 'minimalist'
-
-" TMUXLINE CONFIG
-let g:tmuxline_powerline_separators = 0
 
 " NETRW CONFIG
 let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " LEADER KEY CONFIG
 let mapleader="\<space>"
