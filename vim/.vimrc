@@ -17,7 +17,6 @@ set wildmenu
 set hlsearch
 set incsearch
 set hidden
-set number
 set mouse=a
 set encoding=utf-8
 set backspace=indent,eol,start
