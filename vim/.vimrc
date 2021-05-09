@@ -44,5 +44,5 @@ nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr>
 nnoremap <Leader>b :ls<cr>:b<Space>
 nnoremap <Leader>t :terminal<cr>
 nnoremap <leader>ta :let $VIM_DIR=expand('%:p:h')<cr>:terminal<cr>cd $VIM_DIR && clear<cr>
-nnoremap <leader>html :-1read ~/dotfiles/vim/.vim/.snippets/.skeleton.html<cr>3jwf>a
+nnoremap <leader>html :-1read ~/dotfiles/vim/.vim/snippets/.skeleton.html<cr>3jwf>a
 nnoremap <leader>gt :!ctags -R .<cr>
