@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 	Plug 'sheerun/vim-polyglot'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'chriskempson/base16-vim'
 call plug#end()
 
 syntax enable
