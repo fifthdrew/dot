@@ -1,12 +1,13 @@
-call plug#begin('~/.vim/plugged')
-	Plug 'sheerun/vim-polyglot'
-	Plug 'jiangmiao/auto-pairs'
-call plug#end()
-
-syntax enable
+filetype plugin indent on
+syntax on
+set background=dark
 colorscheme base16-tomorrow-night
 
-set background=dark
+set tabstop=8 
+set softtabstop=0 
+set expandtab
+set shiftwidth=4 
+set smarttab
 set autoindent
 set ignorecase
 set smartcase
@@ -21,6 +22,8 @@ set encoding=utf-8
 set backspace=indent,eol,start
 set termguicolors
 set laststatus=2
+set modelines=5
+set display+=lastline
 
 " BASE16 COLOR CONFIG	
 let base16colorspace=256
@@ -44,3 +47,6 @@ nnoremap <Leader>t :terminal<cr>
 nnoremap <leader>ta :let $VIM_DIR=expand('%:p:h')<cr>:terminal<cr>cd $VIM_DIR && clear<cr>
 nnoremap <leader>html :-1read ~/dotfiles/vim/.vim/snippets/.skeleton.html<cr>3jwf>a
 nnoremap <leader>gt :!ctags -R .<cr>
+
+" PLUGINS
+source ~/dotfiles/vim/.vim/packages.vim
