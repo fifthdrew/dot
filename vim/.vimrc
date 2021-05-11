@@ -2,11 +2,12 @@ filetype plugin indent on
 syntax on
 colorscheme tomorrow-night
 
-set tabstop=8 
-set softtabstop=0 
+set tabstop=4 
+set softtabstop=4 
 set expandtab
 set shiftwidth=4 
 set smarttab
+set smartindent
 set autoindent
 set ignorecase
 set smartcase
@@ -23,6 +24,8 @@ set termguicolors
 set laststatus=2
 set modelines=5
 set display+=lastline
+set colorcolumn=80
+set noswapfile
 
 " NETRW CONFIG 
 let g:netrw_banner=0
