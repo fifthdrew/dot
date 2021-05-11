@@ -1,12 +1,7 @@
 filetype plugin indent on
 syntax on
-colorscheme base16-tomorrow-night
-highlight clear LineNr
+colorscheme tomorrow-night
 
-command! Dark colorscheme base16-tomorrow-night | highlight clear LineNr
-command! Light colorscheme base16-tomorrow | highlight clear LineNr
-
-set number              
 set tabstop=8 
 set softtabstop=0 
 set expandtab
@@ -29,9 +24,6 @@ set laststatus=2
 set modelines=5
 set display+=lastline
 
-" BASE16 COLOR CONFIG	
-let base16colorspace=256
-
 " NETRW CONFIG 
 let g:netrw_banner=0
 let g:netrw_altv=1
@@ -42,7 +34,7 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " LEADER KEY CONFIG
 let mapleader="\<space>"
 
-" MY CUSTOM COMMANDS
+" MY KEYBOARD SHORTCUTS
 nnoremap <leader>; A;<esc>
 nnoremap <leader>v :vsplit ~/dotfiles/vim/.vimrc<cr>
 nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> 
@@ -51,6 +43,10 @@ nnoremap <Leader>t :terminal<cr>
 nnoremap <leader>ta :let $VIM_DIR=expand('%:p:h')<cr>:terminal<cr>cd $VIM_DIR && clear<cr>
 nnoremap <leader>html :-1read ~/dotfiles/vim/.vim/snippets/.skeleton.html<cr>3jwf>a
 nnoremap <leader>gt :!ctags -R .<cr>
+
+" MY CUSTOM COMMANDS
+command! Light colorscheme tomorrow 
+command! Dark colorscheme tomorrow-night 
 
 " PLUGINS
 source ~/dotfiles/vim/.vim/packages.vim
