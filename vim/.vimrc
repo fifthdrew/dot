@@ -1,8 +1,12 @@
 filetype plugin indent on
 syntax on
-set background=dark
 colorscheme base16-tomorrow-night
+highlight clear LineNr
 
+command! Dark colorscheme base16-tomorrow-night | highlight clear LineNr
+command! Light colorscheme base16-tomorrow | highlight clear LineNr
+
+set number              
 set tabstop=8 
 set softtabstop=0 
 set expandtab
