@@ -24,7 +24,7 @@ set termguicolors
 "set laststatus=2
 "set modelines=5
 "set display+=lastline
-set colorcolumn=80
+"set colorcolumn=80
 set noswapfile
 set nonumber
 set norelativenumber
