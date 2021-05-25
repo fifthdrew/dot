@@ -49,6 +49,13 @@ nnoremap <leader>ta :let $VIM_DIR=expand('%:p:h')<cr>:terminal<cr>cd $VIM_DIR &&
 nnoremap <leader>html :-1read ~/dotfiles/vim/.vim/snippets/.skeleton.html<cr>3jwf>a
 nnoremap <leader>gt :!ctags -R .<cr>
 
+" DISABLE ARROW KEYS
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Up> <Nop>
+noremap <Right> <Nop>
+
 " MY CUSTOM COMMANDS
 command! Light colorscheme light 
 command! Dark colorscheme dark 
