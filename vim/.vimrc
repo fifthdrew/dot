@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax on
-colorscheme tomorrow-night
+colorscheme dark
 
 set tabstop=4 
 set softtabstop=4 
@@ -50,8 +50,8 @@ nnoremap <leader>html :-1read ~/dotfiles/vim/.vim/snippets/.skeleton.html<cr>3jw
 nnoremap <leader>gt :!ctags -R .<cr>
 
 " MY CUSTOM COMMANDS
-command! Light colorscheme tomorrow 
-command! Dark colorscheme tomorrow-night 
+command! Light colorscheme light 
+command! Dark colorscheme dark 
 
 " PLUGINS
 source ~/dotfiles/vim/.vim/packages.vim
