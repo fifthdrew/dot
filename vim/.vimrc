@@ -21,13 +21,12 @@ set mouse=a
 set encoding=utf-8
 set backspace=indent,eol,start
 set termguicolors
-"set laststatus=2
-"set modelines=5
-"set display+=lastline
-"set colorcolumn=80
+set laststatus=2
+set modelines=5
+set display+=lastline
+set colorcolumn=80
 set noswapfile
-set nonumber
-set norelativenumber
+set number
 
 " NETRW CONFIG 
 let g:netrw_banner=0
