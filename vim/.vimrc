@@ -2,44 +2,22 @@ filetype plugin indent on
 syntax on
 colorscheme dark
 
-set tabstop=4 
-set softtabstop=4 
-set expandtab
-set shiftwidth=4 
-set smarttab
-set smartindent
-set autoindent
-set ignorecase
-set smartcase
+set tabstop=4 softtabstop=4 expandtab smarttab shiftwidth=4 
+set backspace=indent,eol,start
+set smartindent autoindent
+set ignorecase smartcase
+set hlsearch incsearch
 set linebreak
 set path+=**
 set wildmenu 
-set hlsearch
-set incsearch
 set hidden
 set mouse=a
 set encoding=utf-8
-set backspace=indent,eol,start
 set termguicolors
-set laststatus=2
-set modelines=5
-set display+=lastline
-set colorcolumn=80
+set laststatus=2 modelines=5 display+=lastline
 set noswapfile
 set number
 set relativenumber
-
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-:set guioptions-=L  "remove left-hand scroll bar
-
-":set guioptions-=M
-
-nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
-nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
@@ -56,15 +34,18 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " LEADER KEY CONFIG
 let mapleader="\<space>"
 
+" TODO: PUT HERE MY VIM FILES LOCATION
+
 " MY KEYBOARD SHORTCUTS
+nnoremap <leader>v :vsplit $MYVIMRC<cr>
+nnoremap <leader>s :source $MYVIMRC<cr> 
+nnoremap <leader>html :-1read $VIM_DIR . '/snippets/skeleton.html'<cr>3jwf>a
 nnoremap <leader>; A;<esc>
-nnoremap <leader>v :vsplit ~/dotfiles/vim/.vimrc<cr>
-nnoremap <leader>s :source ~/dotfiles/vim/.vimrc<cr> 
 nnoremap <Leader>b :ls<cr>:b<Space>
 nnoremap <Leader>t :terminal<cr>
 nnoremap <leader>ta :let $VIM_DIR=expand('%:p:h')<cr>:terminal<cr>cd $VIM_DIR && clear<cr>
-nnoremap <leader>html :-1read ~/dotfiles/vim/.vim/snippets/.skeleton.html<cr>3jwf>a
 nnoremap <leader>gt :!ctags -R .<cr>
+nnoremap <leader>cl :set colorcolumn=80<cr>
 
 " DISABLE ARROW KEYS
 noremap <Up> <Nop>
@@ -77,7 +58,9 @@ noremap <Right> <Nop>
 command! Light colorscheme light 
 command! Dark colorscheme dark 
 
-" PLUGINS
-source ~/dotfiles/vim/.vim/packages.vim
-
+" MY PLUGINS
+call plugpac#begin()
+Pack 'k-takata/minpac', {'type': 'opt'}
+Pack 'sheerun/vim-polyglot'
+call plugpac#end()
 
