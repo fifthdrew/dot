@@ -14,6 +14,8 @@ if !has("gui_running")
   endif
 endif
 
+set background=dark
+
 " GUI color definitions
 "let s:gui00        = "1d1f21"
 let s:gui00        = "222222"
@@ -413,7 +415,7 @@ delf <sid>hi
 " Fixies
 hi StatusLineTerm ctermbg=24 ctermfg=254 guibg=#373b41 guifg=#8d8f8d
 hi StatusLineTermNC ctermbg=252 ctermfg=238 guibg=#282a2e guifg=#8d8f8d
-" hi clear LineNr
+hi ColorColumn guibg=#242424
 
 " Remove color variables
 unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F
