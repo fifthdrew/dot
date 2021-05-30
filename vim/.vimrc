@@ -14,15 +14,11 @@ set hidden
 set mouse=a
 set encoding=utf-8
 set termguicolors
-set laststatus=2 modelines=5 display+=lastline
+set modelines=5 display+=lastline
 set noswapfile
-set number
-set relativenumber
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
+
+" DEFINE VARIABLES
+let $VIMHOME = $HOME."/.vim"
 
 " NETRW CONFIG 
 let g:netrw_banner=0
@@ -34,33 +30,62 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " LEADER KEY CONFIG
 let mapleader="\<space>"
 
-" TODO: PUT HERE MY VIM FILES LOCATION
+" UTILITY FUNCTIONS
+function! ToggleColorColumn()
+    if &colorcolumn == 80
+        set colorcolumn=0
+    else
+        set colorcolumn=80
+    endif
+endfunction
 
-" MY KEYBOARD SHORTCUTS
-nnoremap <leader>v :vsplit $MYVIMRC<cr>
-nnoremap <leader>s :source $MYVIMRC<cr> 
-nnoremap <leader>html :-1read $VIM_DIR . '/snippets/skeleton.html'<cr>3jwf>a
-nnoremap <leader>; A;<esc>
-nnoremap <Leader>b :ls<cr>:b<Space>
-nnoremap <Leader>t :terminal<cr>
-nnoremap <leader>ta :let $VIM_DIR=expand('%:p:h')<cr>:terminal<cr>cd $VIM_DIR && clear<cr>
-nnoremap <leader>gt :!ctags -R .<cr>
-nnoremap <leader>cl :set colorcolumn=80<cr>
+function! ToggleColorTheme()
+    if &background == "light"
+        :colorscheme dark
+    else 
+        :colorscheme light
+    endif
+endfunction
 
-" DISABLE ARROW KEYS
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Up> <Nop>
-noremap <Right> <Nop>
+function! ToggleStatusBar()
+    if &laststatus == 2
+        set laststatus=0
+    else
+        set laststatus=2
+    endif
+endfunction
 
-" MY CUSTOM COMMANDS
-command! Light colorscheme light 
-command! Dark colorscheme dark 
+" KEYBOARD SHORTCUTS
+nnoremap <Leader>v :vsplit $MYVIMRC<CR>
+nnoremap <Leader>s :source $MYVIMRC<CR> 
+nnoremap <Leader>html :-1read $VIMHOME/.skeleton.html<CR>3jwf>a
+nnoremap <Leader>; A;<Esc>
+nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Leader>t :term<CR>
+nnoremap <Leader>gt :!ctags -R .<CR>
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
 
-" MY PLUGINS
+" OPTIONAL SETTINGS
+nnoremap <C-F12> :set number! relativenumber!<CR>
+nnoremap <C-F11> :set number!<CR>
+nnoremap <C-F10> :call ToggleColorColumn()<CR>
+nnoremap <C-F9> :call ToggleColorTheme()<CR>
+nnoremap <C-F8> :call ToggleStatusBar()<CR>
+
+" REMAP ARROW KEYS
+noremap <Down> :resize +2<Cr>
+noremap <Up> :resize -2<cr>
+noremap <Right> :vertical resize +2<CR>
+noremap <Left> :vertical resize -2<CR>
+
+" PLUGINS
 call plugpac#begin()
 Pack 'k-takata/minpac', {'type': 'opt'}
 Pack 'sheerun/vim-polyglot'
 call plugpac#end()
 
+" CHANGE CURRENT DIRECTORY
+autocmd BufEnter * silent! lcd %:p:h 
