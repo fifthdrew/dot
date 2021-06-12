@@ -126,3 +126,4 @@ export PATH=/opt/firefox/firefox:$PATH
 
 source ~/.profile
 source "$HOME/.cargo/env"
+set bell-style none
