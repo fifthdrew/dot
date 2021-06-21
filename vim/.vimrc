@@ -16,6 +16,11 @@ set encoding=utf-8
 set termguicolors
 set modelines=5 display+=lastline
 set noswapfile
+set showcmd
+set undofile undodir="~/.vim/undo/"
+
+" Improve CTRL+x + CTRL+o autocomplete function 
+set omnifunc=syntaxcomplete#Complete
 
 " DEFINE VARIABLES
 let $VIMHOME = $HOME."/.vim"
@@ -63,9 +68,9 @@ nnoremap <Leader>; A;<Esc>
 nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>t :term<CR>
 nnoremap <Leader>gt :!ctags -R .<CR>
-nnoremap <Leader>g :copen<CR>
-nnoremap <Leader>n :cnext<CR>
-nnoremap <Leader>p :cprevious<CR>
+nnoremap <Leader>8 :copen<CR>
+nnoremap <Leader>7 :cnext<CR>
+nnoremap <Leader>6 :cprevious<CR>
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
@@ -92,3 +97,4 @@ call plugpac#end()
 
 " CHANGE CURRENT DIRECTORY
 autocmd BufEnter * silent! lcd %:p:h 
+
