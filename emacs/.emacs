@@ -15,11 +15,15 @@
 ; Set font family and size
 (set-face-attribute 'default nil :font "Fira Code Retina" :height 150)
 
-; Set visual bell
-(setq visible-bell t)
+; Show bounding line 
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
 ; Set theme
-(load-theme 'wombat)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
+; TODO: put this things on theme file
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
 
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -63,3 +67,16 @@
   :config
   (ivy-mode 1))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(smex use-package magit ivy flycheck doom-modeline command-log-mode base16-theme)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
