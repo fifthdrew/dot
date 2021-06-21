@@ -64,7 +64,8 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>t :term<CR>
 nnoremap <Leader>gt :!ctags -R .<CR>
 nnoremap <Leader>g :copen<CR>
-nnoremap <C-n> :cnext<CR>
+nnoremap <Leader>n :cnext<CR>
+nnoremap <Leader>p :cprevious<CR>
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
