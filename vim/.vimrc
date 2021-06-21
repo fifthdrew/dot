@@ -60,6 +60,12 @@ function! ToggleStatusBar()
     endif
 endfunction
 
+function! ToggleAllVisual()
+    :call ToggleStatusBar()
+    :call ToggleColorColumn()
+    :set number! relativenumber!
+endfunction
+
 " KEYBOARD SHORTCUTS
 nnoremap <Leader>v :vsplit $MYVIMRC<CR>
 nnoremap <Leader>s :source $MYVIMRC<CR> 
@@ -98,3 +104,4 @@ call plugpac#end()
 " CHANGE CURRENT DIRECTORY
 autocmd BufEnter * silent! lcd %:p:h 
 
+command! Full :call ToggleAllVisual()
