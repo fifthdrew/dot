@@ -2,40 +2,106 @@ filetype plugin indent on
 syntax on
 colorscheme dark
 
-set tabstop=4 softtabstop=4 expandtab smarttab shiftwidth=4 
-set backspace=indent,eol,start
-set smartindent autoindent
-set ignorecase smartcase
-set hlsearch incsearch
-set linebreak
-set path+=**
-set wildmenu 
-set hidden
-set mouse=a
-set encoding=utf-8
-set termguicolors
-set modelines=5 display+=lastline
-set noswapfile
-set showcmd
-set undofile undodir="~/.vim/undo/"
+"------------------------------------------
+"           - General settings -
+"------------------------------------------
 
-" Improve CTRL+x + CTRL+o autocomplete function 
+" Set tabs
+set tabstop=4 
+set softtabstop=4
+set expandtab
+set smarttab 
+set shiftwidth=4 
+
+" Allow backspacing over everything 
+" in INSERT mode
+set backspace=indent,eol,start
+
+" Set identation
+set smartindent 
+set autoindent
+
+" Ignore case when searching
+set ignorecase 
+set smartcase
+
+" Set partial search and result 
+" highlighting
+set hlsearch 
+set incsearch
+
+" Ensure that Vim will search all 
+" project files
+set path+=.,,,**
+
+" Set command line completion
+set wildmenu 
+
+" Allow load a buffer in a window that 
+" currently has a modified buffer
+set hidden
+
+" Make vim wrap long lines
+set wrap 
+set linebreak 
+set nolist
+
+" Read file when modified outside vim
+set autoread
+
+" Allow mouse
+set mouse=a
+
+" Set encoding
+set encoding=utf-8
+
+" Set terminal colors
+set termguicolors
+
+" Set status line appearance
+set modelines=5 
+set display+=lastline
+
+" Do not keep any history
+set noswapfile 
+set nowb 
+set nobackup 
+set viminfo='0,:0,<0,@0,f0 
+
+" Show ruler and command visual aid
+set showcmd 
+set ruler
+
+" Set default vertical split 
+set splitright
+
+" Improve CTRL+x + CTRL+o 
+" autocomplete function 
 set omnifunc=syntaxcomplete#Complete
 
-" DEFINE VARIABLES
+
+"---------------------------------------------
+"            - Define variables -              
+"---------------------------------------------
+
+" Vim folder location
 let $VIMHOME = $HOME."/.vim"
 
-" NETRW CONFIG 
+" Netrw configuration        
 let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-" LEADER KEY CONFIG
+" Define leader key               
 let mapleader="\<space>"
 
-" UTILITY FUNCTIONS
+
+"---------------------------------------------
+"            - Utility functions -              
+"---------------------------------------------
+
 function! ToggleColorColumn()
     if &colorcolumn == 80
         set colorcolumn=0
@@ -66,10 +132,13 @@ function! ToggleAllVisual()
     :set number! relativenumber!
 endfunction
 
-" KEYBOARD SHORTCUTS
-nnoremap <Leader>v :vsplit $MYVIMRC<CR>
+
+"---------------------------------------------
+"           - Keyboard shortcuts -              
+"---------------------------------------------
+
+nnoremap <Leader>v :edit $MYVIMRC<CR>
 nnoremap <Leader>s :source $MYVIMRC<CR> 
-nnoremap <Leader>html :-1read $VIMHOME/.skeleton.html<CR>3jwf>a
 nnoremap <Leader>; A;<Esc>
 nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>t :term<CR>
@@ -84,26 +153,39 @@ nnoremap <Leader>l <C-w>l
 nnoremap <Leader>p :tabp<CR>
 nnoremap <Leader>n :tabn<CR>
 
-" OPTIONAL SETTINGS
-nnoremap <C-F12> :set number! relativenumber!<CR>
-nnoremap <C-F11> :set number!<CR>
+
+"---------------------------------------------
+"                 - Snippets -              
+"---------------------------------------------
+
+nnoremap <Leader>html :-1read $VIMHOME/.skeleton.html<CR>3jwf>a
+
+
+"---------------------------------------------
+"           - Optional settings -              
+"---------------------------------------------
+
+nnoremap <C-F12> :set  nu! renu!<CR>
+nnoremap <C-F11> :set  nu!<CR>
 nnoremap <C-F10> :call ToggleColorColumn()<CR>
 nnoremap <C-F9> :call ToggleColorTheme()<CR>
 nnoremap <C-F8> :call ToggleStatusBar()<CR>
+nnoremap <C-F7> :call ToggleAllVisual()<CR>
 
-" REMAP ARROW KEYS
+
+"---------------------------------------------
+"           - Remap arrow keys -              
+"---------------------------------------------
+
 noremap <Down> :resize +2<Cr>
 noremap <Up> :resize -2<cr>
 noremap <Right> :vertical resize +2<CR>
 noremap <Left> :vertical resize -2<CR>
 
-" PLUGINS
-call plugpac#begin()
-Pack 'k-takata/minpac', {'type': 'opt'}
-Pack 'sheerun/vim-polyglot'
-call plugpac#end()
 
-" CHANGE CURRENT DIRECTORY
+"---------------------------------------------
+"             - Custom commands -              
+"---------------------------------------------
+
+" Change current directory
 autocmd BufEnter * silent! lcd %:p:h 
-
-command! Full :call ToggleAllVisual()
