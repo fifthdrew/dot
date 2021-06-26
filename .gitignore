@@ -4,9 +4,9 @@ README.md
 .netrwhist
 /emacs/.emacs~
 /emacs/.emacs.d/auto-save-list
-/elpa
-/ergoemacs-extras
-recentf
-recentf~
-smex-itens
-transient
+/emacs/.emacs.d/elpa
+/emacs/.emacs.d/ergoemacs-extras
+/emacs/.emacs.d/recentf
+/emacs/.emacs.d/recentf~
+/emacs/.emacs.d/smex-itens
+/emacs/.emacs.d/transient
