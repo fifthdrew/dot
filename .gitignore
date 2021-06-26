@@ -3,3 +3,10 @@
 README.md
 .netrwhist
 /emacs/.emacs~
+/emacs/.emacs.d/auto-save-list
+/elpa
+/ergoemacs-extras
+recentf
+recentf~
+smex-itens
+transient
