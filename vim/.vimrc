@@ -171,16 +171,20 @@ nnoremap <C-F10> :call ToggleColorColumn()<CR>
 nnoremap <C-F9> :call ToggleColorTheme()<CR>
 nnoremap <C-F8> :call ToggleStatusBar()<CR>
 nnoremap <C-F7> :call ToggleAllVisual()<CR>
+noremap <C-Down> :resize +2<Cr>
+noremap <C-Up> :resize -2<cr>
+noremap <C-Right> :vertical resize +2<CR>
+noremap <C-Left> :vertical resize -2<CR>
 
 
 "---------------------------------------------
-"           - Remap arrow keys -              
+"           - Disable arrow keys -              
 "---------------------------------------------
 
-noremap <Down> :resize +2<Cr>
-noremap <Up> :resize -2<cr>
-noremap <Right> :vertical resize +2<CR>
-noremap <Left> :vertical resize -2<CR>
+noremap <Down> <Nop>
+noremap <Up> <Nop>
+noremap <Right> <Nop>
+noremap <Left> <Nop>
 
 
 "---------------------------------------------
