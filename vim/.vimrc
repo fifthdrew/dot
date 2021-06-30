@@ -66,6 +66,8 @@ function! ToggleAllVisual()
     :set number! relativenumber!
 endfunction
 
+" TODO: make a function to open especific lang file
+
 " KEYBOARD SHORTCUTS
 nnoremap <Leader>v :vsplit $MYVIMRC<CR>
 nnoremap <Leader>s :source $MYVIMRC<CR> 
