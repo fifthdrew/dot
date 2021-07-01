@@ -166,7 +166,7 @@ nnoremap <Leader>html :-1read $VIMHOME/.skeleton.html<CR>3jwf>a
 "           - Optional settings -              
 "---------------------------------------------
 
-nnoremap <C-F12> :set  nu! renu!<CR>
+nnoremap <C-F12> :set  nu! rnu!<CR>
 nnoremap <C-F11> :set  nu!<CR>
 nnoremap <C-F10> :call ToggleColorColumn()<CR>
 nnoremap <C-F9> :call ToggleColorTheme()<CR>
