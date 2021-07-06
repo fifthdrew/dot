@@ -17,7 +17,7 @@ set shiftwidth=4
 " in INSERT mode
 set backspace=indent,eol,start
 
-" Set identation
+" Set indentation
 set smartindent 
 set autoindent
 
@@ -75,8 +75,8 @@ set ruler
 " Set default vertical split 
 set splitright
 
-" Improve CTRL+x + CTRL+o 
-" autocomplete function 
+" Improve Control-x + Control-o 
+" auto complete function 
 set omnifunc=syntaxcomplete#Complete
 
 " Set spelling check
