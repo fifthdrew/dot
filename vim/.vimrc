@@ -79,6 +79,10 @@ set splitright
 " autocomplete function 
 set omnifunc=syntaxcomplete#Complete
 
+" Set spelling check
+set spell 
+set spelllang=en_us
+
 
 "---------------------------------------------
 "            - Define variables -              
@@ -153,6 +157,8 @@ nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 nnoremap <Leader>p :tabp<CR>
 nnoremap <Leader>n :tabn<CR>
+nnoremap <Leader>sp :set spell!<CR>
+nnoremap <Leader>f :1z=<CR>
 
 
 "---------------------------------------------
