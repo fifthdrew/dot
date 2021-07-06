@@ -136,7 +136,9 @@ function! ToggleAllVisual()
     :set number! relativenumber!
 endfunction
 
-" TODO: make a function to open especific lang file
+" TODO: make a function to open specific language file
+" TODO: make a function to insert a generic snippet
+
 
 "---------------------------------------------
 "           - Keyboard shortcuts -              
