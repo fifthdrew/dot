@@ -80,7 +80,7 @@ set splitright
 set omnifunc=syntaxcomplete#Complete
 
 " Set spelling check
-set spell 
+set nospell 
 set spelllang=en_us
 
 
