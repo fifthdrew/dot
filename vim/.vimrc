@@ -190,10 +190,10 @@ noremap <C-Left> :vertical resize -2<CR>
 "           - Disable arrow keys -              
 "---------------------------------------------
 
-noremap <Down> <Nop>
-noremap <Up> <Nop>
-noremap <Right> <Nop>
-noremap <Left> <Nop>
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Right> <Nop>
+inoremap <Left> <Nop>
 
 
 "---------------------------------------------
