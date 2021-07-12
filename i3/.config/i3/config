@@ -202,8 +202,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # Remove the borders
 # New tiling windows with title bar and borders
-new_window normal 0
+new_window normal 1
 # New floating windows with title bar and without borders
-new_float normal 0
+new_float normal 1
 # Hide borders on edges
 hide_edge_borders both
