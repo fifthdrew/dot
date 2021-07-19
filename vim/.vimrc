@@ -6,6 +6,9 @@ colorscheme dark
 "           - General settings -
 "------------------------------------------
 
+" Use vim settings, rather than vi settings
+set nocompatible
+
 " Set tabs
 set tabstop=4 
 set softtabstop=4
