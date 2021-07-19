@@ -74,9 +74,6 @@ set viminfo='0,:0,<0,@0,f0
 set showcmd 
 set ruler
 
-" Set default vertical split 
-set splitright
-
 " Improve Control-x + Control-o 
 " auto complete function 
 set omnifunc=syntaxcomplete#Complete
