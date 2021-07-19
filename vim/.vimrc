@@ -61,9 +61,8 @@ set encoding=utf-8
 " Set terminal colors
 set termguicolors
 
-" Set status line appearance
-set modelines=5 
-set display+=lastline
+" Disable modeline because security issues 
+set nomodeline
 
 " Do not keep any history
 set noswapfile 
