@@ -412,6 +412,8 @@ call <sid>hi("StartifySpecial",  s:gui03, "", s:cterm03, "", "", "")
 " Java highlighting
 call <sid>hi("javaOperator",     s:gui0D, "", s:cterm0D, "", "", "")
 
+hi TabLineSel guibg=#2e2e2e
+
 " Remove functions
 delf <sid>hi
 
