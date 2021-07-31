@@ -169,3 +169,6 @@ new_window normal 1
 new_float normal 1
 # Hide borders on edges
 hide_edge_borders both
+
+# print all window titles bold
+for_window [class=".*"] title_format "<b>%class</b>"
