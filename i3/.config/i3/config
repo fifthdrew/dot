@@ -16,7 +16,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec dmenu_run
 
 # start rofi (a program laucher)
-bindsym $mod+Control+r exec rofi -show run 
+bindsym $mod+Control+r exec rofi -show drun -theme "dark" -icon-theme "gnome" -show-icons
 
 # start i3-dmenu-desktop which only displays applications
 # shipping a .desktop file
