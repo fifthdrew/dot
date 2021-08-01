@@ -8,13 +8,15 @@
 
 * {
     red:                         rgba ( 204, 102, 102, 100 % );
-    blue:                        rgba ( 129, 162, 190, 100 % );
+    //blue:                        rgba ( 129, 162, 190, 100 % );
+    blue:                        rgba ( 40, 85, 119, 100 % );
     lightfg:                     rgba ( 224, 224, 224, 100 % );
-    lightbg:                     rgba ( 40, 42, 46, 100 % );
+    lightbg:                     rgba ( 46, 46, 46, 100 % );
     foreground:                  rgba ( 197, 200, 198, 100 % );
     background:                  rgba ( 34, 34, 34, 100 % );
     background-color:            rgba ( 34, 34, 34, 0 % );
-    separatorcolor:              @foreground;
+    //separatorcolor:              @foreground;
+    separatorcolor:              rgba ( 40, 85, 119, 100 % );
     border-color:                @foreground;
     selected-normal-foreground:  @lightbg;
     selected-normal-background:  @lightfg;
@@ -39,6 +41,7 @@
 window {
     background-color: @background;
     border:           1;
+    border-color: @separatorcolor;
     padding:          5;
 }
 mainbox {
@@ -55,7 +58,7 @@ textbox {
 }
 listview {
     fixed-height:     0;
-    border:           2px dash 0px 0px ;
+    border:           1px solid 0px 0px ;
     border-color:     @separatorcolor;
     spacing:          2px ;
     scrollbar:        true;
