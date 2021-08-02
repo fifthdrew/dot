@@ -13,7 +13,7 @@
 (setq-default display-line-numbers 'relative)
 
 ; Set font family and size
-(set-face-attribute 'default nil :font "Monaco" :height 150)
+(set-face-attribute 'default nil :font "Iosevka" :height 150)
 
 ; Remove borders from mode-line
 (set-face-attribute 'mode-line nil :box nil)

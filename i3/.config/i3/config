@@ -1,7 +1,8 @@
 set $mod Mod4
 
 # Font for window titles
-font pango:monospace 8
+#font pango:monospace 8
+font pango:Iosevka 9 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -172,3 +173,7 @@ hide_edge_borders both
 
 # print all window titles bold
 for_window [class=".*"] title_format "<b>%class</b>"
+
+focus_follows_mouse no
+
+hide_edge_borders both
