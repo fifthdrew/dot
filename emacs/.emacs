@@ -22,11 +22,6 @@
 ; Show bounding line 
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
-; Set theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
-;(load-theme 'default-black)
-
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -48,6 +43,11 @@
 ; Packages
 (use-package command-log-mode)
 
+(use-package base16-theme
+  :ensure t
+  :config
+  (load-theme 'base16-default-dark t))
+
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
@@ -65,3 +65,15 @@
          ("C-d" . ivy-reverse-i-search-kill))
   :config
   (ivy-mode 1))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(eglot base16-theme use-package ivy command-log-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
