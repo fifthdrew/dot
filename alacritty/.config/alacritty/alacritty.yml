@@ -117,8 +117,55 @@ draw_bold_text_with_bright_colors: false
 
 schemes:
 
+  # Colors (Zenburn)
+  zenburn: &zenburn
+
+    # Default colors
+    primary:
+      background: '0x3d3d3d'
+      foreground: '0xf8f5ed'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0x000000'
+      cursor: '0xffffff'
+
+    # Normal colors
+    normal:
+      black:   '0x505050'
+      red:     '0xd7a5a4'
+      green:   '0x91ad91'
+      yellow:  '0xe8d7b9'
+      blue:    '0xc6eaff'
+      magenta: '0xba90bd'
+      cyan:    '0x9ad6d9'
+      white:   '0xf3f1d9'
+
+    # Bright colors
+    bright:
+      black:   '0x7f7f7f'
+      red:     '0xe4b3b2'
+      green:   '0xd4e894'
+      yellow:  '0xeff0a5'
+      blue:    '0x6996bf'
+      magenta: '0xdcbecd'
+      cyan:    '0x9ad6d9'
+      white:   '0xf8f5ed'
+
+    # Dim colors (Optional)
+    dim:
+      black:   '0x333333'
+      red:     '0xf2777a'
+      green:   '0x99cc99'
+      yellow:  '0xffcc66'
+      blue:    '0x6699cc'
+      magenta: '0xcc99cc'
+      cyan:    '0x66cccc'
+      white:   '0xdddddd'
+
   # Colors (iTerm 2 default theme)
   iterm: &iterm
+
     # Default colors
     primary:
       background: '#000000'
@@ -231,7 +278,7 @@ schemes:
       - { index: 20, color: '0x969896' }
       - { index: 21, color: '0x282a2e' }
   
-colors: *dark
+colors: *zenburn
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
