@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax on
-colorscheme dark
+colorscheme zenburn 
 
 "------------------------------------------
 "           - General settings -
