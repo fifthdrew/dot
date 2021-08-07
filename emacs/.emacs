@@ -1,13 +1,9 @@
-; Remove welcome message
-(setq inhibit-startup-message t)
-
-; Remove menus
+; Remove unnecessary things
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (tooltip-mode -1)
-
-; Remove scroll bar
 (toggle-scroll-bar -1)
+(setq inhibit-startup-message t)
 
 ; Set numbers
 (setq-default display-line-numbers 'relative)
@@ -38,7 +34,11 @@
 (unless package-archive-contents
  (package-refresh-contents))
 
-; Initialize use-package on non-Linux platforms
+; Initialize evil-mode
+(require 'evil)
+(evil-mode t)
+
+; Initialize use-package
 (unless (package-installed-p 'use-package)
    (package-install 'use-package))
 (require 'use-package)
@@ -46,22 +46,3 @@
 
 ; Packages
 (use-package command-log-mode)
-
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)	
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
-
