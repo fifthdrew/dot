@@ -113,14 +113,6 @@ function! ToggleColorColumn()
     endif
 endfunction
 
-function! ToggleColorTheme()
-    if &background == "light"
-        :colorscheme dark
-    else 
-        :colorscheme light
-    endif
-endfunction
-
 function! ToggleStatusBar()
     if &laststatus == 2
         set laststatus=0
@@ -134,9 +126,6 @@ function! ToggleAllVisual()
     :call ToggleColorColumn()
     :set number! relativenumber!
 endfunction
-
-" TODO: make a function to open specific language file
-" TODO: make a function to insert a generic snippet
 
 
 "---------------------------------------------
@@ -177,9 +166,8 @@ nnoremap <Leader>html :-1read $VIMHOME/.skeleton.html<CR>3jwf>a
 nnoremap <C-F12> :set  nu! rnu!<CR>
 nnoremap <C-F11> :set  nu!<CR>
 nnoremap <C-F10> :call ToggleColorColumn()<CR>
-nnoremap <C-F9> :call ToggleColorTheme()<CR>
-nnoremap <C-F8> :call ToggleStatusBar()<CR>
-nnoremap <C-F7> :call ToggleAllVisual()<CR>
+nnoremap <C-F9> :call ToggleStatusBar()<CR>
+nnoremap <C-F8> :call ToggleAllVisual()<CR>
 noremap <C-Down> :resize +2<Cr>
 noremap <C-Up> :resize -2<cr>
 noremap <C-Right> :vertical resize +2<CR>
@@ -201,8 +189,11 @@ nnoremap <Left> <Nop>
 
 
 "---------------------------------------------
-"             - Custom commands -              
+"             - Temporary Options -
 "---------------------------------------------
 
-" Change current directory
-autocmd BufEnter * silent! lcd %:p:h 
+" Kill bad habits
+noremap h <nop>
+noremap j <nop>
+noremap k <nop>
+noremap l <nop>
