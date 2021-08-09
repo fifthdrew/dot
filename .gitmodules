@@ -1,3 +1,7 @@
 [submodule "submodules/vim-polyglot"]
     path = submodules/vim-polyglot
     url = https://github.com/sheerun/vim-polyglot
+
+[submodule "submodules/ligature.el"]
+    path = submodules/ligature.el
+    url = https://github.com/mickeynp/ligature.el
