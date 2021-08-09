@@ -5,3 +5,7 @@
 [submodule "submodules/ligature.el"]
     path = submodules/ligature.el
     url = https://github.com/mickeynp/ligature.el
+
+[submodule "submodules/zenburn-emacs"]
+    path = submodules/zenburn-emacs
+    url = https://github.com/bbatsov/zenburn-emacs
