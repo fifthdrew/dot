@@ -1,4 +1,4 @@
-vandersondsr's dotfiles
+My dotfiles
 --------------------
 
 Uses GNU Stow – https://www.gnu.org/software/stow/ 
@@ -10,14 +10,8 @@ On Debian/Ubuntu:
 Usage: 
 ```
 # cd ~
-```
-```
-# git clone https://github.com/vandersondsr/dotfiles/ 
-```
-```
+# git clone https://github.com/vanditoh/dotfiles/ 
 # cd dotfiles
+# stow vim i3 tmux zsh emacs
 ```
-```
-# stow vim
-```
-(or *, i3, tmux...) 
+
