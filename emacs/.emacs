@@ -72,3 +72,19 @@
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
+
+(use-package try
+  :ensure t)
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(use-package rust-mode
+  :ensure t) 
