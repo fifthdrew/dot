@@ -194,3 +194,11 @@ noremap h <nop>
 noremap j <nop>
 noremap k <nop>
 noremap l <nop>
+
+
+"---------------------------------------------
+"       - Abbreviations an Corrections -
+"---------------------------------------------
+
+iabbrev heigth height
+iabbrev lenght length
