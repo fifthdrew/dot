@@ -88,3 +88,12 @@
 
 (use-package rust-mode
   :ensure t) 
+
+(use-package clojure-mode
+  :ensure t)
+
+(use-package clojure-mode-extra-font-locking
+  :ensure t)
+
+(use-package typescript-mode
+  :ensure t)
