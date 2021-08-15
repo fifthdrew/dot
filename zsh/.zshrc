@@ -19,3 +19,5 @@ export PATH=/opt/firefox/firefox:$PATH
 # fix terminal colors 
 export TERM="xterm-256color"
 
+# alias for tmux (to force tmux use terminal colors)
+alias tmux="TERM=screen-256color-bce tmux"
