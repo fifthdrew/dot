@@ -9,7 +9,7 @@
 (setq-default display-line-numbers 'relative)
 
 ; Set font family and size
-(set-face-attribute 'default nil :font "Iosevka" :height 150)
+(set-face-attribute 'default nil :font "Iosevka" :height 130)
 
 ; Show bounding line 
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
