@@ -173,17 +173,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec sh ~/.config/i3/backlight.sh -inc 20
 bindsym XF86MonBrightnessDown exec sh ~/.config/i3/backlight.sh -dec 20
 
-# Remove the borders
-# New tiling windows with title bar and borders
-new_window normal 1
-# New floating windows with title bar and without borders
-new_float normal 1
-# Hide borders on edges
-hide_edge_borders both
-
 # print all window titles bold
 for_window [class=".*"] title_format "<b>%class</b>"
 
+# Remove focus on mouse move
 focus_follows_mouse no
 
+# Remove borders
 hide_edge_borders both
