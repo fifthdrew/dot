@@ -201,4 +201,6 @@ noremap l <nop>
 "---------------------------------------------
 
 iabbrev heigth height
+iabbrev heigths heights
 iabbrev lenght length
+iabbrev lenghts lengths
