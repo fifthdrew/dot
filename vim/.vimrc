@@ -204,3 +204,5 @@ iabbrev heigth height
 iabbrev heigths heights
 iabbrev lenght length
 iabbrev lenghts lengths
+iabbrev widht width
+iabbrev widhts widths
