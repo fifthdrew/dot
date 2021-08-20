@@ -147,7 +147,8 @@ nnoremap <Leader>n :tabn<CR>
 nnoremap <Leader>sp :set spell!<CR>
 nnoremap <Leader>f :1z=<CR>
 nnoremap <Leader>e :e.<CR>
-
+nnoremap <Leader>as :SourcetrailRefresh<CR>
+nnoremap <Leader>aa :SourcetrailActivateToken<CR>
 
 "---------------------------------------------
 "                 - Snippets -              

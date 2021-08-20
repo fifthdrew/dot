@@ -13,3 +13,7 @@
 [submodule "submodules/Zenburn"]
     path = submodules/Zenburn
     url = https://github.com/jnurmine/Zenburn
+
+[submodule "submodules/vim-sourcetrail"]
+    path = submodules/vim-sourcetrail
+    url = https://github.com/CoatiSoftware/vim-sourcetrail
