@@ -155,7 +155,7 @@ nnoremap <Leader>aa :SourcetrailActivateToken<CR>
 "---------------------------------------------
 
 nnoremap <Leader>html :-1read $VIMHOME/.skeleton.html<CR>3jwf>a
-
+nnoremap <Leader>cpp :-1read $VIMHOME/.competitive_programming.cpp<CR>11j
 
 "---------------------------------------------
 "           - Optional settings -              
