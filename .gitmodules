@@ -17,3 +17,7 @@
 [submodule "submodules/vim-sourcetrail"]
     path = submodules/vim-sourcetrail
     url = https://github.com/CoatiSoftware/vim-sourcetrail
+
+[submodule "submodules/vader.vim"]
+    path = submodules/vader.vim
+    url = https://github.com/junegunn/vader.vim 
