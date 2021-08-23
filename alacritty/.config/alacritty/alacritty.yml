@@ -117,6 +117,36 @@ draw_bold_text_with_bright_colors: false
 
 schemes:
 
+  # Colors (Terminal.app)
+  terminal: &terminal
+
+    # Default colors
+    primary:
+      background: '0x000000'
+      foreground: '0xb6b6b6'
+
+    # Normal colors
+    normal:
+      black:   '0x000000'
+      red:     '0x990000'
+      green:   '0x00a600'
+      yellow:  '0x999900'
+      blue:    '0x0000b2'
+      magenta: '0xb200b2'
+      cyan:    '0x00a6b2'
+      white:   '0xbfbfbf'
+
+    # Bright colors
+    bright:
+      black:   '0x666666'
+      red:     '0xe50000'
+      green:   '0x00d900'
+      yellow:  '0xe5e500'
+      blue:    '0x0000ff'
+      magenta: '0xe500e5'
+      cyan:    '0x00e5e5'
+      white:   '0xe5e5e5'
+
   # XTerm's default colors
   xterm: &xterm
 
@@ -307,7 +337,7 @@ schemes:
       - { index: 20, color: '0x969896' }
       - { index: 21, color: '0x282a2e' }
   
-colors: *xterm
+colors: *terminal
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
