@@ -57,6 +57,9 @@ set mouse=a
 " Set encoding
 set encoding=utf-8
 
+" Set terminal colors
+set termguicolors
+
 " Disable modeline because security issues 
 set nomodeline
 
