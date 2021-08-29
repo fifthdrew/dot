@@ -1,6 +1,5 @@
 filetype plugin indent on
 syntax on
-colorscheme zenburn 
 
 "------------------------------------------
 "           - General settings -
@@ -93,6 +92,15 @@ let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+" Zenburn theme configuration
+let g:zenburn_alternate_Include = 1
+let g:zenburn_unified_CursorColumn = 1
+let g:zenburn_old_Visual = 1
+let g:zenburn_italic_Comment=1
+let g:zenburn_subdued_LineNr=1
+let g:zenburn_disable_Label_underline = 1
+let g:zenburn_force_dark_Background = 1
 
 " Define leader key               
 let mapleader="\<space>"
@@ -217,10 +225,10 @@ nnoremap <Left> <Nop>
 "---------------------------------------------
 
 " Kill bad habits
-noremap h <nop>
-noremap j <nop>
-noremap k <nop>
-noremap l <nop>
+"noremap h <nop>
+"noremap j <nop>
+"noremap k <nop>
+"noremap l <nop>
 
 
 "---------------------------------------------
@@ -233,3 +241,7 @@ iabbrev lenght length
 iabbrev lenghts lengths
 iabbrev widht width
 iabbrev widhts widths
+
+
+" Set theme
+colorscheme zenburn
