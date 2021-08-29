@@ -181,3 +181,6 @@ focus_follows_mouse no
 
 # Remove borders
 hide_edge_borders both
+
+# force floating for all new windows
+for_window [class="[.]*"] floating enable
