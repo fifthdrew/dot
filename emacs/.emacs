@@ -15,8 +15,8 @@
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
 ; Set theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;(load-theme 'zenburn t)
 
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
