@@ -19,5 +19,9 @@ export PATH=/opt/firefox/firefox:$PATH
 # fix terminal colors 
 export TERM="xterm-256color"
 
+# path to nvm
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 # alias for tmux (to force tmux use terminal colors)
 alias tmux="TERM=screen-256color-bce tmux"
