@@ -58,7 +58,7 @@ set mouse=a
 set encoding=utf-8
 
 " Set terminal colors
-set termguicolors
+"set termguicolors
 
 " Disable modeline because security issues 
 set nomodeline
@@ -247,4 +247,4 @@ iabbrev widhts widths
 
 
 " Set theme
-colorscheme zenburn
+colorscheme ron 
