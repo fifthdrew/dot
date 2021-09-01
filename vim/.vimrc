@@ -182,7 +182,7 @@ nnoremap <Leader>l <C-w>l
 nnoremap <Leader>p :tabp<CR>
 nnoremap <Leader>n :tabn<CR>
 nnoremap <Leader>sp :set spell!<CR>
-nnoremap <Leader>f :1z=<CR>
+nnoremap <Leader>f :!vim -o `fzf`<CR>
 nnoremap <Leader>e :e.<CR>
 nnoremap <Leader>as :SourcetrailRefresh<CR>
 nnoremap <Leader>aa :SourcetrailActivateToken<CR>
