@@ -248,3 +248,4 @@ iabbrev widhts widths
 
 " Set theme
 colorscheme ron 
+highlight MatchParen ctermfg=NONE ctermbg=000000 cterm=NONE
