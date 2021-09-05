@@ -186,6 +186,8 @@ nnoremap <Leader>f :!vim -o `fzf`<CR>
 nnoremap <Leader>e :e.<CR>
 nnoremap <Leader>as :SourcetrailRefresh<CR>
 nnoremap <Leader>aa :SourcetrailActivateToken<CR>
+nnoremap <Leader>ns :nohlsearch<CR>
+
 
 "---------------------------------------------
 "                 - Snippets -              
