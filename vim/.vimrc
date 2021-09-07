@@ -1,5 +1,6 @@
 filetype plugin indent on
 syntax on
+colorscheme ron
 
 "------------------------------------------
 "           - General settings -
@@ -89,7 +90,7 @@ set spelllang=en_us
 " Vim folder location
 let $VIMHOME = $HOME."/.vim"
 
-" Netrw configuration        
+" Netrw plugin configuration
 let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
@@ -193,9 +194,10 @@ nnoremap <Leader>n :tabn<CR>
 nnoremap <Leader>sp :set spell!<CR>
 nnoremap <Leader>f :!vim -o `fzf`<CR>
 nnoremap <Leader>e :e.<CR>
+nnoremap <Leader>ns :nohlsearch<CR>
 nnoremap <Leader>as :SourcetrailRefresh<CR>
 nnoremap <Leader>aa :SourcetrailActivateToken<CR>
-nnoremap <Leader>ns :nohlsearch<CR>
+nnoremap <Leader>H :HardTimeToggle<CR>
 
 
 "---------------------------------------------
@@ -221,31 +223,6 @@ noremap <C-Left> :vertical resize -2<CR>
 
 
 "---------------------------------------------
-"           - Disable arrow keys -              
-"---------------------------------------------
-
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Right> <Nop>
-inoremap <Left> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Up> <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Left> <Nop>
-
-
-"---------------------------------------------
-"             - Temporary Options -
-"---------------------------------------------
-
-" Kill bad habits
-"noremap h <nop>
-"noremap j <nop>
-"noremap k <nop>
-"noremap l <nop>
-
-
-"---------------------------------------------
 "       - Abbreviations an Corrections -
 "---------------------------------------------
 
@@ -255,8 +232,3 @@ iabbrev lenght length
 iabbrev lenghts lengths
 iabbrev widht width
 iabbrev widhts widths
-
-
-" Set theme
-colorscheme ron 
-highlight MatchParen ctermfg=NONE ctermbg=000000 cterm=NONE
