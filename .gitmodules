@@ -21,3 +21,7 @@
 [submodule "submodules/vader.vim"]
     path = submodules/vader.vim
     url = https://github.com/junegunn/vader.vim 
+
+[submodule "submodules/vim-hardtime"]
+    path = submodules/vim-hardtime
+    url = https://github.com/takac/vim-hardtime

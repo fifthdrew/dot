@@ -105,6 +105,15 @@ let g:zenburn_subdued_LineNr=1
 let g:zenburn_disable_Label_underline = 1
 let g:zenburn_force_dark_Background = 1
 
+" Hardtime plugin configuration
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_disabled_keys = []
+let g:hardtime_timeout = 2000
+let g:hardtime_showmsg = 1
+let g:hardtime_maxcount = 2
+
 " Define leader key               
 let mapleader="\<space>"
 
