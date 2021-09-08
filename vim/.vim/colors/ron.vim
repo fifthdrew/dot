@@ -12,7 +12,7 @@ endif
 let g:colors_name = "ron"
 hi Normal		guifg=cyan	guibg=black
 hi NonText		guifg=brown
-hi comment		guifg=green
+hi comment		guifg=green gui=italic cterm=italic
 hi constant		guifg=cyan	gui=bold
 hi identifier	guifg=cyan	gui=NONE
 hi statement	guifg=lightblue	gui=NONE
