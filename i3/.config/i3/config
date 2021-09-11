@@ -175,13 +175,13 @@ bindsym XF86MonBrightnessUp exec sh ~/.config/i3/backlight.sh -inc 20
 bindsym XF86MonBrightnessDown exec sh ~/.config/i3/backlight.sh -dec 20
 
 # print all window titles bold
-for_window [class=".*"] title_format "<b>%class</b>"
+for_window [class=".*"] title_format "%class"
 
 # Remove focus on mouse move
 focus_follows_mouse no
 
 # Remove borders
-hide_edge_borders both
+#hide_edge_borders both
 
 # force floating for all new windows
 for_window [class="[.]*"] floating enable
