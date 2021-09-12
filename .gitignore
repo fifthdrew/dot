@@ -1,7 +1,8 @@
 /vim/.vim/plugged/*
 /vim/.vim/*swp
 README.md
-.netrwhist
+/vim/.vim/.netrwbook
+/vim/.vim/.netrwhist
 /emacs/.emacs~
 /emacs/.emacs.d/auto-save-list
 /emacs/.emacs.d/elpa
