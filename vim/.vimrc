@@ -88,7 +88,7 @@ set spelllang=en_us
 "---------------------------------------------
 
 " Vim folder location
-let $VIMHOME = $HOME."/.vim"
+let $VIMHOME = $HOME."/.vim/"
 
 " Netrw plugin configuration
 let g:netrw_banner=0
@@ -101,14 +101,16 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 let g:zenburn_alternate_Include = 1
 let g:zenburn_unified_CursorColumn = 1
 let g:zenburn_old_Visual = 1
-let g:zenburn_italic_Comment=1
-let g:zenburn_subdued_LineNr=1
+let g:zenburn_italic_Comment = 1
+let g:zenburn_subdued_LineNr = 1
 let g:zenburn_disable_Label_underline = 1
 let g:zenburn_force_dark_Background = 1
 
 " Hardtime plugin configuration
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+",
+                           \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+",
+                           \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_disabled_keys = []
 let g:hardtime_timeout = 2000
@@ -145,7 +147,8 @@ function! ToggleAllVisual()
     :set number! relativenumber!
 endfunction
 
-" This allows run :Test command
+" This allows run :Test command from Vader plugin
+" https://github.com/junegunn/vader.vim
 function! s:tests()
   if expand('%:e') == 'vim'
     let testfile = printf('%s/%s.vader', expand('%:p:h'),
@@ -176,12 +179,12 @@ autocmd BufRead *.{vader,vim}
 "           - Keyboard shortcuts -              
 "---------------------------------------------
 
+" General stuff
 nnoremap <Leader>v :edit $MYVIMRC<CR>
 nnoremap <Leader>s :source $MYVIMRC<CR> 
 nnoremap <Leader>; A;<Esc>
 nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>t :term<CR>
-nnoremap <Leader>gt :!ctags -R .<CR>
 nnoremap <Leader>8 :copen<CR>
 nnoremap <Leader>7 :cnext<CR>
 nnoremap <Leader>6 :cprevious<CR>
@@ -192,10 +195,19 @@ nnoremap <Leader>l <C-w>l
 nnoremap <Leader>p :tabp<CR>
 nnoremap <Leader>n :tabn<CR>
 nnoremap <Leader>sp :set spell!<CR>
-nnoremap <Leader>f :!vim -o `fzf`<CR>
 nnoremap <Leader>e :e.<CR>
 nnoremap <Leader>sy :syntax sync fromstart<CR> 
 nnoremap <Leader>ns :nohlsearch<CR>
+nnoremap <C-Down> :resize +2<Cr>
+nnoremap <C-Up> :resize -2<cr>
+nnoremap <C-Right> :vertical resize +2<CR>
+nnoremap <C-Left> :vertical resize -2<CR>
+
+" Related to shell
+nnoremap <Leader>f :!vim -o `fzf`<CR>
+nnoremap <Leader>gt :!ctags -R .<CR>
+
+" Related to plugins
 nnoremap <Leader>as :SourcetrailRefresh<CR>
 nnoremap <Leader>aa :SourcetrailActivateToken<CR>
 nnoremap <Leader>H :HardTimeToggle<CR>
@@ -205,11 +217,12 @@ nnoremap <Leader>H :HardTimeToggle<CR>
 "                 - Snippets -              
 "---------------------------------------------
 
-nnoremap <Leader>html :-1read $VIMHOME/.skeleton.html<CR>3jwf>a
-nnoremap <Leader>cpp :-1read $VIMHOME/.competitive_programming.cpp<CR>11j
+nnoremap <Leader>html :-1read $VIMHOME.skeleton.html<CR>3jwf>a
+nnoremap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
+
 
 "---------------------------------------------
-"           - Optional settings -              
+"             - Look settings -
 "---------------------------------------------
 
 nnoremap <C-F12> :set  nu! rnu!<CR>
@@ -217,14 +230,10 @@ nnoremap <C-F11> :set  nu!<CR>
 nnoremap <C-F10> :call ToggleColorColumn()<CR>
 nnoremap <C-F9> :call ToggleStatusBar()<CR>
 nnoremap <C-F8> :call ToggleAllVisual()<CR>
-noremap <C-Down> :resize +2<Cr>
-noremap <C-Up> :resize -2<cr>
-noremap <C-Right> :vertical resize +2<CR>
-noremap <C-Left> :vertical resize -2<CR>
 
 
 "---------------------------------------------
-"       - Abbreviations an Corrections -
+"      - Abbreviations and Corrections -
 "---------------------------------------------
 
 iabbrev heigth height
