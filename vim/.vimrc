@@ -117,6 +117,10 @@ let g:hardtime_timeout = 2000
 let g:hardtime_showmsg = 1
 let g:hardtime_maxcount = 2
 
+" Termdebug plugin configuration
+let g:termdebug_popup = 0
+let g:termdebug_wide = 163
+
 " Define leader key               
 let mapleader="\<space>"
 
