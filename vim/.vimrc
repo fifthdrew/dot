@@ -202,8 +202,8 @@ nnoremap <Leader>sp :set spell!<CR>
 nnoremap <Leader>e :e.<CR>
 nnoremap <Leader>sy :syntax sync fromstart<CR> 
 nnoremap <Leader>ns :nohlsearch<CR>
-nnoremap <C-Down> :resize +2<Cr>
-nnoremap <C-Up> :resize -2<cr>
+nnoremap <C-Down> :resize -2<Cr>
+nnoremap <C-Up> :resize +2<cr>
 nnoremap <C-Right> :vertical resize +2<CR>
 nnoremap <C-Left> :vertical resize -2<CR>
 
