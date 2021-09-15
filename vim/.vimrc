@@ -180,7 +180,7 @@ function! ToggleAllVisual()
 endfunction
 
 " This allows run :Test command from Vader plugin
-" https://github.com/junegunn/vader.vim
+" SOURCE: https://github.com/junegunn/vader.vim
 function! s:tests()
   if expand('%:e') == 'vim'
     let testfile = printf('%s/%s.vader', expand('%:p:h'),
