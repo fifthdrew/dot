@@ -252,10 +252,17 @@ nnoremap <Leader>sp :set spell!<CR>
 nnoremap <Leader>e :e.<CR>
 nnoremap <Leader>sy :syntax sync fromstart<CR> 
 nnoremap <Leader>ns :nohlsearch<CR>
-nnoremap <C-Down> :resize -2<Cr>
-nnoremap <C-Up> :resize +2<cr>
-nnoremap <C-Right> :vertical resize +2<CR>
-nnoremap <C-Left> :vertical resize -2<CR>
+nnoremap <C-j> :resize +2<Cr>
+nnoremap <C-k> :resize -2<cr>
+nnoremap <C-l> :vertical resize +2<CR>
+nnoremap <C-h> :vertical resize -2<CR>
+nnoremap <C-S-j> :resize +10<Cr>
+nnoremap <C-S-k> :resize -10<cr>
+nnoremap <C-S-l> :vertical resize +10<CR>
+nnoremap <C-S-h> :vertical resize -10<CR>
+nnoremap <Leader>c :call ToggleComment()<CR>
+vnoremap <Leader>c :call ToggleComment()<CR>
+" TODO: Add ctrl+c and ctrl+v mappings
 
 " Related to shell
 nnoremap <Leader>f :!vim -o `fzf`<CR>
