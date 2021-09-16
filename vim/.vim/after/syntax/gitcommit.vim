@@ -1,2 +1,2 @@
-hi diffAdded   ctermfg=green
-hi diffRemoved ctermfg=red
+hi diffAdded   ctermfg=DarkGreen
+hi diffRemoved ctermfg=DarkRed
