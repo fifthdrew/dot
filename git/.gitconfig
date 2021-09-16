@@ -1,0 +1,13 @@
+[user]
+	email = vanderson@tutamail.com
+	name = Vanderson Rodrigues 
+[merge]
+	conflictStyle = diff3
+[magit]
+	hideCampaign = true
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
