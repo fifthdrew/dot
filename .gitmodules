@@ -25,3 +25,7 @@
 [submodule "submodules/vim-hardtime"]
     path = submodules/vim-hardtime
     url = https://github.com/takac/vim-hardtime
+
+[submodule "submodules/tmux-resurrect"]
+    path = submodules/tmux-resurrect
+    url = https://github.com/tmux-plugins/tmux-resurrect
