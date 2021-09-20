@@ -82,6 +82,10 @@ set omnifunc=syntaxcomplete#Complete
 set nospell 
 set spelllang=en_us
 
+" Minimize the delay when hitting esc in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
 
 "---------------------------------------------
 "            - Define variables -              
