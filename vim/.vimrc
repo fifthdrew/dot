@@ -238,63 +238,57 @@ endfunction
 "---------------------------------------------
 
 " General stuff
-nnoremap <Leader>v :edit $MYVIMRC<CR>
-nnoremap <Leader>s :source $MYVIMRC<CR> 
+nmap <Leader>v :edit $MYVIMRC<CR>
+nmap <Leader>s :source $MYVIMRC<CR>
 nnoremap <Leader>; A;<Esc>
-nnoremap <Leader>b :ls<CR>:b<Space>
-nnoremap <Leader>t :term<CR>
-nnoremap <Leader>8 :copen<CR>
-nnoremap <Leader>7 :cnext<CR>
-nnoremap <Leader>6 :cprevious<CR>
+nmap <Leader>b :ls<CR>:b<Space>
+nmap <Leader>t :term<CR>
+nmap <Leader>8 :copen<CR>
+nmap <Leader>7 :cnext<CR>
+nmap <Leader>6 :cprevious<CR>
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
-nnoremap <Leader>p :tabp<CR>
-nnoremap <Leader>n :tabn<CR>
-nnoremap <Leader>sp :set spell!<CR>
-nnoremap <Leader>e :e.<CR>
-nnoremap <Leader>sy :syntax sync fromstart<CR> 
-nnoremap <Leader>ns :nohlsearch<CR>
-nnoremap <C-j> :resize +2<Cr>
-nnoremap <C-k> :resize -2<cr>
-nnoremap <C-l> :vertical resize +2<CR>
-nnoremap <C-h> :vertical resize -2<CR>
-nnoremap <C-S-j> :resize +10<Cr>
-nnoremap <C-S-k> :resize -10<cr>
-nnoremap <C-S-l> :vertical resize +10<CR>
-nnoremap <C-S-h> :vertical resize -10<CR>
-nnoremap <Leader>c :call ToggleComment()<CR>
-vnoremap <Leader>c :call ToggleComment()<CR>
-" TODO: Add ctrl+c and ctrl+v mappings
+nmap <Leader>p :tabp<CR>
+nmap <Leader>n :tabn<CR>
+nmap <Leader>sp :set spell!<CR>
+nmap <Leader>e :e.<CR>
+nmap <Leader>sy :syntax sync fromstart<CR>
+nmap <Leader>ns :nohlsearch<CR>
+nmap <C-j> :resize +2<Cr>
+nmap <C-k> :resize -2<cr>
+nmap <C-l> :vertical resize +2<CR>
+nmap <C-h> :vertical resize -2<CR>
+map <Leader>c :call ToggleComment()<CR>
 
 " Related to shell
-nnoremap <Leader>f :!vim -o `fzf`<CR>
-nnoremap <Leader>gt :!ctags -R .<CR>
+nmap <Leader>f :!vim -o `fzf`<CR>
+nmap <Leader>gt :!ctags -R .<CR>
 
 " Related to plugins
-nnoremap <Leader>as :SourcetrailRefresh<CR>
-nnoremap <Leader>aa :SourcetrailActivateToken<CR>
-nnoremap <Leader>H :HardTimeToggle<CR>
+nmap <Leader>as :SourcetrailRefresh<CR>
+nmap <Leader>aa :SourcetrailActivateToken<CR>
+nmap <Leader>H :HardTimeToggle<CR>
 
 
 "---------------------------------------------
 "                 - Snippets -              
 "---------------------------------------------
 
-nnoremap <Leader>html :-1read $VIMHOME.skeleton.html<CR>3jwf>a
-nnoremap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
+nmap <Leader>html :-1read $VIMHOME.skeleton.html<CR>3jwf>a
+nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 
 
 "---------------------------------------------
 "             - Look settings -
 "---------------------------------------------
 
-nnoremap <C-F12> :set  nu! rnu!<CR>
-nnoremap <C-F11> :set  nu!<CR>
-nnoremap <C-F10> :call ToggleColorColumn()<CR>
-nnoremap <C-F9> :call ToggleStatusBar()<CR>
-nnoremap <C-F8> :call ToggleAllVisual()<CR>
+nmap <C-F12> :set  nu! rnu!<CR>
+nmap <C-F11> :set  nu!<CR>
+nmap <C-F10> :call ToggleColorColumn()<CR>
+nmap <C-F9> :call ToggleStatusBar()<CR>
+nmap <C-F8> :call ToggleAllVisual()<CR>
 
 
 "---------------------------------------------
