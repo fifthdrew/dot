@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax on
-colorscheme ron
+colorscheme plan9
 
 "------------------------------------------
 "           - General settings -

@@ -29,3 +29,7 @@
 [submodule "submodules/tmux-resurrect"]
     path = submodules/tmux-resurrect
     url = https://github.com/tmux-plugins/tmux-resurrect
+
+[submodule "submodules/vim-plan9"]
+    path = submodules/vim-plan9
+    url = https://github.com/subsetpark/vim-plan9
