@@ -77,11 +77,6 @@
   :config
   (which-key-mode))
 
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-
 (use-package rust-mode
   :ensure t) 
 
@@ -91,8 +86,59 @@
 (use-package clojure-mode-extra-font-locking
   :ensure t)
 
+(use-package cider
+  :ensure t)
+
 (use-package typescript-mode
   :ensure t)
 
 (use-package vimrc-mode
   :ensure t)
+
+(use-package magit
+  :bind (("C-x g" . magit-status)
+         ("C-x C-g" . magit-status)))
+
+;; Toggle visuals
+(defun toggle-top-menu ()
+  "Run toggle-menu-bar-mode-from-frame and toggle-tool-bar-mode-from-frame"
+  (interactive)
+  (menu-bar-mode (if tool-bar-mode -1 1))
+  (tool-bar-mode (if tool-bar-mode -1 1)))
+
+(defun toggle-mode-line ()
+  (interactive)
+  (mode-line-format (if mode-line-format -1 1)))
+
+;; SOURCE: https://bzg.fr/en/emacs-hide-mode-line/
+(defvar-local hidden-mode-line-mode nil)
+(define-minor-mode hidden-mode-line-mode
+  "Minor mode to hide the mode-line in the current buffer."
+  :init-value nil
+  :global t
+  :variable hidden-mode-line-mode
+  :group 'editing-basics
+  (if hidden-mode-line-mode
+      (setq hide-mode-line mode-line-format
+            mode-line-format nil)
+    (setq mode-line-format hide-mode-line
+          hide-mode-line nil))
+  (force-mode-line-update)
+  ;; Apparently force-mode-line-update is not always enough to
+  ;; redisplay the mode-line
+  (redraw-display)
+  (when (and (called-interactively-p 'interactive)
+             hidden-mode-line-mode)
+    (run-with-idle-timer
+     0 nil 'message
+     (concat "Hidden Mode Line Mode enabled.  "
+             "Use M-x hidden-mode-line-mode to make the mode-line appear."))))
+
+;; If you want to hide the mode-line in every buffer by default
+;; (add-hook 'after-change-major-mode-hook 'hidden-mode-line-mode)
+
+(global-set-key (kbd "<f5>") 'menu-bar-mode)
+(global-set-key (kbd "<f6>") 'tool-bar-mode)
+(global-set-key (kbd "<f7>") 'toggle-top-menu)
+(global-set-key (kbd "<f8>") 'hidden-mode-line-mode)
+(global-set-key (kbd "<f9>") 'display-line-numbers)
