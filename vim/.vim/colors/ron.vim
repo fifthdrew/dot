@@ -43,5 +43,5 @@ hi Folded		guibg=gray30
 hi FoldColumn	guibg=gray30 guifg=white
 hi cIf0			guifg=gray
 hi diffOnly	    guifg=red gui=bold
-hi MatchParen   ctermfg=NONE ctermbg=000000 cterm=NONE
+hi MatchParen   ctermfg=NONE ctermbg=8 cterm=NONE
 hi String       ctermfg=13 cterm=italic
