@@ -1,7 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/vanderson/.oh-my-zsh"
 
-ZSH_THEME="minimal"
+# ZSH_THEME="minimal"
+ZSH_THEME="risto"
 
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
