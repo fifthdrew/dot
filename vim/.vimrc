@@ -85,7 +85,7 @@ set spelllang=en_us
 " Minimize the delay when hitting esc in insert mode
 set noesckeys
 set ttimeout
-set ttimeoutlen=1
+set ttimeoutlen=0
 
 "---------------------------------------------
 "            - Define variables -              
