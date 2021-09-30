@@ -284,11 +284,11 @@ nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 "             - Look settings -
 "---------------------------------------------
 
-nmap <C-F12> :set  nu! rnu!<CR>
-nmap <C-F11> :set  nu!<CR>
-nmap <C-F10> :call ToggleColorColumn()<CR>
-nmap <C-F9> :call ToggleStatusBar()<CR>
-nmap <C-F8> :call ToggleAllVisual()<CR>
+nmap <F12> :set  nu! rnu!<CR>
+nmap <F11> :set  nu!<CR>
+nmap <F10> :call ToggleColorColumn()<CR>
+nmap <F9> :call ToggleStatusBar()<CR>
+nmap <F8> :call ToggleAllVisual()<CR>
 
 
 "---------------------------------------------
