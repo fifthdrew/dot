@@ -1,41 +1,41 @@
 [user]
-	email = vanderson@tutamail.com
-	name = Vanderson Rodrigues 
+email = vanderson@tutamail.com
+name = Vanderson Rodrigues
 
 [merge]
-	conflictStyle = diff3
+conflictStyle = diff3
 
 [magit]
-	hideCampaign = true
+hideCampaign = true
 
 [alias]
-    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [core]
-	editor = vim
+editor = vim
 
 [init]
-	defaultBranch = main
+defaultBranch = main
 
 [color]
-	branch = auto
-	diff = auto
-	status = auto
-	showbranch = auto
-	ui = true
+branch = auto
+diff = auto
+status = auto
+showbranch = auto
+ui = true
 
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+current = yellow reverse
+local = yellow
+remote = green
 
 [color "diff"]
-	meta = cyan
-	frag = yellow
-	old = red
-	new = green
+meta = cyan
+frag = yellow
+old = red
+new = green
 
 [color "status"]
-	added = green
-	changed = yellow
-	untracked = red
+added = green
+changed = red
+untracked = yellow
