@@ -10,43 +10,43 @@ colorscheme ron
 set nocompatible
 
 " Set tabs
-set tabstop=4 
+set tabstop=4
 set softtabstop=4
 set expandtab
-set smarttab 
-set shiftwidth=4 
+set smarttab
+set shiftwidth=4
 
-" Allow backspacing over everything 
+" Allow backspacing over everything
 " in INSERT mode
 set backspace=indent,eol,start
 
 " Set indentation
-set smartindent 
+set smartindent
 set autoindent
 
 " Ignore case when searching
-set ignorecase 
+set ignorecase
 set smartcase
 
-" Set partial search and result 
+" Set partial search and result
 " highlighting
-set hlsearch 
+set hlsearch
 set incsearch
 
-" Ensure that Vim will search all 
+" Ensure that Vim will search all
 " project files
 set path+=.,,,**
 
 " Set command line completion
-set wildmenu 
+set wildmenu
 
-" Allow load a buffer in a window that 
+" Allow load a buffer in a window that
 " currently has a modified buffer
 set hidden
 
 " Make vim wrap long lines
-set wrap 
-set linebreak 
+set wrap
+set linebreak
 set nolist
 
 " Read file when modified outside vim
@@ -61,25 +61,25 @@ set encoding=utf-8
 " Set terminal colors
 "set termguicolors
 
-" Disable modeline because security issues 
+" Disable modeline because security issues
 set nomodeline
 
 " Do not keep any history
-set noswapfile 
-set nowb 
-set nobackup 
+set noswapfile
+set nowb
+set nobackup
 set viminfo='0,:0,<0,@0,f0 
 
 " Show ruler and command visual aid
-set showcmd 
+set showcmd
 set ruler
 
-" Improve Control-x + Control-o 
-" auto complete function 
+" Improve Control-x + Control-o
+" auto complete function
 set omnifunc=syntaxcomplete#Complete
 
 " Set spelling check
-set nospell 
+set nospell
 set spelllang=en_us
 
 " Minimize the delay when hitting esc in insert mode
@@ -87,8 +87,13 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=0
 
+" Set invisible characters
+set list
+set list listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣
+
+
 "---------------------------------------------
-"            - Define variables -              
+"            - Define variables -
 "---------------------------------------------
 
 " Vim folder location
@@ -125,7 +130,7 @@ let g:hardtime_maxcount = 2
 let g:termdebug_popup = 0
 let g:termdebug_wide = 163
 
-" Define leader key               
+" Define leader key
 let mapleader="\<space>"
 
 " Comment characters for each language
@@ -158,7 +163,7 @@ let s:comment_map = {
 
 
 "---------------------------------------------
-"            - Utility functions -              
+"            - Utility functions -
 "---------------------------------------------
 
 function! ToggleColorColumn()
@@ -234,7 +239,7 @@ endfunction
 
 
 "---------------------------------------------
-"           - Keyboard shortcuts -              
+"           - Keyboard shortcuts -
 "---------------------------------------------
 
 " General stuff
@@ -273,7 +278,7 @@ nmap <Leader>H :HardTimeToggle<CR>
 
 
 "---------------------------------------------
-"                 - Snippets -              
+"                 - Snippets -
 "---------------------------------------------
 
 nmap <Leader>html :-1read $VIMHOME.skeleton.html<CR>3jwf>a
