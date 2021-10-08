@@ -185,3 +185,6 @@ focus_follows_mouse no
 
 # force floating for all new windows
 for_window [class="[.]*"] floating enable
+
+# Add shadows
+exec --no-startup-id compton &
