@@ -87,11 +87,6 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=0
 
-" Set invisible characters
-set list
-set list listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣
-
-
 "---------------------------------------------
 "            - Define variables -
 "---------------------------------------------
@@ -188,6 +183,15 @@ function! ToggleAllVisual()
     :set number! relativenumber!
 endfunction
 
+function! ToggleInvisibleChars()
+  if &list
+    set nolist
+  else
+    set list
+    set list listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣
+  endif
+endfunction
+
 " This allows run :Test command from Vader plugin
 " SOURCE: https://github.com/junegunn/vader.vim
 function! s:tests()
@@ -266,6 +270,7 @@ nmap <C-k> :resize -2<cr>
 nmap <C-l> :vertical resize +2<CR>
 nmap <C-h> :vertical resize -2<CR>
 map <Leader>c :call ToggleComment()<CR>
+nmap <Leader>i :call ToggleInvisibleChars()<CR>
 
 " Related to shell
 nmap <Leader>f :!vim -o `fzf`<CR>

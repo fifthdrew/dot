@@ -11,7 +11,7 @@ if exists("syntax_on")
 endif
 let g:colors_name = "ron"
 hi Normal		guifg=cyan	guibg=black
-hi NonText      ctermfg=233 guifg=#121212
+hi NonText		guifg=yellow guibg=#303030
 hi comment		guifg=green gui=italic cterm=italic
 hi constant		guifg=cyan	gui=bold
 hi identifier	guifg=cyan	gui=NONE
@@ -45,4 +45,3 @@ hi cIf0			guifg=gray
 hi diffOnly	    guifg=red gui=bold
 hi MatchParen   ctermfg=NONE ctermbg=8 cterm=NONE
 hi String       ctermfg=13 cterm=italic
-hi SpecialKey   ctermfg=233 guifg=#121212
