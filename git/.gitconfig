@@ -30,11 +30,11 @@ local = yellow
 remote = green
 
 [color "diff"]
-meta = cyan
+meta = magenta
 frag = yellow
 old = red
 new = green
-func = 45
+func = 44
 
 [color "status"]
 added = green
