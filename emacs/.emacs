@@ -1,27 +1,26 @@
-; Remove unnecessary things
+;;--------------------------------------------------------------------
+;;                         General Stuff
+;;--------------------------------------------------------------------
+
+;; Remove unnecessary things
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (tooltip-mode -1)
 (toggle-scroll-bar -1)
 (setq inhibit-startup-message t)
 
-; Set numbers
-(setq-default display-line-numbers 'relative)
-
-; Set font family and size
+;; Set font family and size
 (set-face-attribute 'default nil :font "Iosevka" :height 150)
 
-; Show bounding line 
-(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
-
-; Set theme
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;(load-theme 'zenburn t)
-
-; Make ESC quit prompts
+;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-; Initialize package sources
+
+;;--------------------------------------------------------------------
+;;                            Packages
+;;--------------------------------------------------------------------
+
+;; Initialize package sources
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
@@ -30,17 +29,17 @@
 (unless package-archive-contents
  (package-refresh-contents))
 
-; Initialize evil-mode
+;; Initialize evil-mode
 (require 'evil)
 (evil-mode t)
 
-; Initialize use-package
+;; Initialize use-package
 (unless (package-installed-p 'use-package)
    (package-install 'use-package))
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-; Packages
+;; Packages
 (use-package command-log-mode)
 
 (use-package ligature
@@ -52,21 +51,21 @@
   ;; `variable-pitch' face supports it
   (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
   ;; Enable all Cascadia Code ligatures in programming modes
-  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
-                                       ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
-                                       "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
-                                       "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
-                                       "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
-                                       "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
-                                       "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
-                                       "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
-                                       ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
-                                       "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
-                                       "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
-                                       "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
-                                       ))
+  (ligature-set-ligatures 'prog-mode
+    '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+    ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+    "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+    "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+    "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+    "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+    "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+    "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+    ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+    "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+    "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+    "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"))
   ;; Enables ligature checks globally in all buffers. You can also do it
-  ;; per mode with `ligature-mode'.
+  ;; per mode with `ligature-mode'
   (global-ligature-mode t))
 
 (use-package try
@@ -78,7 +77,7 @@
   (which-key-mode))
 
 (use-package rust-mode
-  :ensure t) 
+  :ensure t)
 
 (use-package clojure-mode
   :ensure t)
@@ -99,7 +98,11 @@
   :bind (("C-x g" . magit-status)
          ("C-x C-g" . magit-status)))
 
-;; Toggle visuals
+
+;;--------------------------------------------------------------------
+;;                          Utility Functions
+;;--------------------------------------------------------------------
+
 (defun toggle-top-menu ()
   "Run toggle-menu-bar-mode-from-frame and toggle-tool-bar-mode-from-frame"
   (interactive)
@@ -109,6 +112,13 @@
 (defun toggle-mode-line ()
   (interactive)
   (mode-line-format (if mode-line-format -1 1)))
+
+(defun toggle-line-numbering ()
+  "Toggle line numbering."
+  (interactive)
+  (if (eq display-line-numbers 'relative)
+      (setq display-line-numbers nil)
+    (setq display-line-numbers 'relative)))
 
 ;; SOURCE: https://bzg.fr/en/emacs-hide-mode-line/
 (defvar-local hidden-mode-line-mode nil)
@@ -134,11 +144,13 @@
      (concat "Hidden Mode Line Mode enabled.  "
              "Use M-x hidden-mode-line-mode to make the mode-line appear."))))
 
-;; If you want to hide the mode-line in every buffer by default
-;; (add-hook 'after-change-major-mode-hook 'hidden-mode-line-mode)
+
+;;--------------------------------------------------------------------
+;;                           Toggle visuals
+;;--------------------------------------------------------------------
 
 (global-set-key (kbd "<f5>") 'menu-bar-mode)
 (global-set-key (kbd "<f6>") 'tool-bar-mode)
 (global-set-key (kbd "<f7>") 'toggle-top-menu)
 (global-set-key (kbd "<f8>") 'hidden-mode-line-mode)
-(global-set-key (kbd "<f9>") 'display-line-numbers)
+(global-set-key (kbd "<f9>") 'toggle-line-numbering)
