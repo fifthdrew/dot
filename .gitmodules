@@ -33,3 +33,7 @@
 [submodule "submodules/vim-plan9"]
     path = submodules/vim-plan9
     url = https://github.com/subsetpark/vim-plan9
+
+[submodule "submodules/bass"]
+    path = submodules/bass
+    url = https://github.com/edc/bass 
