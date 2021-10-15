@@ -259,8 +259,6 @@ nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
-nmap <Leader>p :tabp<CR>
-nmap <Leader>n :tabn<CR>
 nmap <Leader>sp :set spell!<CR>
 nmap <Leader>e :e.<CR>
 nmap <Leader>sy :syntax sync fromstart<CR>
