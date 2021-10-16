@@ -139,6 +139,8 @@ let g:termdebug_wide = 163
 let mapleader="\<space>"
 
 " Comment characters for each language
+" SOURCE: https://stackoverflow.com/questions/1676632
+" {
 let s:comment_map = {
     \   "c": '\/\/',
     \   "cpp": '\/\/',
@@ -165,6 +167,7 @@ let s:comment_map = {
     \   "vim": '"',
     \   "tex": '%',
     \ }
+" }
 
 
 "---------------------------------------------
@@ -204,6 +207,7 @@ endfunction
 
 " This allows run :Test command from Vader plugin
 " SOURCE: https://github.com/junegunn/vader.vim
+" {
 function! s:tests()
   if expand('%:e') == 'vim'
     let testfile = printf('%s/%s.vader', expand('%:p:h'),
@@ -228,9 +232,11 @@ endfunction
 
 autocmd BufRead *.{vader,vim}
       \ command! -buffer Test call s:tests()
+" }
 
 " To comment lines with a command
 " SOURCE: https://stackoverflow.com/questions/1676632
+" {
 function! ToggleComment()
   if has_key(s:comment_map, &filetype)
     let comment_leader = s:comment_map[&filetype]
@@ -250,6 +256,7 @@ function! ToggleComment()
       echo "No comment leader found for filetype"
   end
 endfunction
+" }
 
 
 "---------------------------------------------
