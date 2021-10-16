@@ -96,6 +96,16 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=0
 
+" Start of default statusline
+set statusline=
+
+" NOTE: The line below has a trailing space character
+set statusline=%<%{pathshorten(expand('%'))}\ %h%w%m%r\ 
+
+" End of default statusline (with ruler)
+set statusline+=%=%(%l,%c%V\ %=\ %P%)
+
+
 "---------------------------------------------
 "            - Define variables -
 "---------------------------------------------
