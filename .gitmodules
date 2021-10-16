@@ -6,18 +6,6 @@
     path = submodules/ligature.el
     url = https://github.com/mickeynp/ligature.el
 
-[submodule "submodules/zenburn-emacs"]
-    path = submodules/zenburn-emacs
-    url = https://github.com/bbatsov/zenburn-emacs
-
-[submodule "submodules/Zenburn"]
-    path = submodules/Zenburn
-    url = https://github.com/jnurmine/Zenburn
-
-[submodule "submodules/vim-sourcetrail"]
-    path = submodules/vim-sourcetrail
-    url = https://github.com/CoatiSoftware/vim-sourcetrail
-
 [submodule "submodules/vader.vim"]
     path = submodules/vader.vim
     url = https://github.com/junegunn/vader.vim 
@@ -29,10 +17,6 @@
 [submodule "submodules/tmux-resurrect"]
     path = submodules/tmux-resurrect
     url = https://github.com/tmux-plugins/tmux-resurrect
-
-[submodule "submodules/vim-plan9"]
-    path = submodules/vim-plan9
-    url = https://github.com/subsetpark/vim-plan9
 
 [submodule "submodules/bass"]
     path = submodules/bass
