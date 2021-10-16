@@ -133,23 +133,23 @@ schemes:
     # Normal colors
     normal:
       black:   '0x000000'
-      red:     '0xff5555'
-      green:   '0x55ff55'
-      yellow:  '0xffff55'
-      blue:    '0x5555ff'
-      magenta: '0xff55ff'
-      cyan:    '0x55ffff'
+      red:     '0xff7777'
+      green:   '0x77ff77'
+      yellow:  '0xffff77'
+      blue:    '0x7777ff'
+      magenta: '0xff77ff'
+      cyan:    '0x77ffff'
       white:   '0xbbbbbb'
 
     # Bright colors
     bright:
       black:   '0x545454'
-      red:     '0xff5555'
-      green:   '0x55ff55'
-      yellow:  '0xffff55'
-      blue:    '0x5555ff'
-      magenta: '0xff55ff'
-      cyan:    '0x55ffff'
+      red:     '0xff7777'
+      green:   '0x77ff77'
+      yellow:  '0xffff77'
+      blue:    '0x7777ff'
+      magenta: '0xff77ff'
+      cyan:    '0x77ffff'
       white:   '0xffffff'
 
 

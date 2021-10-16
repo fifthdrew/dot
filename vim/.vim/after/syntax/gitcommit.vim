@@ -1,5 +1,5 @@
-hi diffAdded   ctermfg=Green
-hi diffRemoved ctermfg=Red
-hi diffFile cterm=NONE ctermfg=Magenta
-hi diffIndexLine cterm=NONE ctermfg=Magenta
-hi diffLine cterm=NONE ctermfg=Yellow
+hi diffAdded   ctermfg=DarkGreen
+hi diffRemoved ctermfg=DarkRed
+hi diffFile cterm=NONE ctermfg=DarkMagenta
+hi diffIndexLine cterm=NONE ctermfg=DarkMagenta
+hi diffLine cterm=NONE ctermfg=DarkYellow
