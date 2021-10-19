@@ -105,6 +105,8 @@ set statusline=%<%{pathshorten(expand('%'))}\ %h%w%m%r\
 " End of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
+" Set fuzzy finder
+set rtp+=~/.fzf
 
 "---------------------------------------------
 "            - Define variables -
@@ -288,7 +290,7 @@ map <Leader>c :call ToggleComment()<CR>
 nmap <Leader>i :call ToggleInvisibleChars()<CR>
 
 " Related to shell
-nmap <Leader>f :!vim -o `fzf`<CR>
+nmap <Leader>f :FZF<CR>
 nmap <Leader>gt :!ctags -R .<CR>
 
 " Related to plugins
