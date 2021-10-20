@@ -188,3 +188,7 @@ for_window [class="[.]*"] floating enable
 
 # Add shadows
 exec --no-startup-id compton &
+
+# Add icons to the windows
+for_window [all] title_window_icon on
+for_window [all] title_window_icon padding 3px 
