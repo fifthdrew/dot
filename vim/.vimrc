@@ -294,7 +294,7 @@ nmap <Leader>i :call ToggleInvisibleChars()<CR>
 nmap <Leader>f :find<Space>
 
 " Related to shell
-nmap <Leader>f :FZF<CR>
+nmap <Leader>fz :FZF<CR>
 nmap <Leader>gt :!ctags -R .<CR>
 
 " Related to plugins
