@@ -285,8 +285,8 @@ nmap <Leader>sp :set spell!<CR>
 nmap <Leader>e :e.<CR>
 nmap <Leader>sy :syntax sync fromstart<CR>
 nmap <Leader>ns :nohlsearch<CR>
-nmap <C-j> :resize +10<Cr>
-nmap <C-k> :resize -10<cr>
+nmap <C-j> :resize +10<CR>
+nmap <C-k> :resize -10<CR>
 nmap <C-l> :vertical resize -10<CR>
 nmap <C-h> :vertical resize +10<CR>
 map <Leader>c :call ToggleComment()<CR>
