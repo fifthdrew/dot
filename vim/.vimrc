@@ -291,6 +291,7 @@ nmap <C-l> :vertical resize -10<CR>
 nmap <C-h> :vertical resize +10<CR>
 map <Leader>c :call ToggleComment()<CR>
 nmap <Leader>i :call ToggleInvisibleChars()<CR>
+nmap <Leader>f :find<Space>
 
 " Related to shell
 nmap <Leader>f :FZF<CR>
