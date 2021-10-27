@@ -15,3 +15,6 @@ hi Visual       term=reverse cterm=reverse
 hi MatchParen   ctermfg=NONE ctermbg=8 cterm=NONE
 hi String       ctermfg=13   cterm=italic
 hi Number       ctermfg=magenta cterm=bold
+hi cssBraces    ctermfg=cyan
+hi htmlTag      ctermfg=cyan
+hi htmlEndTag   ctermfg=cyan
