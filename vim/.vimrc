@@ -292,6 +292,9 @@ nmap <C-h> :vertical resize +10<CR>
 map <Leader>c :call ToggleComment()<CR>
 nmap <Leader>i :call ToggleInvisibleChars()<CR>
 nmap <Leader>f :find<Space>
+nmap <Leader>sv :vsplit<CR><C-w>w
+nmap <Leader>ss :split<CR><C-w>w
+nmap <Leader>tn :tabnew<CR>
 
 " Related to shell
 nmap <Leader>fz :FZF<CR>
