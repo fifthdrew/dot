@@ -100,7 +100,7 @@ set ttimeoutlen=0
 set statusline=
 
 " NOTE: The line below has a trailing space character
-set statusline=%<%{pathshorten(expand('%'))}\ %h%w%m%r\ 
+set statusline=%<%{FilePath()}\ %h%w%m%r\ 
 
 " End of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P%)
@@ -263,6 +263,23 @@ function! ToggleComment()
 endfunction
 " }
 
+" SOURCE: https://www.reddit.com/r/vim/comments/m7yald/is_there_any_way_to_apply_pathshortern_to/
+" {
+function! FilePath() abort
+    if expand('%:h') ==# ''
+      return '[No Name]'
+    endif
+    let l:path = expand('%:p:h')
+    let l:home = '/home/' . $USER . '/'
+    if stridx(l:path, l:home) !=# -1
+      let l:path = substitute(l:path, l:home, '~/', "")
+    endif
+    if winwidth(0) <= 80
+        let l:path = pathshorten(l:path)
+    endif
+    return l:path . '/' . expand('%:t')
+endfunction
+" }
 
 "---------------------------------------------
 "           - Keyboard shortcuts -
