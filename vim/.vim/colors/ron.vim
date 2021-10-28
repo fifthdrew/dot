@@ -19,4 +19,4 @@ hi cssBraces    ctermfg=cyan
 hi htmlTag      ctermfg=cyan
 hi htmlEndTag   ctermfg=cyan
 hi TabLine      cterm=none ctermfg=black ctermbg=white
-hi TabLineSel   cterm=none ctermfg=white ctermbg=black
+hi TabLineSel   cterm=none ctermfg=white ctermbg=none
