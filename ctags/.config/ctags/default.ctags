@@ -1,5 +1,0 @@
---recurse
---exclude=.git
---exclude=.vscode
---exclude=node_modules/
---tag-relative=yes
