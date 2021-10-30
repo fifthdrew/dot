@@ -308,10 +308,10 @@ nmap <Leader>ss :split<CR><C-w>w
 nmap <Leader>tn :tabnew<CR>
 
 " Resize windows
-nmap <C-j> :resize +10<CR>
-nmap <C-k> :resize -10<CR>
-nmap <C-l> :vertical resize -10<CR>
-nmap <C-h> :vertical resize +10<CR>
+nmap <Down> :resize +10<CR>
+nmap <Up> :resize -10<CR>
+nmap <Right> :vertical resize -10<CR>
+nmap <Left> :vertical resize +10<CR>
 
 " Move lines up and down
 " SOURCE: https://github.com/noopkat/dotfiles/blob/master/.vimrc
