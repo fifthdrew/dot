@@ -302,10 +302,6 @@ nmap <Leader>sp :set spell!<CR>
 nmap <Leader>e :e.<CR>
 nmap <Leader>sy :syntax sync fromstart<CR>
 nmap <Leader>ns :nohlsearch<CR>
-nmap <C-j> :resize +10<CR>
-nmap <C-k> :resize -10<CR>
-nmap <C-l> :vertical resize -10<CR>
-nmap <C-h> :vertical resize +10<CR>
 map <Leader>c :call ToggleComment()<CR>
 nmap <Leader>i :call ToggleInvisibleChars()<CR>
 nmap <Leader>f :find<Space>
@@ -313,6 +309,11 @@ nmap <Leader>sv :vsplit<CR><C-w>w
 nmap <Leader>ss :split<CR><C-w>w
 nmap <Leader>tn :tabnew<CR>
 
+" Resize windows
+nmap <C-j> :resize +10<CR>
+nmap <C-k> :resize -10<CR>
+nmap <C-l> :vertical resize -10<CR>
+nmap <C-h> :vertical resize +10<CR>
 
 " Move lines up and down
 " SOURCE: https://github.com/noopkat/dotfiles/blob/master/.vimrc
