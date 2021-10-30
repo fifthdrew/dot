@@ -232,6 +232,7 @@ function! ToggleComment()
 endfunction
 " }
 
+" This function returns the full or shortened path of the current file
 " SOURCE: https://www.reddit.com/r/vim/comments/m7yald/is_there_any_way_to_apply_pathshortern_to/
 " {
 function! FilePath() abort
@@ -249,6 +250,7 @@ function! FilePath() abort
     return l:path . '/' . expand('%:t')
 endfunction
 " }
+
 
 "---------------------------------------------
 "           - Keyboard shortcuts -
@@ -315,8 +317,8 @@ nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 "             - Look settings -
 "---------------------------------------------
 
-nmap <F12> :set  nu! rnu!<CR>
-nmap <F11> :set  nu!<CR>
+nmap <F12> :set  number! relativenumber!<CR>
+nmap <F11> :set  number!<CR>
 nmap <F10> :call ToggleColorColumn()<CR>
 nmap <F9> :call ToggleStatusBar()<CR>
 nmap <F8> :call ToggleAllVisual()<CR>
