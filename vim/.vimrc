@@ -208,35 +208,6 @@ function! ToggleInvisibleChars()
   endif
 endfunction
 
-" This allows run :Test command from Vader plugin
-" SOURCE: https://github.com/junegunn/vader.vim
-" {
-function! s:tests()
-  if expand('%:e') == 'vim'
-    let testfile = printf('%s/%s.vader', expand('%:p:h'),
-          \ tr(expand('%:p:h:t'), '-', '_'))
-    if !filereadable(testfile)
-      echoerr 'File does not exist: '. testfile
-      return
-    endif
-    source %
-    execute 'Vader' testfile
-  else
-    let sourcefile = printf('%s/%s.vim', expand('%:p:h'),
-          \ tr(expand('%:p:h:t'), '-', '_'))
-    if !filereadable(sourcefile)
-      echoerr 'File does not exist: '. sourcefile
-      return
-    endif
-    execute 'source' sourcefile
-    Vader
-  endif
-endfunction
-
-autocmd BufRead *.{vader,vim}
-      \ command! -buffer Test call s:tests()
-" }
-
 " To comment lines with a command
 " SOURCE: https://stackoverflow.com/questions/1676632
 " {
