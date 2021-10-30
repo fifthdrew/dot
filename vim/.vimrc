@@ -313,6 +313,16 @@ nmap <Leader>sv :vsplit<CR><C-w>w
 nmap <Leader>ss :split<CR><C-w>w
 nmap <Leader>tn :tabnew<CR>
 
+
+" Move lines up and down
+" SOURCE: https://github.com/noopkat/dotfiles/blob/master/.vimrc
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 " Related to shell
 nmap <Leader>fz :FZF<CR>
 nmap <Leader>gt :!ctags -R .<CR>
