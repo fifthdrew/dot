@@ -53,10 +53,8 @@ set wildmenu
 " currently has a modified buffer
 set hidden
 
-" Make vim wrap long lines
-set wrap
-set linebreak
-set nolist
+" This makes Vim not wrap long lines
+set nowrap
 
 " Read file when modified outside vim
 set autoread
