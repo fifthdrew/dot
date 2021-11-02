@@ -110,6 +110,12 @@ set rtp+=~/.fzf
 " This removes automatic indentation on pasting
 set pastetoggle=<F3>
 
+" Performance things
+" https://vi.stackexchange.com/questions/10495/most-annoying-slow-down-of-a-plain-text-editor/10496
+set regexpengine=1
+set lazyredraw
+set ttyfast
+set synmaxcol=200
 
 "---------------------------------------------
 "            - Define variables -
