@@ -103,9 +103,6 @@ set statusline=%<%{FilePath()}\ %h%w%m%r\
 " End of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
-" Set fuzzy finder
-set rtp+=~/.fzf
-
 " Press F3 to enter paste insert mode
 " This removes automatic indentation on pasting
 set pastetoggle=<F3>
@@ -116,6 +113,7 @@ set regexpengine=1
 set lazyredraw
 set ttyfast
 set synmaxcol=200
+
 
 "---------------------------------------------
 "            - Define variables -
