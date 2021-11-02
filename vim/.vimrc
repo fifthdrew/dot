@@ -205,7 +205,7 @@ endfunction
 function! ToggleAllVisual()
     :call ToggleStatusBar()
     :call ToggleColorColumn()
-    :set number! relativenumber!
+    :set number!
 endfunction
 
 function! ToggleInvisibleChars()
@@ -326,8 +326,8 @@ nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 "             - Look settings -
 "---------------------------------------------
 
-nmap <F12> :set  number! relativenumber!<CR>
-nmap <F11> :set  number!<CR>
+nmap <F12> :set relativenumber!<CR>
+nmap <F11> :set number!<CR>
 nmap <F10> :call ToggleColorColumn()<CR>
 nmap <F9> :call ToggleStatusBar()<CR>
 nmap <F8> :call ToggleAllVisual()<CR>
