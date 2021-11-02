@@ -106,6 +106,11 @@ set statusline+=%=%(%l,%c%V\ %=\ %P%)
 " Set fuzzy finder
 set rtp+=~/.fzf
 
+" Press F3 to enter paste insert mode
+" This removes automatic indentation on pasting
+set pastetoggle=<F3>
+
+
 "---------------------------------------------
 "            - Define variables -
 "---------------------------------------------
