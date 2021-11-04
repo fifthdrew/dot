@@ -48,6 +48,8 @@ set path+=.,,,**
 
 " Set command line completion
 set wildmenu
+set wildmode=longest:full,full
+set wildignorecase
 
 " Allow load a buffer in a window that
 " currently has a modified buffer
