@@ -1,5 +1,5 @@
 " File: .vimrc
-" Maintainer: Vanderson Rodrigues
+" Maintainer: Vanderson Rodrigues <vanderson@tutamail.com>
 "             __
 "     __  __ /\_\    ___ ___   _ __   ___
 "    /\ \/\ \\/\ \ /' __` __`\/\`'__\/'___\
@@ -7,9 +7,6 @@
 " /\_\\ \___/  \ \_\ \_\ \_\ \_\ \_\\ \____\
 " \/_/ \/__/    \/_/\/_/\/_/\/_/\/_/ \/____/
 
-filetype plugin indent on
-syntax on
-colorscheme ron
 
 "------------------------------------------
 "           - General settings -
@@ -347,3 +344,12 @@ iabbrev lenght length
 iabbrev lenghts lengths
 iabbrev widht width
 iabbrev widhts widths
+
+
+"---------------------------------------------
+"      - Syntax and Colors -
+"---------------------------------------------
+
+filetype plugin indent on
+syntax on
+colorscheme default
