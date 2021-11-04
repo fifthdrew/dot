@@ -68,7 +68,9 @@ set mouse=a
 set encoding=utf-8
 
 " Set terminal colors
-"set termguicolors
+" set term=xterm-256color
+" set termguicolors
+" set t_Co=256
 
 " Disable modeline because security issues
 set nomodeline
