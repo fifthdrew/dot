@@ -21,21 +21,21 @@ hi Statement	guifg=#ffff77   gui=NONE
 hi Preproc		guifg=#77ccff
 hi Type			guifg=#77ffcc   gui=bold
 hi Special		guifg=#ffccff
-hi ErrorMsg		ctermfg=black   ctermbg=red       guifg=black guibg=#ff7777
+hi ErrorMsg		ctermfg=black   ctermbg=red       guifg=black       guibg=#ff7777
 hi WarningMsg	guifg=black     guibg=#ffff77
 hi Error		guibg=#ff7777
-hi Todo			guifg=Black	    guibg=#ffff77
+hi Todo			guifg=black	    guibg=#ffff77
 " hi Cursor		guibg=#60a060   guifg=#00ff00
 hi Search		guibg=#ffff77   guifg=black       gui=bold 
 hi IncSearch	guibg=#ffff77   guifg=black       gui=bold
 hi LineNr		guifg=#ffff77
 " hi title		guifg=darkgrey
-hi ShowMarksHL  ctermfg=cyan    ctermbg=lightblue cterm=bold guifg=yellow guibg=black gui=bold
+hi ShowMarksHL  ctermfg=cyan    ctermbg=lightblue cterm=bold        guifg=yellow guibg=black gui=bold
 hi clear Visual
 hi visual		term=reverse    cterm=reverse     gui=reverse
-hi MatchParen   ctermfg=NONE    ctermbg=8         cterm=NONE guifg=NONE guibg=gray30
-hi String       ctermfg=magenta cterm=italic      guifg=#ff77ff gui=italic
-hi Number       ctermfg=magenta cterm=bold        guifg=#ff77ff gui=bold
+hi MatchParen   ctermfg=NONE    ctermbg=8         cterm=NONE        guifg=NONE guibg=gray30
+hi String       ctermfg=magenta cterm=italic      guifg=#ff77ff     gui=italic
+hi Number       ctermfg=magenta cterm=bold        guifg=#ff77ff     gui=bold
 hi cssBraces    ctermfg=cyan    guifg=#77ffff
 hi htmlTag      ctermfg=cyan    guifg=#77ffff
 hi htmlEndTag   ctermfg=cyan    guifg=#77ffff
@@ -54,3 +54,5 @@ hi Folded		guibg=darkgray  guifg=white
 hi FoldColumn	guibg=gray      guifg=white
 hi cIf0			guifg=gray
 hi diffOnly	    guifg=red       gui=bold
+hi Directory    gui=bold        guifg=#77ffff
+hi CursorLine   cterm=bold      ctermfg=white     ctermbg=darkgrey  gui=bold guifg=white guibg=darkgray
