@@ -132,6 +132,8 @@ let g:netrw_list_hide .= ',\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_keepdir = 0
 let g:netrw_winsize = 30
 let g:netrw_localcopydircmd = 'cp -r'
+let g:netrw_special_syntax= 1
+let g:netrw_cursor = 2
 
 " Hardtime plugin configuration
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+",
