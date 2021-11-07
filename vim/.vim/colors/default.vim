@@ -14,15 +14,18 @@ let g:colors_name = "default"
 
 hi Normal		guifg=white     
 hi NonText		guifg=#7777ff   
-hi Comment      cterm=italic    guifg=#77ffff
-hi Constant		guifg=#77ffff   gui=bold
+hi Comment      cterm=italic    gui=italic guifg=#77ffff
+hi Constant		guifg=#77ffff   cterm=bold gui=bold
 hi Identifier	guifg=#77ffff   gui=NONE
 hi Statement	guifg=#ffff77   gui=NONE
 hi Preproc		guifg=#77ccff
 hi Type			guifg=#77ffcc   gui=bold
 hi Special		guifg=#ffccff
 hi ErrorMsg		ctermfg=black   ctermbg=red       guifg=black       guibg=#ff7777
-hi WarningMsg	guifg=black     guibg=#ffff77
+hi WarningMsg	ctermfg=black   ctermbg=yellow    guifg=black       guibg=#ffff77
+hi MoreMsg      ctermfg=black   ctermbg=green     guifg=black     guibg=#77ff77
+hi InfoMsg      ctermfg=black   ctermbg=white     guifg=black     guibg=#77ff77
+hi LogMsg      ctermfg=black   ctermbg=white     guifg=black     guibg=#77ff77
 hi Error		guibg=#ff7777
 hi Todo			guifg=black	    guibg=#ffff77
 " hi Cursor		guibg=#60a060   guifg=#00ff00
@@ -43,7 +46,7 @@ hi TabLine      cterm=none      ctermfg=black     ctermbg=white
 hi TabLineSel   cterm=none      ctermfg=white     ctermbg=none
 hi StatusLineNC	guifg=white     guibg=black
 hi StatusLine	guifg=white     guibg=black
-" hi label		guifg=gold2
+hi label		guifg=gold2
 hi Operator		guifg=#ffccff
 hi ColorColumn  guibg=#ff7777
 hi DiffChange   guibg=darkgreen
@@ -56,3 +59,19 @@ hi cIf0			guifg=gray
 hi diffOnly	    guifg=red       gui=bold
 hi Directory    gui=bold        guifg=#77ffff
 hi CursorLine   cterm=bold      ctermfg=white     ctermbg=darkgrey  gui=bold guifg=white guibg=darkgray
+hi Title        guifg=#ffccff
+hi Identifier   guifg=#77ffff gui=none cterm=none
+hi jsxTagName   guifg=#77ffff gui=bold cterm=bold
+hi jsxComponentName guifg=#77ffff gui=bold cterm=bold
+hi Pmenu        ctermbg=magenta ctermfg=white cterm=bold guibg=#ff77ff guifg=white gui=bold
+hi PmenuSel     ctermbg=grey    ctermfg=white cterm=bold guibg=grey guifg=white gui=bold
+hi PmenuSbar    ctermbg=white cterm=bold guibg=white gui=bold
+hi PmenuThumb   ctermbg=grey  cterm=bold guibg=grey  gui=bold
+hi clear SpellBad                                                
+hi SpellBad cterm=underline                                      
+hi clear SpellRare                                               
+hi SpellRare cterm=underline                                     
+hi clear SpellCap                                                
+hi SpellCap cterm=underline                                      
+hi clear SpellLocal
+hi SpellLocal cterm=underline
