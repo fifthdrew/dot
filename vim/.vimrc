@@ -95,6 +95,9 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=0
 
+" Status line configuration
+" {
+
 " Start of default statusline
 set statusline=
 
@@ -103,6 +106,8 @@ set statusline=%<%{FilePath()}\ %h%w%m%r\
 
 " End of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P%)
+
+"}
 
 " Press F3 to enter paste insert mode
 " This removes automatic indentation on pasting
@@ -115,6 +120,9 @@ set lazyredraw
 set ttyfast
 set synmaxcol=200
 
+" http://bugs.debian.org/608242
+set t_RV=
+
 
 "---------------------------------------------
 "            - Define variables -
@@ -124,6 +132,7 @@ set synmaxcol=200
 let $VIMHOME = $HOME."/.vim/"
 
 " Netrw plugin configuration
+" {
 let g:netrw_banner = 0
 let g:netrw_altv = 1
 let g:netrw_liststyle = 3
@@ -134,17 +143,24 @@ let g:netrw_winsize = 30
 let g:netrw_localcopydircmd = 'cp -r'
 let g:netrw_special_syntax= 1
 let g:netrw_cursor = 2
+" }
 
 " Hardtime plugin configuration
+" {
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+",
                            \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+
 let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+",
                            \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+
 let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+
 let g:list_of_disabled_keys = []
+
 let g:hardtime_timeout = 2000
 let g:hardtime_showmsg = 1
 let g:hardtime_maxcount = 2
+" }
 
 " Termdebug plugin configuration
 let g:termdebug_popup = 0
@@ -268,31 +284,49 @@ endfunction
 "           - Keyboard shortcuts -
 "---------------------------------------------
 
-" General stuff
+" Open and source my configuration file respectively
 nmap <Leader>v :edit $MYVIMRC<CR>
 nmap <Leader>s :source $MYVIMRC<CR>
+
+" Put a semicolon at the and of the actual line
 nnoremap <Leader>; A;<Esc>
+
+" List buffers and ask for the target buffer
 nmap <Leader>b :ls<CR>:b<Space>
+
+" Open builtin terminal
 nmap <Leader>t :term<CR>
+
+" Quick fix operations
 nmap <Leader>8 :copen<CR>
 nmap <Leader>7 :cnext<CR>
 nmap <Leader>6 :cprevious<CR>
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
+
+" Toggle the spell checking
 nmap <Leader>sp :set spell!<CR>
+
+" Open file explorer (Netrw) on the current directory
 nmap <Leader>e :e.<CR>
-nmap <Leader>sy :syntax sync fromstart<CR>
+
+" Clear the highlights from the search
 nmap <Leader>ns :nohlsearch<CR>
-map <Leader>c :call ToggleComment()<CR>
-nmap <Leader>i :call ToggleInvisibleChars()<CR>
-nmap <Leader>f :find<Space>
-nmap <Leader>sv :vsplit<CR><C-w>w
-nmap <Leader>ss :split<CR><C-w>w
+
+" Re-apply the syntax highlight
+nmap <Leader>sy :syntax sync fromstart<CR>
+
+" Open search on the current directory
+nmap <Leader>f :find *
+
+" Open a new fresh tab
 nmap <Leader>tn :tabnew<CR>
 
-" Resize windows
+" Split window vertically
+nmap <Leader>sv :vsplit<CR><C-w>w
+
+" Split window horizontally
+nmap <Leader>ss :split<CR><C-w>w
+
+" Re-size windows
 nmap <Down> :resize +10<CR>
 nmap <Up> :resize -10<CR>
 nmap <Right> :vertical resize -10<CR>
@@ -309,19 +343,25 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 " }
 
-" Related to shell
-nmap <Leader>fz :FZF<CR>
+" Generate tags file on the current directory
 nmap <Leader>gt :!ctags -R .<CR>
 
-" Related to plugins
+" Activate and deactivate the Hard Time plugin
 nmap <Leader>H :HardTimeToggle<CR>
+
+" Utilities
+map <Leader>c :call ToggleComment()<CR>
+nmap <Leader>i :call ToggleInvisibleChars()<CR>
 
 
 "---------------------------------------------
 "                 - Snippets -
 "---------------------------------------------
 
+" Write the default HTML code template
 nmap <Leader>html :-1read $VIMHOME.skeleton.html<CR>3jwf>a
+
+" Write my default setup for competitive programming using c++
 nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 
 
@@ -352,6 +392,17 @@ iabbrev widhts widths
 "      - Syntax and Colors -
 "---------------------------------------------
 
-filetype plugin indent on
+" Turn syntax highlighting on by default
 syntax on
+
+" Detect type of file
+filetype on
+
+" Load plugin file for specific file type
+filetype plugin on
+
+" Load indent file for specific file type
+filetype indent on
+
+" Set my customization of default theme
 colorscheme default
