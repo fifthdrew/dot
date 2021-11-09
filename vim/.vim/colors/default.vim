@@ -75,3 +75,4 @@ hi clear SpellCap
 hi SpellCap cterm=underline                                      
 hi clear SpellLocal
 hi SpellLocal cterm=underline
+hi Label      ctermfg=yellow guifg=#ffff77
