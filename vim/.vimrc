@@ -11,6 +11,10 @@
 "------------------------------------------
 "           - General settings -
 "------------------------------------------
+" Output the current syntax group
+nnoremap <f5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Use vim settings, rather than vi settings
 set nocompatible
