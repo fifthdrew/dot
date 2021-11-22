@@ -358,6 +358,10 @@ map <Leader>c :call ToggleComment()<CR>
 nmap <Leader>i :call ToggleInvisibleChars()<CR>
 
 
+" Shortcut for typing commands
+nnoremap ; :
+
+
 "---------------------------------------------
 "                 - Snippets -
 "---------------------------------------------
