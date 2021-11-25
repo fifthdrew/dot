@@ -372,6 +372,9 @@ nmap <Leader>html :-1read $VIMHOME.skeleton.html<CR>3jwf>a
 " Write my default setup for competitive programming using c++
 nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 
+"TODO: Create a snippet to write the log command according to the current file
+"extension and insert the comment as a reminder for future removal of the
+"same, including the Github user
 
 "---------------------------------------------
 "             - Look settings -
