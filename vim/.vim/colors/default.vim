@@ -7,7 +7,6 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-
 let g:colors_name = "default"
 
 if &background == "dark"
@@ -22,7 +21,7 @@ if &background == "dark"
     let s:magenta = "#ff77ff"
     let s:magenta_alt = "#ffc9ff"
     let s:cyan  = "#77ffff"
-    let s:background = s:black
+    let s:background = ""
     let s:foreground = s:white 
 else
 " COLORS FOR LIGHT MODE based on processing editor theme
@@ -123,8 +122,10 @@ call SetGuiColor("ModeMsg", "NONE", s:foreground, "NONE")
 call SetTermColor("ModeMsg", "NONE", "white", "NONE")
 call SetGuiColor("Error", s:red, s:background)
 call SetGuiColor("Todo", s:yellow, s:background)
-call SetGuiColor("Search", s:yellow, s:background)
-call SetGuiColor("IncSearch", s:yellow, s:background, "bold")
+call SetGuiColor("Search", s:yellow, s:black)
+call SetTermColor("Search", "yellow", "black")
+call SetGuiColor("IncSearch", s:black, s:yellow)
+call SetTermColor("IncSearch", "yellow", "black")
 call SetGuiColor("LineNr", "NONE", s:yellow)
 call SetGuiColor("ShowMarksHL", s:background, s:yellow, "bold")
 call SetTermColor("ShowMarksHL", "black", "yellow", "bold")
@@ -194,3 +195,12 @@ call SetGuiColor("jsNull", "NONE", s:cyan, "bold")
 call SetTermColor("jsNull", "NONE", "cyan", "bold")
 call SetGuiColor("jsArguments", "NONE", s:magenta_alt, "bold")
 call SetTermColor("jsArguments", "NONE", "", "bold")
+
+" Remove functions
+delf SetGuiColor
+delf SetTermColor
+delf SetVisual
+
+" Remove color variables
+unlet s:black s:white s:red s:green s:green_alt s:yellow s:blue
+unlet s:blue_alt s:magenta s:magenta_alt s:cyan s:background s:foreground
