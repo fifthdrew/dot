@@ -357,6 +357,11 @@ nmap <Leader>H :HardTimeToggle<CR>
 map <Leader>c :call ToggleComment()<CR>
 nmap <Leader>i :call ToggleInvisibleChars()<CR>
 
+" Output the current syntax group
+" SOURCE: shorturl.at/ckEJZ
+nnoremap <f5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Shortcut for typing commands
 nnoremap ; :
