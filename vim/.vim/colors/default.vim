@@ -2,8 +2,6 @@
 " Maintainer: Vanderson Rodrigues <vanderson@tutamail.com>
 " Modification based on default dark theme 
 
-set background=dark
-
 hi clear
 
 if exists("syntax_on")
@@ -12,67 +10,187 @@ endif
 
 let g:colors_name = "default"
 
-hi Normal		guifg=white     
-hi NonText		guifg=#7777ff   
-hi Comment      cterm=italic    gui=italic guifg=#77ffff
-hi Constant		guifg=#77ffff   cterm=bold gui=bold
-hi Identifier	guifg=#77ffff   gui=NONE
-hi Statement	guifg=#ffff77   gui=NONE
-hi Preproc		guifg=#77ccff
-hi Type			guifg=#77ffcc   gui=bold
-hi Special		guifg=#ffccff
-hi ErrorMsg		ctermfg=black   ctermbg=red       guifg=black       guibg=#ff7777
-hi WarningMsg	ctermfg=black   ctermbg=yellow    guifg=black       guibg=#ffff77
-hi MoreMsg      ctermfg=black   ctermbg=green     guifg=black     guibg=#77ff77
-hi InfoMsg      ctermfg=black   ctermbg=white     guifg=black     guibg=#77ff77
-hi LogMsg      ctermfg=black   ctermbg=white     guifg=black     guibg=#77ff77
-hi Error		guibg=#ff7777
-hi Todo			guifg=black	    guibg=#ffff77
-" hi Cursor		guibg=#60a060   guifg=#00ff00
-hi Search		guibg=#ffff77   guifg=black       gui=bold 
-hi IncSearch	guibg=#ffff77   guifg=black       gui=bold
-hi LineNr		guifg=#ffff77
-" hi title		guifg=darkgrey
-hi ShowMarksHL  ctermfg=cyan    ctermbg=lightblue cterm=bold        guifg=yellow guibg=black gui=bold
-hi clear Visual
-hi visual		term=reverse    cterm=reverse     gui=reverse
-hi MatchParen   ctermfg=NONE    ctermbg=8         cterm=NONE        guifg=NONE guibg=gray30
-hi String       ctermfg=magenta cterm=italic      guifg=#ff77ff     gui=italic
-hi Number       ctermfg=magenta cterm=bold        guifg=#ff77ff     gui=bold
-hi cssBraces    ctermfg=cyan    guifg=#77ffff
-hi htmlTag      ctermfg=cyan    guifg=#77ffff
-hi htmlEndTag   ctermfg=cyan    guifg=#77ffff
-hi TabLine      cterm=none      ctermfg=black     ctermbg=white
-hi TabLineSel   cterm=none      ctermfg=white     ctermbg=none
-hi StatusLineNC	guifg=white     guibg=black
-hi StatusLine	guifg=white     guibg=black
-hi label		guifg=gold2
-hi Operator		guifg=#ffccff
-hi ColorColumn  guibg=#ff7777
-hi DiffChange   guibg=darkgreen
-hi DiffText		guibg=olivedrab
-hi DiffAdd		guibg=slateblue
-hi DiffDelete   guibg=coral
-hi Folded		guibg=darkgray  guifg=white
-hi FoldColumn	guibg=gray      guifg=white
-hi cIf0			guifg=gray
-hi diffOnly	    guifg=red       gui=bold
-hi Directory    gui=bold        guifg=#77ffff
-hi CursorLine   cterm=bold      ctermfg=white     ctermbg=darkgrey  gui=bold guifg=white guibg=darkgray
-hi Title        guifg=#ffccff
-hi Identifier   guifg=#77ffff gui=none cterm=none
-hi jsxTagName   guifg=#77ffff gui=bold cterm=bold
-hi jsxComponentName guifg=#77ffff gui=bold cterm=bold
-hi Pmenu        ctermbg=magenta ctermfg=white cterm=bold guibg=#ff77ff guifg=white gui=bold
-hi PmenuSel     ctermbg=grey    ctermfg=white cterm=bold guibg=grey guifg=white gui=bold
-hi PmenuSbar    ctermbg=white cterm=bold guibg=white gui=bold
-hi PmenuThumb   ctermbg=grey  cterm=bold guibg=grey  gui=bold
-hi clear SpellBad                                                
-hi SpellBad cterm=underline                                      
-hi clear SpellRare                                               
-hi SpellRare cterm=underline                                     
-hi clear SpellCap                                                
-hi SpellCap cterm=underline                                      
-hi clear SpellLocal
-hi SpellLocal cterm=underline
-hi Label      ctermfg=yellow guifg=#ffff77
+if &background == "dark"
+    let s:black = "#000000"
+    let s:white = "#ffffff"
+    let s:red = "#ff7777"
+    let s:green =  "#77ff77"
+    let s:green_alt = "#77ffc9"
+    let s:yellow =  "#ffff77"
+    let s:blue  = "#7777ff"
+    let s:blue_alt = "#77c9ff"
+    let s:magenta = "#ff77ff"
+    let s:magenta_alt = "#ffc9ff"
+    let s:cyan  = "#77ffff"
+    let s:background = s:black
+    let s:foreground = s:white 
+else
+" COLORS FOR LIGHT MODE based on processing editor theme
+" function1 = #006699,plain
+" function2 = #006699,plain
+" function3 = #669900,plain
+" function4 = #006699,bold
+" keyword1 = #33997e,plain
+" keyword2 = #33997e,plain
+" keyword3 = #669900,plain
+" keyword4 = #d94a7a,plain
+" keyword5 = #e2661a,plain
+" keyword6 = #33997e,plain
+" literal1 = #7D4793,plain
+" literal2 = #718a62,plain
+" operator = #006699,plain
+" label = #666666,bold
+" comment1 = #666666,plain
+" comment2 = #666666,plain
+" invalid = #666666,bold
+    let s:black = "#040404"
+    let s:white = "#fefefe"
+    let s:red = "#cc2222"
+    let s:green =  "#22cc22"
+    let s:green_alt = "#77ff77"
+    let s:yellow =  "#cccc22"
+    let s:blue  = "#2222cc"
+    let s:blue_alt = "#7777ff"
+    let s:magenta = "#cc22cc"
+    let s:magenta_alt = "#ff77ff"
+    let s:cyan  = "#22cccc"
+    let s:background = s:white 
+    let s:foreground = s:black 
+endif
+
+function!  SetGuiColor(group, ...)
+  let histring = 'hi ' . a:group . ' '
+
+  if strlen(a:1)
+    let histring .= 'guibg=' . a:1 . ' '
+  endif
+
+  if strlen(a:2)
+    let histring .= 'guifg=' . a:2 . ' '
+  endif
+
+  if a:0 >= 3 && strlen(a:3)
+    let histring .= 'gui=' . a:3 . ' '
+  endif
+
+  execute histring
+endfunction
+
+function!  SetTermColor(group, ...)
+  let histring = 'hi ' . a:group . ' '
+
+  if strlen(a:1)
+    let histring .= 'ctermbg=' . a:1 . ' '
+  endif
+
+  if strlen(a:2)
+    let histring .= 'ctermfg=' . a:2 . ' '
+  endif
+
+  if a:0 >= 3 && strlen(a:3)
+    let histring .= 'cterm=' . a:3 . ' '
+  endif
+
+  execute histring
+endfunction
+
+function! SetVisual()
+    :hi clear Visual
+    :hi visual term=reverse cterm=reverse gui=reverse
+endfunction
+
+call SetVisual()
+
+" General Syntax
+call SetGuiColor("Normal", s:background, s:foreground)
+call SetGuiColor("NonText", "NONE", s:blue)
+call SetGuiColor("Comment", "NONE", s:cyan, "italic")
+call SetTermColor("Comment", "NONE", "cyan", "italic")
+call SetGuiColor("Constant", "NONE", s:magenta, "bold")
+call SetTermColor("Constant", "NONE", "magenta", "bold")
+call SetGuiColor("Identifier", "NONE", s:cyan, "NONE")
+call SetGuiColor("Statement", "NONE", s:yellow, "NONE")
+call SetGuiColor("Preproc", "NONE", s:blue_alt) 
+call SetGuiColor("Type", "NONE", s:green_alt, "bold")
+call SetGuiColor("Special", "NONE", s:magenta_alt)
+call SetGuiColor("ErrorMsg", s:background, s:red)
+call SetTermColor("ErrorMsg", "black", "red")
+call SetGuiColor("WarningMsg", s:background, s:yellow)
+call SetTermColor("WarningMsg", "black", "yellow")
+call SetGuiColor("MoreMsg", s:background, s:green)
+call SetTermColor("MoreMsg", "black", "green")
+call SetGuiColor("ModeMsg", "NONE", s:foreground, "NONE")
+call SetTermColor("ModeMsg", "NONE", "white", "NONE")
+call SetGuiColor("Error", s:red, s:background)
+call SetGuiColor("Todo", s:yellow, s:background)
+call SetGuiColor("Search", s:yellow, s:background)
+call SetGuiColor("IncSearch", s:yellow, s:background, "bold")
+call SetGuiColor("LineNr", "NONE", s:yellow)
+call SetGuiColor("ShowMarksHL", s:background, s:yellow, "bold")
+call SetTermColor("ShowMarksHL", "black", "yellow", "bold")
+call SetGuiColor("MatchParen", "gray30", "NONE", "NONE")
+call SetTermColor("MatchParen", "8", "NONE", "NONE")
+call SetGuiColor("String", "NONE", s:magenta, "italic") 
+call SetTermColor("String", "NONE", "magenta", "italic") 
+call SetGuiColor("Number", "NONE", s:magenta, "bold")
+call SetTermColor("Number", "NONE", "magenta", "bold")
+call SetTermColor("TabLine", "white", "black", "NONE")
+call SetTermColor("TabLineSel", "NONE", "white", "NONE")
+call SetGuiColor("StatusLineNC", s:background, s:foreground)
+call SetGuiColor("StatusLine", s:background, s:foreground)
+call SetGuiColor("Label", "NONE", "gold2")
+call SetGuiColor("Operator", "NONE", s:magenta_alt) 
+call SetGuiColor("ColorColumn", s:red, "NONE")
+call SetTermColor("ColorColumn", "red", "NONE")
+call SetGuiColor("Folded", "darkgray", s:foreground)
+call SetGuiColor("FoldColumn", "gray", s:foreground)
+call SetGuiColor("cIf0", "NONE", "gray") 
+call SetGuiColor("Directory", "NONE", s:cyan, "bold")
+call SetGuiColor("CursorLine", "darkgrey", "white", "bold") 
+call SetTermColor("CursorLine", "darkgrey", "white", "bold")
+call SetGuiColor("Title", "NONE", s:magenta_alt, "bold")
+call SetTermColor("Title", "NONE", "magenta", "bold")
+call SetGuiColor("Identifier", "NONE", s:cyan, "NONE")
+call SetTermColor("Identifier", "NONE", "cyan", "NONE")
+call SetGuiColor("Pmenu", s:magenta, s:white)
+call SetTermColor("Pmenu", "magenta", "white")
+call SetGuiColor("PmenuSel", "grey", s:white)
+call SetTermColor("PmenuSel", "grey", "white")
+call SetGuiColor("PmenuSbar", s:white, "NONE")
+call SetTermColor("PmenuSbar", "white", "NONE")
+call SetGuiColor("PmenuThumb", "grey", "NONE")
+call SetTermColor("PmenuThumb", "grey", "NONE")
+call SetGuiColor("SpellBad", s:red, s:black)
+call SetGuiColor("SpellRare", s:red, s:black)
+call SetGuiColor("SpellCap", s:red, s:black)
+call SetGuiColor("SpellLocal", s:red, s:black)
+call SetGuiColor("Label", "NONE", s:yellow) 
+call SetTermColor("Label", "NONE", "yellow") 
+call SetGuiColor("WildMenu", s:yellow, s:background, "bold")
+call SetTermColor("WildMenu", "yellow", "black", "bold")
+call SetGuiColor("Question", "NONE", s:green) 
+call SetTermColor("Question", "NONE", "green") 
+
+" HTML Syntax
+call SetGuiColor("htmlTag", "NONE", s:cyan)
+call SetTermColor("htmlTag", "NONE", "cyan")
+call SetGuiColor("htmlEndTag", "NONE", s:cyan)
+call SetTermColor("htmlEndTag", "NONE", "cyan")
+
+" CSS Syntax
+call SetGuiColor("cssBraces", "NONE", s:cyan)
+call SetTermColor("cssBraces", "NONE", "cyan")
+
+" Javascript Syntax
+call SetGuiColor("jsGlobalNodeObjects", "NONE", s:cyan, "bold")
+call SetTermColor("jsGlobalNodeObjects", "NONE", "cyan", "bold")
+call SetGuiColor("jsGlobalObjects", "NONE", s:cyan, "bold")
+call SetTermColor("jsGlobalObjects", "NONE", "cyan", "bold")
+call SetGuiColor("jsxComponentName", "NONE", s:cyan, "bold")
+call SetTermColor("jsxComponentName", "NONE", "cyan", "bold")
+call SetGuiColor("jsxTagName", "NONE", s:cyan, "bold")
+call SetTermColor("jsxTagName", "NONE", "cyan", "bold")
+call SetGuiColor("jsNull", "NONE", s:cyan, "bold")
+call SetTermColor("jsNull", "NONE", "cyan", "bold")
+call SetGuiColor("jsArguments", "NONE", s:magenta_alt, "bold")
+call SetTermColor("jsArguments", "NONE", "", "bold")

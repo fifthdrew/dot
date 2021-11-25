@@ -11,10 +11,8 @@
 "------------------------------------------
 "           - General settings -
 "------------------------------------------
-" Output the current syntax group
-nnoremap <f5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
+set background=dark
 
 " Use vim settings, rather than vi settings
 set nocompatible
@@ -69,9 +67,11 @@ set mouse=a
 set encoding=utf-8
 
 " Set terminal colors
-set term=xterm-256color
-set termguicolors
-set t_Co=256
+if has("vim")
+    set term=xterm-256color
+    set termguicolors
+    set t_Co=256
+endif
 
 " Disable modeline because security issues
 set nomodeline
