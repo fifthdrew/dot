@@ -210,10 +210,10 @@ let s:comment_map = {
 "---------------------------------------------
 
 function! ToggleColorColumn()
-    if &colorcolumn == 80
+    if &colorcolumn == 81
         set colorcolumn=0
     else
-        set colorcolumn=80
+        set colorcolumn=81
     endif
 endfunction
 
