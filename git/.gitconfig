@@ -34,7 +34,7 @@ meta = magenta
 frag = yellow
 old = red
 new = green
-func = 44
+func = 81
 
 [color "status"]
 added = green
