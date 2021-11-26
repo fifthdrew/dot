@@ -21,7 +21,7 @@ if &background == "dark"
     let s:magenta = "#ff77ff"
     let s:magenta_alt = "#ffc9ff"
     let s:cyan  = "#77ffff"
-    let s:background = ""
+    let s:background = s:black
     let s:foreground = s:white 
 else
 " COLORS FOR LIGHT MODE based on processing editor theme
@@ -101,7 +101,7 @@ endfunction
 call SetVisual()
 
 " General Syntax
-call SetGuiColor("Normal", s:background, s:foreground)
+call SetGuiColor("Normal", "", s:foreground)
 call SetGuiColor("NonText", "NONE", s:blue)
 call SetGuiColor("Comment", "NONE", s:cyan, "italic")
 call SetTermColor("Comment", "NONE", "cyan", "italic")
