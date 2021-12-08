@@ -354,7 +354,7 @@ nmap <Leader>gt :!ctags -R .<CR>
 nmap <Leader>H :HardTimeToggle<CR>
 
 " Utilities
-map <Leader>c :call ToggleComment()<CR>
+nmap , :call ToggleComment()<CR>
 nmap <Leader>i :call ToggleInvisibleChars()<CR>
 
 " Output the current syntax group
