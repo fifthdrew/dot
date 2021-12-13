@@ -119,7 +119,7 @@ call SetTermColor("WarningMsg", "black", "yellow")
 call SetGuiColor("MoreMsg", s:background, s:green)
 call SetTermColor("MoreMsg", "black", "green")
 call SetGuiColor("ModeMsg", "NONE", s:foreground, "NONE")
-call SetTermColor("ModeMsg", "NONE", "white", "NONE")
+call SetTermColor("ModeMsg", "NONE", "black", "NONE")
 call SetGuiColor("Error", s:red, s:background)
 call SetGuiColor("Todo", s:yellow, s:background)
 call SetGuiColor("Search", s:yellow, s:black)
@@ -195,6 +195,7 @@ call SetGuiColor("jsNull", "NONE", s:cyan, "bold")
 call SetTermColor("jsNull", "NONE", "cyan", "bold")
 call SetGuiColor("jsArguments", "NONE", s:magenta_alt, "bold")
 call SetTermColor("jsArguments", "NONE", "", "bold")
+call SetGuiColor("NetrwMakeFile", s:magenta, s:white, "bold")
 
 " Remove functions
 delf SetGuiColor
