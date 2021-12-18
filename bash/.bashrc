@@ -124,6 +124,7 @@ export NVM_DIR="$HOME/.nvm"
 # path to firefox
 export PATH=/opt/firefox/firefox:$PATH
 
+export TERM=xterm-256color
 
 source "$HOME/.cargo/env"
 set bell-style none
