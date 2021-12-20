@@ -367,6 +367,9 @@ nnoremap <f5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 " Shortcut for typing commands
 nnoremap ; :
 
+" Uppercase the current word
+nnoremap <C-u> viwUA<esc>
+inoremap <C-u> <esc>viwUA
 
 "---------------------------------------------
 "                 - Snippets -
