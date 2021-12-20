@@ -400,6 +400,7 @@ nmap <F8> :call ToggleAllVisual()<CR>
 "      - Abbreviations and Corrections -
 "---------------------------------------------
 
+" Common typos
 iabbrev heigth height
 iabbrev heigths heights
 iabbrev lenght length
@@ -407,6 +408,8 @@ iabbrev lenghts lengths
 iabbrev widht width
 iabbrev widhts widths
 
+" Git signature
+iabbrev gsig Vanderson Rodrigues <vanderson@tutamail.com>
 
 "---------------------------------------------
 "      - Syntax and Colors -
