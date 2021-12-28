@@ -43,7 +43,7 @@ set incsearch
 
 " Ensure that Vim will search all
 " project files
-set path+=.,,,**
+set path+=.,**
 
 " Set command line completion
 set wildmenu
