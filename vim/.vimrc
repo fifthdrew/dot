@@ -332,7 +332,14 @@ nmap <Leader>ns :nohlsearch<CR>
 nmap <Leader>sy :syntax sync fromstart<CR>
 
 " Open search on the current directory
-nmap <Leader>f :find *
+nnoremap <Leader>f :find *
+nnoremap <Leader>sf :sfind *
+nnoremap <Leader>vf :vert sfind *
+nnoremap <Leader>tf :tabfind *
+nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>Sf :sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>Vf :vert sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>Tf :tabfind <C-R>=expand('%:h').'/*'<CR>
 
 " Open a new fresh tab
 nmap <Leader>tn :tabnew<CR>
