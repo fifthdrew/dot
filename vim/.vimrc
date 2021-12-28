@@ -132,6 +132,11 @@ set pastetoggle=<F3>
 " http://bugs.debian.org/608242
 " set t_RV=
 
+" Automatically invoke completion mode in mappings
+" This is necessary for the following:
+" nnoremap <leader>b :buffer <C-z><S-Tab>
+" nnoremap <leader>B :sbuffer <C-z><S-Tab>
+set wildcharm=<C-z>
 
 "---------------------------------------------
 "            - Define variables -
@@ -301,7 +306,10 @@ nmap <Leader>s :source $MYVIMRC<CR>
 nnoremap <Leader>; A;<Esc>
 
 " List buffers and ask for the target buffer
-nmap <Leader>b :ls<CR>:b<Space>
+" This mapping is a substitute for:
+" nmap <Leader>b :ls<CR>:b<Space>
+nnoremap <leader>b :buffer <C-z><S-Tab>
+nnoremap <leader>B :sbuffer <C-z><S-Tab>
 
 " Open builtin terminal
 nmap <Leader>t :term<CR>
