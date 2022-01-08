@@ -1,17 +1,23 @@
-My dotfiles
---------------------
+# My personal dotfiles
 
-Uses GNU Stow – https://www.gnu.org/software/stow/ 
+**WARNING!!**
 
-On Debian/Ubuntu:
+These settings are constantly being modified, use them at your own risk.
+
+## Instalation 
+
+Use GNU Stow: https://www.gnu.org/software/stow/ 
+
+On Debian based systems run:
+```console
+$ apt install stow
 ```
-# apt install stow
-```
-Usage: 
-```
-# cd ~
-# git clone https://github.com/vanditoh/dotfiles/ 
-# cd dotfiles
-# stow vim i3 tmux zsh emacs
+
+Then: 
+```console
+$ cd ~
+$ git clone https://github.com/vanditoh/dotfiles/ 
+$ cd dotfiles
+$ stow vim i3 tmux zsh emacs
 ```
 
