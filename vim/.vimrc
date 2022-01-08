@@ -136,8 +136,7 @@ set ttyfast
 
 " Automatically invoke completion mode in mappings
 " This is necessary for the following:
-" nnoremap <leader>b :buffer <C-z><S-Tab>
-" nnoremap <leader>B :sbuffer <C-z><S-Tab>
+" nnoremap <leader>B :buffer <C-z><S-Tab>
 set wildcharm=<C-z>
 
 "---------------------------------------------
@@ -308,10 +307,10 @@ nmap <Leader>s :source $MYVIMRC<CR>
 nnoremap <Leader>; A;<Esc>
 
 " List buffers and ask for the target buffer
-" This mapping is a substitute for:
-" nmap <Leader>b :ls<CR>:b<Space>
-nnoremap <leader>b :buffer <C-z><S-Tab>
-nnoremap <leader>B :sbuffer <C-z><S-Tab>
+nnoremap <Leader>b :ls<CR>:b<Space>
+
+" List buffers and ask for the target buffer (with completion mode)
+nnoremap <leader>B :buffer <C-z><S-Tab>
 
 " Open builtin terminal
 nmap <Leader>t :term<CR>
