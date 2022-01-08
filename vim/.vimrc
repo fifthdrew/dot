@@ -139,6 +139,10 @@ set ttyfast
 " nnoremap <leader>B :buffer <C-z><S-Tab>
 set wildcharm=<C-z>
 
+" Set the working directory to wherever the open file lives
+set autochdir
+
+
 "---------------------------------------------
 "            - Define variables -
 "---------------------------------------------
