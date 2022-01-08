@@ -7,6 +7,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
+
 let g:colors_name = "default"
 
 if &background == "dark"
@@ -24,24 +25,6 @@ if &background == "dark"
     let s:background = s:black
     let s:foreground = s:white 
 else
-" COLORS FOR LIGHT MODE based on processing editor theme
-" function1 = #006699,plain
-" function2 = #006699,plain
-" function3 = #669900,plain
-" function4 = #006699,bold
-" keyword1 = #33997e,plain
-" keyword2 = #33997e,plain
-" keyword3 = #669900,plain
-" keyword4 = #d94a7a,plain
-" keyword5 = #e2661a,plain
-" keyword6 = #33997e,plain
-" literal1 = #7D4793,plain
-" literal2 = #718a62,plain
-" operator = #006699,plain
-" label = #666666,bold
-" comment1 = #666666,plain
-" comment2 = #666666,plain
-" invalid = #666666,bold
     let s:black = "#040404"
     let s:white = "#fefefe"
     let s:red = "#cc2222"
@@ -141,14 +124,14 @@ call SetGuiColor("StatusLineNC", s:background, s:foreground)
 call SetGuiColor("StatusLine", s:background, s:foreground)
 call SetGuiColor("Label", "NONE", "gold2")
 call SetGuiColor("Operator", "NONE", s:magenta_alt) 
-call SetGuiColor("ColorColumn", s:red, "NONE")
-call SetTermColor("ColorColumn", "red", "NONE")
+call SetGuiColor("ColorColumn", s:red, s:black)
+call SetTermColor("ColorColumn", "red", "black")
 call SetGuiColor("Folded", "darkgray", s:foreground)
 call SetGuiColor("FoldColumn", "gray", s:foreground)
 call SetGuiColor("cIf0", "NONE", "gray") 
 call SetGuiColor("Directory", "NONE", s:cyan, "bold")
-call SetGuiColor("CursorLine", "darkgrey", "white", "bold") 
-call SetTermColor("CursorLine", "darkgrey", "white", "bold")
+call SetGuiColor("CursorLine", s:yellow, s:black, "NONE")
+call SetTermColor("CursorLine", "yellow", "black", "NONE")
 call SetGuiColor("Title", "NONE", s:magenta_alt, "bold")
 call SetTermColor("Title", "NONE", "magenta", "bold")
 call SetGuiColor("Identifier", "NONE", s:cyan, "NONE")
@@ -162,15 +145,15 @@ call SetTermColor("PmenuSbar", "white", "NONE")
 call SetGuiColor("PmenuThumb", "grey", "NONE")
 call SetTermColor("PmenuThumb", "grey", "NONE")
 call SetGuiColor("SpellBad", s:red, s:black)
-call SetGuiColor("SpellRare", s:red, s:black)
-call SetGuiColor("SpellCap", s:red, s:black)
-call SetGuiColor("SpellLocal", s:red, s:black)
+call SetTermColor("SpellBad", "red", "black")
 call SetGuiColor("Label", "NONE", s:yellow) 
 call SetTermColor("Label", "NONE", "yellow") 
 call SetGuiColor("WildMenu", s:yellow, s:background, "bold")
 call SetTermColor("WildMenu", "yellow", "black", "bold")
 call SetGuiColor("Question", "NONE", s:green) 
 call SetTermColor("Question", "NONE", "green") 
+call SetGuiColor("NetrwMakeFile", s:magenta, s:black)
+call SetTermColor("NetrwMakeFile", "magenta", "black")
 
 " HTML Syntax
 call SetGuiColor("htmlTag", "NONE", s:cyan)
@@ -195,7 +178,6 @@ call SetGuiColor("jsNull", "NONE", s:cyan, "bold")
 call SetTermColor("jsNull", "NONE", "cyan", "bold")
 call SetGuiColor("jsArguments", "NONE", s:magenta_alt, "bold")
 call SetTermColor("jsArguments", "NONE", "", "bold")
-call SetGuiColor("NetrwMakeFile", s:magenta, s:white, "bold")
 
 " Remove functions
 delf SetGuiColor
