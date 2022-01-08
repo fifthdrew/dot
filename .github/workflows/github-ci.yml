@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: vandito/dotfiles@0.0.1
+    - uses: wangchucheng/git-repo-sync@v0.1.0
       with:
         target-url: https://gitlab.com/vandito/dotfiles.git
         target-username: vandito
