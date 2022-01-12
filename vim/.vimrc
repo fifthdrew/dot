@@ -81,12 +81,6 @@ endif
 " Disable modeline because security issues
 set nomodeline
 
-" Do not keep any history
-set noswapfile
-set nowb
-set nobackup
-set viminfo='0,:0,<0,@0,f0 
-
 " Show ruler and command visual aid
 set showcmd
 set ruler
@@ -218,6 +212,11 @@ let s:comment_map = {
     \   "tex": '%',
     \ }
 " }
+
+" Send vim temporary files to /tmp 
+set backupdir=/tmp//
+set directory=/tmp//
+set undodir=/tmp//
 
 
 "---------------------------------------------
@@ -353,7 +352,7 @@ nmap <Leader>tn :tabnew<CR>
 nmap <Leader>sv :vsplit<CR><C-w>w
 
 " Split window horizontally
-nmap <Leader>ss :split<CR><C-w>w
+nmap <Leader>sh :split<CR><C-w>w
 
 " Re-size windows
 nmap <Down> :resize +10<CR>
