@@ -181,6 +181,7 @@ let g:termdebug_wide = 163
 
 " Define leader key
 let mapleader="\<space>"
+let localleader=","
 
 " Comment characters for each language
 " SOURCE: https://stackoverflow.com/questions/1676632
@@ -378,9 +379,9 @@ nmap <Leader>gt :!ctags -R .<CR>
 nmap <Leader>H :HardTimeToggle<CR>
 
 " Utilities
-vmap , :call ToggleComment()<CR>
-nmap , :call ToggleComment()<CR>
-nmap <Leader>i :call ToggleInvisibleChars()<CR>
+vnoremap <Leader>, :call ToggleComment()<CR>
+nnoremap <Leader>, :call ToggleComment()<CR>
+nnoremap <Leader>i :call ToggleInvisibleChars()<CR>
 
 " Output the current syntax group
 " SOURCE: shorturl.at/ckEJZ
