@@ -15,6 +15,12 @@
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;; Load my custom themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+;; TODO: Customize my default theme
+;; Reference: https://www.reddit.com/r/emacs/comments/2yoi7k/help_with_color_schemes_in_the_terminal/
+
 
 ;;--------------------------------------------------------------------
 ;;                            Packages
