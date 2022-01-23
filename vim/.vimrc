@@ -136,6 +136,8 @@ set wildcharm=<C-z>
 " Set the working directory to wherever the open file lives
 set autochdir
 
+" To allow all operations work with the OS clipboard
+set clipboard=unnamedplus
 
 "---------------------------------------------
 "            - Define variables -
