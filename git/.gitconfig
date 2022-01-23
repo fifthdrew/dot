@@ -25,18 +25,18 @@ showbranch = auto
 ui = true
 
 [color "branch"]
-current = "#FFFF77"
+current = "#FFFFAA"
 local = "#FFFFFF"
-remote = "#77FF77"
+remote = "#77FFAA"
 
 [color "diff"]
-meta = "#77FFFF"
-frag = "#FFFF77"
-old = "#FF7777"
-new = "#77FF77"
-func = "#7777FF"
+meta = "#AAFFFF"
+frag = "#FFFFAA"
+old = "#FFAAAA"
+new = "#77FFAA"
+func = "#77AAFF"
 
 [color "status"]
-added = "#77FF77"
-changed = "#FFFF77"
-untracked = "#FF7777"
+added = "#77FFAA"
+changed = "#FFFFAA"
+untracked = "#FFAAAA"

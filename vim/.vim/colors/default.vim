@@ -80,7 +80,11 @@ call SetColor("SpellBad",      "DarkRed",     "Black")
 call SetColor("Label",         "NONE",        "DarkYellow")
 call SetColor("WildMenu",      "DarkYellow",  "Black", "Bold")
 call SetColor("Question",      "NONE",        "DarkGreen")
-call SetColor("NetrwMakeFile", "DarkMagenta", "black")
+
+
+" Netrw:      syntax           background   foreground
+call SetColor("NetrwMakeFile", "NONE",      "Magenta")
+call SetColor("NetrwTags",     "NONE",      "Magenta")
 
 " HTML:       syntax        background  foreground
 call SetColor("htmlTag",    "NONE",     "DarkCyan")
@@ -100,7 +104,10 @@ call SetColor("jsStorageClass", "NONE", "LightGreen")
 call SetColor("jsTry", "NONE", "DarkYellow")
 call SetColor("jsCatch", "NONE", "DarkYellow")
 call SetColor("jsUndefined", "NONE", "LightGreen", "Bold")
-call SetColor("jsOperatorKeyword", "NONE", "LightYellow", "Bold")
+call SetColor("jsOperatorKeyword", "NONE", "Yellow", "Bold")
+
+" JSON Syntax
+call SetColor("jsonNull", "NONE", "DarkCyan", "bold")
 
 " JSX Syntax
 call SetColor("jsxComponentName", "NONE", "DarkCyan", "bold")
