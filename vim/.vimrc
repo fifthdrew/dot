@@ -221,6 +221,8 @@ set backupdir=/tmp//
 set directory=/tmp//
 set undodir=/tmp//
 
+" Set tags option for the command ctags
+set tags=tags;
 
 "---------------------------------------------
 "            - Utility functions -
