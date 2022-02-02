@@ -20,7 +20,9 @@
 
 ;; TODO: Customize my default theme
 ;; Reference: https://www.reddit.com/r/emacs/comments/2yoi7k/help_with_color_schemes_in_the_terminal/
-
+(if (display-graphic-p)
+    ()
+  (load-theme 'my-default t))
 
 ;;--------------------------------------------------------------------
 ;;                            Packages
@@ -91,8 +93,8 @@
 (use-package clojure-mode-extra-font-locking
   :ensure t)
 
-(use-package cider
-  :ensure t)
+;;(use-package cider
+;;  :ensure t)
 
 (use-package typescript-mode
   :ensure t)
