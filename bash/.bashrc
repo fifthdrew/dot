@@ -131,5 +131,7 @@ export PATH=/opt/firefox/firefox:$PATH
 
 export TERM=xterm-256color
 
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --prompt='❯ ' --pointer='❯' --color=16"
+
 source "$HOME/.cargo/env"
 set bell-style none
