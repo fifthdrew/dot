@@ -36,9 +36,9 @@ endfunction
 call SetVisual()
 
 " General:    Syntax           background     foreground     style
-call SetColor("Normal",        "NONE",        "White",       "NONE")
+call SetColor("Normal",        "NONE",        "white",       "NONE")
 call SetColor("NonText",       "NONE",        "DarkBlue",    "NONE")
-call SetColor("Comment",       "NONE",        "Cyan",        "Italic")
+call SetColor("Comment",       "NONE",        "LightCyan",        "Italic")
 call SetColor("Constant",      "NONE",        "Magenta", "Bold")
 call SetColor("Identifier",    "NONE",        "DarkCyan",    "NONE")
 call SetColor("Statement",     "NONE",        "DarkYellow",  "NONE")
@@ -49,7 +49,7 @@ call SetColor("ErrorMsg",      "NONE",        "DarkRed", "NONE")
 call SetColor("WarningMsg",    "NONE",        "DarkYellow", "NONE")
 call SetColor("MoreMsg",       "NONE",        "DarkGreen", "NONE")
 call SetColor("ModeMsg",       "NONE",        "white", "NONE")
-call SetColor("Error",         "DarkRed",     "Black")
+call SetColor("Error",         "DarkRed",     "NONE")
 call SetColor("Todo",          "DarkYellow",  "Black")
 call SetColor("Search",        "DarkYellow",  "Black")
 call SetColor("IncSearch",     "Black",       "DarkYellow")
@@ -76,7 +76,7 @@ call SetColor("Pmenu",         "Magenta",     "white")
 call SetColor("PmenuSel",      "Black",       "White")
 call SetColor("PmenuSbar",     "White",       "NONE")
 call SetColor("PmenuThumb",    "Black",       "NONE")
-call SetColor("SpellBad",      "DarkRed",     "Black")
+call SetColor("SpellBad",      "DarkRed",     "NONE")
 call SetColor("Label",         "NONE",        "DarkYellow")
 call SetColor("WildMenu",      "DarkYellow",  "Black", "Bold")
 call SetColor("Question",      "NONE",        "DarkGreen")
@@ -121,6 +121,10 @@ call SetColor("typescriptBraces", "NONE", "White")
 call SetColor("typescriptDecorator", "NONE", "Magenta", "Bold")
 call SetColor("typescriptIdentifier", "NONE", "LightGreen", "Bold")
 call SetColor("typescriptVariable", "NONE", "LightGreen")
+
+" PHP Syntax
+call SetColor("phpStaticClasses", "NONE", "LightGreen", "Bold")
+call SetColor("phpVarSelector", "NONE", "LightMagenta",)
 
 " Remove functions
 delf SetColor
