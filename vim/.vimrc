@@ -424,11 +424,13 @@ nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 "             - Look settings -
 "---------------------------------------------
 
-nmap <F12> :set relativenumber!<CR>
-nmap <F11> :set number!<CR>
-nmap <F10> :call ToggleColorColumn()<CR>
-nmap <F9> :call ToggleStatusBar()<CR>
-nmap <F8> :call ToggleAllVisual()<CR>
+" TODO: Maybe make an autocommand to switche between number and relative number
+" when entering on insert mode and when go back to normal mode
+nmap <F10> :set relativenumber!<CR>
+nmap <F9> :set number!<CR>
+nmap <F8> :call ToggleColorColumn()<CR>
+nmap <F7> :call ToggleStatusBar()<CR>
+nmap <F6> :call ToggleAllVisual()<CR>
 
 
 "---------------------------------------------
