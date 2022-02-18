@@ -64,7 +64,7 @@ if [ "$color_prompt" = yes ]; then
     PS1="\e[0;32m\u@\h\e[m:\e[0;34m\w\e[m\$(parse_git_branch)$ "
     # PS1='${debian_chroot:+($debian_chroot)}\e[0;32m\u@\h\e[m:\e[0;34m\w\e[m$(parse_git_branch)\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(parse_git_branch)$ "
 fi
 unset color_prompt force_color_prompt
 
@@ -124,7 +124,6 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 # path to firefox
 export PATH=/opt/firefox/firefox:$PATH
