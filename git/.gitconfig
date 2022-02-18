@@ -17,26 +17,3 @@ editor = vim
 [init]
 defaultBranch = main
 
-[color]
-branch = auto
-diff = auto
-status = auto
-showbranch = auto
-ui = true
-
-[color "branch"]
-current = "#FFFFAA"
-local = "#FFFFFF"
-remote = "#77FFAA"
-
-[color "diff"]
-meta = "#AAFFFF"
-frag = "#FFFFAA"
-old = "#FFAAAA"
-new = "#77FFAA"
-func = "#77AAFF"
-
-[color "status"]
-added = "#77FFAA"
-changed = "#FFFFAA"
-untracked = "#FFAAAA"
