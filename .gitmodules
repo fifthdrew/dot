@@ -13,7 +13,3 @@
 [submodule "submodules/tmux-resurrect"]
     path = submodules/tmux-resurrect
     url = https://github.com/tmux-plugins/tmux-resurrect
-
-[submodule "submodules/bass"]
-    path = submodules/bass
-    url = https://github.com/edc/bass 
