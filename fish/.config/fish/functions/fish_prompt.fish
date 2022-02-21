@@ -25,6 +25,13 @@ function fish_prompt
   set -l green (set_color green)
   set -l normal (set_color normal)
 
+  # shorten the prompt, but only when it's too long
+  set -g fish_prompt_pwd_dir_length 0
+  set -l longprompt $USER (prompt_hostname) (prompt_pwd) (__fish_vcs_prompt) $prompt_status
+  if test (expr length "$longprompt") -gt $COLUMNS
+    set -g fish_prompt_pwd_dir_length 1
+  end
+
   #set -l cwd $blue(basename (prompt_pwd))
   set -l cwd $blue(prompt_pwd)
 
