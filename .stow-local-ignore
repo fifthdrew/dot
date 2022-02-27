@@ -11,6 +11,8 @@
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
 
+^/README
 ^/README.*
+^/LICENSE
 ^/LICENSE.*
 ^/COPYING
