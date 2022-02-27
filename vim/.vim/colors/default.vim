@@ -1,6 +1,6 @@
 " Vim color file
 " Maintainer: Vanderson Rodrigues <vanderson@tutamail.com>
-" Modification based on default ASCII colors
+" Modification based on default 16 ASCII colors
 
 hi clear
 
@@ -9,6 +9,35 @@ if exists("syntax_on")
 endif
 
 let g:colors_name = "default"
+
+let s:Black         = 0
+let s:LightRed      = 1
+let s:LightGreen    = 2
+let s:LightYellow   = 3
+let s:LightBlue     = 4
+let s:LightMagenta  = 5
+let s:LightCyan     = 6
+let s:LightGrey     = 7
+let s:DarkGrey      = 8
+let s:DarkRed       = 9
+let s:DarkGreen     = 10
+let s:DarkYellow    = 11
+let s:DarkBlue      = 12
+let s:DarkMagenta   = 13
+let s:DarkCyan      = 14
+let s:White         = 15
+
+if &background ==# 'light'
+  let s:Foreground       = s:Black
+  let s:LightForeground  = s:DarkGrey
+  let s:Background       = s:White
+  let s:LightBackground  = s:LightGrey
+elseif &background ==# 'dark'
+  let s:Foreground       = s:LightGrey
+  let s:LightForeground  = s:White
+  let s:Background       = s:Black
+  let s:LightBackground  = s:DarkGrey
+endif
 
 function!  SetColor(group, ...)
   let histring = 'hi ' . a:group . ' '
@@ -36,95 +65,99 @@ endfunction
 call SetVisual()
 
 " General:    Syntax           background     foreground     style
-call SetColor("Normal",        "NONE",        "white",       "NONE")
-call SetColor("NonText",       "NONE",        "DarkBlue",    "NONE")
-call SetColor("Comment",       "NONE",        "LightCyan",        "Italic")
-call SetColor("Constant",      "NONE",        "Magenta", "Bold")
-call SetColor("Identifier",    "NONE",        "DarkCyan",    "NONE")
-call SetColor("Statement",     "NONE",        "DarkYellow",  "NONE")
-call SetColor("Preproc",       "NONE",        "LightBlue")
-call SetColor("Type",          "NONE",        "LightGreen", "NONE")
-call SetColor("Special",       "NONE",        "LightMagenta")
-call SetColor("ErrorMsg",      "NONE",        "DarkRed", "NONE")
-call SetColor("WarningMsg",    "NONE",        "DarkYellow", "NONE")
-call SetColor("MoreMsg",       "NONE",        "DarkGreen", "NONE")
-call SetColor("ModeMsg",       "NONE",        "white", "NONE")
-call SetColor("Error",         "DarkRed",     "NONE")
-call SetColor("Todo",          "DarkYellow",  "Black")
-call SetColor("Search",        "DarkYellow",  "Black")
-call SetColor("IncSearch",     "Black",       "DarkYellow")
-call SetColor("LineNr",        "NONE",        "DarkYellow")
-call SetColor("ShowMarksHL",   "Black",       "DarkYellow", "bold")
-call SetColor("MatchParen",    "DarkGray",       "NONE", "NONE")
-call SetColor("String",        "NONE",        "DarkMagenta", "Italic")
-call SetColor("Number",        "NONE",        "Magenta", "bold")
-call SetColor("TabLine",       "White",       "black", "NONE")
-call SetColor("TabLineSel",    "NONE",        "white", "NONE")
-call SetColor("StatusLine",    "black",       "white")
-call SetColor("StatusLineNC",  "black",       "white")
-call SetColor("Label",         "NONE",        "Yellow")
-call SetColor("Operator",      "NONE",        "Yellow")
-call SetColor("ColorColumn",   "Red",         "black")
-call SetColor("Folded",        "DarkGray",    "White")
-call SetColor("FoldColumn",    "Gray",        "White")
-call SetColor("cIf0",          "NONE",        "Gray")
-call SetColor("Directory",     "NONE",        "DarkCyan", "NONE")
+call SetColor("Normal",        s:Background,        s:Foreground,       "NONE")
+call SetColor("NonText",       "NONE",        s:DarkBlue,    "NONE")
+call SetColor("Comment",       "NONE",        s:LightCyan,        "Italic")
+call SetColor("Constant",      "NONE",        s:DarkMagenta, "Bold")
+call SetColor("Identifier",    "NONE",        s:DarkCyan,    "NONE")
+call SetColor("Statement",     "NONE",        s:DarkYellow,  "NONE")
+call SetColor("Preproc",       "NONE",        s:LightBlue)
+call SetColor("Type",          "NONE",        s:LightGreen, "NONE")
+call SetColor("Special",       "NONE",        s:LightMagenta)
+call SetColor("ErrorMsg",      "NONE",        s:DarkRed, "NONE")
+call SetColor("WarningMsg",    "NONE",        s:DarkYellow, "NONE")
+call SetColor("MoreMsg",       "NONE",        s:DarkGreen, "NONE")
+call SetColor("ModeMsg",       s:Background,        s:Foreground, "NONE")
+call SetColor("Error",         s:DarkRed,     "NONE")
+call SetColor("Todo",          s:DarkYellow,  s:Black)
+call SetColor("Search",        s:DarkYellow,  s:Black)
+call SetColor("IncSearch",     s:Black,       s:DarkYellow)
+call SetColor("LineNr",        "NONE",        s:DarkYellow)
+call SetColor("ShowMarksHL",   s:Black,       s:DarkYellow, "bold")
+call SetColor("MatchParen",    s:DarkGrey,       "NONE", "NONE")
+call SetColor("String",        "NONE",        s:DarkMagenta, "Italic")
+call SetColor("Number",        "NONE",        s:DarkMagenta, "bold")
+call SetColor("TabLine",       s:LightGrey,       s:Background, "NONE")
+call SetColor("TabLineFill",       s:LightGrey,       s:Background, "NONE")
+call SetColor("TabLineSel",    s:Background,        s:Foreground, "NONE")
+call SetColor("VertSplit", s:Background, s:LightGrey)
+call SetColor("StatusLine",    s:Background,       s:LightGrey)
+call SetColor("StatusLineNC",  s:Background,       s:LightGrey)
+call SetColor("Label",         "NONE",        s:DarkYellow)
+call SetColor("Operator",      "NONE",        s:DarkYellow)
+call SetColor("ColorColumn",   s:DarkRed,         s:Background)
+call SetColor("Folded",        s:DarkGrey,    s:White)
+call SetColor("FoldColumn",    s:LightGrey,        s:White)
+call SetColor("cIf0",          "NONE",        s:LightGrey)
+call SetColor("Directory",     "NONE",        s:DarkCyan, "NONE")
 call SetColor("CursorLine",    "NONE",        "NONE", "Bold")
-call SetColor("CursorLineNR",  "NONE",        "DarkYellow", "Bold")
-call SetColor("Title",         "NONE",        "Magenta", "bold")
-call SetColor("Pmenu",         "Magenta",     "white")
-call SetColor("PmenuSel",      "Black",       "White")
-call SetColor("PmenuSbar",     "White",       "NONE")
-call SetColor("PmenuThumb",    "Black",       "NONE")
-call SetColor("SpellBad",      "DarkRed",     "NONE")
-call SetColor("Label",         "NONE",        "DarkYellow")
-call SetColor("WildMenu",      "DarkYellow",  "Black", "Bold")
-call SetColor("Question",      "NONE",        "DarkGreen")
-
+call SetColor("CursorLineNR",  "NONE",        s:DarkYellow, "Bold")
+call SetColor("Title",         "NONE",        s:DarkMagenta, "bold")
+call SetColor("Pmenu",         s:DarkMagenta,     s:White)
+call SetColor("PmenuSel",      s:Black,       s:White)
+call SetColor("PmenuSbar",     s:White,       "NONE")
+call SetColor("PmenuThumb",    s:Black,       "NONE")
+call SetColor("SpellBad",      s:DarkRed,     "NONE")
+call SetColor("Label",         "NONE",        s:DarkYellow)
+call SetColor("WildMenu",      s:DarkYellow,  s:Black, "Bold")
+call SetColor("Question",      "NONE",        s:DarkGreen)
 
 " Netrw:      syntax           background   foreground
-call SetColor("NetrwMakeFile", "NONE",      "Magenta")
-call SetColor("NetrwTags",     "NONE",      "Magenta")
+call SetColor("NetrwMakeFile", "NONE",      s:DarkMagenta)
+call SetColor("NetrwTags",     "NONE",      s:DarkMagenta)
 
 " HTML:       syntax        background  foreground
-call SetColor("htmlTag",    "NONE",     "DarkCyan")
-call SetColor("htmlEndTag", "NONE",     "DarkCyan")
+call SetColor("htmlTag",    "NONE",     s:DarkCyan)
+call SetColor("htmlEndTag", "NONE",     s:DarkCyan)
 
 " CSS:        syntax       background foreground
 call SetColor("cssBraces", "NONE",    "cyan")
 
 " Javascript Syntax
-call SetColor("jsGlobalNodeObjects", "NONE", "DarkCyan", "bold")
-call SetColor("jsGlobalObjects", "NONE", "DarkCyan", "bold")
-call SetColor("jsNull", "NONE", "DarkCyan", "bold")
-call SetColor("jsArguments", "NONE", "Magenta", "bold")
-call SetColor("jsFunction", "NONE", "LightGreen")
-call SetColor("jsArrowFunction", "NONE", "LightGreen")
-call SetColor("jsStorageClass", "NONE", "LightGreen")
-call SetColor("jsTry", "NONE", "DarkYellow")
-call SetColor("jsCatch", "NONE", "DarkYellow")
-call SetColor("jsUndefined", "NONE", "LightGreen", "Bold")
-call SetColor("jsOperatorKeyword", "NONE", "Yellow", "Bold")
+call SetColor("jsGlobalNodeObjects", "NONE", s:DarkCyan, "bold")
+call SetColor("jsGlobalObjects", "NONE", s:DarkCyan, "bold")
+call SetColor("jsNull", "NONE", s:DarkCyan, "bold")
+call SetColor("jsArguments", "NONE", s:DarkMagenta, "bold")
+call SetColor("jsFunction", "NONE", s:LightGreen)
+call SetColor("jsArrowFunction", "NONE", s:LightGreen)
+call SetColor("jsStorageClass", "NONE", s:LightGreen)
+call SetColor("jsTry", "NONE", s:DarkYellow)
+call SetColor("jsCatch", "NONE", s:DarkYellow)
+call SetColor("jsUndefined", "NONE", s:LightGreen, "Bold")
+call SetColor("jsOperatorKeyword", "NONE", s:DarkYellow, "Bold")
 
 " JSON Syntax
-call SetColor("jsonNull", "NONE", "DarkCyan", "bold")
+call SetColor("jsonNull", "NONE", s:DarkCyan, "bold")
 
 " JSX Syntax
-call SetColor("jsxComponentName", "NONE", "DarkCyan", "bold")
-call SetColor("jsxTagName", "NONE", "DarkCyan", "bold")
-call SetColor("jsxAttrib", "NONE", "LightGreen")
+call SetColor("jsxComponentName", "NONE", s:DarkCyan, "bold")
+call SetColor("jsxTagName", "NONE", s:DarkCyan, "bold")
+call SetColor("jsxAttrib", "NONE", s:LightGreen)
 
 " Typescript syntax
-call SetColor("typescriptImport", "NONE", "LightBlue")
-call SetColor("typescriptExport", "NONE", "LightBlue")
-call SetColor("typescriptBraces", "NONE", "White")
-call SetColor("typescriptDecorator", "NONE", "Magenta", "Bold")
-call SetColor("typescriptIdentifier", "NONE", "LightGreen", "Bold")
-call SetColor("typescriptVariable", "NONE", "LightGreen")
+call SetColor("typescriptImport", "NONE", s:LightBlue)
+call SetColor("typescriptExport", "NONE", s:LightBlue)
+call SetColor("typescriptBraces", "NONE", s:Foreground)
+call SetColor("typescriptDecorator", "NONE", s:DarkMagenta, "Bold")
+call SetColor("typescriptIdentifier", "NONE", s:LightGreen, "Bold")
+call SetColor("typescriptVariable", "NONE", s:LightGreen)
 
 " PHP Syntax
-call SetColor("phpStaticClasses", "NONE", "LightGreen", "Bold")
-call SetColor("phpVarSelector", "NONE", "LightMagenta",)
+call SetColor("phpStaticClasses", "NONE", s:LightGreen, "Bold")
+call SetColor("phpVarSelector", "NONE", s:LightMagenta,)
+
+" CSS Syntax
+call SetColor("cssImportant", "NONE", s:DarkCyan, "bold")
 
 " Remove functions
 delf SetColor

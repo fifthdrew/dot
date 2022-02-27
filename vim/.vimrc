@@ -73,9 +73,9 @@ set encoding=utf-8
 
 " Set terminal colors
 if has("vim")
-    set term=xterm-256color
-    set termguicolors
-    set t_Co=256
+    " set term=xterm-256color
+    " set termguicolors
+    " set t_Co=256
 endif
 
 " Disable modeline because security issues
