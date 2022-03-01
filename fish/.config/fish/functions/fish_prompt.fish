@@ -44,12 +44,12 @@ function fish_prompt
 
   # show git branch and dirty state, if applicable:
   if [ (_git_branch_name) ]
-    set -l git_branch '(' (_git_branch_name) ')'
+    set -l git_branch (_git_branch_name)
 
     if [ (_is_git_dirty) ]
-      set git_info $red $git_branch
+      set git_info '(' $red $git_branch $normal ')'
     else
-      set git_info $green $git_branch
+      set git_info '(' $green $git_branch $normal ')'
     end
     echo -n -s '' $git_info $normal
   end
