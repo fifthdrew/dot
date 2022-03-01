@@ -12,4 +12,4 @@ LICENSE
 /emacs/.emacs.d/recentf~
 /emacs/.emacs.d/smex-itens
 /emacs/.emacs.d/transient
-/tmux/plugins/
+/tmux/.tmux/resurrect
