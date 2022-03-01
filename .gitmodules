@@ -1,15 +1,26 @@
-[submodule "submodules/vim-polyglot"]
-    path = submodules/vim-polyglot
+# Vim related
+[submodule "vim-polyglot"]
+    path = vim/.vim/pack/syntax/start/vim-polyglot
     url = https://github.com/sheerun/vim-polyglot
 
-[submodule "submodules/ligature.el"]
-    path = submodules/ligature.el
-    url = https://github.com/mickeynp/ligature.el
-
-[submodule "submodules/vim-hardtime"]
-    path = submodules/vim-hardtime
+[submodule "vim-hardtime"]
+    path = vim/.vim/pack/plugins/opt/vim-hardtime
     url = https://github.com/takac/vim-hardtime
 
-[submodule "submodules/tmux-resurrect"]
-    path = submodules/tmux-resurrect
+# Emacs related
+[submodule "ligature.el"]
+    path = emacs/.emacs.d/ligature.el
+    url = https://github.com/mickeynp/ligature.el
+
+# Tmux related
+[submodule "tpm"]
+    path = tmux/.tmux/plugins/tpm
+    url = https://github.com/tmux-plugins/tpm
+
+[submodule "tmux-resurrect"]
+    path = tmux/.tmux/plugins/tmux-resurrect
     url = https://github.com/tmux-plugins/tmux-resurrect
+
+[submodule "tmux-continuum"]
+    path = tmux/.tmux/plugins/tmux-continuum
+    url = https://github.com/tmux-plugins/tmux-continuum
