@@ -51,7 +51,7 @@
 (use-package command-log-mode)
 
 (use-package ligature
-  :load-path "~/dotfiles/emacs/.emacs.d/"
+  :load-path "~/.emacs.d/ligature.el"
   :config
   ;; Enable the "www" ligature in every possible major mode
   (ligature-set-ligatures 't '("www"))
