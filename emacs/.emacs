@@ -93,8 +93,8 @@
 (use-package clojure-mode-extra-font-locking
   :ensure t)
 
-;;(use-package cider
-;;  :ensure t)
+(use-package cider
+  :ensure t)
 
 (use-package typescript-mode
   :ensure t)
