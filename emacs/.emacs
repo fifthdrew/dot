@@ -8,6 +8,7 @@
 (tooltip-mode -1)
 (toggle-scroll-bar -1)
 (setq inhibit-startup-message t)
+(setq ring-bell-function 'ignore)
 
 ;; Set font family and size
 (set-face-attribute 'default nil :font "Iosevka" :height 150)
