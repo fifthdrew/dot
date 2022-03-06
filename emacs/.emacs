@@ -11,7 +11,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; Set font family and size
-(set-face-attribute 'default nil :font "Iosevka" :height 150)
+(set-frame-font "Iosevka 14" nil t)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
