@@ -13,6 +13,10 @@
 ;; Set font family and size
 (set-frame-font "Iosevka 14" nil t)
 
+; Remove borders from mode-line
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
+
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
