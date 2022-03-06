@@ -26,8 +26,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export GTK2_RC_FILES=/home/vanderson/.gtkrc-2.0
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo/env" ] ; then
+    export GTK2_RC_FILES=/home/vanderson/.gtkrc-2.0
+    . "$HOME/.cargo/env"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
