@@ -21,7 +21,8 @@ function fish_prompt
   set -l cyan (set_color cyan)
   set -l yellow (set_color yellow)
   set -l red (set_color red)
-  set -l blue (set_color blue)
+  set -l blue (set_color --bold blue)
+  set -l brgreen (set_color --bold brgreen)
   set -l green (set_color green)
   set -l normal (set_color normal)
 
@@ -37,7 +38,7 @@ function fish_prompt
 
   # output the prompt, left to right:
   # display 'user@host:'
-  echo -n -s $green (whoami) @ (hostname|cut -d . -f 1) $normal ":"
+  echo -n -s $brgreen (whoami) @ (hostname|cut -d . -f 1) $normal ":"
 
   # display the current directory name:
   echo -n -s $cwd $normal

@@ -30,3 +30,4 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:normal
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:green
+SETUVAR fish_pager_color_selected_background:\x2dr
