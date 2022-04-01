@@ -405,6 +405,16 @@ nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>lel
 " Add single quotes at the current word
 nnoremap <Leader>' viw<esc>a'<esc>bi'<esc>lel
 
+" Movement Mappings
+" {
+"
+" Translate from 'inside parentheses'
+" to 'parameters'
+onoremap p i(
+
+" Until find the word return
+onoremap b /return<CR>
+" }
 
 "---------------------------------------------
 "                 - Snippets -
