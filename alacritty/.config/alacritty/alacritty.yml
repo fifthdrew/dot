@@ -122,7 +122,7 @@ schemes:
 
     # Default colors
     primary:
-      background: "0x000000"
+      background: "0x222222"
       foreground: "0xffffff"
 
     # Colors the cursor will use if `custom_cursor_colors` is true
@@ -132,7 +132,7 @@ schemes:
 
     # Normal colors
     normal:
-      black:   '0x000000'
+      black:   '0x222222'
       red:     '0xFF7777'
       green:   '0x77FF77'
       yellow:  '0xFFFF77'
