@@ -1,0 +1,4 @@
+[begin] (\[Menu\])
+    [exec] (alacritty) {alacritty}
+    [exec] (firefox) {firefox}
+[end]
