@@ -320,6 +320,9 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 " List buffers and ask for the target buffer (with completion mode)
 nnoremap <leader>B :buffer <C-z><S-Tab>
 
+" List marks and ask for the target mark
+nnoremap <Leader>m :marks<CR>:'
+
 " Open builtin terminal
 nmap <Leader>t :term<CR>
 
