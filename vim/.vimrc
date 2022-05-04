@@ -259,6 +259,16 @@ function! ToggleInvisibleChars()
   endif
 endfunction
 
+function! ToggleSpellLang()
+    if &spelllang == "pt_br"
+        set spelllang=en_us
+        echo "Spell language is now English!"
+    else
+        set spelllang=pt_br
+        echo "Spell language is now Portuguese!"
+    endif
+endfunction
+
 " To comment lines with a command
 " SOURCE: https://stackoverflow.com/questions/1676632
 " {
@@ -333,6 +343,9 @@ nmap <Leader>6 :cprevious<CR>
 
 " Toggle the spell checking
 nmap <Leader>sp :set spell!<CR>
+
+" Toggle the spell language between Portuguese and English
+nmap <Leader>sl :call ToggleSpellLang()<CR>
 
 " Open file explorer (Netrw) on the current directory
 nmap <Leader>e :e.<CR>
