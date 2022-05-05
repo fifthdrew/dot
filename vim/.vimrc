@@ -9,7 +9,7 @@
 
 
 "------------------------------------------
-"           - General settings -
+" Section:  - General settings -
 "------------------------------------------
 
 set background=dark
@@ -139,8 +139,9 @@ set autochdir
 " To allow all operations work with the OS clipboard
 set clipboard=unnamedplus
 
+
 "---------------------------------------------
-"            - Define variables -
+" Section:   - Define variables -
 "---------------------------------------------
 
 " Vim folder location
@@ -224,8 +225,9 @@ set undodir=/tmp//
 " Set tags option for the command ctags
 set tags=tags;
 
+
 "---------------------------------------------
-"            - Utility functions -
+" Section:   - Utility functions -
 "---------------------------------------------
 
 function! ToggleColorColumn()
@@ -314,7 +316,7 @@ endfunction
 
 
 "---------------------------------------------
-"           - Keyboard shortcuts -
+" Section:   - Keyboard shortcuts -
 "---------------------------------------------
 
 " Open and source my configuration file respectively
@@ -432,8 +434,9 @@ onoremap p i(
 onoremap b /return<CR>
 " }
 
+
 "---------------------------------------------
-"                 - Snippets -
+" Section:       - Snippets -
 "---------------------------------------------
 
 " Write the default HTML code template
@@ -446,8 +449,9 @@ nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 "extension and insert the comment as a reminder for future removal of the
 "same, including the Github user
 
+
 "---------------------------------------------
-"             - Look settings -
+" Section:      - Look settings -
 "---------------------------------------------
 
 " TODO: Maybe make an autocommand to switche between number and relative number
@@ -460,7 +464,7 @@ nmap <F6> :call ToggleAllVisual()<CR>
 
 
 "---------------------------------------------
-"      - Abbreviations and Corrections -
+" Section: - Abbreviations and Corrections -
 "---------------------------------------------
 
 " Common typos
@@ -474,8 +478,9 @@ iabbrev widhts widths
 " Git signature
 iabbrev gsig Vanderson Rodrigues <vanderson@tutamail.com>
 
+
 "---------------------------------------------
-"      - Syntax and Colors -
+" Section:     - Syntax and Colors -
 "---------------------------------------------
 
 " Turn syntax highlighting on by default

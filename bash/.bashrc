@@ -121,4 +121,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -n "$DISPLAY" ]; then
+    xset b off
+fi
+
 set bell-style none

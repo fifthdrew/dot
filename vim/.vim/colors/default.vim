@@ -11,20 +11,20 @@ endif
 let g:colors_name = "default"
 
 let s:Black         = 0
-let s:LightRed      = 1
-let s:LightGreen    = 2
-let s:LightYellow   = 3
-let s:LightBlue     = 4
-let s:LightMagenta  = 5
-let s:LightCyan     = 6
+let s:DarkRed       = 1
+let s:DarkGreen     = 2
+let s:DarkYellow    = 3
+let s:DarkBlue      = 4
+let s:DarkMagenta   = 5
+let s:DarkCyan      = 6
 let s:LightGrey     = 7
 let s:DarkGrey      = 8
-let s:DarkRed       = 9
-let s:DarkGreen     = 10
-let s:DarkYellow    = 11
-let s:DarkBlue      = 12
-let s:DarkMagenta   = 13
-let s:DarkCyan      = 14
+let s:LightRed      = 9
+let s:LightGreen    = 10
+let s:LightYellow   = 11
+let s:LightBlue     = 12
+let s:LightMagenta  = 13
+let s:LightCyan     = 14
 let s:White         = 15
 
 if &background ==# 'light'
@@ -72,11 +72,11 @@ call SetColor("Constant",      "NONE",        s:DarkMagenta, "Bold")
 call SetColor("Identifier",    "NONE",        s:DarkCyan,    "NONE")
 call SetColor("Statement",     "NONE",        s:DarkYellow,  "NONE")
 call SetColor("Preproc",       "NONE",        s:LightBlue)
-call SetColor("Type",          "NONE",        s:DarkGreen, "NONE")
+call SetColor("Type",          "NONE",        s:LightGreen, "NONE")
 call SetColor("Special",       "NONE",        s:LightMagenta)
 call SetColor("ErrorMsg",      "NONE",        s:DarkRed, "NONE")
 call SetColor("WarningMsg",    "NONE",        s:DarkYellow, "NONE")
-call SetColor("MoreMsg",       "NONE",        s:LightGreen, "NONE")
+call SetColor("MoreMsg",       "NONE",        s:DarkGreen, "NONE")
 call SetColor("ModeMsg",       s:Background,        s:Foreground, "NONE")
 call SetColor("Error",         s:DarkRed,     "NONE")
 call SetColor("Todo",          s:DarkYellow,  s:Black)
@@ -110,7 +110,7 @@ call SetColor("PmenuThumb",    s:Black,       "NONE")
 call SetColor("SpellBad",      s:DarkRed,     "NONE")
 call SetColor("Label",         "NONE",        s:DarkYellow)
 call SetColor("WildMenu",      s:DarkYellow,  s:Black, "Bold")
-call SetColor("Question",      "NONE",        s:LightGreen)
+call SetColor("Question",      "NONE",        s:DarkGreen)
 
 " Netrw:      syntax           background   foreground
 call SetColor("NetrwMakeFile", "NONE",      s:DarkMagenta)
@@ -128,12 +128,12 @@ call SetColor("jsGlobalNodeObjects", "NONE", s:DarkCyan, "bold")
 call SetColor("jsGlobalObjects", "NONE", s:DarkCyan, "bold")
 call SetColor("jsNull", "NONE", s:DarkCyan, "bold")
 call SetColor("jsArguments", "NONE", s:DarkMagenta, "bold")
-call SetColor("jsFunction", "NONE", s:DarkGreen)
-call SetColor("jsArrowFunction", "NONE", s:DarkGreen)
-call SetColor("jsStorageClass", "NONE", s:DarkGreen)
+call SetColor("jsFunction", "NONE", s:LightGreen)
+call SetColor("jsArrowFunction", "NONE", s:LightGreen)
+call SetColor("jsStorageClass", "NONE", s:LightGreen)
 call SetColor("jsTry", "NONE", s:DarkYellow)
 call SetColor("jsCatch", "NONE", s:DarkYellow)
-call SetColor("jsUndefined", "NONE", s:DarkGreen, "Bold")
+call SetColor("jsUndefined", "NONE", s:LightGreen, "Bold")
 call SetColor("jsOperatorKeyword", "NONE", s:DarkYellow, "Bold")
 
 " JSON Syntax
@@ -142,18 +142,18 @@ call SetColor("jsonNull", "NONE", s:DarkCyan, "bold")
 " JSX Syntax
 call SetColor("jsxComponentName", "NONE", s:DarkCyan, "bold")
 call SetColor("jsxTagName", "NONE", s:DarkCyan, "bold")
-call SetColor("jsxAttrib", "NONE", s:DarkGreen)
+call SetColor("jsxAttrib", "NONE", s:LightGreen)
 
 " Typescript syntax
 call SetColor("typescriptImport", "NONE", s:LightBlue)
 call SetColor("typescriptExport", "NONE", s:LightBlue)
 call SetColor("typescriptBraces", "NONE", s:Foreground)
 call SetColor("typescriptDecorator", "NONE", s:DarkMagenta, "Bold")
-call SetColor("typescriptIdentifier", "NONE", s:DarkGreen, "Bold")
-call SetColor("typescriptVariable", "NONE", s:DarkGreen)
+call SetColor("typescriptIdentifier", "NONE", s:LightGreen, "Bold")
+call SetColor("typescriptVariable", "NONE", s:LightGreen)
 
 " PHP Syntax
-call SetColor("phpStaticClasses", "NONE", s:DarkGreen, "Bold")
+call SetColor("phpStaticClasses", "NONE", s:LightGreen, "Bold")
 call SetColor("phpVarSelector", "NONE", s:LightMagenta,)
 
 " CSS Syntax
