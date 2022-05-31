@@ -17,3 +17,8 @@ editor = vim
 [init]
 defaultBranch = main
 
+[pull]
+rebase = true
+
+[rerere]
+enabled = 1
