@@ -417,6 +417,9 @@ nnoremap ; :
 " Uppercase the current word
 inoremap <C-u> <esc>viwUea
 
+" Uppercase the current line
+inoremap <C-l> <esc>VUA
+
 " Add double quotes at the current word
 nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>lel
 
