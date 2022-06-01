@@ -415,7 +415,7 @@ nnoremap <f5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 nnoremap ; :
 
 " Uppercase the current word
-inoremap <C-u> <esc>viwUA
+inoremap <C-u> <esc>viwUea
 
 " Add double quotes at the current word
 nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>lel
