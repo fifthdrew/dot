@@ -135,6 +135,8 @@ call SetColor("jsTry", "NONE", s:DarkYellow)
 call SetColor("jsCatch", "NONE", s:DarkYellow)
 call SetColor("jsUndefined", "NONE", s:LightGreen, "Bold")
 call SetColor("jsOperatorKeyword", "NONE", s:DarkYellow, "Bold")
+call SetColor("jsSuper", "NONE", s:LightCyan, "Bold")
+call SetColor("jsThis", "NONE", s:LightCyan, "Bold")
 
 " JSON Syntax
 call SetColor("jsonNull", "NONE", s:DarkCyan, "bold")
