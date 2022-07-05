@@ -271,6 +271,14 @@ function! ToggleSpellLang()
     endif
 endfunction
 
+function! ToggleWrapLines()
+  if &wrap
+    set nowrap
+  else
+    set wrap
+  endif
+endfunction
+
 " To comment lines with a command
 " SOURCE: https://stackoverflow.com/questions/1676632
 " {
@@ -404,6 +412,7 @@ nmap <Leader>H :HardTimeToggle<CR>
 vnoremap <Leader>, :call ToggleComment()<CR>
 nnoremap <Leader>, :call ToggleComment()<CR>
 nnoremap <Leader>i :call ToggleInvisibleChars()<CR>
+nnoremap <Leader>w :call ToggleWrapLines()<CR>
 
 " Output the current syntax group
 " SOURCE: shorturl.at/ckEJZ
