@@ -246,10 +246,22 @@ function! ToggleStatusBar()
     endif
 endfunction
 
+function! ToggleTabLine()
+  if &showtabline == 1
+    set showtabline=0
+  else
+    set showtabline=1
+  endif
+endfunction
+
 function! ToggleAllVisual()
     :call ToggleStatusBar()
     :call ToggleColorColumn()
+    :call ToggleTabLine()
     :set number!
+    if &relativenumber
+        :set relativenumber!
+    endif
 endfunction
 
 function! ToggleInvisibleChars()
@@ -416,7 +428,7 @@ nnoremap <Leader>w :call ToggleWrapLines()<CR>
 
 " Output the current syntax group
 " SOURCE: shorturl.at/ckEJZ
-nnoremap <f5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+nnoremap <F4> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
@@ -468,11 +480,12 @@ nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
 
 " TODO: Maybe make an autocommand to switche between number and relative number
 " when entering on insert mode and when go back to normal mode
-nmap <F10> :set relativenumber!<CR>
-nmap <F9> :set number!<CR>
-nmap <F8> :call ToggleColorColumn()<CR>
-nmap <F7> :call ToggleStatusBar()<CR>
-nmap <F6> :call ToggleAllVisual()<CR>
+nmap <F10> :call ToggleAllVisual()<CR>
+nmap <F9> :call ToggleTabLine()<CR>
+nmap <F8> :call ToggleStatusBar()<CR>
+nmap <F7> :call ToggleColorColumn()<CR>
+nmap <F6> :set number!<CR>
+nmap <F5> :set relativenumber!<CR>
 
 
 "---------------------------------------------
