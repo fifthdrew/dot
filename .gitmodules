@@ -24,3 +24,6 @@
 [submodule "tmux-continuum"]
     path = tmux/.tmux/plugins/tmux-continuum
     url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "vim/.vim/pack/plugins/opt/vim-colorteplate"]
+	path = vim/.vim/pack/plugins/opt/vim-colorteplate
+	url = https://github.com/lifepillar/vim-colortemplate
