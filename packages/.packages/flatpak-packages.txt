@@ -1,0 +1,8 @@
+ffmpeg-full
+Freedesktop
+Intel
+Mesa
+openh264
+Stremio
+Telegram
+UnCiv
