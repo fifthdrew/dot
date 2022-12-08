@@ -26,17 +26,42 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "/opt/firefox/firefox" ] ; then
+    PATH="/opt/firefox/firefox:$PATH"
+fi
+
+if [ -d "$HOME/.commands" ] ; then
+    PATH="$HOME/.commands:$PATH"
+fi
+
+if [ -d "$HOME/.scripts" ] ; then
+    PATH="$HOME/.scripts:$PATH"
+fi
+
+if [ -d "$HOME/.cargo/bin/mprocs" ] ; then
+    PATH="$HOME/.cargo/bin/mprocs:$PATH"
+fi
+
+export PATH
+
+# export cargo (Rust package manager)
 if [ -d "$HOME/.cargo/env" ] ; then
     export GTK2_RC_FILES=/home/vanderson/.gtkrc-2.0
     . "$HOME/.cargo/env"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export Node Version Manager
+if [ -d "$HOME/.nvm" ] ; then
+    export NVM_DIR="$HOME/.nvm"
+fi
 
-export PATH=/opt/firefox/firefox:$PATH
+# This loads Node Version Manager
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# This loads Node Version Manager bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 export TERM=xterm-256color
 
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --prompt='search: ' --pointer='❯' --color=16"
+export FZF_DEFAULT_OPTS="--prompt='' --pointer=' ❯' --color=16 --info=hidden"
+export BAT_THEME="Solarized (dark)"
