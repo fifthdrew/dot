@@ -11,17 +11,49 @@
 (setq ring-bell-function 'ignore)
 
 ;; Set font family and size
-(set-frame-font "Iosevka 14" nil t)
+(set-frame-font "Hack Nerd Font Mono" nil t)
 
 ; Remove borders from mode-line
-(set-face-attribute 'mode-line nil :box nil)
-(set-face-attribute 'mode-line-inactive nil :box nil)
+;(set-face-attribute 'mode-line nil :box nil)
+;(set-face-attribute 'mode-line-inactive nil :box nil)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;; make the fringe stand out from the background
+(setq solarized-distinct-fringe-background t)
+
+;; Don't change the font for some headings and titles
+(setq solarized-use-variable-pitch nil)
+
+;; make the modeline high contrast
+(setq solarized-high-contrast-mode-line t)
+
+;; Use less bolding
+(setq solarized-use-less-bold t)
+
+;; Use more italics
+(setq solarized-use-more-italic t)
+
+;; Use less colors for indicators such as git:gutter, flycheck and similar
+(setq solarized-emphasize-indicators nil)
+
+;; Don't change size of org-mode headlines (but keep other size-changes)
+(setq solarized-scale-org-headlines nil)
+
+;; Change the size of markdown-mode headlines (off by default)
+(setq solarized-scale-markdown-headlines t)
+
+;; Avoid all font-size changes
+(setq solarized-height-minus-1 1.0)
+(setq solarized-height-plus-1 1.0)
+(setq solarized-height-plus-2 1.0)
+(setq solarized-height-plus-3 1.0)
+(setq solarized-height-plus-4 1.0)
+
 ;; Load my custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'solarized-dark t)
 
 ;; TODO: Customize my default theme
 ;; Reference: https://www.reddit.com/r/emacs/comments/2yoi7k/help_with_color_schemes_in_the_terminal/
