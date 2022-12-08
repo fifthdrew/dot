@@ -293,5 +293,3 @@ for file in $__fish_config_dir/conf.d/*.fish $__fish_sysconf_dir/conf.d/*.fish $
     [ -f $file -a -r $file ]
     and source $file
 end
-
-set -x FZF_DEFAULT_OPTS "--height 40% --layout=reverse --prompt='search: ' --pointer='❯' --color=16"

@@ -1,61 +1,61 @@
-function _git_branch_name
-  echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
-end
+function fish_prompt --description 'Write out the prompt'
+    set -l last_pipestatus $pipestatus
+    set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
 
-function _is_git_dirty
-  echo (command git status -s --ignore-submodules=dirty 2> /dev/null)
-end
-
-# change color depending on the user.
-function _user_host
-  if [ (id -u) = "0" ];
-    echo -n (set_color brred)
-  else
-    echo -n (set_color brblue)
-  end
-  echo -n (hostname|cut -d . -f 1)ˇ$USER (set color normal)
-end
-
-function fish_prompt
-  set fish_greeting
-  set -l cyan (set_color cyan)
-  set -l yellow (set_color yellow)
-  set -l red (set_color red)
-  set -l blue (set_color --bold blue)
-  set -l brgreen (set_color --bold brgreen)
-  set -l green (set_color green)
-  set -l normal (set_color normal)
-
-  # shorten the prompt, but only when it's too long
-  set -g fish_prompt_pwd_dir_length 0
-  set -l longprompt $USER (prompt_hostname) (prompt_pwd) (__fish_vcs_prompt) $prompt_status
-  if test (expr length "$longprompt") -gt $COLUMNS
-    set -g fish_prompt_pwd_dir_length 1
-  end
-
-  #set -l cwd $blue(basename (prompt_pwd))
-  set -l cwd $blue(prompt_pwd)
-
-  # output the prompt, left to right:
-  # display 'user@host:'
-  echo -n -s $brgreen (whoami) @ (hostname|cut -d . -f 1) $normal ":"
-
-  # display the current directory name:
-  echo -n -s $cwd $normal
-
-  # show git branch and dirty state, if applicable:
-  if [ (_git_branch_name) ]
-    set -l git_branch (_git_branch_name)
-
-    if [ (_is_git_dirty) ]
-      set git_info '(' $red $git_branch $normal ')'
-    else
-      set git_info '(' $green $git_branch $normal ')'
+    if not set -q __fish_git_prompt_show_informative_status
+        set -g __fish_git_prompt_show_informative_status 1
     end
-    echo -n -s '' $git_info $normal
-  end
+    if not set -q __fish_git_prompt_hide_untrackedfiles
+        set -g __fish_git_prompt_hide_untrackedfiles 1
+    end
+    if not set -q __fish_git_prompt_color_branch
+        set -g __fish_git_prompt_color_branch magenta --bold
+    end
+    if not set -q __fish_git_prompt_showupstream
+        set -g __fish_git_prompt_showupstream informative
+    end
+    if not set -q __fish_git_prompt_color_dirtystate
+        set -g __fish_git_prompt_color_dirtystate blue
+    end
+    if not set -q __fish_git_prompt_color_stagedstate
+        set -g __fish_git_prompt_color_stagedstate yellow
+    end
+    if not set -q __fish_git_prompt_color_invalidstate
+        set -g __fish_git_prompt_color_invalidstate red
+    end
+    if not set -q __fish_git_prompt_color_untrackedfiles
+        set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
+    end
+    if not set -q __fish_git_prompt_color_cleanstate
+        set -g __fish_git_prompt_color_cleanstate green --bold
+    end
 
-  # terminate with a nice prompt char:
-  echo -n -s '$ ' $normal
+    set -l color_cwd
+    set -l suffix
+    if functions -q fish_is_root_user; and fish_is_root_user
+        if set -q fish_color_cwd_root
+            set color_cwd $fish_color_cwd_root
+        else
+            set color_cwd $fish_color_cwd
+        end
+        set suffix '#'
+    else
+        set color_cwd $fish_color_cwd
+        set suffix '$'
+    end
 
+    # PWD
+    set_color $color_cwd
+    echo -n (prompt_pwd)
+    set_color normal
+
+    printf '%s ' (fish_vcs_prompt)
+
+    set -l status_color (set_color $fish_color_status)
+    set -l statusb_color (set_color --bold $fish_color_status)
+    set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
+    echo -n $prompt_status
+    set_color normal
+
+    echo -n "$suffix "
 end
