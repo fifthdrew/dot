@@ -1,29 +1,27 @@
-# Vim related
 [submodule "vim-polyglot"]
     path = vim/.vim/pack/syntax/start/vim-polyglot
     url = https://github.com/sheerun/vim-polyglot
-
 [submodule "vim-hardtime"]
     path = vim/.vim/pack/plugins/opt/vim-hardtime
     url = https://github.com/takac/vim-hardtime
-
-# Emacs related
 [submodule "ligature.el"]
     path = emacs/.emacs.d/ligature.el
     url = https://github.com/mickeynp/ligature.el
-
-# Tmux related
 [submodule "tpm"]
     path = tmux/.tmux/plugins/tpm
     url = https://github.com/tmux-plugins/tpm
-
 [submodule "tmux-resurrect"]
     path = tmux/.tmux/plugins/tmux-resurrect
     url = https://github.com/tmux-plugins/tmux-resurrect
-
 [submodule "tmux-continuum"]
     path = tmux/.tmux/plugins/tmux-continuum
     url = https://github.com/tmux-plugins/tmux-continuum
 [submodule "vim/.vim/pack/plugins/opt/vim-colorteplate"]
 	path = vim/.vim/pack/plugins/opt/vim-colorteplate
 	url = https://github.com/lifepillar/vim-colortemplate
+[submodule "vim/.vim/pack/plugins/start/fzf"]
+	path = vim/.vim/pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "vim/.vim/pack/themes/opt/vim-solarized8"]
+	path = vim/.vim/pack/themes/opt/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8

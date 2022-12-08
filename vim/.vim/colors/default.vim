@@ -65,7 +65,7 @@ endfunction
 call SetVisual()
 
 " General:    Syntax           background     foreground     style
-call SetColor("Normal",        s:Background,        s:Foreground,       "NONE")
+call SetColor("Normal",        "NONE",        s:Foreground,       "NONE")
 call SetColor("NonText",       "NONE",        s:DarkBlue,    "NONE")
 call SetColor("Comment",       "NONE",        s:LightCyan,        "Italic")
 call SetColor("Constant",      "NONE",        s:DarkMagenta, "Bold")

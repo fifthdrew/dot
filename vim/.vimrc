@@ -7,10 +7,9 @@
 " /\_\\ \___/  \ \_\ \_\ \_\ \_\ \_\\ \____\
 " \/_/ \/__/    \/_/\/_/\/_/\/_/\/_/ \/____/
 
+" GENERAL SETTINGS {{{
 
-"------------------------------------------
-" Section:  - General settings -
-"------------------------------------------
+setlocal foldmethod=marker
 
 set background=dark
 
@@ -72,10 +71,10 @@ set mouse=a
 set encoding=utf-8
 
 " Set terminal colors
-if has("vim")
-    " set term=xterm-256color
-    " set termguicolors
-    " set t_Co=256
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
 endif
 
 " Disable modeline because security issues
@@ -139,10 +138,18 @@ set autochdir
 " To allow all operations work with the OS clipboard
 set clipboard=unnamedplus
 
+" Send vim temporary files to /tmp 
+set backupdir=/tmp//
+set directory=/tmp//
+set undodir=/tmp//
 
-"---------------------------------------------
-" Section:   - Define variables -
-"---------------------------------------------
+" Set tags option for the command ctags
+set tags=tags;
+
+set showmatch
+
+" }}}
+" DEFINE VARIABLES {{{
 
 " Vim folder location
 let $VIMHOME = $HOME."/.vim/"
@@ -163,13 +170,19 @@ let g:netrw_cursor = 2
 
 " Hardtime plugin configuration
 " {
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+",
-                           \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_normal_keys = [
+            \   "h", "j", "k", "l", "-", "+",
+            \   "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"
+            \ ]
 
-let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+",
-                           \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = [
+            \   "h", "j", "k", "l", "-", "+",
+            \   "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"
+            \ ]
 
-let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_insert_keys = [
+            \   "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"
+            \ ]
 
 let g:list_of_disabled_keys = []
 
@@ -182,55 +195,79 @@ let g:hardtime_maxcount = 2
 let g:termdebug_popup = 0
 let g:termdebug_wide = 163
 
+" Markdown suport configuration
+let g:markdown_fenced_languages = [
+            \   'html', 
+            \   'python', 
+            \   'javascript', 
+            \   'typescript', 
+            \   'vim'
+            \ ]
+
+let g:fzf_layout = {
+            \ 'window': {
+                \   'border': 'none',
+                \   'height': 2,
+                \   'relative': v:false,
+                \   'width': 1,
+                \   'yoffset': 1,
+                \ }
+            \ }
+
+" Solarized themes configuration
+let g:solarized_termcolors=256
+let g:solarized_extra_hi_groups = 1
+let g:solarized_italics = 1
+let g:solarized_bold = 1
+let g:solarized_underline = 1       
+let g:solarized_italic = 1       
+let g:solarized_prefix_diffmode = 'low'
+
 " Define leader key
 let mapleader="\<space>"
-let localleader=","
+let maplocalleader=","
 
 " Comment characters for each language
 " SOURCE: https://stackoverflow.com/questions/1676632
 " {
 let s:comment_map = {
-    \   "c": '\/\/',
-    \   "cpp": '\/\/',
-    \   "go": '\/\/',
-    \   "java": '\/\/',
-    \   "javascript": '\/\/',
-    \   "lua": '--',
-    \   "scala": '\/\/',
-    \   "php": '\/\/',
-    \   "python": '#',
-    \   "ruby": '#',
-    \   "rust": '\/\/',
-    \   "sh": '#',
-    \   "desktop": '#',
-    \   "fstab": '#',
-    \   "conf": '#',
-    \   "profile": '#',
-    \   "bashrc": '#',
-    \   "bash_profile": '#',
-    \   "mail": '>',
-    \   "eml": '>',
-    \   "bat": 'REM',
-    \   "ahk": ';',
-    \   "vim": '"',
-    \   "tex": '%',
-    \ }
+            \   "c": '\/\/',
+            \   "cpp": '\/\/',
+            \   "go": '\/\/',
+            \   "java": '\/\/',
+            \   "javascript": '\/\/',
+            \   "lua": '--',
+            \   "scala": '\/\/',
+            \   "php": '\/\/',
+            \   "python": '#',
+            \   "ruby": '#',
+            \   "rust": '\/\/',
+            \   "sh": '#',
+            \   "desktop": '#',
+            \   "fstab": '#',
+            \   "conf": '#',
+            \   "profile": '#',
+            \   "bashrc": '#',
+            \   "bash_profile": '#',
+            \   "mail": '>',
+            \   "eml": '>',
+            \   "bat": 'REM',
+            \   "ahk": ';',
+            \   "vim": '"',
+            \   "tex": '%',
+            \ }
 " }
+" }}}
+" UTILITY FUNCTIONS {{{
 
-" Send vim temporary files to /tmp 
-set backupdir=/tmp//
-set directory=/tmp//
-set undodir=/tmp//
+function! ActivateAllComponentsDisplay()
+    set colorcolumn=81
+    set laststatus=2
+    set showtabline=1
+    set number relativenumber
+endfunction
 
-" Set tags option for the command ctags
-set tags=tags;
-
-
-"---------------------------------------------
-" Section:   - Utility functions -
-"---------------------------------------------
-
-function! ToggleColorColumn()
+function! ToggleColorColumnDisplay()
     if &colorcolumn == 81
         set colorcolumn=0
     else
@@ -238,7 +275,7 @@ function! ToggleColorColumn()
     endif
 endfunction
 
-function! ToggleStatusBar()
+function! ToggleStatusBarDisplay()
     if &laststatus == 2
         set laststatus=0
     else
@@ -246,7 +283,7 @@ function! ToggleStatusBar()
     endif
 endfunction
 
-function! ToggleTabLine()
+function! ToggleTabLineDisplay()
   if &showtabline == 1
     set showtabline=0
   else
@@ -254,14 +291,18 @@ function! ToggleTabLine()
   endif
 endfunction
 
-function! ToggleAllVisual()
-    :call ToggleStatusBar()
-    :call ToggleColorColumn()
-    :call ToggleTabLine()
-    :set number!
-    if &relativenumber
-        :set relativenumber!
+function! ToggleAllComponentsDisplay()
+    if &colorcolumn == 81 && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &showtabline == 1 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &showtabline == 0 && &laststatus == 2 && &number == 'number' && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &showtabline == 0 && &laststatus == 0 && &number && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber
+        :call ActivateAllComponentsDisplay()
     endif
+    :call ToggleStatusBarDisplay()
+    :call ToggleColorColumnDisplay()
+    :call ToggleTabLineDisplay()
+    :set number! relativenumber!
 endfunction
 
 function! ToggleInvisibleChars()
@@ -284,11 +325,21 @@ function! ToggleSpellLang()
 endfunction
 
 function! ToggleWrapLines()
-  if &wrap
-    set nowrap
-  else
-    set wrap
-  endif
+    if &wrap
+        set nowrap
+    else
+        set wrap
+    endif
+endfunction
+
+function! SplitVertically()
+    :call ActivateAllComponentsDisplay()
+    :execute "normal :vsplit \<CR>\<C-w>w"
+endfunction
+
+function! SplitHorizontally()
+    :call ActivateAllComponentsDisplay()
+    :execute "normal :split \<CR>\<C-w>w"
 endfunction
 
 " To comment lines with a command
@@ -333,15 +384,34 @@ function! FilePath() abort
     return l:path . '/' . expand('%:t')
 endfunction
 " }
+"
 
+function! SaveSession()
+    execute 'mksession! ' . getcwd() . '/tmp/session.vim'
+endfunction
 
-"---------------------------------------------
-" Section:   - Keyboard shortcuts -
-"---------------------------------------------
+function! RestoreSession()
+    if filereadable(getcwd() . '/tmp/session.vim')
+        execute 'so ' . getcwd() . '/tmp/session.vim'
+        if bufexists(1)
+            for l in range(1, bufnr('$'))
+                if bufwinnr(l) == -1
+                    exec 'sbuffer ' . l
+                endif
+            endfor
+        endif
+    endif
+endfunction
+" }}}
+" KEYBOARD SHORTCUTS {{{
 
 " Open and source my configuration file respectively
 nmap <Leader>v :edit $MYVIMRC<CR>
 nmap <Leader>s :source $MYVIMRC<CR>
+
+" Create and source my session file
+nmap <Leader>cs :mksession! /tmp/session.vim<CR>
+nmap <Leader>ls :source /tmp/session.vim<CR> 
 
 " Put a semicolon at the and of the actual line
 nnoremap <Leader>; A;<Esc>
@@ -379,6 +449,7 @@ nmap <Leader>ns :nohlsearch<CR>
 nmap <Leader>sy :syntax sync fromstart<CR>
 
 " Open search on the current directory
+nnoremap <Leader>ff :FZF --prompt= --info=hidden<CR>
 nnoremap <Leader>f :find *
 nnoremap <Leader>sf :sfind *
 nnoremap <Leader>vf :vert sfind *
@@ -388,14 +459,17 @@ nnoremap <leader>Sf :sfind <C-R>=expand('%:h').'/*'<CR>
 nnoremap <leader>Vf :vert sfind <C-R>=expand('%:h').'/*'<CR>
 nnoremap <leader>Tf :tabfind <C-R>=expand('%:h').'/*'<CR>
 
+" Find all occurrences of a word in all project files
+nmap <Leader>* :grep -R <cword> * --exclude-dir={.git,tmp,log,node_modules}<CR><CR>
+
 " Open a new fresh tab
 nmap <Leader>tn :tabnew<CR>
 
 " Split window vertically
-nmap <Leader>sv :vsplit<CR><C-w>w
+nmap <Leader>sv :call SplitVertically()<CR>
 
 " Split window horizontally
-nmap <Leader>sh :split<CR><C-w>w
+nmap <Leader>sh :call SplitHorizontally()<CR>
 
 " Re-size windows
 nmap <Down> :resize +10<CR>
@@ -447,6 +521,7 @@ nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>lel
 " Add single quotes at the current word
 nnoremap <Leader>' viw<esc>a'<esc>bi'<esc>lel
 
+
 " Movement Mappings
 " {
 "
@@ -457,40 +532,51 @@ onoremap p i(
 " Until find the word return
 onoremap b /return<CR>
 " }
-
-
-"---------------------------------------------
-" Section:       - Snippets -
-"---------------------------------------------
-
-" Write the default HTML code template
-nmap <Leader>html :-1read $VIMHOME.skeleton.html<CR>3jwf>a
-
-" Write my default setup for competitive programming using c++
-nmap <Leader>cpp :-1read $VIMHOME.competition.cpp<CR>11j
+" }}}
+" SNIPPETS {{{ 
 
 "TODO: Create a snippet to write the log command according to the current file
 "extension and insert the comment as a reminder for future removal of the
 "same, including the Github user
 
+" }}}
+" DISPLAY SETTINGS {{{
 
-"---------------------------------------------
-" Section:      - Look settings -
-"---------------------------------------------
-
-" TODO: Maybe make an autocommand to switche between number and relative number
-" when entering on insert mode and when go back to normal mode
-nmap <F10> :call ToggleAllVisual()<CR>
-nmap <F9> :call ToggleTabLine()<CR>
-nmap <F8> :call ToggleStatusBar()<CR>
-nmap <F7> :call ToggleColorColumn()<CR>
+nmap <F10> :call ToggleAllComponentsDisplay()<CR>
+nmap <F9> :call ToggleTabLineDisplay()<CR>
+nmap <F8> :call ToggleStatusBarDisplay()<CR>
+nmap <F7> :call ToggleColorColumnDisplay()<CR>
 nmap <F6> :set number!<CR>
 nmap <F5> :set relativenumber!<CR>
 
+" }}}
+" AUTOMATIC COMMANDS {{{
 
-"---------------------------------------------
-" Section: - Abbreviations and Corrections -
-"---------------------------------------------
+" TODO: Maybe make an autocommand to switche between number and relative number
+" when entering on insert mode and when go back to normal mode
+
+augroup session
+    autocmd VimLeave * call SaveSession()
+    autocmd VimEnter * nested call RestoreSession()
+augroup END
+
+function! ActivateRelativeNumber()
+  if &number=='nonumber'
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunction
+
+augroup number
+    autocmd number InsertEnter * :set norelativenumber
+    autocmd number InsertLeave * :call ActivateRelativeNumber()
+augroup END
+
+autocmd BufWritePost *.md silent !toemoji %
+
+" }}}
+" ABBREVIATIONS AND CORRECTIONS {{{
 
 " Common typos
 iabbrev heigth height
@@ -503,13 +589,8 @@ iabbrev widhts widths
 " Git signature
 iabbrev gsig Vanderson Rodrigues <vanderson@tutamail.com>
 
-
-"---------------------------------------------
-" Section:     - Syntax and Colors -
-"---------------------------------------------
-
-" Turn syntax highlighting on by default
-syntax on
+" }}}
+" FILETYPE {{{
 
 " Detect type of file
 filetype on
@@ -520,5 +601,13 @@ filetype plugin on
 " Load indent file for specific file type
 filetype indent on
 
-" Set my customization of default theme
-colorscheme default
+" }}}
+" SYNTAX AND COLORS {{{
+
+" Turn syntax highlighting on by default
+syntax on
+
+" Set my color theme
+colorscheme solarized8
+
+" }}}
