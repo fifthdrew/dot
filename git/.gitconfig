@@ -22,3 +22,6 @@ rebase = true
 
 [rerere]
 enabled = 1
+
+[diff]
+colorMoved = zebra
