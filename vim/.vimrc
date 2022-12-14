@@ -136,7 +136,9 @@ set wildcharm=<C-z>
 set autochdir
 
 " To allow all operations work with the OS clipboard
-set clipboard=unnamedplus
+" Seems to work only when Gvim and xclip are installed
+" Check if '+clipboard' (vim --version | grep clipboard)
+set clipboard^=unnamed,unnamedplus
 
 " Send vim temporary files to /tmp 
 set backupdir=/tmp//
@@ -404,6 +406,11 @@ function! RestoreSession()
 endfunction
 " }}}
 " KEYBOARD SHORTCUTS {{{
+
+" Use this when clipboard not working properly
+" nnoremap yy "+y
+" vnoremap y "+y
+" nnoremap p "+p
 
 " Open and source my configuration file respectively
 nmap <Leader>v :edit $MYVIMRC<CR>
