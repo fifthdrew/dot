@@ -49,6 +49,7 @@ python3-dev
 python3-pip
 python3-reportbug
 python3-setuptools
+ranger
 ripgrep
 rlwrap
 rsyslog
