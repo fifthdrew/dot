@@ -33,6 +33,7 @@ make
 mangohud
 mawk
 megasync
+mpv
 nala
 nano
 neofetch
