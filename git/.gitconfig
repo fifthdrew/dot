@@ -1,27 +1,30 @@
-[user]
-email = vanderson@tutamail.com
-name = Vanderson Rodrigues
-
 [merge]
-conflictStyle = diff3
+    conflictStyle = diff3
 
 [magit]
-hideCampaign = true
+    hideCampaign = true
 
 [alias]
-tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [core]
-editor = vim
+    editor = vim
 
 [init]
-defaultBranch = main
+    defaultBranch = main
 
 [pull]
-rebase = true
+    rebase = true
 
 [rerere]
-enabled = 1
+    enabled = 1
 
 [diff]
-colorMoved = zebra
+    colorMoved = zebra
+
+[includeIf "gitdir:~/Desktop/personal/**"]
+    path = ~/.gitcofig.d/personal/gitcofig
+
+[includeIf "gitdir:~/Desktop/work/EDGE/**"]
+    path = ~/.gitcofig.d/work/EDGE/gitcofig
+
