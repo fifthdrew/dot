@@ -1,3 +1,7 @@
+[user]
+    email = vanderson@tutamail.com
+    name = Vanderson Rodrigues
+
 [merge]
     conflictStyle = diff3
 
@@ -8,7 +12,7 @@
     tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [core]
-    editor = vim
+    editor = vi
 
 [init]
     defaultBranch = main
@@ -22,9 +26,5 @@
 [diff]
     colorMoved = zebra
 
-[includeIf "gitdir:~/Desktop/personal/**"]
-    path = ~/.gitcofig.d/personal/gitcofig
-
-[includeIf "gitdir:~/Desktop/work/EDGE/**"]
-    path = ~/.gitcofig.d/work/EDGE/gitcofig
-
+[includeIf "gitdir:~/Desktop/EDGE/"]
+    path = ~/.gitconfig.edge
