@@ -18,7 +18,10 @@
     defaultBranch = main
 
 [pull]
-    rebase = true
+    rebase = true 
+
+[fetch]
+    prune = true
 
 [rerere]
     enabled = 1
