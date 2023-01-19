@@ -88,7 +88,7 @@ if &background ==# 'dark'
     hi LineNr guifg=#839496 guibg=#073642 gui=NONE cterm=NONE
     hi NonText guifg=#cb4b16 guibg=NONE gui=bold cterm=bold
     hi SpecialKey guifg=#cb4b16 guibg=NONE gui=reverse cterm=reverse
-    hi SpellBad guifg=#6c71c4 guibg=#fdf6e3 guisp=#dc322f gui=reverse,undercurl cterm=reverse,underline
+    hi SpellBad guifg=#dc322f guibg=#fdf6e3 guisp=#dc322f gui=reverse,undercurl cterm=reverse,underline
     hi SpellCap guifg=#6c71c4 guibg=#fdf6e3 guisp=#dc322f gui=reverse,undercurl cterm=reverse,underline
     hi SpellLocal guifg=#b58900 guibg=#fdf6e3 guisp=#dc322f gui=reverse,undercurl cterm=reverse,underline
     hi SpellRare guifg=#2aa198 guibg=#fdf6e3 guisp=#dc322f gui=reverse,undercurl cterm=reverse,underline
@@ -98,7 +98,7 @@ if &background ==# 'dark'
     hi LineNr guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
     hi NonText guifg=#073642 guibg=NONE gui=bold cterm=bold
     hi SpecialKey guifg=#073642 guibg=NONE gui=reverse cterm=reverse
-    hi SpellBad guifg=#6c71c4 guibg=NONE guisp=#6c71c4 gui=undercurl cterm=underline
+    hi SpellBad guifg=#dc322f guibg=NONE guisp=#6c71c4 gui=undercurl cterm=underline
     hi SpellCap guifg=#6c71c4 guibg=NONE guisp=#6c71c4 gui=undercurl cterm=underline
     hi SpellLocal guifg=#b58900 guibg=NONE guisp=#b58900 gui=undercurl cterm=underline
     hi SpellRare guifg=#2aa198 guibg=NONE guisp=#2aa198 gui=undercurl cterm=underline
@@ -108,7 +108,7 @@ if &background ==# 'dark'
     hi LineNr guifg=#657b83 guibg=#073642 gui=NONE cterm=NONE
     hi NonText guifg=#657b83 guibg=NONE gui=bold cterm=bold
     hi SpecialKey guifg=#657b83 guibg=#073642 gui=bold cterm=bold
-    hi SpellBad guifg=#6c71c4 guibg=NONE guisp=#6c71c4 gui=undercurl cterm=underline
+    hi SpellBad guifg=#dc322f guibg=NONE guisp=#6c71c4 gui=undercurl cterm=underline
     hi SpellCap guifg=#6c71c4 guibg=NONE guisp=#6c71c4 gui=undercurl cterm=underline
     hi SpellLocal guifg=#b58900 guibg=NONE guisp=#b58900 gui=undercurl cterm=underline
     hi SpellRare guifg=#2aa198 guibg=NONE guisp=#2aa198 gui=undercurl cterm=underline
