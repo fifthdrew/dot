@@ -11,7 +11,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; Set font family and size
-(set-frame-font "Hack Nerd Font Mono" nil t)
+(set-frame-font "Hack" nil t)
 
 ; Remove borders from mode-line
 ;(set-face-attribute 'mode-line nil :box nil)
