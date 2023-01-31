@@ -25,3 +25,6 @@
 [submodule "vim/.vim/pack/themes/opt/vim-solarized8"]
 	path = vim/.vim/pack/themes/opt/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8
+[submodule "emacs-color-theme-solarized"]
+	path = emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized

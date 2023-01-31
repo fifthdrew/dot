@@ -212,4 +212,3 @@ if [ -n "$DISPLAY" ]; then
 fi
 
 set bell-style none
-. "$HOME/.cargo/env"

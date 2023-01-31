@@ -11,7 +11,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; Set font family and size
-(set-frame-font "Hack Nerd Font Mono" nil t)
+(set-frame-font "Hack" nil t)
 
 ; Remove borders from mode-line
 ;(set-face-attribute 'mode-line nil :box nil)
@@ -52,8 +52,11 @@
 (setq solarized-height-plus-4 1.0)
 
 ;; Load my custom themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'solarized-dark t)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'custom-theme-load-path
+             (file-name-as-directory
+               (expand-file-name "~/.emacs.d/themes/emacs-color-theme-solarized")))
+(load-theme 'solarized t)
 
 ;; TODO: Customize my default theme
 ;; Reference: https://www.reddit.com/r/emacs/comments/2yoi7k/help_with_color_schemes_in_the_terminal/
