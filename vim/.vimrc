@@ -312,7 +312,7 @@ function! ToggleInvisibleChars()
     set nolist
   else
     set list
-    set list listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣
+    set list listchars=tab:→\ ,space:·,trail:·,eol:↲,nbsp:␣
   endif
 endfunction
 
