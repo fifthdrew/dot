@@ -14,6 +14,7 @@ dxvk
 emacs-gtk
 exa
 exuberant-ctags
+ffmpeg
 firefox-esr
 fish
 flatpak
