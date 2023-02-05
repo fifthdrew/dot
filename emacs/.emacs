@@ -79,7 +79,7 @@
 
 ;; Initialize evil-mode
 (require 'evil)
-(evil-mode t)
+;;(evil-mode t)
 
 ;; Initialize use-package
 (unless (package-installed-p 'use-package)
