@@ -18,7 +18,11 @@
 (blink-cursor-mode -1)
 
 ;; Set font family and size
-(set-frame-font "Hack" nil t)
+(cond
+ ((find-font (font-spec :name "Hack Nerd Font Mono"))
+  (set-frame-font "Hack Nerd Font Mono-14"))
+ ((find-font (font-spec :name "Hack"))
+  (set-frame-font "Hack-14")))
 
 ; Remove borders from mode-line
 ;(set-face-attribute 'mode-line nil :box nil)
