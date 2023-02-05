@@ -2,13 +2,20 @@
 ;;                         General Stuff
 ;;--------------------------------------------------------------------
 
-;; Remove unnecessary things
+;; Remove unnecessary ui things
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (tooltip-mode -1)
 (toggle-scroll-bar -1)
-(setq inhibit-startup-message t)
+
+;; Disable startup screen
+(setq inhibit-startup-screen t)
+
+; Disable bell ring
 (setq ring-bell-function 'ignore)
+
+;; Disable blinking cursor
+(blink-cursor-mode -1)
 
 ;; Set font family and size
 (set-frame-font "Hack" nil t)
