@@ -14,4 +14,5 @@ LICENSE
 /emacs/.emacs.d/smex-itens
 /emacs/.emacs.d/transient
 /emacs/#.emacs#
+/emacs/.#.emacs
 /tmux/.tmux/resurrect
