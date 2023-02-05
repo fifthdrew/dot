@@ -12,7 +12,9 @@ set guioptions-=r
 "remove left-hand scroll bar
 set guioptions-=L  
 
-set guifont=Hack\ Nerd\ Font\ Mono\ 13
+set guifont=Hack\ Nerd\ Font\ Mono\ 14
+
+set guicursor+=a:blinkon0
 
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
