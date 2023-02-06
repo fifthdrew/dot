@@ -108,14 +108,18 @@
 ;(set-face-attribute 'mode-line-inactive nil :box nil)
 
 
+;;--------------------------------------------------------------------
+;;                               Theme
+;;--------------------------------------------------------------------
+
 ;; make the fringe stand out from the background
 (setq solarized-distinct-fringe-background t)
 
 ;; Don't change the font for some headings and titles
-(setq solarized-use-variable-pitch nil)
+;(setq solarized-use-variable-pitch nil)
 
 ;; make the modeline high contrast
-(setq solarized-high-contrast-mode-line t)
+;(setq solarized-high-contrast-mode-line t)
 
 ;; Use less bolding
 (setq solarized-use-less-bold t)
@@ -127,10 +131,10 @@
 (setq solarized-emphasize-indicators nil)
 
 ;; Don't change size of org-mode headlines (but keep other size-changes)
-(setq solarized-scale-org-headlines nil)
+;(setq solarized-scale-org-headlines nil)
 
 ;; Change the size of markdown-mode headlines (off by default)
-(setq solarized-scale-markdown-headlines t)
+;(setq solarized-scale-markdown-headlines t)
 
 ;; Avoid all font-size changes
 (setq solarized-height-minus-1 1.0)
@@ -139,18 +143,12 @@
 (setq solarized-height-plus-3 1.0)
 (setq solarized-height-plus-4 1.0)
 
-;; Load my custom themes
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory
-               (expand-file-name "~/.emacs.d/themes/emacs-color-theme-solarized")))
-(load-theme 'solarized t)
-
 ;; TODO: Customize my default theme
 ;; Reference: https://www.reddit.com/r/emacs/comments/2yoi7k/help_with_color_schemes_in_the_terminal/
 (if (display-graphic-p)
     ()
   (load-theme 'my-default t))
+
 
 ;;--------------------------------------------------------------------
 ;;                            Packages
