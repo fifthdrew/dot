@@ -7,6 +7,7 @@
 (menu-bar-mode -1)
 (tooltip-mode -1)
 (toggle-scroll-bar -1)
+(set-window-scroll-bars (minibuffer-window) nil nil)
 
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
@@ -17,6 +18,14 @@
 ;; Disable blinking cursor
 (blink-cursor-mode -1)
 
+;; Set better scrolling
+;; SOURCE: https://github.com/bbatsov/emacs.d/blob/master/init.el
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+(when (fboundp 'pixel-scroll-precision-mode)
+  (pixel-scroll-precision-mode t))
+
 ;; Set font family and size
 (cond
  ((find-font (font-spec :name "Hack Nerd Font Mono"))
@@ -24,12 +33,80 @@
  ((find-font (font-spec :name "Hack"))
   (set-frame-font "Hack-14")))
 
+;; Enable y/n answers
+(fset 'yes-or-no-p 'y-or-n-p)
+
+; Mode line settings
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
+
+;; No percentage (and no "All"/"Top"/"Bot"):
+;(setq mode-line-percent-position nil)
+
+; Show line numbers by default
+(setq-default display-line-numbers 'relative)
+
+;; Set fullscreen frame automatically
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+;; Set frame title, to show file or buffer name
+;; SOURCE: https://github.com/bbatsov/emacs.d/blob/master/init.el
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
+
+;; Don't use tabs to indent
+(setq-default indent-tabs-mode nil)
+
+;; Default identation width
+(setq-default tab-width 2)
+
+;; Tab first tries to indent the current line, and if the line was already
+;; indented, then try to complete the thing at point.
+(setq tab-always-indent 'complete)
+
+;; Force packages relying on this general indentation variable (e.g., lsp-mode)
+;; to indent with 2 spaces.
+(setq-default standard-indent 2)
+
+;; Newline at end of file
+(setq require-final-newline t)
+
+;; Make cursor movement faster
+;; SOURCE: https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
+(setq auto-window-vscroll nil)
+
+;; Store all backup and autosave files in the tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Revert buffers automatically when underlying files are changed externally
+(global-auto-revert-mode t)
+
+;; Set Encoding
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+
+;; Swap terms like 'lambda' for their corresponding symbol
+(global-prettify-symbols-mode t)
+
+;; No wrap lines
+(set-default 'truncate-lines t)
+
+;; Show matching parens
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
 ; Remove borders from mode-line
 ;(set-face-attribute 'mode-line nil :box nil)
 ;(set-face-attribute 'mode-line-inactive nil :box nil)
 
-;; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; make the fringe stand out from the background
 (setq solarized-distinct-fringe-background t)
@@ -172,6 +249,9 @@
 ;;--------------------------------------------------------------------
 ;;                           Toggle visuals
 ;;--------------------------------------------------------------------
+
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (global-set-key (kbd "<f5>") 'menu-bar-mode)
 (global-set-key (kbd "<f6>") 'tool-bar-mode)
