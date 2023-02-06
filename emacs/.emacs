@@ -289,3 +289,9 @@
 (global-set-key (kbd "<f7>") 'toggle-top-menu)
 (global-set-key (kbd "<f8>") 'hidden-mode-line-mode)
 (global-set-key (kbd "<f9>") 'toggle-line-numbering)
+
+
+;;--------------------------------------------------------------------
+;;                                Custom
+;;--------------------------------------------------------------------
+
