@@ -277,12 +277,13 @@
 
 
 ;;--------------------------------------------------------------------
-;;                           Toggle visuals
+;;                                 Keys
 ;;--------------------------------------------------------------------
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;; Toggle visuals
 (global-set-key (kbd "<f5>") 'menu-bar-mode)
 (global-set-key (kbd "<f6>") 'tool-bar-mode)
 (global-set-key (kbd "<f7>") 'toggle-top-menu)
