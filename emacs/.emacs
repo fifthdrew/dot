@@ -163,10 +163,6 @@
 (unless package-archive-contents
  (package-refresh-contents))
 
-;; Initialize evil-mode
-(require 'evil)
-;;(evil-mode t)
-
 ;; Initialize use-package
 (unless (package-installed-p 'use-package)
    (package-install 'use-package))
@@ -174,6 +170,27 @@
 (setq use-package-always-ensure t)
 
 ;; Packages
+(use-package solarized-theme
+  :config
+  (load-theme 'solarized-light t)
+  (let ((line (face-attribute 'mode-line :underline)))
+	(set-face-attribute 'mode-line          nil :overline   line)
+	(set-face-attribute 'mode-line-inactive nil :overline   line)
+	(set-face-attribute 'mode-line-inactive nil :underline  line)
+	(set-face-attribute 'mode-line          nil :box        nil)
+	(set-face-attribute 'mode-line-inactive nil :box        nil)
+	(set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
+
+;; Initialize evil-mode
+(use-package evil
+    :demand t
+
+    :init
+    (setq evil-mode-line-format nil)
+
+    :config
+    (evil-mode 1))
+
 (use-package command-log-mode)
 
 (use-package try
@@ -196,6 +213,21 @@
 (use-package magit
   :bind (("C-x g" . magit-status)
          ("C-x C-g" . magit-status)))
+
+(use-package eglot
+  :ensure t)
+
+(use-package moody
+  :config
+  (setq x-underline-at-descent-line t)
+  (moody-replace-mode-line-buffer-identification)
+  (moody-replace-vc-mode)
+  (moody-replace-eldoc-minibuffer-message-function))
+
+(use-package rainbow-delimiters
+  :hook ((emacs-lisp-mode lisp-mode racket-mode) . rainbow-delimiters-mode))
+
+(use-package dired-ranger)
 
 
 ;;--------------------------------------------------------------------
