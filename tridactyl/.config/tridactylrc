@@ -1,0 +1,7 @@
+" Based on the example tridactylrc provided in the repo.
+
+sanitise tridactyllocal tridactylsync
+
+colorscheme base16-solarized-light  
+
+" vi:ft=tridactyl
