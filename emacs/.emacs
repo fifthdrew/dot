@@ -187,7 +187,7 @@
 
     :init
     (setq evil-mode-line-format nil)
-    (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+    (setq evil-want-C-u-scroll t)
 
     :config
     (evil-mode 1))
