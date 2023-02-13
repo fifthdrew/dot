@@ -103,6 +103,14 @@
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
+;; Minimize garbage collection during startup
+(setq gc-cons-threshold most-positive-fixnum)
+
+;; Lower threshold back to 8 MiB (default is 800kB)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (expt 2 23))))
+
 ; Remove borders from mode-line
 ;(set-face-attribute 'mode-line nil :box nil)
 ;(set-face-attribute 'mode-line-inactive nil :box nil)
@@ -171,6 +179,7 @@
 
 ;; Packages
 (use-package solarized-theme
+  :ensure t
   :config
   (load-theme 'solarized-light t)
   (let ((line (face-attribute 'mode-line :underline)))
@@ -183,42 +192,52 @@
 
 ;; Initialize evil-mode
 (use-package evil
-    :demand t
-
+    :ensure t
+    :demand
     :init
-    (setq evil-mode-line-format nil)
-    (setq evil-want-C-u-scroll t)
+    (progn
+      (setq evil-want-C-u-scroll t)
+      (setq evil-mode-line-format nil)
+      (evil-mode 1)))
 
-    :config
-    (evil-mode 1))
-
-(use-package command-log-mode)
+(use-package command-log-mode
+  :ensure t
+  :defer 5)
 
 (use-package try
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package which-key
   :ensure t
   :config
-  (which-key-mode))
+  (which-key-mode)
+  :defer 5)
 
 (use-package rust-mode
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package typescript-mode
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package vimrc-mode
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package magit
+  :ensure t
   :bind (("C-x g" . magit-status)
-         ("C-x C-g" . magit-status)))
+         ("C-x C-g" . magit-status))
+  :defer 5)
 
 (use-package eglot
-  :ensure t)
+  :ensure t
+  :defer 5)
 
 (use-package moody
+  :ensure t
   :config
   (setq x-underline-at-descent-line t)
   (moody-replace-mode-line-buffer-identification)
@@ -226,9 +245,12 @@
   (moody-replace-eldoc-minibuffer-message-function))
 
 (use-package rainbow-delimiters
+  :ensure t
   :hook ((emacs-lisp-mode lisp-mode racket-mode) . rainbow-delimiters-mode))
 
-(use-package dired-ranger)
+(use-package dired-ranger
+  :ensure t
+  :defer 5)
 
 
 ;;--------------------------------------------------------------------
