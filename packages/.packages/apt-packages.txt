@@ -65,6 +65,7 @@ staruml
 steam:i386
 stow
 sturdy
+syncthing
 tar
 tasksel
 tasksel-data
