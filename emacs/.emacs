@@ -189,10 +189,19 @@
 
 ;; TODO: Customize my default theme
 ;; Reference: https://www.reddit.com/r/emacs/comments/2yoi7k/help_with_color_schemes_in_the_terminal/
-(if (display-graphic-p)
-    ()
-  (load-theme 'my-default t))
+;(if (display-graphic-p)
+;    ()
+;  (load-theme 'my-default t))
 
+;; TODO: Move to custom/helper/utility functions
+(defun on-after-init ()
+  (unless (display-graphic-p (selected-frame))
+    (setq solarized-high-contrast-mode-line t)
+    (load-theme 'solarized-light t)
+    (set-face-background 'default "undefined")))
+
+; TODO: Move hooks to their own place
+(add-hook 'window-setup-hook 'on-after-init)
 
 ;;--------------------------------------------------------------------
 ;;                            Packages
