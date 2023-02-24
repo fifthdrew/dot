@@ -194,11 +194,13 @@
 (unless (package-installed-p 'use-package)
    (package-install 'use-package))
 (require 'use-package)
-(setq use-package-always-ensure t)
 
-;; Packages
+;; Setting for all, otherwise I need to specify in most of the packages
+(setq use-package-always-ensure t)
+(setq use-package-always-defer t)
+
 (use-package solarized-theme
-  :ensure t
+  :defer nil
   :config
   (load-theme 'solarized-light t)
   (let ((line (face-attribute 'mode-line :underline)))
@@ -209,7 +211,6 @@
 	(set-face-attribute 'mode-line-inactive nil :box        nil)
 	(set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
 
-;; Initialize evil-mode
 ;; Compile packages, and use the newest version available
 (use-package auto-compile
   :demand t
@@ -224,7 +225,6 @@
   (system-packages-package-manager 'apt))
 
 (use-package evil
-    :ensure t
     :demand
     :init
     (progn
@@ -240,11 +240,9 @@
 (use-package evil-collection
   :after evil
   :ensure t
-  :defer 5)
+  :config
+  (evil-collection-init))
 
-(use-package try
-  :ensure t
-  :defer 5)
 ;; For the redo function to work correctly on evil-mode
 (use-package undo-tree
   :after evil
@@ -259,37 +257,28 @@
 		:config
 		(global-evil-surround-mode 1))
 
+(use-package command-log-mode)
+
+(use-package try)
 
 (use-package which-key
-  :ensure t
   :config
-  (which-key-mode)
-  :defer 5)
+  (which-key-mode))
 
-(use-package rust-mode
-  :ensure t
-  :defer 5)
+(use-package rust-mode)
 
-(use-package typescript-mode
-  :ensure t
-  :defer 5)
+(use-package typescript-mode)
 
-(use-package vimrc-mode
-  :ensure t
-  :defer 5)
+(use-package vimrc-mode)
 
 (use-package magit
-  :ensure t
   :bind (("C-x g" . magit-status)
-         ("C-x C-g" . magit-status))
-  :defer 5)
+         ("C-x C-g" . magit-status)))
 
-(use-package eglot
-  :ensure t
-  :defer 5)
+(use-package eglot)
 
 (use-package moody
-  :ensure t
+  :defer nil
   :config
   (setq x-underline-at-descent-line t)
   (moody-replace-mode-line-buffer-identification)
@@ -297,13 +286,9 @@
   (moody-replace-eldoc-minibuffer-message-function))
 
 (use-package rainbow-delimiters
-  :ensure t
   :hook ((emacs-lisp-mode lisp-mode racket-mode) . rainbow-delimiters-mode))
 
-(use-package dired-ranger
-  :ensure t
-  :defer 5)
-
+(use-package dired-ranger)
 
 ;; Trigger garbage collection when idle for five seconds and memory usage is over 16 MB.
 ;; This package replaces the instructions on 'general stuff' section.
