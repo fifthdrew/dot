@@ -93,6 +93,15 @@
   (write-region "" nil custom-file))
 (load custom-file)
 
+;; Don't write lock-files
+(setq create-lockfiles nil)
+
+;; Move files to trash when deleting
+(setq delete-by-moving-to-trash t)
+
+;; Auto-close brackets and double quotes
+(electric-pair-mode 1)
+
 ;; Revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
 
