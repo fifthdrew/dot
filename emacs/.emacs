@@ -1,4 +1,20 @@
 ;;--------------------------------------------------------------------
+;;                         Global Variables
+;;--------------------------------------------------------------------
+
+(setq my/custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+(setq my/leader-key "<spacebar>")
+
+(setq my/cloud-synced-directory
+      (file-name-as-directory
+       (expand-file-name
+        "~/Documents/")))
+
+(setq my/org-directory (expand-file-name "second-brain" my/cloud-synced-directory))
+
+
+;;--------------------------------------------------------------------
 ;;                         General Stuff
 ;;--------------------------------------------------------------------
 
