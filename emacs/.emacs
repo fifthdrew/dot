@@ -119,15 +119,16 @@
 
 ;; Show matching parens
 (setq show-paren-delay 0)
+
 (show-paren-mode 1)
 
 ;; Minimize garbage collection during startup
-(setq gc-cons-threshold most-positive-fixnum)
+;(setq gc-cons-threshold most-positive-fixnum)
 
 ;; Lower threshold back to 8 MiB (default is 800kB)
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq gc-cons-threshold (expt 2 23))))
+;(add-hook 'emacs-startup-hook
+;          (lambda ()
+;            (setq gc-cons-threshold (expt 2 23))))
 
 ; Remove borders from mode-line
 ;(set-face-attribute 'mode-line nil :box nil)
@@ -270,6 +271,16 @@
   :ensure t
   :defer 5)
 
+
+;; Trigger garbage collection when idle for five seconds and memory usage is over 16 MB.
+;; This package replaces the instructions on 'general stuff' section.
+(use-package gcmh
+		:demand t
+		:init
+		(setq gcmh-idle-delay 5
+					gcmh-high-cons-threshold (* 16 1024 1024))
+		:config
+		(gcmh-mode))
 
 ;;--------------------------------------------------------------------
 ;;                          Utility Functions
