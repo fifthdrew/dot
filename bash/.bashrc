@@ -162,7 +162,7 @@ git_prompt() {
 }
 
 if [ "$color_prompt" = yes ]; then
-  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\[$GREEN_BOLD\]\u@\h\[$CLEAR\]:\[$BLUE_BOLD\]\w\$(git_prompt)\[$CLEAR\]\$ "'
+  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\[$GREEN\]\u@\h\[$CLEAR\]:\[$BLUE\]\w\$(git_prompt)\[$CLEAR\]\$ "'
 else
   PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(git_prompt)\$ "'
 fi
