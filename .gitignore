@@ -15,5 +15,5 @@ LICENSE
 /emacs/.emacs.d/transient
 /emacs/#.emacs#
 /emacs/.#.emacs
-..emacs.~undo-tree~
+*.~undo-tree~
 /tmux/.tmux/resurrect
