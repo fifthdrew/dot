@@ -228,17 +228,37 @@
     :demand
     :init
     (progn
+      ;(setq evil-want-keybinding nil)
       (setq evil-want-C-u-scroll t)
+      (setq evil-want-fine-undo t)
+      ; Undo character by character
+      ;(advice-add 'undo-auto--last-boundary-amalgamating-number
+      ;      :override #'ignore)
       (setq evil-mode-line-format nil)
       (evil-mode 1)))
 
-(use-package command-log-mode
+(use-package evil-collection
+  :after evil
   :ensure t
   :defer 5)
 
 (use-package try
   :ensure t
   :defer 5)
+;; For the redo function to work correctly on evil-mode
+(use-package undo-tree
+  :after evil
+  :demand
+  :diminish
+  :config
+  (evil-set-undo-system 'undo-tree)
+  (global-undo-tree-mode 1))
+
+(use-package evil-surround
+	  :after evil
+		:config
+		(global-evil-surround-mode 1))
+
 
 (use-package which-key
   :ensure t
