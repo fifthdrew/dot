@@ -3,16 +3,19 @@
 ;;--------------------------------------------------------------------
 
 ;; Remove unnecessary ui things
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(tooltip-mode -1)
-(toggle-scroll-bar -1)
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tooltip-mode) (tooltip-mode -1))
 (set-window-scroll-bars (minibuffer-window) nil nil)
 
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
 
 ; Disable bell ring
+;; Disable scratch message
+(setq initial-scratch-message nil)
+
 (setq ring-bell-function 'ignore)
 
 ;; Disable blinking cursor
