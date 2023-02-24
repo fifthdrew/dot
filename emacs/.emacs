@@ -12,10 +12,10 @@
 ;; Disable startup screen
 (setq inhibit-startup-screen t)
 
-; Disable bell ring
 ;; Disable scratch message
 (setq initial-scratch-message nil)
 
+;; Disable alarms
 (setq ring-bell-function 'ignore)
 
 ;; Disable blinking cursor
@@ -39,7 +39,7 @@
 ;; Enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; Mode line settings
+;; Mode line settings
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
@@ -47,7 +47,7 @@
 ;; No percentage (and no "All"/"Top"/"Bot"):
 ;(setq mode-line-percent-position nil)
 
-; Show line numbers by default
+;; Show line numbers by default
 (setq-default display-line-numbers 'relative)
 
 ;; Set fullscreen frame automatically
