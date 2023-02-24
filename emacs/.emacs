@@ -87,6 +87,12 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; Keep emacs Custom-settings in separate file.
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (not (file-exists-p custom-file))
+  (write-region "" nil custom-file))
+(load custom-file)
+
 ;; Revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
 
@@ -315,9 +321,4 @@
 (global-set-key (kbd "<f7>") 'toggle-top-menu)
 (global-set-key (kbd "<f8>") 'hidden-mode-line-mode)
 (global-set-key (kbd "<f9>") 'toggle-line-numbering)
-
-
-;;--------------------------------------------------------------------
-;;                                Custom
-;;--------------------------------------------------------------------
 
