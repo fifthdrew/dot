@@ -210,6 +210,19 @@
 	(set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
 
 ;; Initialize evil-mode
+;; Compile packages, and use the newest version available
+(use-package auto-compile
+  :demand t
+  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
+
+;; Install system package if needed
+;; NOTE: Must add new package managers
+(use-package use-package-ensure-system-package
+  :demand t
+  :custom
+  (system-packages-package-manager 'apt))
+
 (use-package evil
     :ensure t
     :demand
