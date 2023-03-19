@@ -76,6 +76,7 @@ tig
 tmux
 torbrowser-launcher
 util-linux
+vifm
 vim
 vim-common
 vim-gui-common
