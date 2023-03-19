@@ -34,6 +34,7 @@ make
 mangohud
 mawk
 megasync
+mosh
 mpv
 nala
 nano
