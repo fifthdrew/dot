@@ -1,0 +1,3 @@
+# XONSH WIZARD START
+source-bash "echo loading xonsh foreign shell"
+# XONSH WIZARD END

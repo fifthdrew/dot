@@ -85,3 +85,4 @@ w3m
 wget
 wine
 xclip
+xonsh
