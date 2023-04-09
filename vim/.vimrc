@@ -516,6 +516,9 @@ nnoremap <F4> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 " Shortcut for typing commands
 nnoremap ; :
 
+" Shortcut for close all windows
+nnoremap ;q :qa
+
 " Uppercase the current word
 inoremap <C-u> <esc>viwUea
 
