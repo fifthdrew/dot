@@ -42,6 +42,10 @@ if [ -d "$HOME/.cargo/bin/mprocs" ] ; then
     PATH="$HOME/.cargo/bin/mprocs:$PATH"
 fi
 
+if [ -d "/usr/local/bin/aws" ] ; then
+    PATH="/usr/local/bin/aws:$PATH"
+fi
+
 export PATH
 
 # export cargo (Rust package manager)
