@@ -580,7 +580,7 @@ augroup number
     autocmd number InsertLeave * :call ActivateRelativeNumber()
 augroup END
 
-autocmd BufWritePost *.md silent !toemoji %
+" autocmd BufWritePost *.md silent !toemoji %
 
 " }}}
 " ABBREVIATIONS AND CORRECTIONS {{{
