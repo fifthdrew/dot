@@ -6,3 +6,5 @@ hi gitcommitUntrackedFile cterm=NONE ctermfg=LightGray
 hi gitcommitBranch cterm=Bold ctermfg=LightGray
 hi gitcommitHeader cterm=NONE ctermfg=LightGray
 hi gitcommitSummary cterm=Bold guifg='#839496'
+
+hi ExtraWhitespace cterm=NONE ctermbg=NONE guibg=NONE
