@@ -73,6 +73,7 @@ tasksel-data
 telnet
 thunderbird
 tig
+tmate
 tmux
 torbrowser-launcher
 util-linux
