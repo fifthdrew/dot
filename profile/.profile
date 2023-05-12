@@ -65,7 +65,19 @@ fi
 # This loads Node Version Manager bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+if [ -d "/usr/bin/vim" ] ; then
+    PATH="$HOME/.cargo/bin/mprocs:$PATH"
+fi
+
+export EDITOR=/usr/bin/vim
+
+# Editor to be used with the 'sudoedit' command
+export SUDO_EDITOR=$EDITOR
+
 export TERM=xterm-256color
 
+# fzf command
 export FZF_DEFAULT_OPTS="--prompt='' --pointer=' ❯' --color=16 --info=hidden"
+
+# bat command
 export BAT_THEME="Solarized (dark)"
