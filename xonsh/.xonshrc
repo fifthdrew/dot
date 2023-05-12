@@ -1,3 +1,10 @@
-# XONSH WIZARD START
+from xonsh.tools import register_custom_style
 source-bash "echo loading xonsh foreign shell"
-# XONSH WIZARD END
+#mystyle = {
+#    "Literal.String.Single": "#ff88aa",
+#    "Literal.String.Double": "#ff4488",
+#    "RED": "#008800",
+#}
+#register_custom_style("mystyle", mystyle, base="solarized-dark")
+$XONSH_COLOR_STYLE='solarized-dark'
+$PROMPT = '{CYAN}{user}@{hostname}{RESET}:{BLUE}{cwd}{RESET}({curr_branch})$ '
