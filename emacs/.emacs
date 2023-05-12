@@ -58,13 +58,13 @@
 ;; Mode line settings
 (line-number-mode t)
 (column-number-mode t)
-(size-indication-mode t)
+;(size-indication-mode t)
 
 ;; No percentage (and no "All"/"Top"/"Bot"):
-;(setq mode-line-percent-position nil)
+(setq mode-line-percent-position nil)
 
 ;; Show line numbers by default
-(setq-default display-line-numbers 'relative)
+;(setq-default display-line-numbers 'relative)
 
 ;; Set fullscreen frame automatically
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
@@ -163,7 +163,7 @@
 ;(setq solarized-use-variable-pitch nil)
 
 ;; make the modeline high contrast
-;(setq solarized-high-contrast-mode-line t)
+(setq solarized-high-contrast-mode-line t)
 
 ;; Use less bolding
 (setq solarized-use-less-bold t)
@@ -230,12 +230,13 @@
   :config
   (load-theme 'solarized-light t)
   (let ((line (face-attribute 'mode-line :underline)))
-	(set-face-attribute 'mode-line          nil :overline   line)
-	(set-face-attribute 'mode-line-inactive nil :overline   line)
-	(set-face-attribute 'mode-line-inactive nil :underline  line)
-	(set-face-attribute 'mode-line          nil :box        nil)
-	(set-face-attribute 'mode-line-inactive nil :box        nil)
-	(set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
+    (set-face-attribute 'mode-line          nil :overline   line)
+    ;; (set-face-attribute 'mode-line          nil :box        nil)
+    (set-face-attribute 'mode-line          nil :background "#657B83")
+    (set-face-attribute 'mode-line-inactive nil :overline   line)
+    (set-face-attribute 'mode-line-inactive nil :box        nil)
+    (set-face-attribute 'mode-line-inactive nil :underline  line)))
+    ;; (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
 
 ;; Compile packages, and use the newest version available
 (use-package auto-compile
@@ -291,6 +292,11 @@
   :config
   (which-key-mode))
 
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
 (use-package rust-mode)
 
 (use-package typescript-mode)
@@ -303,18 +309,38 @@
 
 (use-package eglot)
 
-(use-package moody
-  :defer nil
-  :config
-  (setq x-underline-at-descent-line t)
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode)
-  (moody-replace-eldoc-minibuffer-message-function))
+;; (use-package moody
+;;   :defer nil
+;;   :config
+;;   (setq x-underline-at-descent-line t)
+;;   (moody-replace-mode-line-buffer-identification)
+;;   (moody-replace-vc-mode)
+;;   (moody-replace-eldoc-minibuffer-message-function))
+
+(use-package diminish
+  :init
+  (diminish 'emacs-lisp-mode "p"))
 
 (use-package rainbow-delimiters
   :hook ((emacs-lisp-mode lisp-mode racket-mode) . rainbow-delimiters-mode))
 
 (use-package dired-ranger)
+(use-package all-the-icons)
+
+(use-package all-the-icons-dired
+  :config
+  :hook (dired-mode . (lambda ()
+                       (interactive)
+                       (unless (file-remote-p default-directory)
+                         (all-the-icons-dired-mode)))))
+
+
+(use-package dired-subtree
+  :config
+  (advice-add 'dired-subtree-toggle :after (lambda ()
+                                             (interactive)
+                                             (when all-the-icons-dired-mode
+                                               (revert-buffer)))))
 
 ;; Trigger garbage collection when idle for five seconds and memory usage is over 16 MB.
 ;; This package replaces the instructions on 'general stuff' section.
