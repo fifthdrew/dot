@@ -26,3 +26,6 @@ alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
 
 # rm
 alias rm='rm -i'
+
+# vi(m)
+alias vif='vi $(fzf)'

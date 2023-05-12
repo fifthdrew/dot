@@ -142,7 +142,7 @@ git_color() {
     elif [[ -n $dirty ]]; then
         echo -e $RED
     elif [[ -n $needs_push ]]; then
-        echo -e $BLUE
+        echo -e $MAGENTA
     else
         echo -e $CLEAR
     fi
@@ -162,7 +162,7 @@ git_prompt() {
 }
 
 if [ "$color_prompt" = yes ]; then
-  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\[$GREEN\]\u@\h\[$CLEAR\]:\[$BLUE\]\w\$(git_prompt)\[$CLEAR\]\$ "'
+  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\[$CYAN\]\u@\h\[$CLEAR\]:\[$BLUE\]\w\$(git_prompt)\[$CLEAR\]\$ "'
 else
   PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(git_prompt)\$ "'
 fi
