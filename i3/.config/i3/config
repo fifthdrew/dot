@@ -1,14 +1,20 @@
 set $mod Mod4
 
+set $FONT Hack
+
 # Font for window titles
 #font pango:monospace 8
-font pango:Hack 10
+font pango:$FONT 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt -fg white -bg black -fn 'xft:Hack:size=10:Regular' -fb 'xft:Hack:size=10:Bold' -fi 'xft:Hack:size=10:Italic' -fbi 'xft:Hack:size=10:Bold:Italic' +sb
+
+# kill focused window
+bindsym $mod+x kill
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -123,7 +129,20 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Colors
-#
+set $NB #222222
+set $NF #FFFFFF
+set $FB #0088EE
+set $FF #FFFFFF
+set $UB #FFDD00
+set $UF #FFFFFF
+
+# class                 border background text indicator
+client.focused          $FB $FB $FF #2e9ef4
+client.focused_inactive $NB $NB $NF #484e50
+client.unfocused        $NB $NB $NF #292d2e
+client.urgent           $UB $UB $UF #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000
+
 # Default
 # class                 border  bground text    indicator child_border
 #client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
@@ -144,7 +163,18 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bar {
         #status_command i3status --config ~/.config/i3/i3status.conf
         status_command i3status
+        position bottom
+        verbose	yes
+        separator_symbol "|"
         colors {
+            background	$NB
+            statusline	$NF
+            separator	$FB
+            focused_workspace	$FB $FB $FF
+            active_workspace	$NB $NB $NF
+            inactive_workspace	$NB $NB $NF
+            urgent_workspace	$UB $UB $UF
+
             # Default
             #background #000000
             #statusline #ffffff
@@ -199,21 +229,24 @@ for_window [class=".*"] title_format "%class"
 # Remove focus on mouse move
 focus_follows_mouse no
 
-# Remove borders
+# Borders
 #hide_edge_borders both
+default_border pixel 2
+default_floating_border pixel 1
 
 # force floating for all new windows
 #for_window [class="[.]*"] floating enable
 
 # Add shadows
 #exec --no-startup-id compton &
+#exec compton --config ~/.config/compton/compton.conf -b
 
 # Add icons to the windows
 #for_window [all] title_window_icon yes
 #for_window [all] title_window_icon padding 3px
 
 #Display resolution
-exec_aways xrandr --output HDMI-0  --mode 1920x1080
+exec_aways xrandr --output HDMI-0 --mode 1920x1080
 
 # Display Wallpaper
 exec_always feh --bg-fill ~/Pictures/GNU_meditating.png
