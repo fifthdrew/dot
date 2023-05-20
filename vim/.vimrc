@@ -272,6 +272,7 @@ let s:comment_map = {
 
 function! ActivateAllComponentsDisplay()
     set colorcolumn=81
+    set cursorline
     set laststatus=2
     set showtabline=1
     set number relativenumber
@@ -302,16 +303,18 @@ function! ToggleTabLineDisplay()
 endfunction
 
 function! ToggleAllComponentsDisplay()
-    if &colorcolumn == 81 && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &showtabline == 1 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &showtabline == 0 && &laststatus == 2 && &number == 'number' && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &showtabline == 0 && &laststatus == 0 && &number && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber
+    if &colorcolumn == 81 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 1 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 2 && &number == 'number' && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 0 && &number && &relativenumber == 'relativenumber' ||
+    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber ||
+    \  &colorcolumn ==  0 && &cursorline && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber
         :call ActivateAllComponentsDisplay()
     endif
     :call ToggleStatusBarDisplay()
     :call ToggleColorColumnDisplay()
     :call ToggleTabLineDisplay()
+    :set cursorline!
     :set number! relativenumber!
 endfunction
 
