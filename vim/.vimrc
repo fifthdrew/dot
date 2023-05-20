@@ -204,10 +204,10 @@ let g:termdebug_wide = 163
 
 " Markdown suport configuration
 let g:markdown_fenced_languages = [
-            \   'html', 
-            \   'python', 
-            \   'javascript', 
-            \   'typescript', 
+            \   'html',
+            \   'python',
+            \   'javascript',
+            \   'typescript',
             \   'vim'
             \ ]
 
@@ -226,8 +226,8 @@ let g:solarized_termcolors=256
 let g:solarized_extra_hi_groups = 1
 let g:solarized_italics = 1
 let g:solarized_bold = 1
-let g:solarized_underline = 1       
-let g:solarized_italic = 1       
+let g:solarized_underline = 1
+let g:solarized_italic = 1
 let g:solarized_prefix_diffmode = 'low'
 
 " Define leader key
