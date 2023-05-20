@@ -172,6 +172,9 @@ let g:netrw_special_syntax= 1
 let g:netrw_cursor = 2
 " }
 
+" Explore
+let g:explore_is_open = 0
+
 " Hardtime plugin configuration
 " {
 let g:list_of_normal_keys = [
@@ -406,6 +409,17 @@ function! RestoreSession()
         endif
     endif
 endfunction
+
+function! ToggleExplore()
+    if g:explore_is_open
+        let g:explore_is_open = 0
+        :Rexplore
+    else
+        let g:explore_is_open = 1
+        :Explore
+    endif
+endfunction
+
 " }}}
 " KEYBOARD SHORTCUTS {{{
 
@@ -449,7 +463,7 @@ nmap <Leader>sp :set spell!<CR>
 nmap <Leader>sl :call ToggleSpellLang()<CR>
 
 " Open file explorer (Netrw) on the current directory
-nmap <Leader>e :e.<CR>
+nmap <Leader>e :call ToggleExplore()<CR>
 
 " Clear the highlights from the search
 nmap <Leader>ns :nohlsearch<CR>
