@@ -234,6 +234,9 @@ let g:solarized_prefix_diffmode = 'low'
 let mapleader="\<space>"
 let maplocalleader=","
 
+" Quickfix
+let g:quickfix_is_open = 0
+
 " Comment characters for each language
 " SOURCE: https://stackoverflow.com/questions/1676632
 " {
@@ -420,6 +423,15 @@ function! ToggleExplore()
     endif
 endfunction
 
+function! ToggleQuickfix()
+    if g:quickfix_is_open
+        let g:quickfix_is_open = 0
+        :cclose
+    else
+        let g:quickfix_is_open = 1
+        :copen
+    endif
+endfunction
 " }}}
 " KEYBOARD SHORTCUTS {{{
 
@@ -452,9 +464,9 @@ nnoremap <Leader>m :marks<CR>:'
 nmap <Leader>t :term<CR>
 
 " Quick fix operations
-nmap <Leader>8 :copen<CR>
-nmap <Leader>7 :cnext<CR>
-nmap <Leader>6 :cprevious<CR>
+nmap <Leader>qq :call ToggleQuickfix()<CR>
+nmap <Leader>qn :cnext<CR>
+nmap <Leader>qp :cprevious<CR>
 
 " Toggle the spell checking
 nmap <Leader>sp :set spell!<CR>
