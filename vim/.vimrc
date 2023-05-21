@@ -175,29 +175,6 @@ let g:netrw_cursor = 2
 " Explore
 let g:explore_is_open = 0
 
-" Hardtime plugin configuration
-" {
-let g:list_of_normal_keys = [
-            \   "h", "j", "k", "l", "-", "+",
-            \   "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"
-            \ ]
-
-let g:list_of_visual_keys = [
-            \   "h", "j", "k", "l", "-", "+",
-            \   "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"
-            \ ]
-
-let g:list_of_insert_keys = [
-            \   "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"
-            \ ]
-
-let g:list_of_disabled_keys = []
-
-let g:hardtime_timeout = 2000
-let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 2
-" }
-
 " Termdebug plugin configuration
 let g:termdebug_popup = 0
 let g:termdebug_wide = 163
@@ -528,9 +505,6 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Generate tags file on the current directory
 nmap <Leader>gt :!ctags -R .<CR>
-
-" Activate and deactivate the Hard Time plugin
-nmap <Leader>H :HardTimeToggle<CR>
 
 " Utilities
 vnoremap <Leader>, :call ToggleComment()<CR>
