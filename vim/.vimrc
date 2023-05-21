@@ -279,6 +279,14 @@ function! ToggleTabLineDisplay()
   endif
 endfunction
 
+function! ActivateRelativeNumber()
+  if &number=='nonumber'
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunction
+
 function! ToggleAllComponentsDisplay()
     if &colorcolumn == 81 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
     \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 1 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
@@ -574,14 +582,6 @@ augroup session
     autocmd VimLeave * call SaveSession()
     autocmd VimEnter * nested call RestoreSession()
 augroup END
-
-function! ActivateRelativeNumber()
-  if &number=='nonumber'
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunction
 
 augroup number
     autocmd number InsertEnter * :set norelativenumber
