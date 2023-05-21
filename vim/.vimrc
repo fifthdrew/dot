@@ -188,16 +188,6 @@ let g:markdown_fenced_languages = [
             \   'vim'
             \ ]
 
-let g:fzf_layout = {
-            \ 'window': {
-                \   'border': 'none',
-                \   'height': 2,
-                \   'relative': v:false,
-                \   'width': 1,
-                \   'yoffset': 1,
-                \ }
-            \ }
-
 " Solarized themes configuration
 let g:solarized_termcolors=256
 let g:solarized_extra_hi_groups = 1
@@ -420,6 +410,23 @@ function! ToggleQuickfix()
         :copen
     endif
 endfunction
+
+" Call the fuzzy finder command inside vim
+" SOURCE: https://www.reddit.com/r/vim/comments/orfpbd/interactive_fuzzy_finder_in_vim_without_plugins/
+function! FZF() abort
+	let l:tempname = tempname()
+	" fzf | awk '{ print $1":1:0" }' > file
+	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
+	try
+		execute 'cfile ' . l:tempname
+		redraw!
+	finally
+		call delete(l:tempname)
+	endtry
+endfunction
+
+command! FZF call FZF()
+
 " }}}
 " KEYBOARD SHORTCUTS {{{
 
@@ -472,7 +479,7 @@ nmap <Leader>ns :nohlsearch<CR>
 nmap <Leader>sy :syntax sync fromstart<CR>
 
 " Open search on the current directory
-nnoremap <Leader>ff :FZF --prompt= --info=hidden<CR>
+nnoremap <Leader>ff :FZF<CR>
 nnoremap <Leader>f :find *
 nnoremap <Leader>sf :sfind *
 nnoremap <Leader>vf :vert sfind *
