@@ -7,7 +7,7 @@
 " /\_\\ \___/  \ \_\ \_\ \_\ \_\ \_\\ \____\
 " \/_/ \/__/    \/_/\/_/\/_/\/_/\/_/ \/____/
 
-" GENERAL SETTINGS {{{
+"{{{ GENERAL SETTINGS
 
 setlocal foldmethod=marker
 
@@ -140,7 +140,7 @@ set autochdir
 " Check if '+clipboard' (vim --version | grep clipboard)
 set clipboard^=unnamed,unnamedplus
 
-" Send vim temporary files to /tmp 
+" Send vim temporary files to /tmp
 set backupdir=/tmp//
 set directory=/tmp//
 set undodir=/tmp//
@@ -151,13 +151,12 @@ set tags=tags;
 set showmatch
 
 " }}}
-" DEFINE VARIABLES {{{
+" {{{ DEFINE VARIABLES
 
 " Vim folder location
 let $VIMHOME = $HOME."/.vim/"
 
 " Netrw plugin configuration
-" {
 let g:netrw_banner = 0
 let g:netrw_altv = 1
 let g:netrw_liststyle = 3
@@ -170,7 +169,6 @@ let g:netrw_winsize = 30
 let g:netrw_localcopydircmd = 'cp -r'
 let g:netrw_special_syntax= 1
 let g:netrw_cursor = 2
-" }
 
 " Explore
 let g:explore_is_open = 0
@@ -210,7 +208,6 @@ let g:quickfix_is_open = 0
 
 " Comment characters for each language
 " SOURCE: https://stackoverflow.com/questions/1676632
-" {
 let s:comment_map = {
             \   "c": '\/\/',
             \   "cpp": '\/\/',
@@ -237,9 +234,9 @@ let s:comment_map = {
             \   "vim": '"',
             \   "tex": '%',
             \ }
-" }
+
 " }}}
-" UTILITY FUNCTIONS {{{
+" {{{ UTILITY FUNCTIONS
 
 function! ActivateAllComponentsDisplay()
     execute "set colorcolumn=" . g:cc
@@ -336,7 +333,6 @@ endfunction
 
 " To comment lines with a command
 " SOURCE: https://stackoverflow.com/questions/1676632
-" {
 function! ToggleComment()
   if has_key(s:comment_map, &filetype)
     let comment_leader = s:comment_map[&filetype]
@@ -356,11 +352,9 @@ function! ToggleComment()
       echo "No comment leader found for filetype"
   end
 endfunction
-" }
 
 " This function returns the full or shortened path of the current file
 " SOURCE: https://www.reddit.com/r/vim/comments/m7yald/is_there_any_way_to_apply_pathshortern_to/
-" {
 function! FilePath() abort
     if expand('%:h') ==# ''
       return '[No Name]'
@@ -435,13 +429,31 @@ function! PrintSyntaxGroup() abort
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 endfunction
 
-" CUSTOM COMMANDS {{{
+" }}}
+" {{{ CUSTOM COMMANDS
 
 command! FZF call FZF()
 command! PrintSyntaxGroup call PrintSyntaxGroup()
+command! SaveSession call SaveSession()
+command! RestoreSession call RestoreSession()
 
 " }}}
-" KEYBOARD SHORTCUTS {{{
+" {{{ AUTOMATIC COMMANDS
+
+augroup session
+    autocmd VimLeave * silent :SaveSession
+    autocmd VimEnter * nested :RestoreSession
+augroup END
+
+augroup number
+    autocmd number InsertEnter * :set norelativenumber
+    autocmd number InsertLeave * :call ActivateRelativeNumber()
+augroup END
+
+" autocmd BufWritePost *.md silent !toemoji %
+
+" }}}
+" {{{ KEYBOARD SHORTCUT MAPPINGS
 
 " Use this when clipboard not working properly
 " nnoremap yy "+y
@@ -454,7 +466,7 @@ nmap <Leader>s :source $MYVIMRC<CR>
 
 " Create and source my session file
 nmap <Leader>cs :mksession! /tmp/session.vim<CR>
-nmap <Leader>ls :source /tmp/session.vim<CR> 
+nmap <Leader>ls :source /tmp/session.vim<CR>
 
 " Put a semicolon at the and of the actual line
 nnoremap <Leader>; A;<Esc>
@@ -522,14 +534,12 @@ nmap <Left> :vertical resize +10<CR>
 
 " Move lines up and down
 " SOURCE: https://github.com/noopkat/dotfiles/blob/master/.vimrc
-" {
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-" }
 
 " Generate tags file on the current directory
 nmap <Leader>gt :!ctags -R .<CR>
@@ -572,15 +582,9 @@ onoremap p i(
 " Until find the word return
 onoremap b /return<CR>
 " }
-" }}}
-" SNIPPETS {{{ 
-
-"TODO: Create a snippet to write the log command according to the current file
-"extension and insert the comment as a reminder for future removal of the
-"same, including the Github user
 
 " }}}
-" DISPLAY SETTINGS {{{
+" {{{ KEYBOARD SHORTCUT MAPPINGS FOR DISPLAY SETTINGS
 
 nmap <F10> :call ToggleAllComponentsDisplay()<CR>
 nmap <F9> :call ToggleTabLineDisplay()<CR>
@@ -590,25 +594,14 @@ nmap <F6> :set number!<CR>
 nmap <F5> :set relativenumber!<CR>
 
 " }}}
-" AUTOMATIC COMMANDS {{{
+" {{{ SNIPPETS
 
-" TODO: Maybe make an autocommand to switche between number and relative number
-" when entering on insert mode and when go back to normal mode
-
-augroup session
-    autocmd VimLeave * call SaveSession()
-    autocmd VimEnter * nested call RestoreSession()
-augroup END
-
-augroup number
-    autocmd number InsertEnter * :set norelativenumber
-    autocmd number InsertLeave * :call ActivateRelativeNumber()
-augroup END
-
-" autocmd BufWritePost *.md silent !toemoji %
+"TODO: Create a snippet to write the log command according to the current file
+"extension and insert the comment as a reminder for future removal of the
+"same, including the Github user
 
 " }}}
-" ABBREVIATIONS AND CORRECTIONS {{{
+" {{{ ABBREVIATIONS AND CORRECTIONS
 
 " Common typos
 iabbrev heigth height
@@ -622,7 +615,7 @@ iabbrev widhts widths
 iabbrev gsig Vanderson Rodrigues <vanderson@tutamail.com>
 
 " }}}
-" FILETYPE {{{
+" {{{ FILETYPE OPTIONS
 
 " Detect type of file
 filetype on
@@ -634,7 +627,7 @@ filetype plugin on
 filetype indent on
 
 " }}}
-" SYNTAX AND COLORS {{{
+" {{{ SYNTAX AND COLORS
 
 " Turn syntax highlighting on by default
 syntax on
