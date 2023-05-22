@@ -427,6 +427,16 @@ endfunction
 
 command! FZF call FZF()
 
+" Print the syntax group of the text where the cursor is
+" SOURCE: shorturl.at/ckEJZ
+function! PrintSyntaxGroup() abort
+    :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
+endfunction
+
+command! PrintSyntaxGroup call PrintSyntaxGroup()
+
 " }}}
 " KEYBOARD SHORTCUTS {{{
 
@@ -528,10 +538,7 @@ nnoremap <Leader>i :call ToggleInvisibleChars()<CR>
 nnoremap <Leader>w :call ToggleWrapLines()<CR>
 
 " Output the current syntax group
-" SOURCE: shorturl.at/ckEJZ
-nnoremap <F4> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+nnoremap <F4> :PrintSyntaxGroup<CR>
 
 " Shortcut for typing commands
 nnoremap ; :
