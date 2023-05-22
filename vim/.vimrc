@@ -175,6 +175,10 @@ let g:netrw_cursor = 2
 " Explore
 let g:explore_is_open = 0
 
+" Value used in colorcolumn option
+let g:limit_column = 81
+let g:cc = join(range(g:limit_column,999),",")
+
 " Termdebug plugin configuration
 let g:termdebug_popup = 0
 let g:termdebug_wide = 163
@@ -238,7 +242,7 @@ let s:comment_map = {
 " UTILITY FUNCTIONS {{{
 
 function! ActivateAllComponentsDisplay()
-    set colorcolumn=81
+    execute "set colorcolumn=" . g:cc
     set cursorline
     set laststatus=2
     set showtabline=1
@@ -246,10 +250,10 @@ function! ActivateAllComponentsDisplay()
 endfunction
 
 function! ToggleColorColumnDisplay()
-    if &colorcolumn == 81
+    if &colorcolumn == g:cc
         set colorcolumn=0
     else
-        set colorcolumn=81
+        execute "set colorcolumn=" . g:cc
     endif
 endfunction
 
@@ -278,12 +282,12 @@ function! ActivateRelativeNumber()
 endfunction
 
 function! ToggleAllComponentsDisplay()
-    if &colorcolumn == 81 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 1 && &laststatus == 0 && &number == 'number' && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 2 && &number == 'number' && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 0 && &number && &relativenumber == 'relativenumber' ||
-    \  &colorcolumn ==  0 && &cursorline == 'cursorline' && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber ||
-    \  &colorcolumn ==  0 && &cursorline && &showtabline == 0 && &laststatus == 0 && &number == 'number' && &relativenumber
+    if &cc ==  g:cc && &stal == 0 && &ls == 0 && &nu == 'nu' && &rnu == 'rnu' && &cul == 'cul' ||
+    \  &cc ==  0    && &stal == 1 && &ls == 0 && &nu == 'nu' && &rnu == 'rnu' && &cul == 'cul' ||
+    \  &cc ==  0    && &stal == 0 && &ls == 2 && &nu == 'nu' && &rnu == 'rnu' && &cul == 'cul' ||
+    \  &cc ==  0    && &stal == 0 && &ls == 0 && &nu         && &rnu == 'rnu' && &cul == 'cul' ||
+    \  &cc ==  0    && &stal == 0 && &ls == 0 && &nu == 'nu' && &rnu          && &cul == 'cul' ||
+    \  &cc ==  0    && &stal == 0 && &ls == 0 && &nu == 'nu' && &rnu == 'rnu' && &cul
         :call ActivateAllComponentsDisplay()
     endif
     :call ToggleStatusBarDisplay()
