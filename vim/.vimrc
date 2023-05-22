@@ -375,16 +375,14 @@ function! FilePath() abort
     endif
     return l:path . '/' . expand('%:t')
 endfunction
-" }
-"
 
 function! SaveSession()
-    execute 'mksession! ' . getcwd() . '/tmp/session.vim'
+    execute 'mksession! /tmp/session.vim'
 endfunction
 
 function! RestoreSession()
-    if filereadable(getcwd() . '/tmp/session.vim')
-        execute 'so ' . getcwd() . '/tmp/session.vim'
+    if filereadable('/tmp/session.vim')
+        execute 'so /tmp/session.vim'
         if bufexists(1)
             for l in range(1, bufnr('$'))
                 if bufwinnr(l) == -1
