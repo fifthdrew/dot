@@ -458,11 +458,10 @@ command! RestoreSession call RestoreSession()
 " }}}
 " {{{ AUTOMATIC COMMANDS
 
-
-augroup session
-  autocmd VimLeave * call SaveOrRestoreSession('VimLeave')
-  autocmd VimEnter * call SaveOrRestoreSession('VimEnter')
-augroup END
+" augroup session
+  " autocmd VimLeave * call SaveOrRestoreSession('VimLeave')
+  " autocmd VimEnter * call SaveOrRestoreSession('VimEnter')
+" augroup END
 
 augroup number
     autocmd number InsertEnter * :set norelativenumber
