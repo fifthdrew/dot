@@ -429,8 +429,6 @@ function! FZF() abort
 	endtry
 endfunction
 
-command! FZF call FZF()
-
 " Print the syntax group of the text where the cursor is
 " SOURCE: shorturl.at/ckEJZ
 function! PrintSyntaxGroup() abort
@@ -439,6 +437,9 @@ function! PrintSyntaxGroup() abort
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 endfunction
 
+" CUSTOM COMMANDS {{{
+
+command! FZF call FZF()
 command! PrintSyntaxGroup call PrintSyntaxGroup()
 
 " }}}
