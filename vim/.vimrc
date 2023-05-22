@@ -387,6 +387,24 @@ function! RestoreSession()
     endif
 endfunction
 
+function! IsNotDiff()
+  return expand('%:e') != 'diff'
+endfunction
+
+function! IsNotCommitEditMsg()
+  return expand('%:t') != 'COMMIT_EDITMSG'
+endfunction
+
+function! SaveOrRestoreSession(event)
+  if IsNotDiff() && IsNotCommitEditMsg()
+    if a:event == 'VimLeave'
+      :SaveSession
+    elseif a:event == 'VimEnter'
+      :RestoreSession
+    endif
+  endif
+endfunction
+
 function! ToggleExplore()
     if g:explore_is_open
         let g:explore_is_open = 0
@@ -440,9 +458,10 @@ command! RestoreSession call RestoreSession()
 " }}}
 " {{{ AUTOMATIC COMMANDS
 
+
 augroup session
-    autocmd VimLeave * silent :SaveSession
-    autocmd VimEnter * nested :RestoreSession
+  autocmd VimLeave * call SaveOrRestoreSession('VimLeave')
+  autocmd VimEnter * call SaveOrRestoreSession('VimEnter')
 augroup END
 
 augroup number
