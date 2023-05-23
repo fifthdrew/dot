@@ -589,17 +589,15 @@ nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>lel
 " Add single quotes at the current word
 nnoremap <Leader>' viw<esc>a'<esc>bi'<esc>lel
 
+" }}}
+" {{{ KEYBOARD SHORTCUT MAPPINGS FOR MOVEMENT
 
-" Movement Mappings
-" {
-"
 " Translate from 'inside parentheses'
 " to 'parameters'
 onoremap p i(
 
 " Until find the word return
 onoremap b /return<CR>
-" }
 
 " }}}
 " {{{ KEYBOARD SHORTCUT MAPPINGS FOR DISPLAY SETTINGS
