@@ -655,4 +655,6 @@ colorscheme solarized8
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 
+" prevent colors from syntax file from being overwritten when source .vimrc
+runtime! after/syntax/gitcommit.vim
 " }}}
