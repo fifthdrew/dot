@@ -1,2 +1,3 @@
 manim
 git-sim
+ruff
