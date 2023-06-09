@@ -47,6 +47,8 @@
 
 ;; Set font family and size
 (cond
+ ((find-font (font-spec :name "Fantasque Sans Mono"))
+  (set-frame-font "Fantasque Sans Mono"))
  ((find-font (font-spec :name "Hack Nerd Font Mono"))
   (set-frame-font "Hack Nerd Font Mono-14"))
  ((find-font (font-spec :name "Hack"))
