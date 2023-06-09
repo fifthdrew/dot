@@ -5,14 +5,14 @@ theme-variant='dark'
 
 [legacy/profiles:]
 default='1b022255-c043-463c-8fdd-2e3a759c2d94'
-list=['1b022255-c043-463c-8fdd-2e3a759c2d94', '2c7c5281-093b-4260-9fcf-8126db59085d', '2a9f3ecb-8df7-49df-bd1c-2cffec9b1203']
+list=['1b022255-c043-463c-8fdd-2e3a759c2d94', '2a9f3ecb-8df7-49df-bd1c-2cffec9b1203']
 
 [legacy/profiles:/:1b022255-c043-463c-8fdd-2e3a759c2d94]
 background-color='rgb(0,43,54)'
 bold-is-bright=true
-cursor-blink-mode='off'
+cursor-blink-mode='on'
 cursor-shape='block'
-font='Hack 12'
+font='Fantasque Sans Mono 12'
 foreground-color='rgb(131,148,150)'
 palette=['rgb(7,54,66)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(131,148,150)', 'rgb(88,110,117)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(147,161,161)']
 scrollbar-policy='never'
@@ -23,21 +23,10 @@ visible-name='Solarized Dark'
 [legacy/profiles:/:2a9f3ecb-8df7-49df-bd1c-2cffec9b1203]
 background-color='rgb(253,246,227)'
 bold-is-bright=true
-cursor-blink-mode='off'
-font='Hack 12'
+cursor-blink-mode='on'
+font='Fantasque Sans Mono 12'
 foreground-color='rgb(131,148,150)'
 palette=['rgb(238,232,213)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(131,148,150)', 'rgb(88,110,117)', 'rgb(220,50,47)', 'rgb(133,153,0)', 'rgb(181,137,0)', 'rgb(38,139,210)', 'rgb(211,54,130)', 'rgb(42,161,152)', 'rgb(147,161,161)']
 use-system-font=false
 use-theme-colors=false
 visible-name='Solarized Light'
-
-[legacy/profiles:/:2c7c5281-093b-4260-9fcf-8126db59085d]
-background-color='rgb(0,0,0)'
-bold-is-bright=false
-cursor-blink-mode='off'
-font='Hack 12'
-foreground-color='rgb(255,255,255)'
-palette=['rgb(0,0,0)', 'rgb(205,0,0)', 'rgb(0,205,0)', 'rgb(205,205,0)', 'rgb(0,0,238)', 'rgb(205,0,205)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
-use-system-font=false
-use-theme-colors=false
-visible-name='Default'
