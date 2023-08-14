@@ -29,5 +29,5 @@
 [diff]
     colorMoved = zebra
 
-[includeIf "gitdir:~/Desktop/EDGE/"]
+[includeIf "gitdir:~/Desktop/Projects/EDGE/"]
     path = ~/.gitconfig.edge
