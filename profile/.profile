@@ -77,6 +77,7 @@ export SUDO_EDITOR=$EDITOR
 export TERM=xterm-256color
 
 # fzf command
+export FZF_DEFAULT_COMMAND="find . -type f -o -type d -name '.*' -print 2>/dev/null | sed 1d"
 export FZF_DEFAULT_OPTS="--prompt='' --pointer=' ❯' --color=16 --info=hidden"
 
 # bat command
