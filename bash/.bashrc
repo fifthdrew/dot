@@ -169,11 +169,18 @@ fi
 unset color_prompt force_color_prompt
 
 INITIAL_PROMPT_COMMAND=$PROMPT_COMMAND
-function ccp() {
+function sp() {
     PROMPT_COMMAND="PS1='$ '"
 }
-function eep() {
+function lp() {
     PROMPT_COMMAND=$INITIAL_PROMPT_COMMAND
+}
+function chp() {
+    if [ "$PROMPT_COMMAND" = "$INITIAL_PROMPT_COMMAND" ]; then
+        PROMPT_COMMAND="PS1='$ '"
+    else
+        PROMPT_COMMAND=$INITIAL_PROMPT_COMMAND
+    fi
 }
 
 # If this is an xterm set the title to user@host:dir
