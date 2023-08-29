@@ -169,6 +169,7 @@ let g:netrw_winsize = 30
 let g:netrw_localcopydircmd = 'cp -r'
 let g:netrw_special_syntax= 1
 let g:netrw_cursor = 2
+let g:netrw_fastbrowse = 0
 
 " Explore
 let g:explore_is_open = 0
