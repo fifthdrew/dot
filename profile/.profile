@@ -82,3 +82,8 @@ export FZF_DEFAULT_OPTS="--prompt='' --pointer=' ❯' --color=16 --info=hidden"
 
 # bat command
 export BAT_THEME="Solarized (dark)"
+
+# sdkman command
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
