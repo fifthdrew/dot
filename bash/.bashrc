@@ -169,6 +169,9 @@ fi
 unset color_prompt force_color_prompt
 
 INITIAL_PROMPT_COMMAND=$PROMPT_COMMAND
+
+PROMPT_COMMAND="PS1='$ '"
+
 function sp() {
     PROMPT_COMMAND="PS1='$ '"
 }
