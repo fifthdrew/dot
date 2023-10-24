@@ -1,87 +1,94 @@
-set $mod Mod4
+set $super Mod4
 
-set $FONT Hack
+set $alt Mod1
+
+set $FONT Menlo
 
 # Font for window titles
 #font pango:monospace 8
-font pango:$FONT 10
+font pango:$FONT 0
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt -fg white -bg black -fn 'xft:Hack:size=10:Regular' -fb 'xft:Hack:size=10:Bold' -fi 'xft:Hack:size=10:Italic' -fbi 'xft:Hack:size=10:Bold:Italic' +sb
+#bindsym $super+Return exec i3-sensible-terminal
+bindsym $super+Return exec urxvt -fg white -bg black
 
 # kill focused window
-bindsym $mod+x kill
-
-# kill focused window
-bindsym $mod+Shift+q kill
+bindsym $super+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $super+d exec dmenu_run -fn Menlo-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'
 
 # start rofi (a program laucher)
-bindsym $mod+Control+r exec rofi -show drun -theme "dark" -icon-theme "gnome" -show-icons
+bindsym $super+Control+r exec rofi -show drun -theme "dark" -icon-theme "Moka" -show-icons -font "Hack 8" -xoffset "-480" -yoffset "360"
 
 # start i3-dmenu-desktop which only displays applications
 # shipping a .desktop file
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+bindsym $super+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn Menlo-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'"
 
 # start dmenu + fzf
-#bindsym $mod+d exec --no-startup-id termite -t 'fzf' -e 'i3-dmenu-desktop --dmenu=fzf'
+#bindsym $super+d exec --no-startup-id termite -t 'fzf' -e 'i3-dmenu-desktop --dmenu=fzf'
 #for_window [title="fzf"] floating enable
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+
+# this pass through the windows
+bindsym $alt+Tab focus right
+bindsym $alt+Shift+Tab focus left
+
+# this pass through the workspaces
+bindsym $super+Tab workspace next
+bindsym $super+Shift+Tab workspace prev
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $super+Shift+h move left 20 px
+bindsym $super+Shift+j move down 20 px
+bindsym $super+Shift+k move up 20 px
+bindsym $super+Shift+l move right 20 px
 
 # Resizing window by 1
-bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
-bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
-bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
-bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
+bindsym $super+Ctrl+Left resize shrink width 20 px or 20 ppt
+bindsym $super+Ctrl+Down resize grow height 20 px or 20 ppt
+bindsym $super+Ctrl+Up resize shrink height 20 px or 20 ppt
+bindsym $super+Ctrl+Right resize grow width 20 px or 20 ppt
 
 # Resizing window by 10
-bindsym $mod+Ctrl+Shift+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+Down resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+Up resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+Right resize grow width 10 px or 10 ppt
+bindsym $super+Ctrl+Shift+Left resize shrink width 1 px or 1 ppt
+bindsym $super+Ctrl+Shift+Down resize grow height 1 px or 1 ppt
+bindsym $super+Ctrl+Shift+Up resize shrink height 1 px or 1 ppt
+bindsym $super+Ctrl+Shift+Right resize grow width 1 px or 1 ppt
 
 # split in horizontal orientation
-bindsym $mod+Control+h split h
+bindsym $super+Control+h split h
 
 # split in vertical orientation
-bindsym $mod+Control+v split v
+bindsym $super+Control+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $super+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $super+s layout stacking
+bindsym $super+w layout tabbed
+bindsym $super+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $super+Shift+space floating toggle move position 10px 10px resize set 1900px 1050px
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $super+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $super+a focus parent
 
 # focus the child container
-bindsym $mod+Shift+a focus child
+bindsym $super+Shift+a focus child
 
 # Define names for default workspaces
 set $ws1 "1"
@@ -96,37 +103,37 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $super+1 workspace $ws1
+bindsym $super+2 workspace $ws2
+bindsym $super+3 workspace $ws3
+bindsym $super+4 workspace $ws4
+bindsym $super+5 workspace $ws5
+bindsym $super+6 workspace $ws6
+bindsym $super+7 workspace $ws7
+bindsym $super+8 workspace $ws8
+bindsym $super+9 workspace $ws9
+bindsym $super+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $super+Shift+1 move container to workspace $ws1
+bindsym $super+Shift+2 move container to workspace $ws2
+bindsym $super+Shift+3 move container to workspace $ws3
+bindsym $super+Shift+4 move container to workspace $ws4
+bindsym $super+Shift+5 move container to workspace $ws5
+bindsym $super+Shift+6 move container to workspace $ws6
+bindsym $super+Shift+7 move container to workspace $ws7
+bindsym $super+Shift+8 move container to workspace $ws8
+bindsym $super+Shift+9 move container to workspace $ws9
+bindsym $super+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $super+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $super+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Colors
 set $NB #222222
@@ -136,15 +143,8 @@ set $FF #FFFFFF
 set $UB #FFDD00
 set $UF #FFFFFF
 
-# class                 border background text indicator
-client.focused          $FB $FB $FF #2e9ef4
-client.focused_inactive $NB $NB $NF #484e50
-client.unfocused        $NB $NB $NF #292d2e
-client.urgent           $UB $UB $UF #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000
-
 # Default
-# class                 border  bground text    indicator child_border
+# class                  border  bground text    indicator child_border
 #client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
 #client.focused_inactive #888888 #5F676A #FFFFFF #484E50   #5F676A
 #client.unfocused        #333333 #222222 #888888 #292D2E   #222222
@@ -152,50 +152,36 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 #client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 #client.background       #FFFFFF
 
-# Solarized
-#client.focused          #002b36 #586e75 #fdf6e3 #268bd2
-#client.focused_inactive #002b36 #073642 #839496 #073642
-#client.unfocused        #002b36 #839496 #fdf6e3 #073642
-#client.urgent           #002b36 #dc322f #fdf6e3 #002b36
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        font 8
         #status_command i3status --config ~/.config/i3/i3status.conf
         status_command i3status
         position bottom
+        padding -2px
         verbose	yes
-        separator_symbol "|"
+        separator_symbol " | "
+        tray_padding 0
+        mode dock
         colors {
-            background	$NB
-            statusline	$NF
-            separator	$FB
-            focused_workspace	$FB $FB $FF
-            active_workspace	$NB $NB $NF
-            inactive_workspace	$NB $NB $NF
-            urgent_workspace	$UB $UB $UF
+            #focused_workspace	$FB $FB $FF
+            #active_workspace	$NB $NB $NF
+            #inactive_workspace	$NB $NB $NF
+            #urgent_workspace	$UB $UB $UF
 
             # Default
-            #background #000000
-            #statusline #ffffff
-            #focused_workspace  #ffffff #285577
-            #active_workspace   #ffffff #333333
-            #inactive_workspace #888888 #222222
-            #urgent_workspace   #ffffff #900000
-
-            # Solarized
-            #background #586e75
-            #statusline #fdf6e3
-            #separator  #586e75
-            #focused_workspace  #b58900 #b58900 #002b36
-            #active_workspace   #586e75 #586e75 #002b36
-            #inactive_workspace #073642 #002b36 #839496
-            #urgent_workspace   #dc322f #dc322f #fdf6e3
+            background #000000
+            statusline #ffffff
+            focused_workspace  #ffffff #285577
+            active_workspace   #ffffff #333333
+            inactive_workspace #888888 #222222
+            urgent_workspace   #ffffff #900000
         }
 }
 
 # redshift modes
-bindsym $mod+comma mode "$mode_redshift"
+bindsym $super+comma mode "$mode_redshift"
 set $mode_redshift Set colour temperature: (a)uto, (r)eset, (2)500K, (3)000K, (4)000K, (5)000K
 set $kill_redshift pkill -9 redshift;
 mode "$mode_redshift" {
@@ -205,6 +191,32 @@ mode "$mode_redshift" {
     bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
     bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4000", mode "default"
     bindsym 5 exec --no-startup-id "$kill_redshift redshift -P -O 5000", mode "default"
+
+    # exit mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# window sizes mode
+bindsym $super+m mode "$mode_window_size"
+set $mode_window_size Set window size: (1)1920x1080, (2)1900x1050, (3)800x600 
+mode "$mode_window_size" {
+    bindsym 1 exec --no-startup-id "i3-msg floating enable move position 10px 10px resize set 1920px 1080px", mode "default"
+    bindsym 2 exec --no-startup-id "i3-msg floating enable move position 10px 10px resize set 1900px 1050px", mode "default"
+    bindsym 3 exec --no-startup-id "i3-msg floating enable move position 10px 10px resize set 800px 600px", mode "default"
+    bindsym 4 exec --no-startup-id "i3-msg floating enable move position 10px 10px resize set 800px 1050px", mode "default"
+
+    # exit mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# window tilte mode
+bindsym $super+t mode "$mode_window_title"
+set $mode_window_title Set window title: (y)es, (n)o
+mode "$mode_window_title" {
+    bindsym y exec --no-startup-id font pango:$FONT 8, mode "default"
+    bindsym n exec --no-startup-id font pango:$FONT 0, mode "default"
 
     # exit mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -221,33 +233,31 @@ bindsym XF86MonBrightnessUp exec sh ~/.config/i3/backlight.sh -inc 20
 bindsym XF86MonBrightnessDown exec sh ~/.config/i3/backlight.sh -dec 20
 
 # Shortcut for Lockscreen
-bindsym $mod+x exec sh ~/.config/i3/lock.sh
+bindsym $super+x exec sh ~/.config/i3/lock.sh
 
 # print all window titles bold
-for_window [class=".*"] title_format "%class"
+#for_window [class=".*"] title_format "░░ %class"
 
 # Remove focus on mouse move
 focus_follows_mouse no
 
 # Borders
-#hide_edge_borders both
-default_border pixel 2
-default_floating_border pixel 1
+hide_edge_borders smart_no_gaps
+#default_border pixel 1
+#default_floating_border pixel 1
+for_window [class="^.*"] border normal 1
 
-# force floating for all new windows
-#for_window [class="[.]*"] floating enable
+floating_minimum_size 50 x 50
+floating_maximum_size 1920 x 1080
 
 # Add shadows
 #exec --no-startup-id compton &
 #exec compton --config ~/.config/compton/compton.conf -b
 
 # Add icons to the windows
-#for_window [all] title_window_icon yes
-#for_window [all] title_window_icon padding 3px
-
-#Display resolution
-exec_aways xrandr --output HDMI-0 --mode 1920x1080
+for_window [class=".*"] title_window_icon no
+#for_window [class=".*"] title_window_icon padding 3px
 
 # Display Wallpaper
-exec_always feh --bg-fill ~/Pictures/GNU_meditating.png
+#exec_always feh --bg-fill ~/Pictures/GNU_meditating.png
 
