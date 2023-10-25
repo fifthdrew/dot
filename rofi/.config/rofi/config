@@ -1,8 +1,6 @@
 configuration {
  modi: "window,drun,ssh,combi";
- theme: "solarized";
- font: "Iosevka 10";
+ font: "Menlo 8";
  combi-modi: "window,drun,ssh";
  show-icons: true;
 }
-rofi.theme: /usr/share/rofi/themes/Paper.rasi
