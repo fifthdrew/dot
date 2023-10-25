@@ -651,6 +651,7 @@ syntax on
 
 " Set my color theme
 colorscheme solarized8
+" colorscheme gruvbox
 " TODO: Move this highlight configurations to above colorscheme, after change
 " and generate it with Colortemplate pack.
 :highlight ExtraWhitespace ctermbg=red guibg=red
