@@ -144,7 +144,7 @@ git_color() {
     elif [[ -n $needs_push ]]; then
         echo -e $MAGENTA
     else
-        echo -e $CLEAR
+        echo -e $BLUE
     fi
 }
 
@@ -157,14 +157,14 @@ git_prompt() {
         local state=$(git_status)
         local color=$(git_color $state)
         # Now output the actual code to insert the branch and status
-        echo -e "\x01$CLEAR\x02(\x01$color\x02$branch\x01$CLEAR\x02)" 
+        echo -e "\x01$CYAN\x02git\x01$CLEAR\x02:\x01$color\x02$branch\x01$CLEAR\x02 "
     fi
 }
 
 if [ "$color_prompt" = yes ]; then
-  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\[$CYAN\]\u@\h\[$CLEAR\]:\[$BLUE\]\w\$(git_prompt)\[$CLEAR\]\$ "'
+  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\$(git_prompt)\[$CYAN\]\u@\h\[$CLEAR\]:\[$BLUE\]\w\[$CLEAR\]\$ "'
 else
-  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$(git_prompt)\$ "'
+  PROMPT_COMMAND='PS1="${debian_chroot:+($debian_chroot)}\$(git_prompt)\u@\h:\w\$ "'
 fi
 unset color_prompt force_color_prompt
 
