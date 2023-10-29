@@ -1,3 +1,0 @@
-#exec i3
-#exec dwm
-exec blackbox
