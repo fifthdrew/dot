@@ -46,6 +46,10 @@ if [ -d "/usr/local/bin/aws" ] ; then
     PATH="/usr/local/bin/aws:$PATH"
 fi
 
+if [ -d "/usr/local/go/bin" ] ; then
+    PATH="/usr/local/go/bin:$PATH"
+fi
+
 export PATH
 
 # export cargo (Rust package manager)
@@ -64,10 +68,6 @@ fi
 
 # This loads Node Version Manager bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-if [ -d "/usr/bin/vim" ] ; then
-    PATH="$HOME/.cargo/bin/mprocs:$PATH"
-fi
 
 export EDITOR=/usr/bin/vim
 
