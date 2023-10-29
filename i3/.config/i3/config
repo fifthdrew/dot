@@ -2,7 +2,7 @@ set $super Mod4
 
 set $alt Mod1
 
-set $FONT Menlo
+set $FONT Terminus
 
 # Font for window titles
 #font pango:monospace 8
@@ -18,15 +18,15 @@ bindsym $super+Return exec urxvt -fg white -bg black
 # kill focused window
 bindsym $super+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $super+d exec dmenu_run -fn Menlo-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'
-
-# start rofi (a program laucher)
-bindsym $super+Control+r exec rofi -show drun -theme "dark" -icon-theme "Moka" -show-icons -font "Hack 8" -xoffset "-480" -yoffset "360"
-
 # start i3-dmenu-desktop which only displays applications
 # shipping a .desktop file
-bindsym $super+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn Menlo-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'"
+bindsym $super+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn Terminus-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'"
+
+# start dmenu (a program launcher)
+bindsym $super+Shift+d exec dmenu_run -fn Terminus-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'
+
+# start rofi (a program laucher)
+bindsym $super+Control+r exec rofi -show drun -theme "dark" -icon-theme "Moka" -show-icons -font "Terminus 8" -xoffset "-480" -yoffset "360"
 
 # start dmenu + fzf
 #bindsym $super+d exec --no-startup-id termite -t 'fzf' -e 'i3-dmenu-desktop --dmenu=fzf'
@@ -155,13 +155,13 @@ set $UF #FFFFFF
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font 8
+        font $FONT
         #status_command i3status --config ~/.config/i3/i3status.conf
         status_command i3status
         position bottom
         padding -2px
         verbose	yes
-        separator_symbol " | "
+        separator_symbol "  "
         tray_padding 0
         mode dock
         colors {
