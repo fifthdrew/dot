@@ -18,6 +18,8 @@ ffmpeg
 firefox-esr
 fish
 flatpak
+fonts-hack
+fonts-terminus
 freedownloadmanager
 freetube
 fzf
@@ -27,6 +29,7 @@ gnucash
 gnupg
 gnupg2
 greybird-gtk-theme 
+grub-customizer
 htop
 httpcode
 jq
