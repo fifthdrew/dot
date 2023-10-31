@@ -1,12 +1,11 @@
 !! URxvt Appearance
--URxvt.font: -*-Terminus-*
--URxvt.boldFont: -*-Terminus-*
--URxvt.italicFont: -*-Terminus-*
--URxvt.boldItalicfont: -*-Terminus-*
-URxvt.letterSpace: 0
+URxvt*font: -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+!URxvt*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+!URxvt.font: -*-terminus-medium-r-normal--16-*-*-*-*-*-*-*
+URxvt.letterSpace: 1
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
-URxvt.internalBorder: 1
+URxvt.internalBorder: 2
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.saveline: 2048
@@ -16,10 +15,32 @@ URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: false
 
-.font: xft:Terminus:style=Regular:size=10
-*.boldFont: xft:Terminus:style=Bold:size=10
-*.italicFont: xft:Terminus:style=Italic:size=10
-*.boldItalicFont: xft:Terminus:style=Bold Italic:size=10
+URxvt*background:   #000000
+URxvt*foreground:   #bbbbbb
+!! Black
+URxvt*.color0:      #000000
+URxvt*.color8:      #555555
+!! Red
+URxvt*.color1:      #bb0000
+URxvt*.color9:      #ff5555
+!! Green
+URxvt*.color2:      #00bb00
+URxvt*.color10:     #55ff55
+!! Yellow
+URxvt*.color3:      #bbbb00
+URxvt*.color11:     #ffff55
+!! Blue
+URxvt*.color4:      #0000bb
+URxvt*.color12:     #5555ff
+!! Magenta
+URxvt*.color5:      #bb00bb
+URxvt*.color13:     #ff55ff
+!! Cyan
+URxvt*.color6:      #00bbbb
+URxvt*.color14:     #55ffff
+!! White
+URxvt*.color7:      #bbbbbb
+URxvt*.color15:     #ffffff
 
 !! Common Keybinds for Navigations
 URxvt.keysym.Shift-Up: command:\033]720;1\007
