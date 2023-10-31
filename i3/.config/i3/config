@@ -2,31 +2,29 @@ set $super Mod4
 
 set $alt Mod1
 
-set $FONT Terminus
-
 # Font for window titles
 #font pango:monospace 8
-font pango:$FONT 0
+font pango:terminus 0
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
 # start a terminal
 #bindsym $super+Return exec i3-sensible-terminal
-bindsym $super+Return exec urxvt -fg white -bg black
+bindsym $super+Return exec urxvt
 
 # kill focused window
 bindsym $super+Shift+q kill
 
 # start i3-dmenu-desktop which only displays applications
 # shipping a .desktop file
-bindsym $super+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn Terminus-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'"
+bindsym $super+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'terminus-font:normal:pixelsize=12' -b -nb '#000000' -sf '#bbbbbb' -sb '#285577' -nf '#bbbbbb'"
 
 # start dmenu (a program launcher)
-bindsym $super+Shift+d exec dmenu_run -fn Terminus-8 -b -nb '#000000' -sf '#ffffff' -sb '#285577' -nf '#ffffff'
+bindsym $super+Shift+d exec dmenu_run -fn 'terminus-font:normal:pixelsize=12'  -b -nb '#000000' -sf '#bbbbbb' -sb '#285577' -nf '#ffffff'
 
 # start rofi (a program laucher)
-bindsym $super+Control+r exec rofi -show drun -theme "dark" -icon-theme "Moka" -show-icons -font "Terminus 8" -xoffset "-480" -yoffset "360"
+bindsym $super+Control+r exec rofi -show drun -theme "dark" -icon-theme "Moka" -show-icons -font "Hack 10" -xoffset "-480" -yoffset "350"
 
 # start dmenu + fzf
 #bindsym $super+d exec --no-startup-id termite -t 'fzf' -e 'i3-dmenu-desktop --dmenu=fzf'
@@ -136,47 +134,42 @@ bindsym $super+Shift+r restart
 bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Colors
-set $NB #222222
-set $NF #FFFFFF
-set $FB #0088EE
-set $FF #FFFFFF
-set $UB #FFDD00
-set $UF #FFFFFF
+set $white #ffffff
+set $black #000000
 
-# Default
-# class                  border  bground text    indicator child_border
-#client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
-#client.focused_inactive #888888 #5F676A #FFFFFF #484E50   #5F676A
-#client.unfocused        #333333 #222222 #888888 #292D2E   #222222
-#client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
-#client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
-#client.background       #FFFFFF
+# class                 border  bground text    indicator child_border
+client.focused          #4C7899 #285577 #bbbbbb #2E9EF4   #285577
+client.focused_inactive #888888 #5F676A #bbbbbb #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #ff8888 #ff5555 #ffffff #ff5555   #ff5555
+client.placeholder      #000000 #0C0C0C #bbbbbb #000000   #0C0C0C
+client.background       #FFFFFF
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font $FONT
+        font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+        #font -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+        #font -*-terminus-medium-r-normal--16-*-*-*-*-*-*-*
+        status_command python3 ~/.config/i3/status.py
         #status_command i3status --config ~/.config/i3/i3status.conf
-        status_command i3status
+        #status_command i3status
         position bottom
-        padding -2px
+        padding -2px 1px
         verbose	yes
         separator_symbol "  "
         tray_padding 0
         mode dock
         colors {
-            #focused_workspace	$FB $FB $FF
-            #active_workspace	$NB $NB $NF
-            #inactive_workspace	$NB $NB $NF
-            #urgent_workspace	$UB $UB $UF
-
-            # Default
             background #000000
-            statusline #ffffff
-            focused_workspace  #ffffff #285577
-            active_workspace   #ffffff #333333
-            inactive_workspace #888888 #222222
-            urgent_workspace   #ffffff #900000
+            statusline #bbbbbb
+            separator #bbbbbb
+            #                  border  bground text
+            focused_workspace  #4c7899 #285577 #bbbbbb
+            active_workspace   #333333 #5f676a #bbbbbb
+            inactive_workspace #333333 #222222 #888888
+            urgent_workspace   #ff8888 #ff5555 #bbbbbb
+            binding_mode       #000000 #000000 #bbbbbb
         }
 }
 
@@ -197,7 +190,7 @@ mode "$mode_redshift" {
     bindsym Escape mode "default"
 }
 
-# window sizes mode
+# window sizes modes
 bindsym $super+m mode "$mode_window_size"
 set $mode_window_size Set window size: (1)1920x1080, (2)1900x1050, (3)800x600 
 mode "$mode_window_size" {
@@ -205,18 +198,6 @@ mode "$mode_window_size" {
     bindsym 2 exec --no-startup-id "i3-msg floating enable move position 10px 10px resize set 1900px 1050px", mode "default"
     bindsym 3 exec --no-startup-id "i3-msg floating enable move position 10px 10px resize set 800px 600px", mode "default"
     bindsym 4 exec --no-startup-id "i3-msg floating enable move position 10px 10px resize set 800px 1050px", mode "default"
-
-    # exit mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# window tilte mode
-bindsym $super+t mode "$mode_window_title"
-set $mode_window_title Set window title: (y)es, (n)o
-mode "$mode_window_title" {
-    bindsym y exec --no-startup-id font pango:$FONT 8, mode "default"
-    bindsym n exec --no-startup-id font pango:$FONT 0, mode "default"
 
     # exit mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -235,7 +216,7 @@ bindsym XF86MonBrightnessDown exec sh ~/.config/i3/backlight.sh -dec 20
 # Shortcut for Lockscreen
 bindsym $super+x exec sh ~/.config/i3/lock.sh
 
-# print all window titles bold
+# Window titles
 #for_window [class=".*"] title_format "░░ %class"
 
 # Remove focus on mouse move
@@ -250,13 +231,13 @@ for_window [class="^.*"] border normal 1
 floating_minimum_size 50 x 50
 floating_maximum_size 1920 x 1080
 
-# Add shadows
-#exec --no-startup-id compton &
-#exec compton --config ~/.config/compton/compton.conf -b
-
 # Add icons to the windows
 for_window [class=".*"] title_window_icon no
 #for_window [class=".*"] title_window_icon padding 3px
+
+# Add shadows
+#exec --no-startup-id compton &
+#exec compton --config ~/.config/compton/compton.conf -b
 
 # Display Wallpaper
 #exec_always feh --bg-fill ~/Pictures/GNU_meditating.png
