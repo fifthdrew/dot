@@ -1,0 +1,89 @@
+* {
+
+    gray:   #484E50;
+    gray1:  #888888;
+    gray2:  #292D2E;
+    gray3:  #5F676A;
+    gray4:  #2f343a;
+    blue1:  #4c7899;
+    blue2:  #2E9EF4;
+    blue3:  #285577;
+    red1:   #900000;
+    black1: #222222;
+
+    background-color:   transparent;
+    text-color:         @gray1;
+    accent-color:       @blue1;
+
+    margin:     0px;
+    padding:    1px;
+    spacing:    1px;
+}
+
+window {
+    background-color:   @gray;
+    border-color:       @accent-color;
+
+    location:   south west;
+    width:      100%;
+    height:     100%;
+    border:     none;
+}
+
+inputbar {
+    padding:    1px 1px;
+    spacing:    10px;
+    children:   [ prompt, entry ];
+}
+
+prompt, entry, element-text, element-icon {
+    vertical-align: 0.5;
+}
+
+prompt {
+    text-color: @gray1;
+}
+
+listview {
+    lines:      10;
+    columns:    1;
+
+    fixed-height:   false;
+}
+
+element {
+    padding:    2px;
+    spacing:    2px;
+}
+
+element normal urgent {
+    text-color: @red1;
+}
+
+element normal active {
+    text-color: @gray4;
+}
+
+element selected {
+    text-color: @gray4;
+}
+
+element selected normal {
+    background-color:   @accent-color;
+}
+
+element selected urgent {
+    background-color:   @red1;
+}
+
+element selected active {
+    background-color:   @accent-color;
+}
+
+element-icon {
+    size:   1em;
+}
+
+element-text {
+    text-color: inherit;
+}

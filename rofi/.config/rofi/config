@@ -1,6 +1,7 @@
 configuration {
- modi: "window,drun,ssh,combi";
- font: "Menlo 8";
- combi-modi: "window,drun,ssh";
+ theme: "default";
+ modi: "combi";
+ font: "Hack 10";
+ combi-modi: "window,drun";
  show-icons: true;
 }
