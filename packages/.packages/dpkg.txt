@@ -1,12 +1,14 @@
 apt-listbugs
 apt-listchanges
 bat
+brightnessctl
 build-essential
 calibre
 chromium
 codium
 coreutils
 curl
+diffuse
 docker-ce
 docker-ce-cli
 dolphin-megasync
@@ -32,6 +34,7 @@ greybird-gtk-theme
 grub-customizer
 htop
 httpcode
+j4-dmenu-desktop
 jq
 keybase
 lutris
@@ -39,6 +42,7 @@ make
 mangohud
 mawk
 megasync
+meld
 mosh
 mpv
 nala
@@ -91,6 +95,7 @@ vim-common
 vim-gui-common
 vim-tiny
 w3m
+webp
 wget
 wine
 xclip
