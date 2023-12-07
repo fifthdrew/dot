@@ -256,9 +256,9 @@ bindsym $super+m mode "$mode_window_size"
 # Gaps size modes
 set $mode_gaps_size Set gap size: [d]efault, [2]px, [5]px
 mode "$mode_gaps_size" {
-    bindsym d exec --no-startup-id "i3-msg gaps inner all set 0", mode "default"
-    bindsym 2 exec --no-startup-id "i3-msg gaps inner all set 2", mode "default"
-    bindsym 5 exec --no-startup-id "i3-msg gaps inner all set 5", mode "default"
+    bindsym d exec --no-startup-id "i3-msg gaps inner current set 0", mode "default"
+    bindsym 2 exec --no-startup-id "i3-msg gaps inner current set 2", mode "default"
+    bindsym 5 exec --no-startup-id "i3-msg gaps inner current set 5", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -289,21 +289,22 @@ exec_always --no-startup-id xss-lock -l i3lock -i $wallpaper
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 # Display Wallpaper
-exec_always feh --bg-fill $wallpaper
+exec_always --no-startup-id feh --bg-fill $wallpaper
 
 # Start i3bar to display a workspace bar
 bar {
     font pango:terminus 8
     #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
     #font -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
-
     status_command python3 ~/.config/i3/status.py
-    #status_command i3status --config ~/.config/i3/i3status.conf
+    #status_command i3status
 
     separator_symbol "  "
 
     # NOTE: hack to fit with non-patched dmenu
     padding -1px 0 -4px 1px
+
+    #workspace_min_width 40
 
     tray_padding 0
 
