@@ -27,7 +27,8 @@
     enabled = 1
 
 [diff]
-    colorMoved = zebra
+    tool = diffuse
+    #tool = meld
 
 [includeIf "gitdir:~/Desktop/Projects/EDGE/"]
     path = ~/.gitconfig.edge
