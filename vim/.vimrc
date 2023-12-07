@@ -220,6 +220,7 @@ let g:gruvbox_underline = 1
 let g:gruvbox_contrast_dark ='soft'
 let g:gruvbox_color_column = 'bg1'
 let g:gruvbox_invert_selection = 0
+let g:gruvbox_improved_warnings = 0
 
 " Define leader key
 let mapleader="\<space>"
