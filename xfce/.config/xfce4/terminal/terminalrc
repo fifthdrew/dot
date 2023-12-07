@@ -1,10 +1,19 @@
 [Configuration]
-ColorForeground=#839496
-ColorBackground=#00002b2a3636
-ColorCursor=#93a1a1
-ColorBold=#93a1a1
+FontName=Hack 10
+TitleMode=TERMINAL_TITLE_REPLACE
+
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ScrollingUnlimited=TRUE
+
+ColorForeground=#ebdbb2
+ColorBackground=#1D2021
+ColorPalette=#282828;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#a89984;#928374;#fb4934;#b8bb26;#fabd2f;#83a598;#d3869b;#8ec07c;#ebdbb2
+ColorCursor=#ebdbb2
+ColorBold=#ebdbb2
 ColorBoldUseDefault=FALSE
-ColorPalette=rgb(7,54,66);rgb(220,50,47);rgb(133,153,0);rgb(181,137,0);rgb(38,139,210);rgb(211,54,130);rgb(42,161,152);rgb(131,148,150);rgb(88,110,117);rgb(220,50,47);rgb(133,153,0);rgb(181,137,0);rgb(38,139,210);rgb(211,54,130);rgb(42,161,152);rgb(147,161,161)
+
+TabActivityColor=#cc241d
+
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -33,9 +42,3 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
-TabActivityColor=#9393a1a1a1a1
-FontName=Hack 10
-ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ScrollingUnlimited=TRUE
-TitleMode=TERMINAL_TITLE_REPLACE
-

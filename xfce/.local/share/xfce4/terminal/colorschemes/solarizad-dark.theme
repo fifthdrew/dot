@@ -1,7 +1,12 @@
 [Scheme]
 Name=solarized dark
+
 ColorForeground=#839496
 ColorBackground=#00002b2a3636
 ColorPalette=rgb(7,54,66);rgb(220,50,47);rgb(133,153,0);rgb(181,137,0);rgb(38,139,210);rgb(211,54,130);rgb(42,161,152);rgb(131,148,150);rgb(88,110,117);rgb(220,50,47);rgb(133,153,0);rgb(181,137,0);rgb(38,139,210);rgb(211,54,130);rgb(42,161,152);rgb(147,161,161)
-TabActivityColor=#9393a1a1a1a1
+ColorCursor=#839496
+ColorBold=#839496
+ColorBoldUseDefault=FALSE
+
+TabActivityColor=rgb(220,50,47)
 
