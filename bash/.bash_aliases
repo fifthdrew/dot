@@ -8,16 +8,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# ls
+alias ll='ls -alh'
+alias la='ls -Ah'
+alias l='ls -Ch'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Git
+# git
 alias gst='git status'
 
 # Midnight Commander
@@ -29,3 +25,6 @@ alias rm='rm -i'
 
 # vi(m)
 alias vif='vi $(fzf)'
+
+# tmux
+alias ta='tmux a -t Default'
