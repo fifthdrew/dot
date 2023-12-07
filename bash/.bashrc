@@ -35,11 +35,6 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
 # source ~/.prompt-colors.sh
 # normal colors
 BLACK_BOLD='\033[0;30m'
@@ -171,6 +166,19 @@ prompt_symbol() {
     echo -e "\[$BLACK_BOLD\]└\[$CLEAR\]"
 }
 
+TERMINAL_EMULATOR=$(basename $(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat \
+    | cut -d' ' -f 4) \
+    | tail -1 \
+    | sed 's/ .*$//') \
+)
+
+# Remove color in the prompt if terminal emulator is xterm
+if [ "$TERMINAL_EMULATOR" = xterm ]; then
+    color_prompt=no
+else
+    color_prompt=yes
+fi
+
 if [ "$color_prompt" = yes ]; then
     PROMPT_COMMAND="PS1='$(show_chroot)$(user_and_host) $(working_directory)\
 $(prompt_symbol) '"
@@ -187,14 +195,22 @@ dp() {
 
 # Set short prompt
 sp() {
-    PROMPT_COMMAND="PS1='$(show_chroot)$(prompt_symbol) '"
+    if [ "$color_prompt" = yes ]; then
+        PROMPT_COMMAND="PS1='$(show_chroot)$(prompt_symbol) '"
+    else
+        PROMPT_COMMAND="PS1='${debian_chroot:+($debian_chroot)}\$ '"
+    fi
 }
 
 # Set long prompt
 lp() {
-    PROMPT_COMMAND="PS1='$(┌—) $(show_chroot)$(user_and_host) \
+    if [ "$color_prompt" = yes ]; then
+        PROMPT_COMMAND="PS1='$(┌—) $(show_chroot)$(user_and_host) \
 $(working_directory) $(git_prompt) $(bash_version) $(show_jobs) \
 $(show_exit_status) $(———) \n$(└)$(prompt_symbol) '"
+    else
+        PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
+    fi
 }
 
 # Alias definitions.
