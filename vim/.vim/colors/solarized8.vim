@@ -95,7 +95,9 @@ if &background ==# 'dark'
     hi Title guifg=#b58900 guibg=NONE gui=bold cterm=bold
   elseif get(g:, 'solarized_visibility', '') ==# 'low'
     hi CursorLineNr guifg=#586e75 guibg=#073642 gui=bold cterm=bold
-    hi LineNr guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
+    " hi LineNr guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
+    hi LineNr guifg=#586e75 guibg=NONE gui=NONE cterm=NONE
+    " hi NonText guifg=#073642 guibg=NONE gui=bold cterm=bold
     hi NonText guifg=#073642 guibg=NONE gui=bold cterm=bold
     hi SpecialKey guifg=#073642 guibg=NONE gui=reverse cterm=reverse
     hi SpellBad guifg=#dc322f guibg=NONE guisp=#6c71c4 gui=undercurl cterm=underline
@@ -159,12 +161,15 @@ if &background ==# 'dark'
     hi TabLineSel guifg=#839496 guibg=#fdf6e3 gui=reverse cterm=reverse
     hi VertSplit guifg=#073642 guibg=#586e75 gui=NONE cterm=NONE
   elseif get(g:, 'solarized_statusline', '') ==# 'flat'
-    hi StatusLine guifg=#073642 guibg=#eee8d5 gui=reverse cterm=reverse
-    hi StatusLineNC guifg=#073642 guibg=#93a1a1 gui=reverse cterm=reverse
+    " hi StatusLine guifg=#073642 guibg=#eee8d5 gui=reverse cterm=reverse
+    hi StatusLine guifg=#073642 guibg=#657b83 gui=reverse cterm=reverse
+    " hi StatusLineNC guifg=#073642 guibg=#93a1a1 gui=reverse cterm=reverse
+    hi StatusLineNC guifg=#073642 guibg=#002B36 gui=reverse cterm=reverse
     hi TabLineSel guifg=#eee8d5 guibg=#073642 gui=NONE cterm=NONE
     hi TabLine guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
     hi TabLineFill guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
-    hi VertSplit guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
+    " hi VertSplit guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
+    hi VertSplit guifg=#073642 guibg=NONE gui=NONE cterm=NONE
   else
     hi StatusLine guifg=#839496 guibg=#073642 gui=reverse cterm=reverse
     hi StatusLineNC guifg=#586e75 guibg=#073642 gui=reverse cterm=reverse
@@ -173,7 +178,8 @@ if &background ==# 'dark'
     hi TabLineSel guifg=#839496 guibg=#073642 gui=reverse cterm=reverse
     hi VertSplit guifg=#073642 guibg=#586e75 gui=NONE cterm=NONE
   endif
-  hi ColorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
+  " hi ColorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
+  hi ColorColumn guifg=NONE guibg=#002c36 gui=NONE cterm=NONE
   hi Conceal guifg=#268bd2 guibg=NONE gui=NONE cterm=NONE
   hi CursorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
   hi CursorLine guifg=NONE guibg=#073642 gui=NONE cterm=NONE
@@ -2370,7 +2376,8 @@ if s:t_Co >= 0
   hi SpellCap term=italic,underline
   hi SpellLocal term=italic,underline
   hi SpellRare term=italic,underline
-  hi StatusLine term=bold,reverse
+  " hi StatusLine term=bold,reverse
+  hi StatusLine term=reverse
   hi StatusLineNC term=reverse
   hi TabLine term=italic,reverse,underline
   hi TabLineFill term=reverse,underline

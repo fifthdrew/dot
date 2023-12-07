@@ -111,6 +111,18 @@ set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
 "}
 
+" Character used on vertical splits
+" NOTE: https://pt.piliapp.com/symbol/line/
+" Options:▕ │ ▏
+set fillchars+=vert:\▕
+
+" Removes '~' chars in the end of file
+" set fillchars+=eob:\  
+
+" Invisible characters
+" set listchars=tab:→\ ,space:·,trail:·,eol:↲,nbsp:␣
+set listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣
+
 " Press F3 to enter paste insert mode
 " This removes automatic indentation on pasting
 set pastetoggle=<F3>
@@ -192,13 +204,22 @@ let g:markdown_fenced_languages = [
             \ ]
 
 " Solarized themes configuration
-let g:solarized_termcolors=256
-let g:solarized_extra_hi_groups = 1
+let g:solarized_termcolors = 256
 let g:solarized_italics = 1
 let g:solarized_bold = 1
 let g:solarized_underline = 1
-let g:solarized_italic = 1
-let g:solarized_prefix_diffmode = 'low'
+let g:solarized_visibility = 'low'
+let g:solarized_statusline = 'flat'
+let g:solarized_extra_hi_groups = 1
+
+" Gruvbox themes configuration
+let g:gruvbox_termcolors = 256
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_underline = 1
+let g:gruvbox_contrast_dark ='soft'
+let g:gruvbox_color_column = 'bg1'
+let g:gruvbox_invert_selection = 0
 
 " Define leader key
 let mapleader="\<space>"
@@ -240,42 +261,40 @@ let s:comment_map = {
 " {{{ UTILITY FUNCTIONS
 
 function! ActivateAllComponentsDisplay()
-    execute "set colorcolumn=" . g:cc
-    set cursorline
-    set laststatus=2
-    set showtabline=1
-    set number relativenumber
+    tabdo windo set laststatus=2
+    tabdo windo set showtabline=1
+    tabdo windo set number relativenumber
 endfunction
 
 function! ToggleColorColumnDisplay()
     if &colorcolumn == g:cc
-        set colorcolumn=0
+        tabdo windo set colorcolumn=0
     else
-        execute "set colorcolumn=" . g:cc
+        execute "tabdo windo set colorcolumn=" . g:cc
     endif
 endfunction
 
 function! ToggleStatusBarDisplay()
     if &laststatus == 2
-        set laststatus=0
+        tabdo windo set laststatus=0
     else
-        set laststatus=2
+        tabdo windo set laststatus=2
     endif
 endfunction
 
 function! ToggleTabLineDisplay()
   if &showtabline == 1
-    set showtabline=0
+    tabdo windo set showtabline=0
   else
-    set showtabline=1
+    tabdo windo set showtabline=1
   endif
 endfunction
 
 function! ActivateRelativeNumber()
   if &number=='nonumber'
-    set norelativenumber
+    tabdo windo set norelativenumber
   else
-    set relativenumber
+    tabdo windo set relativenumber
   endif
 endfunction
 
@@ -287,12 +306,11 @@ function! ToggleAllComponentsDisplay()
     \  &cc ==  0    && &stal == 0 && &ls == 0 && &nu == 'nu' && &rnu          && &cul == 'cul' ||
     \  &cc ==  0    && &stal == 0 && &ls == 0 && &nu == 'nu' && &rnu == 'rnu' && &cul
         :call ActivateAllComponentsDisplay()
+        :call ToggleColorColumnDisplay()
     endif
     :call ToggleStatusBarDisplay()
     :call ToggleColorColumnDisplay()
     :call ToggleTabLineDisplay()
-    :set cursorline!
-    :set number! relativenumber!
 endfunction
 
 function! ToggleInvisibleChars()
@@ -300,7 +318,6 @@ function! ToggleInvisibleChars()
     set nolist
   else
     set list
-    set list listchars=tab:→\ ,space:·,trail:·,eol:↲,nbsp:␣
   endif
 endfunction
 
@@ -358,17 +375,18 @@ endfunction
 " SOURCE: https://www.reddit.com/r/vim/comments/m7yald/is_there_any_way_to_apply_pathshortern_to/
 function! FilePath() abort
     if expand('%:h') ==# ''
-      return '[No Name]'
+      return '▏' . '[No Name]'
     endif
     let l:path = expand('%:p:h')
-    let l:home = '/home/' . $USER . '/'
+    let l:home = '/home/' . $USER
     if stridx(l:path, l:home) !=# -1
-      let l:path = substitute(l:path, l:home, '~/', "")
+      let l:path = substitute(l:path, l:home, '~', "")
     endif
     if winwidth(0) <= 80
-        let l:path = pathshorten(l:path)
+        " let l:path = pathshorten(l:path)
+        return '▏' . expand('%:t')
     endif
-    return l:path . '/' . expand('%:t')
+    return '▏' . l:path . '/' . expand('%:t')
 endfunction
 
 function! SaveSession()
@@ -607,8 +625,8 @@ nmap <F10> :call ToggleAllComponentsDisplay()<CR>
 nmap <F9> :call ToggleTabLineDisplay()<CR>
 nmap <F8> :call ToggleStatusBarDisplay()<CR>
 nmap <F7> :call ToggleColorColumnDisplay()<CR>
-nmap <F6> :set number!<CR>
-nmap <F5> :set relativenumber!<CR>
+nmap <F6> :tabdo windo set number!<CR>
+nmap <F5> :tabdo windo set relativenumber!<CR>
 
 " }}}
 " {{{ SNIPPETS
@@ -650,12 +668,9 @@ filetype indent on
 syntax on
 
 " Set my color theme
-colorscheme solarized8
-" colorscheme gruvbox
-" TODO: Move this highlight configurations to above colorscheme, after change
-" and generate it with Colortemplate pack.
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/
+" colorscheme solarized8
+colorscheme gruvbox
+" colorscheme tomorrow
 
 " prevent colors from syntax file from being overwritten when source .vimrc
 runtime! after/syntax/gitcommit.vim
