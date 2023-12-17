@@ -283,10 +283,12 @@ exec xset r rate 200 50
 exec xset b off
 
 # Locks the screen when it goes to sleep
-exec_always --no-startup-id xss-lock -l i3lock -i $wallpaper
+#exec_always --no-startup-id xss-lock -l i3lock -i $wallpaper
+exec --no-startup-id xautolock -time 5 -locker 'i3-block -i $wallpaper'
 
 # Add shadows and transparence effects
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
+#exec --no-startup-id compiz --replace
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends -CGb
 
 # Display Wallpaper
 exec_always --no-startup-id feh --bg-fill $wallpaper
