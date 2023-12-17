@@ -25,7 +25,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -119,7 +119,7 @@ git_prompt() {
         local state=$(git_status)
         local color=$(git_color $state)
         # Now output the actual code to insert the branch and status
-        echo -e "\x01$CYAN\x02git\x01$CLEAR\x02:\x01$color\x02$branch\x01$CLEAR\x02"
+        echo -e "\x01$CYAN\x02git\x01$BLACK_BOLD\x02:\x01$color\x02$branch\x01$CLEAR\x02"
     fi
 }
 
@@ -128,23 +128,23 @@ show_chroot() {
 }
 
 user_and_host() {
-    echo -e "\[$CYAN\]\u\[$CLEAR\]@\[$BLUE\]\h\[$CLEAR\]"
+    echo -e "\[$CYAN\]\u\[$BLACK_BOLD\]@\[$BLUE\]\h\[$CLEAR\]"
 }
 
 working_directory() {
-    echo -e "\[$CYAN\]🖿 \[$CLEAR\]:\[$BLUE\]\w\[$CLEAR\]"
+    echo -e "\[$CYAN\]🖿 \[$BLACK_BOLD\]:\[$BLUE\]\w\[$CLEAR\]"
 }
 
 bash_version() {
-    echo -e "\[$CYAN\]bash\[$CLEAR\]:\[$BLUE\]\V\[$CLEAR\]"
+    echo -e "\[$CYAN\]bash\[$BLACK_BOLD\]:\[$BLUE\]\V\[$CLEAR\]"
 }
 
 show_jobs() {
-    echo -e "\[$CYAN\]🛠 \[$CLEAR\]:\[$BLUE\]\j\[$CLEAR\]"
+    echo -e "\[$CYAN\]🛠 \[$BLACK_BOLD\]:\[$BLUE\]\j\[$CLEAR\]"
 }
 
 show_exit_status() {
-    echo -e "\[$CYAN\]status\[$CLEAR\]:\[$BLUE\]\$?\[$CLEAR\]"
+    echo -e "\[$CYAN\]status\[$BLACK_BOLD\]:\[$BLUE\]\$?\[$CLEAR\]"
 }
 
 prompt_symbol() {
@@ -154,6 +154,11 @@ prompt_symbol() {
 ———() {
     echo -e "\[$BLACK_BOLD\]———\[$CLEAR\]"
 }
+
+—() {
+    echo -e "\[$BLACK_BOLD\]—\[$CLEAR\]"
+}
+
 ┌—() {
     echo -e "\[$BLACK_BOLD\]┌—\[$CLEAR\]"
 }
@@ -166,51 +171,77 @@ prompt_symbol() {
     echo -e "\[$BLACK_BOLD\]└\[$CLEAR\]"
 }
 
-TERMINAL_EMULATOR=$(basename $(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat \
-    | cut -d' ' -f 4) \
-    | tail -1 \
-    | sed 's/ .*$//') \
-)
+TERMINAL_EMULATOR=\
+$(basename \
+$(ps -o cmd -f -p \
+$(cat /proc/$(echo $$)/stat | cut -d' ' -f 4) | tail -1 | sed 's/ .*$//'))
+
+CURSOR_UNDERSCORE=3
+cursor_style(){
+    echo -e "\[\e[?${CURSOR_UNDERSCORE} q\]"
+}
 
 # Remove color in the prompt if terminal emulator is xterm
 if [ "$TERMINAL_EMULATOR" = xterm ]; then
-    color_prompt=no
+    DEFAULT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '"
+    LONG_PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
+    SHORT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\$ '"
+    WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\w\$ '"
 else
-    color_prompt=yes
-fi
+    DEFAULT_PROMPT_COMMAND="PS1='\
+$(cursor_style)$(show_chroot)$(user_and_host) $(working_directory)$(prompt_symbol) '"
 
-if [ "$color_prompt" = yes ]; then
-    PROMPT_COMMAND="PS1='$(show_chroot)$(user_and_host) $(working_directory)\
+    LONG_PROMPT_COMMAND="PS1='\
+$(cursor_style)$(┌—) $(show_chroot)$(user_and_host) $(—) $(working_directory) $(—) $(git_prompt) \
+$(—) $(bash_version) $(—) $(show_jobs) $(—) $(show_exit_status) $(———)\n$(└)\
 $(prompt_symbol) '"
-else
-    PROMPT_COMMAND="PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '"
+
+    SHORT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(prompt_symbol) '"
+    WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(working_directory)$(prompt_symbol) '"
 fi
 
-DEFAULT_PROMPT_COMMAND=$PROMPT_COMMAND
+PROMPT_COMMAND=$SHORT_PROMPT_COMMAND
 
 # Set default prompt
 dp() {
     PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
 }
 
-# Set short prompt
-sp() {
-    if [ "$color_prompt" = yes ]; then
-        PROMPT_COMMAND="PS1='$(show_chroot)$(prompt_symbol) '"
-    else
-        PROMPT_COMMAND="PS1='${debian_chroot:+($debian_chroot)}\$ '"
-    fi
-}
-
 # Set long prompt
 lp() {
-    if [ "$color_prompt" = yes ]; then
-        PROMPT_COMMAND="PS1='$(┌—) $(show_chroot)$(user_and_host) \
-$(working_directory) $(git_prompt) $(bash_version) $(show_jobs) \
-$(show_exit_status) $(———) \n$(└)$(prompt_symbol) '"
-    else
-        PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
-    fi
+    PROMPT_COMMAND=$LONG_PROMPT_COMMAND
+}
+
+# Set short prompt
+sp() {
+    PROMPT_COMMAND=$SHORT_PROMPT_COMMAND
+}
+
+# Set short prompt
+wdp() {
+    PROMPT_COMMAND=$WORKING_DIR_PROMPT_COMMAND
+}
+
+yt() {
+	mpv "https://youtu.be/$1"
+}
+
+tw() {
+	mpv "https://twitch.tv/$1"
+}
+
+ddg() {
+	# Bad urlencode
+	SEARCH="$(echo $* | sed 's|\ |%20|g')"
+	lynx "https://lite.duckduckgo.com/lite/?kd=-1&kp=-1&q=${SEARCH}"
+}
+
+sb() {
+    source ~/.bashrc
+}
+
+st() {
+    source ~/.tmux.conf
 }
 
 # Alias definitions.
@@ -237,3 +268,11 @@ if [ -n "$DISPLAY" ]; then
 fi
 
 set bell-style none
+
+# set show-mode-in-prompt on
+
+# set vi-cmd-mode-string "\1\e[2 q\2cmd"
+
+# set vi-ins-mode-string "\1\e[6 q\2ins"
+
+echo -ne "\e[3 q"
