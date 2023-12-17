@@ -580,17 +580,17 @@ call s:HL('Todo', s:vim_fg, s:vim_bg, s:bold . s:italic)
 call s:HL('Error', s:red, s:vim_bg, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement GruvboxRed
+hi! link Statement GruvboxPurple
 " if, then, else, endif, swicth, etc.
-hi! link Conditional GruvboxRed
+hi! link Conditional GruvboxPurple
 " for, do, while, etc.
-hi! link Repeat GruvboxRed
+hi! link Repeat GruvboxPurple
 " case, default, etc.
-hi! link Label GruvboxRed
+hi! link Label GruvboxPurple
 " try, catch, throw
 hi! link Exception GruvboxRed
 " sizeof, "+", "*", etc.
-hi! link Operator Normal
+hi! link Operator GruvboxOrange
 " Any other keyword
 hi! link Keyword GruvboxRed
 
@@ -623,14 +623,14 @@ endif
 " Boolean constant: TRUE, false
 hi! link Boolean GruvboxPurple
 " Number constant: 234, 0xff
-hi! link Number GruvboxPurple
+hi! link Number GruvboxOrange
 " Floating point constant: 2.3e10
 hi! link Float GruvboxPurple
 
 " Generic type
 hi! link Type GruvboxYellow
 " static, register, volatile, etc
-hi! link StorageClass GruvboxOrange
+hi! link StorageClass GruvboxBlue
 " struct, union, enum, etc.
 hi! link Structure GruvboxAqua
 " typedef
@@ -1025,29 +1025,41 @@ hi! link clojureUnquote GruvboxYellow
 " }}}
 " C: {{{
 
-hi! link cOperator GruvboxPurple
 hi! link cStructure GruvboxOrange
+hi! link cInclude GruvboxPurple
+hi! link cRepeat GruvboxPurple
+hi! link cStructure GruvboxBlue
+hi! link cConstant GruvboxOrange
+hi! link cDefine GruvboxPurple
+hi! link cPrecondit GruvboxPurple
+hi! link cOperator GruvboxAqua
+hi! link cErrInParen GruvboxRed
+hi! link cTypedef GruvboxBlue
 
 " }}}
 " Python: {{{
 
-hi! link pythonBuiltin GruvboxOrange
-hi! link pythonBuiltinObj GruvboxOrange
-hi! link pythonBuiltinFunc GruvboxOrange
-hi! link pythonFunction GruvboxAqua
-hi! link pythonDecorator GruvboxRed
-hi! link pythonInclude GruvboxBlue
-hi! link pythonImport GruvboxBlue
+hi! link pythonBuiltin GruvboxYellow
+hi! link pythonBuiltinObj GruvboxAqua
+hi! link pythonBuiltinFunc GruvboxAqua
+hi! link pythonFunction GruvboxBlue
+hi! link pythonDecorator GruvboxAqua
+hi! link pythonDecoratorName GruvboxAqua
+hi! link pythonInclude GruvboxPurple
+hi! link pythonImport GruvboxPurple
 hi! link pythonRun GruvboxBlue
 hi! link pythonCoding GruvboxBlue
-hi! link pythonOperator GruvboxRed
+hi! link pythonOperator GruvboxPurple
 hi! link pythonException GruvboxRed
-hi! link pythonExceptions GruvboxPurple
+hi! link pythonExceptions GruvboxOrange
 hi! link pythonBoolean GruvboxPurple
 hi! link pythonDot GruvboxFg3
-hi! link pythonConditional GruvboxRed
-hi! link pythonRepeat GruvboxRed
+hi! link pythonConditional GruvboxPurple
+hi! link pythonRepeat GruvboxPurple
 hi! link pythonDottedName GruvboxGreenBold
+hi! link pythonStatement GruvboxPurple
+hi! link pythonNumber GruvboxOrange
+hi! link pythonEscape GruvboxRed
 
 " }}}
 " CSS: {{{
@@ -1088,12 +1100,14 @@ hi! link cssGeneratedContentProp GruvboxAqua
 " JavaScript: {{{
 
 hi! link javaScriptBraces GruvboxFg1
-hi! link javaScriptFunction GruvboxAqua
-hi! link javaScriptIdentifier GruvboxRed
-hi! link javaScriptMember GruvboxBlue
+hi! link javaScriptFunction GruvboxBlue
+hi! link javaScriptMember GruvboxFg1
 hi! link javaScriptNumber GruvboxPurple
-hi! link javaScriptNull GruvboxPurple
+hi! link javaScriptNull GruvboxOrange
 hi! link javaScriptParens GruvboxFg3
+hi! link javaScriptReserved GruvboxPurple
+hi! link javaScriptNumber GruvboxOrange
+hi! link javaScriptBoolean GruvboxOrange
 
 " }}}
 " YAJS: {{{
@@ -1119,7 +1133,7 @@ hi! link javascriptCacheMethod GruvboxFg1
 hi! link javascriptDateMethod GruvboxFg1
 hi! link javascriptMathStaticMethod GruvboxFg1
 
-" hi! link javascriptProp GruvboxFg1
+hi! link javascriptProp GruvboxFg1
 hi! link javascriptURLUtilsProp GruvboxFg1
 hi! link javascriptBOMNavigatorProp GruvboxFg1
 hi! link javascriptDOMDocMethod GruvboxFg1
@@ -1128,31 +1142,28 @@ hi! link javascriptBOMLocationMethod GruvboxFg1
 hi! link javascriptBOMWindowMethod GruvboxFg1
 hi! link javascriptStringMethod GruvboxFg1
 
-hi! link javascriptVariable GruvboxOrange
-" hi! link javascriptVariable GruvboxRed
-" hi! link javascriptIdentifier GruvboxOrange
-" hi! link javascriptClassSuper GruvboxOrange
-hi! link javascriptIdentifier GruvboxOrange
+hi! link javascriptVariable GruvboxBlue
+hi! link javascriptIdentifier GruvboxBlue
 hi! link javascriptClassSuper GruvboxOrange
 
-" hi! link javascriptFuncKeyword GruvboxOrange
-" hi! link javascriptAsyncFunc GruvboxOrange
+hi! link javascriptFuncKeyword GruvboxOrange
+hi! link javascriptAsyncFunc GruvboxOrange
 hi! link javascriptFuncKeyword GruvboxAqua
 hi! link javascriptAsyncFunc GruvboxAqua
 hi! link javascriptClassStatic GruvboxOrange
 
-hi! link javascriptOperator GruvboxRed
+hi! link javascriptOperator GruvboxAqua
 hi! link javascriptForOperator GruvboxRed
 hi! link javascriptYield GruvboxRed
 hi! link javascriptExceptions GruvboxRed
-hi! link javascriptMessage GruvboxRed
+hi! link javascriptMessage GruvboxFg1
 
 hi! link javascriptTemplateSB GruvboxAqua
 hi! link javascriptTemplateSubstitution GruvboxFg1
 
-" hi! link javascriptLabel GruvboxBlue
-" hi! link javascriptObjectLabel GruvboxBlue
-" hi! link javascriptPropertyName GruvboxBlue
+hi! link javascriptLabel GruvboxBlue
+hi! link javascriptObjectLabel GruvboxBlue
+hi! link javascriptPropertyName GruvboxBlue
 hi! link javascriptLabel GruvboxFg1
 hi! link javascriptObjectLabel GruvboxFg1
 hi! link javascriptPropertyName GruvboxFg1
@@ -1197,22 +1208,60 @@ hi! link jsClassDefinition GruvboxYellow
 
 hi! link typeScriptReserved GruvboxAqua
 hi! link typeScriptLabel GruvboxAqua
-hi! link typeScriptFuncKeyword GruvboxAqua
-hi! link typeScriptIdentifier GruvboxOrange
-hi! link typeScriptBraces GruvboxFg1
-hi! link typeScriptEndColons GruvboxFg1
+hi! link typeScriptFuncKeyword GruvboxBlue
+hi! link typeScriptIdentifier GruvboxAqua
+hi! link typeScriptBraces GruvboxFg3
+hi! link typeScriptEndColons GruvboxFg3
 hi! link typeScriptDOMObjects GruvboxFg1
 hi! link typeScriptAjaxMethods GruvboxFg1
 hi! link typeScriptLogicSymbols GruvboxFg1
 hi! link typeScriptDocSeeTag Comment
 hi! link typeScriptDocParam Comment
 hi! link typeScriptDocTags vimCommentTitle
+hi! link typeScriptGlobal GruvboxAqua
 hi! link typeScriptGlobalObjects GruvboxFg1
 hi! link typeScriptParens GruvboxFg3
 hi! link typeScriptOpSymbols GruvboxFg3
 hi! link typeScriptHtmlElemProperties GruvboxFg1
-hi! link typeScriptNull GruvboxPurple
+hi! link typeScriptNull GruvboxOrange
 hi! link typeScriptInterpolationDelimiter GruvboxAqua
+hi! link typeScriptExport GruvboxPurple
+hi! link typeScriptFuncName GruvboxFg1
+hi! link typeScriptArrowFunc GruvboxBlue
+hi! link typeScriptImport GruvboxPurple
+hi! link typeScriptTestGlobal GruvboxBlue
+hi! link typeScriptVariable GruvboxBlue
+hi! link typeScriptClassKeyword GruvboxBlue
+hi! link typeScriptClassExtends GruvboxBlue
+hi! link typeScriptCall GruvboxFg1
+hi! link typeScriptTypeReference GruvboxYellow
+hi! link typeScriptMember GruvboxFg1
+hi! link typeScriptFuncComma GruvboxFg1
+hi! link typeScriptTemplateSB GruvboxOrange
+hi! link typeScriptObjectLabel GruvboxFg1
+hi! link typeScriptMathStaticMethod GruvboxFg1
+hi! link typeScriptBOMLocationMethod GruvboxFg1
+hi! link typeScriptStringMethod GruvboxFg1
+hi! link typeScriptHeadersMethod GruvboxFg1
+hi! link typescriptDOMFormProp GruvboxFg1
+hi! link typescriptPaymentAddressProp GruvboxFg1
+hi! link typescriptAliasDeclaration GruvboxYellow
+hi! link typescriptAliasKeyword GruvboxBlue
+hi! link typescriptInterfaceKeyword GruvboxBlue
+hi! link typescriptInterfaceName GruvboxFg1
+hi! link typescriptTypeQuery GruvboxBlue
+hi! link typescriptDOMDocProp GruvboxFg1
+hi! link typescriptExceptions GruvboxRed
+hi! link typescriptTry GruvboxRed
+hi! link typescriptAbstract GruvboxBlue
+hi! link typescriptBoolean GruvboxOrange
+hi! link typescriptES6SetMethod GruvboxAqua
+hi! link typescriptKeywordOp GruvboxPurple
+hi! link typescriptArrowFuncArg GruvboxFg1
+hi! link typescriptCastKeyword GruvboxBlue
+hi! link typescriptArrayMethod GruvboxFg1
+hi! link typescriptXHRProp GruvboxFg1
+hi! link typescriptFunctionMethod GruvboxFg1
 
 " }}}
 " PureScript: {{{
@@ -1260,9 +1309,18 @@ hi! link objcDirective GruvboxBlue
 
 hi! link goDirective GruvboxAqua
 hi! link goConstants GruvboxPurple
-hi! link goDeclaration GruvboxRed
+hi! link goDeclaration GruvboxBlue
 hi! link goDeclType GruvboxBlue
-hi! link goBuiltins GruvboxOrange
+hi! link goBuiltins GruvboxRed
+hi! link goPackage GruvboxPurple
+hi! link goFormatSpecifier GruvboxAqua
+hi! link goImport GruvboxPurple
+hi! link goString GruvboxGreen
+hi! link goConditional GruvboxPurple
+hi! link goRepeat GruvboxPurple
+hi! link goDecimalInt GruvboxOrange
+hi! link goBlock GruvboxOrange
+hi! link goEscapeC GruvboxRed
 
 " }}}
 " Lua: {{{
@@ -1282,8 +1340,9 @@ hi! link moonObject GruvboxYellow
 " }}}
 " Java: {{{
 
-hi! link javaAnnotation GruvboxBlue
+hi! link javaAnnotation GruvboxAqua
 hi! link javaDocTags GruvboxAqua
+hi! link javaDocParam GruvboxFg1
 hi! link javaCommentTitle vimCommentTitle
 hi! link javaParen GruvboxFg3
 hi! link javaParen1 GruvboxFg3
@@ -1291,10 +1350,24 @@ hi! link javaParen2 GruvboxFg3
 hi! link javaParen3 GruvboxFg3
 hi! link javaParen4 GruvboxFg3
 hi! link javaParen5 GruvboxFg3
-hi! link javaOperator GruvboxOrange
-
+hi! link javaOperator GruvboxAqua
 hi! link javaVarArg GruvboxGreen
-
+hi! link javaExternal GruvboxPurple
+hi! link javaScopeDecl GruvboxPurple
+hi! link javaClassDecl GruvboxPurple
+hi! link javaBoolean GruvboxYellow
+hi! link javaStatement GruvboxPurple
+hi! link javaConditional GruvboxPurple
+hi! link javaConstant GruvboxYellow
+hi! link javaTypedef GruvboxAqua
+hi! link javaType GruvboxAqua
+hi! link javaFold GruvboxBlue
+hi! link javaParenT GruvboxAqua
+hi! link javaFuncDef GruvboxBlue
+hi! link javaBraces GruvboxFg3
+hi! link javaStorageClass GruvboxPurple
+let java_highlight_functions = 1
+let java_highlight_all = 1
 " }}}
 " Elixir: {{{
 
