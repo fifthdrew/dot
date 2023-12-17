@@ -71,14 +71,16 @@ if &background ==# 'dark'
   if s:termtrans
     hi Normal guifg=#93a1a1 guibg=NONE gui=NONE cterm=NONE
     hi FoldColumn guifg=fg guibg=NONE gui=NONE cterm=NONE
-    hi Folded guifg=fg guibg=NONE guisp=#002b36 gui=bold cterm=bold
+    " hi Folded guifg=fg guibg=NONE guisp=#002b36 gui=bold cterm=bold
+    hi Folded guifg=fg guibg=NONE guisp=#002b36 gui=NONE cterm=NONE
     hi Terminal guifg=fg guibg=NONE gui=NONE cterm=NONE
     hi ToolbarButton guifg=#93a1a1 guibg=NONE gui=bold cterm=bold
     hi ToolbarLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
   else " opaque
     hi Normal guifg=#93a1a1 guibg=#002b36 gui=NONE cterm=NONE
     hi FoldColumn guifg=#839496 guibg=#073642 gui=NONE cterm=NONE
-    hi Folded guifg=#839496 guibg=#073642 guisp=#002b36 gui=bold cterm=bold
+    " hi Folded guifg=#839496 guibg=#073642 guisp=#002b36 gui=bold cterm=bold
+    hi Folded guifg=#839496 guibg=#073642 guisp=#002b36 gui=NONE cterm=NONE
     hi Terminal guifg=fg guibg=#002b36 gui=NONE cterm=NONE
     hi ToolbarButton guifg=#93a1a1 guibg=#073642 gui=bold cterm=bold
     hi ToolbarLine guifg=NONE guibg=#073642 gui=NONE cterm=NONE
@@ -179,7 +181,7 @@ if &background ==# 'dark'
     hi VertSplit guifg=#073642 guibg=#586e75 gui=NONE cterm=NONE
   endif
   " hi ColorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
-  hi ColorColumn guifg=NONE guibg=#002c36 gui=NONE cterm=NONE
+  hi ColorColumn guifg=NONE guibg=#002732 gui=NONE cterm=NONE
   hi Conceal guifg=#268bd2 guibg=NONE gui=NONE cterm=NONE
   hi CursorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
   hi CursorLine guifg=NONE guibg=#073642 gui=NONE cterm=NONE
@@ -469,14 +471,16 @@ else
   if s:termtrans
     hi Normal guifg=#586e75 guibg=NONE gui=NONE cterm=NONE
     hi FoldColumn guifg=#657b83 guibg=NONE gui=NONE cterm=NONE
-    hi Folded guifg=#657b83 guibg=NONE guisp=#fdf6e3 gui=bold cterm=bold
+    " hi Folded guifg=#657b83 guibg=NONE guisp=#fdf6e3 gui=bold cterm=bold
+    hi Folded guifg=fg guibg=NONE guisp=#002b36 gui=NONE cterm=NONE
     hi Terminal guifg=fg guibg=NONE gui=NONE cterm=NONE
     hi ToolbarButton guifg=#586e75 guibg=NONE gui=bold cterm=bold
     hi ToolbarLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
   else " opaque
     hi Normal guifg=#586e75 guibg=#fdf6e3 gui=NONE cterm=NONE
     hi FoldColumn guifg=#657b83 guibg=#eee8d5 gui=NONE cterm=NONE
-    hi Folded guifg=#657b83 guibg=#eee8d5 guisp=#fdf6e3 gui=bold cterm=bold
+    " hi Folded guifg=#657b83 guibg=#eee8d5 guisp=#fdf6e3 gui=bold cterm=bold
+    hi Folded guifg=#657b83 guibg=#eee8d5 guisp=#fdf6e3 gui=NONE cterm=NONE
     hi Terminal guifg=fg guibg=#fdf6e3 gui=NONE cterm=NONE
     hi ToolbarButton guifg=#586e75 guibg=#eee8d5 gui=bold cterm=bold
     hi ToolbarLine guifg=NONE guibg=#eee8d5 gui=NONE cterm=NONE
@@ -844,15 +848,16 @@ if s:t_Co >= 256
     if s:termtrans
       hi Normal ctermfg=247 ctermbg=NONE cterm=NONE
       hi FoldColumn ctermfg=fg ctermbg=NONE cterm=NONE
-      hi Folded ctermfg=fg ctermbg=NONE cterm=bold
+      " hi Folded ctermfg=fg ctermbg=NONE cterm=bold
+      hi Folded ctermfg=fg ctermbg=NONE cterm=NONE
       hi Terminal ctermfg=fg ctermbg=NONE cterm=NONE
       hi ToolbarButton ctermfg=247 ctermbg=NONE cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
     else " opaque
       hi Normal ctermfg=247 ctermbg=235 cterm=NONE
       hi FoldColumn ctermfg=246 ctermbg=236 cterm=NONE
-      hi Folded ctermfg=246 ctermbg=236 cterm=bold
-      hi Terminal ctermfg=fg ctermbg=235 cterm=NONE
+      " hi Folded ctermfg=246 ctermbg=236 cterm=bold
+      hi Folded ctermfg=246 ctermbg=236 cterm=NONE
       hi ToolbarButton ctermfg=247 ctermbg=236 cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=236 cterm=NONE
     endif
@@ -1216,14 +1221,16 @@ if s:t_Co >= 256
     if s:termtrans
       hi Normal ctermfg=242 ctermbg=NONE cterm=NONE
       hi FoldColumn ctermfg=66 ctermbg=NONE cterm=NONE
-      hi Folded ctermfg=66 ctermbg=NONE cterm=bold
+      " hi Folded ctermfg=66 ctermbg=NONE cterm=bold
+      hi Folded ctermfg=66 ctermbg=NONE cterm=NONE
       hi Terminal ctermfg=fg ctermbg=NONE cterm=NONE
       hi ToolbarButton ctermfg=242 ctermbg=NONE cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
     else " opaque
       hi Normal ctermfg=242 ctermbg=230 cterm=NONE
       hi FoldColumn ctermfg=66 ctermbg=254 cterm=NONE
-      hi Folded ctermfg=66 ctermbg=254 cterm=bold
+      " hi Folded ctermfg=66 ctermbg=254 cterm=bold
+      hi Folded ctermfg=66 ctermbg=254 cterm=NONE
       hi Terminal ctermfg=fg ctermbg=230 cterm=NONE
       hi ToolbarButton ctermfg=242 ctermbg=254 cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=254 cterm=NONE
@@ -1595,14 +1602,16 @@ if s:t_Co >= 16
     if s:termtrans
       hi Normal ctermfg=14 ctermbg=NONE cterm=NONE
       hi FoldColumn ctermfg=fg ctermbg=NONE cterm=NONE
-      hi Folded ctermfg=fg ctermbg=NONE cterm=bold
+      " hi Folded ctermfg=fg ctermbg=NONE cterm=bold
+      hi Folded ctermfg=fg ctermbg=NONE cterm=NONE
       hi Terminal ctermfg=fg ctermbg=NONE cterm=NONE
       hi ToolbarButton ctermfg=14 ctermbg=NONE cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
     else " opaque
       hi Normal ctermfg=14 ctermbg=8 cterm=NONE
       hi FoldColumn ctermfg=12 ctermbg=0 cterm=NONE
-      hi Folded ctermfg=12 ctermbg=0 cterm=bold
+      " hi Folded ctermfg=12 ctermbg=0 cterm=bold
+      hi Folded ctermfg=12 ctermbg=0 cterm=NONE
       hi Terminal ctermfg=fg ctermbg=8 cterm=NONE
       hi ToolbarButton ctermfg=14 ctermbg=0 cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=0 cterm=NONE
@@ -1967,14 +1976,16 @@ if s:t_Co >= 16
     if s:termtrans
       hi Normal ctermfg=10 ctermbg=NONE cterm=NONE
       hi FoldColumn ctermfg=11 ctermbg=NONE cterm=NONE
-      hi Folded ctermfg=11 ctermbg=NONE cterm=bold
+      " hi Folded ctermfg=11 ctermbg=NONE cterm=bold
+      hi Folded ctermfg=11 ctermbg=NONE cterm=NONE
       hi Terminal ctermfg=fg ctermbg=NONE cterm=NONE
       hi ToolbarButton ctermfg=10 ctermbg=NONE cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
     else " opaque
       hi Normal ctermfg=10 ctermbg=15 cterm=NONE
       hi FoldColumn ctermfg=11 ctermbg=7 cterm=NONE
-      hi Folded ctermfg=11 ctermbg=7 cterm=bold
+      " hi Folded ctermfg=11 ctermbg=7 cterm=bold
+      hi Folded ctermfg=11 ctermbg=7 cterm=NONE
       hi Terminal ctermfg=fg ctermbg=15 cterm=NONE
       hi ToolbarButton ctermfg=10 ctermbg=7 cterm=bold
       hi ToolbarLine ctermfg=NONE ctermbg=7 cterm=NONE
