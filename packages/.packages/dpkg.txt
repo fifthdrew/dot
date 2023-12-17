@@ -98,6 +98,7 @@ w3m
 webp
 wget
 wine
+xautolock
 xclip
 xonsh
 zeal
