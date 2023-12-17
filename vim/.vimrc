@@ -97,20 +97,6 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=0
 
-" Status line configuration
-" {
-
-" Start of default statusline
-set statusline=
-
-" NOTE: The line below has a trailing space character
-set statusline=%<%{FilePath()}\ %h%w%m%r\ 
-
-" End of default statusline (with ruler)
-set statusline+=%=%(%l,%c%V\ %=\ %P%)
-
-"}
-
 " Character used on vertical splits
 " NOTE: https://pt.piliapp.com/symbol/line/
 " Options:▕ │ ▏
@@ -119,9 +105,25 @@ set fillchars+=vert:\▕
 " Removes '~' chars in the end of file
 " set fillchars+=eob:\  
 
+" Change the characters used in the folding
+" set fillchars+=fold:\—
+set fillchars+=fold:\—
+
 " Invisible characters
 " set listchars=tab:→\ ,space:·,trail:·,eol:↲,nbsp:␣
 set listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣
+
+" Start of default statusline
+set statusline=
+
+" NOTE: The line below has a trailing space character
+set statusline=%<%{FilePath()}\ %h%w%m%r\ 
+
+" End of default statusline (with ruler)
+set statusline+=%=%(%l,%c%V\ %=\ %P\ %)
+
+" Set appearance of text folded
+set foldtext=SetFoldText()
 
 " Press F3 to enter paste insert mode
 " This removes automatic indentation on pasting
@@ -162,8 +164,12 @@ set tags=tags;
 
 set showmatch
 
+set shellcmdflag=-ic
+
+set splitright
+
 " }}}
-" {{{ DEFINE VARIABLES
+"{{{ DEFINE AND SET VARIABLES
 
 " Vim folder location
 let $VIMHOME = $HOME."/.vim/"
@@ -187,8 +193,9 @@ let g:netrw_fastbrowse = 0
 let g:explore_is_open = 0
 
 " Value used in colorcolumn option
-let g:limit_column = 81
-let g:cc = join(range(g:limit_column,999),",")
+let g:limit_column_start = 81
+let g:limit_column_end = g:limit_column_start * 2
+let g:cc = join(range(g:limit_column_start,g:limit_column_end),",")
 
 " Termdebug plugin configuration
 let g:termdebug_popup = 0
@@ -203,9 +210,9 @@ let g:markdown_fenced_languages = [
             \   'vim'
             \ ]
 
-" Solarized themes configuration
 let g:solarized_termcolors = 256
 let g:solarized_italics = 1
+" Solarized themes configuration
 let g:solarized_bold = 1
 let g:solarized_underline = 1
 let g:solarized_visibility = 'low'
@@ -258,8 +265,25 @@ let s:comment_map = {
             \   "tex": '%',
             \ }
 
-" }}}
+" Set cursor shape for each mode
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
+"}}}
 " {{{ UTILITY FUNCTIONS
+function! SetFoldText()
+   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+   let lines_count = v:foldend - v:foldstart + 1
+   let lines_count_text = printf("%10s", lines_count . ' lines ')
+   let foldchar = matchstr(&fillchars, 'fold:\zs.')
+   " let foldchar = '―'
+   " let foldchar = ' '
+   let foldtextstart = strpart('⤷ ' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+   let foldtextend = lines_count_text . repeat(foldchar, 5)
+   let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . ' ' . foldtextend
+endfunction
 
 function! ActivateAllComponentsDisplay()
     tabdo windo set laststatus=2
@@ -312,6 +336,7 @@ function! ToggleAllComponentsDisplay()
     :call ToggleStatusBarDisplay()
     :call ToggleColorColumnDisplay()
     :call ToggleTabLineDisplay()
+    :tabdo windo set number! relativenumber!
 endfunction
 
 function! ToggleInvisibleChars()
@@ -459,6 +484,18 @@ function! FZF() abort
 	endtry
 endfunction
 
+function! OpenRanger()
+	let l:tempname = tempname()
+	" ranger --choosefile=file
+	execute 'silent !ranger --choosefile=' . fnameescape(l:tempname)
+	try
+		execute 'cfile ' . l:tempname
+		redraw!
+	finally
+		call delete(l:tempname)
+	endtry
+endfunction
+
 " Print the syntax group of the text where the cursor is
 " SOURCE: shorturl.at/ckEJZ
 function! PrintSyntaxGroup() abort
@@ -467,10 +504,15 @@ function! PrintSyntaxGroup() abort
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 endfunction
 
+function! SetCursorShape()
+    call system('bash -c "echo -ne "\e[3 q" > /dev/null 2>&1"')
+endfunction
+
 " }}}
 " {{{ CUSTOM COMMANDS
 
 command! FZF call FZF()
+command! Ranger call OpenRanger()
 command! PrintSyntaxGroup call PrintSyntaxGroup()
 command! SaveSession call SaveSession()
 command! RestoreSession call RestoreSession()
@@ -483,9 +525,15 @@ command! RestoreSession call RestoreSession()
   " autocmd VimEnter * call SaveOrRestoreSession('VimEnter')
 " augroup END
 
+inoremap <C-c> <Esc>
 augroup number
     autocmd number InsertEnter * :set norelativenumber
     autocmd number InsertLeave * :call ActivateRelativeNumber()
+augroup END
+
+augroup cursor
+    autocmd!
+    autocmd VimLeave * call SetCursorShape()
 augroup END
 
 " autocmd BufWritePost *.md silent !toemoji %
@@ -533,6 +581,7 @@ nmap <Leader>sp :set spell!<CR>
 nmap <Leader>sl :call ToggleSpellLang()<CR>
 
 " Open file explorer (Netrw) on the current directory
+nnoremap <Leader>ee :call :OpenRanger<CR>
 nmap <Leader>e :call ToggleExplore()<CR>
 
 " Clear the highlights from the search
@@ -669,10 +718,12 @@ filetype indent on
 syntax on
 
 " Set my color theme
-" colorscheme solarized8
-colorscheme gruvbox
+colorscheme solarized8
+" colorscheme gruvbox
 " colorscheme tomorrow
 
 " prevent colors from syntax file from being overwritten when source .vimrc
 runtime! after/syntax/gitcommit.vim
+" }}}
+" {{{ PLUGINS
 " }}}
