@@ -171,34 +171,29 @@ prompt_symbol() {
     echo -e "\[$BLACK_BOLD\]└\[$CLEAR\]"
 }
 
-TERMINAL_EMULATOR=\
-$(basename \
-$(ps -o cmd -f -p \
-$(cat /proc/$(echo $$)/stat | cut -d' ' -f 4) | tail -1 | sed 's/ .*$//'))
+TERMINAL_EMULATOR=$(basename $(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d' ' -f 4) | tail -1 | sed 's/ .*$//'))
 
 CURSOR_UNDERSCORE=3
 cursor_style(){
     echo -e "\[\e[?${CURSOR_UNDERSCORE} q\]"
 }
 
-# Remove color in the prompt if terminal emulator is xterm
-if [ "$TERMINAL_EMULATOR" = xterm ]; then
-    DEFAULT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '"
-    LONG_PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
-    SHORT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\$ '"
-    WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\w\$ '"
-else
-    DEFAULT_PROMPT_COMMAND="PS1='\
-$(cursor_style)$(show_chroot)$(user_and_host) $(working_directory)$(prompt_symbol) '"
-
-    LONG_PROMPT_COMMAND="PS1='\
-$(cursor_style)$(┌—) $(show_chroot)$(user_and_host) $(—) $(working_directory) $(—) $(git_prompt) \
-$(—) $(bash_version) $(—) $(show_jobs) $(—) $(show_exit_status) $(———)\n$(└)\
-$(prompt_symbol) '"
-
-    SHORT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(prompt_symbol) '"
-    WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(working_directory)$(prompt_symbol) '"
-fi
+# Remove color in the prompt if terminal emulator is xterm*
+case "$TERMINAL_EMULATOR" in
+   xterm | xterm-256color )
+       DEFAULT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '"
+       LONG_PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
+       SHORT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\$ '"
+       WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\w\$ '"
+       ;;
+   * )
+       DEFAULT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(user_and_host) $(working_directory)$(prompt_symbol) '"
+       LONG_PROMPT_COMMAND="PS1='$(cursor_style)$(┌—) $(show_chroot)$(user_and_host) $(—) $(working_directory) $(—) $(git_prompt) $(—) $(bash_version) $(—) \
+$(show_jobs) $(—) $(show_exit_status) $(———)\n$(└)$(prompt_symbol) '"
+       SHORT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(prompt_symbol) '"
+       WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(working_directory)$(prompt_symbol) '"
+       ;;
+esac
 
 PROMPT_COMMAND=$SHORT_PROMPT_COMMAND
 
