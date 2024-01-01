@@ -16,11 +16,16 @@ status.register("clock",
 # Shows battery information 
 status.register("battery",
     interval=5,
-    format="{battery_ident}: [{status} ]{percentage_design:.2f}%",
+    # format="BAT [{status} ]{percentage_design:.2f}%",
+    format="bat {percentage_design:.2f}%",
     not_present_text="",
     alert=True,
     alert_percentage=15,
-    status={"DPL": "DPL", "CHR": "CHR", "DIS": "DIS", "FULL": ""})
+    status={"DPL": "DPL", "CHR": "CHR", "DIS": "DIS", "FULL": ""},
+    color=foreground,
+    full_color=foreground,
+    charging_color=green,
+    critical_color=red)
 
 # Shows received bytes
 # status.register("network",
@@ -50,8 +55,8 @@ status.register("battery",
 # Note: the network module requires PyPI package netifaces
 status.register("network",
     interface="enp3s0", # eth0, enp3s0, etc.
-    #next_if_down=True,
-    format_up="ETH {v4cidr}",
+    # next_if_down=True,
+    format_up="eth {v4cidr}",
     format_down="{interface}: DOWN",
     auto_units=True,
     color_up=green,
@@ -59,10 +64,11 @@ status.register("network",
 
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register("network",
-    interface="wlan0",
+    interface="wlp3s0", # wlan0, wlp3s0, etc.
+    # next_if_down=True,
     #detached_down=False,
-    format_up="WLN {essid} {quality:03.0f}%",
-    format_down="",
+    format_up="wln {essid} {quality:03.0f}%",
+    format_down="{interface}: DOWN",
     color_up=green,
     color_down=red)
 
@@ -70,7 +76,7 @@ status.register("network",
 # Shows pulseaudio default sink volume
 # Note: requires libpulseaudio from PyPI
 status.register("pulseaudio",
-    format="VOL {volume}",
+    format="vol {volume}",
     format_muted="pulseaudio: MUTED",
     color_unmuted=foreground,
     color_muted=red)
@@ -80,7 +86,7 @@ status.register("pulseaudio",
 # 42/128G [86G]
 status.register("disk",
     path="/",
-    format="HD {used}/{total}G [{avail}G]",
+    format="ssd {used}/{total}G [{avail}G]",
     format_not_mounted="/: UNMOUNTED",
     color_not_mounted=yellow,
     critical_limit=10,
@@ -92,8 +98,9 @@ status.register("disk",
 # 42/128G [86G]
 status.register("disk",
     path="/media/vandito/home",
-    format="SSD {used}/{total}G [{avail}G]",
-    format_not_mounted="/media/vandito/home: UNMOUNTED",
+    format="ssd {used}/{total}G [{avail}G]",
+    # format_not_mounted="/media/vandito/home: UNMOUNTED",
+    format_not_mounted="",
     color_not_mounted=yellow,
     critical_limit=1,
     critical_color=red,
@@ -101,7 +108,7 @@ status.register("disk",
 
 # Shows SWAP usage %
 status.register("swap",
-    format="SWP {percent_used}%",
+    format="swp {percent_used}%",
     warn_percentage=50,
     alert_percentage=80,
     color=foreground,
@@ -110,7 +117,7 @@ status.register("swap",
 
 # Shows RAM usage %
 status.register("mem",
-    format="RAM {percent_used_mem}%",
+    format="ram {percent_used_mem}%",
     warn_percentage=80,
     alert_percentage=90,
     color=foreground,
@@ -119,14 +126,14 @@ status.register("mem",
 
 # Shows CPU temperature
 status.register("temp",
-    format="TMP {temp:.0f}°C",
+    format="tmp {temp:.0f}°C",
     alert_temp=80,
     alert_color=red,
     color=foreground)
 
 # Shows CPU usage %
 status.register("cpu_usage",
-    format="CPU {usage:02}%",
+    format="cpu {usage:02}%",
     color=foreground)
 
 # Shows CPU usage graph
