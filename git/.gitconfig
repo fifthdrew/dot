@@ -28,7 +28,17 @@
 
 [diff]
     tool = diffuse
+    #tool = difftastic
     #tool = meld
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+    difftool = true
 
 [includeIf "gitdir:~/Desktop/Projects/EDGE/"]
     path = ~/.gitconfig.edge
