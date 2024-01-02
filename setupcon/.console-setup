@@ -7,7 +7,7 @@ ACTIVE_CONSOLES="/dev/tty[1-6]"
 CHARMAP="UTF-8"
 
 CODESET="Lat15"
-FONTFACE="Terminus"
+FONTFACE="Terminus Medium"
 FONTSIZE="6x12"
 
 VIDEOMODE=
