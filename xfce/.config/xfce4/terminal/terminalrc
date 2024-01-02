@@ -1,19 +1,8 @@
 [Configuration]
-FontName=Hack 10
-TitleMode=TERMINAL_TITLE_REPLACE
-
+FontName=Hack Nerd Font Mono 10
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingUnlimited=TRUE
-
-ColorForeground=#ebdbb2
-ColorBackground=#1D2021
-ColorPalette=#282828;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#a89984;#928374;#fb4934;#b8bb26;#fabd2f;#83a598;#d3869b;#8ec07c;#ebdbb2
-ColorCursor=#ebdbb2
-ColorBold=#ebdbb2
-ColorBoldUseDefault=FALSE
-
-TabActivityColor=#cc241d
-
+ColorForeground=#839496
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -29,7 +18,7 @@ MiscToolbarDefault=FALSE
 MiscConfirmClose=FALSE
 MiscCycleTabs=TRUE
 MiscTabCloseButtons=TRUE
-MiscTabCloseMiddleClick=TRUE
+MiscTabCloseMiddleClick=FALSE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscMiddleClickOpensUri=FALSE
@@ -42,3 +31,17 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
+ColorBackground=#002732
+ColorCursor=#839496
+ColorPalette=#073642;#DC322F;#859900;#B58900;#268BD2;#D33682;#2AA198;#839496;#586E75;#DC322F;#859900;#B58900;#268BD2;#D33682;#2AA198;#93A1A1
+ColorBold=#839496
+ColorBoldUseDefault=FALSE
+TabActivityColor=#DC322F
+TitleInitial=Xfce Terminal
+TitleMode=TERMINAL_TITLE_PREPEND
+FontAllowBold=FALSE
+ColorSelectionUseDefault=FALSE
+ShortcutsNoMenukey=TRUE
+ShortcutsNoHelpkey=TRUE
+ShortcutsNoMnemonics=TRUE
+
