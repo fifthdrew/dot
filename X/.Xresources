@@ -1,9 +1,10 @@
-! Xft
-Xft.dpi: 96
-
 !! XTerm Appearance
-XTerm*font: -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+XTerm*font: Terminus Medium
+!XTerm*font: -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
 !XTerm*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+XTerm*faceName: Terminus
+XTerm*faceSize: 8
+XTerm*renderFont: true
 XTerm*letterSpace: 0
 XTerm*lineSpace: 0
 XTerm*geometry: 92x24
@@ -26,29 +27,39 @@ XTerm*.color0:     #000000
 XTerm*.color8:     #333333
 !! Red
 XTerm*.color1:     #bb0000
-XTerm*.color9:     #ff3333
+!!XTerm*.color9:     #ff3333
+XTerm*.color9:     #bb0000
 !! Green
 XTerm*.color2:     #00bb00
-XTerm*.color10:    #33ff33
+!!XTerm*.color10:    #33ff33
+XTerm*.color10:    #00bb00
 !! Yellow
 XTerm*.color3:     #bbbb00
-XTerm*.color11:    #ffff33
+!!XTerm*.color11:    #ffff33
+XTerm*.color11:    #bbbb00
 !! Blue
 XTerm*.color4:     #0000bb
-XTerm*.color12:    #3333ff
+!!XTerm*.color12:    #3333ff
+XTerm*.color12:    #0000bb
 !! Magenta
 XTerm*.color5:     #bb00bb
-XTerm*.color13:    #ff33ff
+!!XTerm*.color13:    #ff33ff
+XTerm*.color13:    #bb00bb
 !! Cyan
 XTerm*.color6:     #00bbbb
-XTerm*.color14:    #33ffff
+!!XTerm*.color14:    #33ffff
+XTerm*.color14:    #00bbbb
 !! White
 XTerm*.color7:     #bbbbbb
 XTerm*.color15:    #ffffff
 
 !! URxvt Appearance
-URxvt*font: -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+!URxvt*font: -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
 !URxvt*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+URxvt*font: Terminus Medium
+URxvt.faceName: Terminus
+URxvt.faceSize: 8
+URxvt.renderFont: true
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -98,15 +109,15 @@ URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 
 !! Copy Paste & Other Extensions
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+!URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.keysym.M-u: perl:url-select:select_next
+!URxvt.keysym.M-c: perl:clipboard:copy
+!URxvt.keysym.M-v: perl:clipboard:paste
+!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+!URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!URxvt.keysym.M-s: perl:keyboard-select:search
+!URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.urlLauncher: firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
