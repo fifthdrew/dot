@@ -7,7 +7,7 @@ set $dmenu_op -fn 'Terminus:Medium:pixelsize=10' -b -p 'search:'
 set $dmenu_co -nb '#000000' -sf '#bbbbbb' -sb '#000000' -nf '#333333'
 
 # Rofi options
-set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "hack 10"
+set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "Terminus Medium 10"
 set $rofi_drun -modi drun -show drun
 set $rofi_combi -modi combi -show combi -combi-modi window#drun
 set $rofi_filebrowser -modi filebrowser -show filebrowser
@@ -18,6 +18,8 @@ set $lock_screen i3lock -i /home/vandito/Pictures/wallpaper_1366x768.png
 
 # Default position and size for floating windows
 set $default_position 5px 5px
+set $max_window_size 1346 x 748
+set $min_window_size 50 x 50
 set $full 1346px 748px 
 set $wide 1326px 718px
 set $tight 600px 718px
@@ -90,13 +92,13 @@ smart_gaps on
 floating_modifier $super
 
 # Max and min floating windows sizes
-floating_maximum_size 1920 x 1080
-floating_minimum_size 50 x 50
+floating_maximum_size $max_window_size
+floating_minimum_size $min_window_size
 
 # Window titles
 #for_window [class=".*"] title_format "%class"
 for_window [class=".*"] title_format "<big>%title</big>"
-for_window [all] title_window_icon on 
+for_window [all] title_window_icon on
 for_window [all] title_window_icon padding 0px
 
 # Start a terminal
@@ -176,7 +178,7 @@ bindsym $super+e layout toggle split
 
 # Toggle tiling / floating
 set $move floating toggle move position
-set $resize resize set 
+set $resize resize set
 bindsym $super+Shift+space $move $default_position $resize $full
 
 # Change focus between tiling / floating windows
@@ -303,8 +305,7 @@ exec xset r rate 200 50
 exec xset b off
 
 # Locks the screen when it goes to sleep
-#exec_always xautolock -time 5 -locker 'i3lock -i /home/vandito/Pictures/wallpaper_1366x768.png'
-exec_always xautolock -time 5 -locker '$lock_screen'
+exec xautolock -time 5 -locker '$lock_screen'
 
 # Add shadows and transparence effects
 #exec --no-startup-id compiz --replace

@@ -3,27 +3,27 @@ set $super Mod4
 set $alt Mod1
 
 # Dmenu options
-set $dmenu_op -fn 'terminus-font:normal:pixelsize=10' -b -p 'search:'
+set $dmenu_op -fn 'Terminus:Medium:pixelsize=10' -b -p 'search:'
 set $dmenu_co -nb '#000000' -sf '#bbbbbb' -sb '#000000' -nf '#333333'
 
 # Rofi options
-set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "hack 10"
+set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "Terminus Medium 10"
 set $rofi_drun -modi drun -show drun
 set $rofi_combi -modi combi -show combi -combi-modi window#drun
 set $rofi_filebrowser -modi filebrowser -show filebrowser
 
-# Screen resolution
-set $resolution 1920px 1080px
+# To use in i3lock and feh
+set $wallpaper ~/Pictures/wallpaper_1920x1080.png
+set $lock_screen i3lock -i /home/vandito/Pictures/wallpaper_1920x1080.png
 
 # Default position and size for floating windows
 set $default_position 10px 10px
+set $max_window_size 1920 x 1080
+set $min_window_size 50 x 50
 set $full 1920px 1080px
 set $wide 1900px 1050px
 set $tight 800px 1050px
 set $small 800px 600px
-
-# To use in i3lock and feh
-set $wallpaper ~/Pictures/wallpaper_$resolution.png
 
 # TODO: get this colors directly from .Xresources
 # using this 'set_from_resource $white color7'
@@ -58,8 +58,8 @@ set $red_1   #900000
 set $black_1 #222222
 
 # Font for window titles
-# NOTE: hack to remove titles completely
-font pango:Terminus Regular 0
+# NOTE: hack to remove titles completely use 0
+font pango:Terminus Medium 7
 
 # Windows and workspaces colors
 client.background       $white_b
@@ -74,9 +74,14 @@ client.placeholder      $black   $black_1 $white   $black     $black_1
 focus_follows_mouse no
 
 # Borders settings
-hide_edge_borders smart_no_gaps
 default_border normal 1
 default_floating_border normal 1
+for_window [class="XTerm"] border none
+for_window [class="XTerm" floating_from="user"] border normal
+for_window [class="Zathura"] border none
+for_window [class="Zathura" floating_from="user"] border normal
+for_window [class="qutebrowser"] border none
+for_window [class="qutebrowser" floating_from="user"] border normal
 
 # Gaps settings
 gaps inner 0
@@ -87,13 +92,14 @@ smart_gaps on
 floating_modifier $super
 
 # Max and min floating windows sizes
-floating_maximum_size 1920 x 1080
-floating_minimum_size 50 x 50
+floating_maximum_size $max_window_size
+floating_minimum_size $min_window_size
 
 # Window titles
 #for_window [class=".*"] title_format "%class"
-#for_window [all] title_window_icon on
-#for_window [all] title_window_icon padding 3px
+for_window [class=".*"] title_format "<big>%title</big>"
+for_window [all] title_window_icon on
+for_window [all] title_window_icon padding 0px
 
 # Start a terminal
 #bindsym $super+Return exec i3-sensible-terminal
@@ -171,7 +177,9 @@ bindsym $super+w layout tabbed
 bindsym $super+e layout toggle split
 
 # Toggle tiling / floating
-bindsym $super+Shift+space floating toggle move position $default_position resize set $full
+set $move floating toggle move position
+set $resize resize set
+bindsym $super+Shift+space $move $default_position $resize $full
 
 # Change focus between tiling / floating windows
 bindsym $super+space focus mode_toggle
@@ -227,19 +235,24 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+#bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym $super+F9 exec --no-startup-id brightnessctl set +5%
+#bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym $super+F8 exec --no-startup-id brightnessctl set 5%-
 
 # Redshift modes
 set $mode_redshift Set colour temperature: [a]uto, [r]eset, [2]500K, [3]000K, [4]000K, [5]000K
 set $kill_redshift pkill -9 redshift;
+set $set_auto_temp redshift -P -t
+set $reset_temp redshift -j
+set $set_temp redshift -P -O
 mode "$mode_redshift" {
-    bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 5000:4000", mode "default"
-    bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
-    bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 2500", mode "default"
-    bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
-    bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4000", mode "default"
-    bindsym 5 exec --no-startup-id "$kill_redshift redshift -P -O 5000", mode "default"
+    bindsym a exec --no-startup-id "$kill_redshift $set_auto_temp 5000:4000", mode "default"
+    bindsym r exec --no-startup-id "$kill_redshift $reset_temp", mode "default"
+    bindsym 2 exec --no-startup-id "$kill_redshift $set_temp 2500", mode "default"
+    bindsym 3 exec --no-startup-id "$kill_redshift $set_temp 3000", mode "default"
+    bindsym 4 exec --no-startup-id "$kill_redshift $set_temp 4000", mode "default"
+    bindsym 5 exec --no-startup-id "$kill_redshift $set_temp 5000", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -263,10 +276,11 @@ bindsym $super+m mode "$mode_window_size"
 
 # Gaps size modes
 set $mode_gaps_size Set gap size: [d]efault, [2]px, [5]px
+set $set_gaps_size i3-msg gaps inner current set
 mode "$mode_gaps_size" {
-    bindsym d exec --no-startup-id "i3-msg gaps inner current set 0", mode "default"
-    bindsym 2 exec --no-startup-id "i3-msg gaps inner current set 2", mode "default"
-    bindsym 5 exec --no-startup-id "i3-msg gaps inner current set 5", mode "default"
+    bindsym d exec --no-startup-id "$set_gaps_size 0", mode "default"
+    bindsym 2 exec --no-startup-id "$set_gaps_size 2", mode "default"
+    bindsym 5 exec --no-startup-id "$set_gaps_size 5", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -291,7 +305,7 @@ exec xset r rate 200 50
 exec xset b off
 
 # Locks the screen when it goes to sleep
-exec --no-startup-id xautolock -time 5 -locker "i3lock -i $wallpaper"
+exec xautolock -time 5 -locker '$lock_screen'
 
 # Add shadows and transparence effects
 #exec --no-startup-id compiz --replace
@@ -302,19 +316,20 @@ exec_always --no-startup-id feh --bg-fill $wallpaper
 
 # Start i3bar to display a workspace bar
 bar {
-    font pango:Terminus Regular 8
-    #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-    #font -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
+    # Set status bar font
+    font pango:Terminus Medium 8
+
+    # Set status bar infos
     status_command python3 ~/.config/i3/status.py
     #status_command i3status
 
+    # Set character showed between infos
     separator_symbol "  "
 
-    # NOTE: hack to fit with non-patched dmenu
-    padding -1px 0 -4px 1px
+    # NOTE: hack to fit status bar with non-patched dmenu
+    padding -1px 0 -4px 0
 
-    #workspace_min_width 40
-
+    # Set padding for tray icons
     tray_padding 0
 
     colors {
