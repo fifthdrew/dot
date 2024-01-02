@@ -21,7 +21,10 @@ firefox-esr
 fish
 flatpak
 fonts-hack
+fonts-hack-otf
+fonts-hack-ttf
 fonts-terminus
+fonts-terminus-otb
 freedownloadmanager
 freetube
 fzf
@@ -48,6 +51,7 @@ mpv
 nala
 nano
 neofetch
+neovim
 nvi
 pandoc
 parallel
