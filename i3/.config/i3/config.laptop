@@ -233,8 +233,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+#bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym $super+F9 exec --no-startup-id brightnessctl set +5%
+#bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym $super+F8 exec --no-startup-id brightnessctl set 5%-
 
 # Redshift modes
 set $mode_redshift Set colour temperature: [a]uto, [r]eset, [2]500K, [3]000K, [4]000K, [5]000K
