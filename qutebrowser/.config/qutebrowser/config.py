@@ -12,7 +12,7 @@
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
-# config.load_autoconfig(True)
+config.load_autoconfig(True)
 
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
@@ -93,7 +93,7 @@
 
 ## Foreground color of completion widget category headers.
 ## Type: QtColor
-# c.colors.completion.category.fg = 'white'
+c.colors.completion.category.fg = 'white'
 
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
@@ -180,7 +180,7 @@
 
 ## Foreground color for downloads with errors.
 ## Type: QtColor
-# c.colors.downloads.error.fg = 'white'
+c.colors.downloads.error.fg = '#000000'
 
 ## Color gradient start for download backgrounds.
 ## Type: QtColor
@@ -205,7 +205,7 @@
 ##   - hsv: Interpolate in the HSV color system.
 ##   - hsl: Interpolate in the HSL color system.
 ##   - none: Don't show a gradient.
-# c.colors.downloads.system.bg = 'rgb'
+c.colors.downloads.system.bg = 'none'
 
 ## Color gradient interpolation system for download text.
 ## Type: ColorSystem
@@ -214,7 +214,7 @@
 ##   - hsv: Interpolate in the HSV color system.
 ##   - hsl: Interpolate in the HSL color system.
 ##   - none: Don't show a gradient.
-# c.colors.downloads.system.fg = 'rgb'
+c.colors.downloads.system.fg = 'none'
 
 ## Background color for hints. Note that you can use a `rgba(...)` value
 ## for transparency.
@@ -223,11 +223,11 @@
 
 ## Font color for hints.
 ## Type: QssColor
-# c.colors.hints.fg = 'black'
+c.colors.hints.fg = '#000000'
 
 ## Font color for the matched part of hints.
 ## Type: QtColor
-# c.colors.hints.match.fg = 'green'
+c.colors.hints.match.fg = '#00bb00'
 
 ## Background color of the keyhint widget.
 ## Type: QssColor
@@ -243,15 +243,15 @@
 
 ## Background color of an error message.
 ## Type: QssColor
-# c.colors.messages.error.bg = 'red'
+c.colors.messages.error.bg = '#bb0000'
 
 ## Border color of an error message.
 ## Type: QssColor
-# c.colors.messages.error.border = '#bb0000'
+c.colors.messages.error.border = '#000000'
 
 ## Foreground color of an error message.
 ## Type: QssColor
-# c.colors.messages.error.fg = 'white'
+c.colors.messages.error.fg = '#bbbbbb'
 
 ## Background color of an info message.
 ## Type: QssColor
@@ -267,15 +267,15 @@
 
 ## Background color of a warning message.
 ## Type: QssColor
-# c.colors.messages.warning.bg = 'darkorange'
+c.colors.messages.warning.bg = '#bbbb00'
 
 ## Border color of a warning message.
 ## Type: QssColor
-# c.colors.messages.warning.border = '#d47300'
+c.colors.messages.warning.border = '#000000'
 
 ## Foreground color of a warning message.
 ## Type: QssColor
-# c.colors.messages.warning.fg = 'black'
+c.colors.messages.warning.fg = '#000000'
 
 ## Background color for prompts.
 ## Type: QssColor
@@ -287,7 +287,7 @@
 
 ## Foreground color for prompts.
 ## Type: QssColor
-# c.colors.prompts.fg = 'white'
+c.colors.prompts.fg = '#bbbbbb'
 
 ## Background color for the selected item in filename prompts.
 ## Type: QssColor
@@ -295,7 +295,7 @@
 
 ## Foreground color for the selected item in filename prompts.
 ## Type: QssColor
-# c.colors.prompts.selected.fg = 'white'
+c.colors.prompts.selected.fg = '#bbbbbb'
 
 ## Background color of the statusbar in caret mode.
 ## Type: QssColor
@@ -303,7 +303,7 @@
 
 ## Foreground color of the statusbar in caret mode.
 ## Type: QssColor
-# c.colors.statusbar.caret.fg = 'white'
+c.colors.statusbar.caret.fg = '#bbbbbb'
 
 ## Background color of the statusbar in caret mode with a selection.
 ## Type: QssColor
@@ -311,7 +311,7 @@
 
 ## Foreground color of the statusbar in caret mode with a selection.
 ## Type: QssColor
-# c.colors.statusbar.caret.selection.fg = 'white'
+c.colors.statusbar.caret.selection.fg = '#bbbbbb'
 
 ## Background color of the statusbar in command mode.
 ## Type: QssColor
@@ -319,7 +319,7 @@
 
 ## Foreground color of the statusbar in command mode.
 ## Type: QssColor
-# c.colors.statusbar.command.fg = 'white'
+c.colors.statusbar.command.fg = '#bbbbbb'
 
 ## Background color of the statusbar in private browsing + command mode.
 ## Type: QssColor
@@ -327,15 +327,15 @@
 
 ## Foreground color of the statusbar in private browsing + command mode.
 ## Type: QssColor
-# c.colors.statusbar.command.private.fg = 'white'
+c.colors.statusbar.command.private.fg = '#bbbbbb'
 
 ## Background color of the statusbar in insert mode.
 ## Type: QssColor
-# c.colors.statusbar.insert.bg = 'darkgreen'
+c.colors.statusbar.insert.bg = '#000000'
 
 ## Foreground color of the statusbar in insert mode.
 ## Type: QssColor
-# c.colors.statusbar.insert.fg = 'white'
+c.colors.statusbar.insert.fg = '#bbbbbb'
 
 ## Background color of the statusbar.
 ## Type: QssColor
@@ -343,7 +343,7 @@
 
 ## Foreground color of the statusbar.
 ## Type: QssColor
-# c.colors.statusbar.normal.fg = 'white'
+c.colors.statusbar.normal.fg = '#bbbbbb'
 
 ## Background color of the statusbar in passthrough mode.
 ## Type: QssColor
@@ -351,7 +351,7 @@
 
 ## Foreground color of the statusbar in passthrough mode.
 ## Type: QssColor
-# c.colors.statusbar.passthrough.fg = 'white'
+c.colors.statusbar.passthrough.fg = '#bbbbbb'
 
 ## Background color of the statusbar in private browsing mode.
 ## Type: QssColor
@@ -359,49 +359,49 @@
 
 ## Foreground color of the statusbar in private browsing mode.
 ## Type: QssColor
-# c.colors.statusbar.private.fg = 'white'
+c.colors.statusbar.private.fg = '#bbbbbb'
 
 ## Background color of the progress bar.
 ## Type: QssColor
-# c.colors.statusbar.progress.bg = 'white'
+c.colors.statusbar.progress.bg = '#bbbbbb'
 
 ## Foreground color of the URL in the statusbar on error.
 ## Type: QssColor
-# c.colors.statusbar.url.error.fg = 'orange'
+c.colors.statusbar.url.error.fg = '#bb0000'
 
 ## Default foreground color of the URL in the statusbar.
 ## Type: QssColor
-# c.colors.statusbar.url.fg = 'white'
+c.colors.statusbar.url.fg = '#bbbbbb'
 
 ## Foreground color of the URL in the statusbar for hovered links.
 ## Type: QssColor
-# c.colors.statusbar.url.hover.fg = 'aqua'
+c.colors.statusbar.url.hover.fg = '#0000bb'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (http).
 ## Type: QssColor
-# c.colors.statusbar.url.success.http.fg = 'white'
+c.colors.statusbar.url.success.http.fg = '#00bb00'
 
 ## Foreground color of the URL in the statusbar on successful load
 ## (https).
 ## Type: QssColor
-# c.colors.statusbar.url.success.https.fg = 'lime'
+c.colors.statusbar.url.success.https.fg = '#00bb00'
 
 ## Foreground color of the URL in the statusbar when there's a warning.
 ## Type: QssColor
-# c.colors.statusbar.url.warn.fg = 'yellow'
+c.colors.statusbar.url.warn.fg = '#bbbb00'
 
 ## Background color of the tab bar.
 ## Type: QssColor
-# c.colors.tabs.bar.bg = '#555555'
+c.colors.tabs.bar.bg = '#000000'
 
 ## Background color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.bg = 'darkgrey'
+c.colors.tabs.even.bg = '#333333'
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.even.fg = 'white'
+c.colors.tabs.even.fg = '#bbbbbb'
 
 ## Color for the tab indicator on errors.
 ## Type: QtColor
@@ -426,11 +426,11 @@
 
 ## Background color of unselected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.odd.bg = 'grey'
+c.colors.tabs.odd.bg = '#2f343a'
 
 ## Foreground color of unselected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.odd.fg = 'white'
+c.colors.tabs.odd.fg = '#bbbbbb'
 
 ## Background color of pinned unselected even tabs.
 ## Type: QtColor
@@ -438,7 +438,7 @@
 
 ## Foreground color of pinned unselected even tabs.
 ## Type: QtColor
-# c.colors.tabs.pinned.even.fg = 'white'
+c.colors.tabs.pinned.even.fg = '#bbbbbb'
 
 ## Background color of pinned unselected odd tabs.
 ## Type: QtColor
@@ -446,7 +446,7 @@
 
 ## Foreground color of pinned unselected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.pinned.odd.fg = 'white'
+c.colors.tabs.pinned.odd.fg = '#bbbbbb'
 
 ## Background color of pinned selected even tabs.
 ## Type: QtColor
@@ -454,7 +454,7 @@
 
 ## Foreground color of pinned selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.pinned.selected.even.fg = 'white'
+c.colors.tabs.pinned.selected.even.fg = '#bbbbbb'
 
 ## Background color of pinned selected odd tabs.
 ## Type: QtColor
@@ -462,23 +462,23 @@
 
 ## Foreground color of pinned selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.pinned.selected.odd.fg = 'white'
+c.colors.tabs.pinned.selected.odd.fg = '#bbbbbb'
 
 ## Background color of selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.even.bg = 'black'
+c.colors.tabs.selected.even.bg = '#4c7899'
 
 ## Foreground color of selected even tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.even.fg = 'white'
+c.colors.tabs.selected.even.fg = '#bbbbbb'
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.bg = 'black'
+c.colors.tabs.selected.odd.bg = '#4c7899'
 
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
-# c.colors.tabs.selected.odd.fg = 'white'
+c.colors.tabs.selected.odd.fg = '#bbbbbb'
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
@@ -570,7 +570,7 @@
 ##   - auto: Use the system-wide color scheme setting.
 ##   - light: Force a light theme.
 ##   - dark: Force a dark theme.
-# c.colors.webpage.preferred_color_scheme = 'auto'
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -1185,15 +1185,15 @@
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['nvim-qt', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
-# c.editor.encoding = 'utf-8'
+c.editor.encoding = 'utf-8'
 
 ## Delete the temporary file upon closing the editor.
 ## Type: Bool
-# c.editor.remove_file = True
+c.editor.remove_file = True
 
 ## Command (and arguments) to use for selecting a single folder in forms.
 ## The command should write the selected folder path to the specified
@@ -1232,73 +1232,73 @@
 
 ## Font used in the completion categories.
 ## Type: Font
-# c.fonts.completion.category = 'bold default_size default_family'
+c.fonts.completion.category = 'bold default_size default_family'
 
 ## Font used in the completion widget.
 ## Type: Font
-# c.fonts.completion.entry = 'default_size default_family'
+c.fonts.completion.entry = 'default_size default_family'
 
 ## Font used for the context menu. If set to null, the Qt default is
 ## used.
 ## Type: Font
-# c.fonts.contextmenu = None
+c.fonts.contextmenu = 'default_size default_family'
 
 ## Font used for the debugging console.
 ## Type: Font
-# c.fonts.debug_console = 'default_size default_family'
+c.fonts.debug_console = 'default_size default_family'
 
 ## Default font families to use. Whenever "default_family" is used in a
 ## font setting, it's replaced with the fonts listed here. If set to an
 ## empty value, a system-specific monospace default is used.
 ## Type: List of Font, or Font
-# c.fonts.default_family = []
+c.fonts.default_family = 'terminus'
 
 ## Default font size to use. Whenever "default_size" is used in a font
 ## setting, it's replaced with the size listed here. Valid values are
 ## either a float value with a "pt" suffix, or an integer value with a
 ## "px" suffix.
 ## Type: String
-# c.fonts.default_size = '10pt'
+c.fonts.default_size = '14pt'
 
 ## Font used for the downloadbar.
 ## Type: Font
-# c.fonts.downloads = 'default_size default_family'
+c.fonts.downloads = 'default_size default_family'
 
 ## Font used for the hints.
 ## Type: Font
-# c.fonts.hints = 'bold default_size default_family'
+c.fonts.hints = 'bold default_size default_family'
 
 ## Font used in the keyhint widget.
 ## Type: Font
-# c.fonts.keyhint = 'default_size default_family'
+c.fonts.keyhint = 'default_size default_family'
 
 ## Font used for error messages.
 ## Type: Font
-# c.fonts.messages.error = 'default_size default_family'
+c.fonts.messages.error = 'default_size default_family'
 
 ## Font used for info messages.
 ## Type: Font
-# c.fonts.messages.info = 'default_size default_family'
+c.fonts.messages.info = 'default_size default_family'
 
 ## Font used for warning messages.
 ## Type: Font
-# c.fonts.messages.warning = 'default_size default_family'
+c.fonts.messages.warning = 'default_size default_family'
 
 ## Font used for prompts.
 ## Type: Font
-# c.fonts.prompts = 'default_size sans-serif'
+c.fonts.prompts = 'default_size default_family'
 
 ## Font used in the statusbar.
 ## Type: Font
-# c.fonts.statusbar = 'default_size default_family'
+c.fonts.statusbar = 'default_size default_family'
 
 ## Font used for selected tabs.
 ## Type: Font
-# c.fonts.tabs.selected = 'default_size default_family'
+c.fonts.tabs.selected = 'default_size default_family'
 
 ## Font used for unselected tabs.
 ## Type: Font
-# c.fonts.tabs.unselected = 'default_size default_family'
+c.fonts.tabs.unselected = 'default_size default_family'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -1310,7 +1310,7 @@
 
 ## Font family for fixed fonts.
 ## Type: FontFamily
-# c.fonts.web.family.fixed = ''
+c.fonts.web.family.fixed = 'default_family'
 
 ## Font family for sans-serif fonts.
 ## Type: FontFamily
@@ -1326,11 +1326,11 @@
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
-# c.fonts.web.size.default = 16
+c.fonts.web.size.default = 16
 
 ## Default font size (in pixels) for fixed-pitch text.
 ## Type: Int
-# c.fonts.web.size.default_fixed = 13
+c.fonts.web.size.default_fixed = 8
 
 ## Hard minimum font size (in pixels).
 ## Type: Int
@@ -1783,11 +1783,11 @@
 ##   - tr-TR: Turkish (Turkey)
 ##   - uk-UA: Ukrainian (Ukraine)
 ##   - vi-VN: Vietnamese (Viet Nam)
-# c.spellcheck.languages = []
+c.spellcheck.languages = ['pt-BR', 'en-US']
 
 ## Padding (in pixels) for the statusbar.
 ## Type: Padding
-# c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
+c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
 
 ## Position of the status bar.
 ## Type: VerticalPosition
@@ -1859,7 +1859,7 @@
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
-# c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
+c.tabs.indicator.padding = {'top': 4, 'bottom': 4, 'left': 4, 'right': 4}
 
 ## Width (in pixels) of the progress indicator (0 to disable).
 ## Type: Int
@@ -1932,7 +1932,7 @@
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
-# c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 5, 'right': 5}
+c.tabs.padding = {'top': 1, 'bottom': 1, 'left': 1, 'right': 1}
 
 ## Force pinned tabs to stay at fixed URL.
 ## Type: Bool
