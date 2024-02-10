@@ -1,5 +1,5 @@
 [Configuration]
-FontName=Hack Nerd Font Mono 10
+FontName=Terminus Medium 8
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingUnlimited=TRUE
 ColorForeground=#839496
