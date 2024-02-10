@@ -8,7 +8,7 @@ XTerm*renderFont: true
 XTerm*letterSpace: 0
 XTerm*lineSpace: 0
 XTerm*geometry: 92x24
-XTerm*internalBorder: 2
+XTerm*internalBorder: 0
 XTerm*cursorBlink: true
 XTerm*cursorUnderline: false
 XTerm*saveLines: 2048
