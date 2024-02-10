@@ -4,7 +4,7 @@ set $alt Mod1
 
 # Dmenu options
 set $dmenu_op -fn 'Terminus:Medium:pixelsize=10' -b -p 'search:'
-set $dmenu_co -nb '#000000' -sf '#bbbbbb' -sb '#000000' -nf '#333333'
+set $dmenu_co -nb '#222222' -sf '#bbbbbb' -sb '#285577' -nf '#888888'
 
 # Rofi options
 set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "Terminus Medium 10"
@@ -338,7 +338,7 @@ bar {
         separator  $white
         #class             border   bground  text
         inactive_workspace $black_b $black_1 $gray_1
-        binding_mode       $black   $black   $white
+        binding_mode       $black_b $black_1 $gray_1
         active_workspace   $black_b $gray_3  $white
         focused_workspace  $blue_1  $blue_3  $white
         urgent_workspace   $gray_4  $red_1   $white_b
