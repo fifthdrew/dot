@@ -1,3 +1,4 @@
+chatterino
 ffmpeg-full
 Freedesktop
 Intel

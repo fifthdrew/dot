@@ -80,6 +80,7 @@ software-properties-common
 staruml
 steam:i386
 stow
+streamlink
 sturdy
 syncthing
 tar
@@ -105,4 +106,5 @@ wine
 xautolock
 xclip
 xonsh
+xournalpp
 zeal
