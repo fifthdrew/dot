@@ -132,7 +132,7 @@ user_and_host() {
 }
 
 working_directory() {
-    echo -e "\[$CYAN\]🖿 \[$BLACK_BOLD\]:\[$BLUE\]\w\[$CLEAR\]"
+    echo -e "\[$CYAN\]files\[$BLACK_BOLD\]:\[$BLUE\]\w\[$CLEAR\]"
 }
 
 bash_version() {
@@ -140,7 +140,7 @@ bash_version() {
 }
 
 show_jobs() {
-    echo -e "\[$CYAN\]🛠 \[$BLACK_BOLD\]:\[$BLUE\]\j\[$CLEAR\]"
+    echo -e "\[$CYAN\]jobs\[$BLACK_BOLD\]:\[$BLUE\]\j\[$CLEAR\]"
 }
 
 show_exit_status() {
@@ -171,6 +171,22 @@ prompt_symbol() {
     echo -e "\[$BLACK_BOLD\]└\[$CLEAR\]"
 }
 
+open_paren() {
+    echo -e "\[$BLACK_BOLD\](\[$CLEAR\]"
+}
+
+close_paren() {
+    echo -e "\[$BLACK_BOLD\])\[$CLEAR\]"
+}
+
+open_braces() {
+    echo -e "\[$BLACK_BOLD\][\[$CLEAR\]"
+}
+
+close_braces() {
+    echo -e "\[$BLACK_BOLD\]]\[$CLEAR\]"
+}
+
 TERMINAL_EMULATOR=$(basename $(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d' ' -f 4) | tail -1 | sed 's/ .*$//'))
 
 CURSOR_UNDERSCORE=3
@@ -188,8 +204,9 @@ case "$TERMINAL_EMULATOR" in
        ;;
    * )
        DEFAULT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(user_and_host) $(working_directory)$(prompt_symbol) '"
-       LONG_PROMPT_COMMAND="PS1='$(cursor_style)$(┌—) $(show_chroot)$(user_and_host) $(—) $(working_directory) $(—) $(git_prompt) $(—) $(bash_version) $(—) \
-$(show_jobs) $(—) $(show_exit_status) $(———)\n$(└)$(prompt_symbol) '"
+       LONG_PROMPT_COMMAND="PS1='$(cursor_style)$(┌—)$(open_paren)$(show_chroot)$(user_and_host)$(close_paren)$(—)$(open_braces)$(working_directory)\
+$(close_braces)$(—)$(open_braces)$(git_prompt)$(close_braces)$(—)$(open_braces)$(bash_version)$(close_braces)$(—)$(open_braces)$(show_jobs)$(close_braces)$(—)\
+$(open_braces)$(show_exit_status)$(close_braces)$(———)\n$(└)$(prompt_symbol) '"
        SHORT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(prompt_symbol) '"
        WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(working_directory)$(prompt_symbol) '"
        ;;
@@ -263,11 +280,5 @@ if [ -n "$DISPLAY" ]; then
 fi
 
 set bell-style none
-
-# set show-mode-in-prompt on
-
-# set vi-cmd-mode-string "\1\e[2 q\2cmd"
-
-# set vi-ins-mode-string "\1\e[6 q\2ins"
 
 echo -ne "\e[3 q"
