@@ -35,227 +35,6 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# source ~/.prompt-colors.sh
-# normal colors
-BLACK_BOLD='\033[0;30m'
-RED_BOLD='\033[0;31m'
-GREEN_BOLD='\033[0;32m'
-YELLOW_BOLD='\033[0;33m'
-BLUE_BOLD='\033[0;34m'
-MAGENTA_BOLD='\033[0;35m'
-CYAN_BOLD='\033[0;36m'
-WHITE_BOLD='\033[0;37m'
-
-# bolded colors
-BLACK='\033[1;30m'
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[1;34m'
-MAGENTA='\033[1;35m'
-CYAN='\033[1;36m'
-WHITE='\033[1;37m'
-
-CLEAR='\033[0m'
-
-git_branch() {
-    # -- Finds and outputs the current branch name by parsing the list of
-    #    all branches
-    # -- Current branch is identified by an asterisk at the beginning
-    # -- If not in a Git repository, error message goes to /dev/null and
-    #    no output is produced
-    git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
-}
-
-git_status() {
-    # Outputs a series of indicators based on the status of the
-    # working directory:
-    # + changes are staged and ready to commit
-    # ! unstaged changes are present
-    # ? untracked files are present
-    # S changes have been stashed
-    # P local commits need to be pushed to the remote
-    local status="$(git status --porcelain 2>/dev/null)"
-    local output=''
-    [[ -n $(grep -E '^[MADRC]' <<<"$status") ]] && output="$output+"
-    [[ -n $(grep -E '^.[MD]' <<<"$status") ]] && output="$output!"
-    [[ -n $(grep -E '^\?\?' <<<"$status") ]] && output="$output?"
-    [[ -n $(git stash list) ]] && output="${output}S"
-    [[ -n $(git log --branches --not --remotes) ]] && output="${output}P"
-    [[ -n $output ]] && output="|$output"  # separate from branch name
-    echo $output
-}
-
-git_color() {
-    # Receives output of git_status as argument; produces appropriate color
-    # code based on status of working directory:
-    # - White if everything is clean
-    # - Green if all changes are staged
-    # - Red if there are uncommitted changes with nothing staged
-    # - Yellow if there are both staged and unstaged changes
-    # - Blue if there are unpushed commits
-    local staged=$([[ $1 =~ \+ ]] && echo yes)
-    local dirty=$([[ $1 =~ [!\?] ]] && echo yes)
-    local needs_push=$([[ $1 =~ P ]] && echo yes)
-    if [[ -n $staged ]] && [[ -n $dirty ]]; then
-        echo -e $YELLOW
-    elif [[ -n $staged ]]; then
-        echo -e $GREEN
-    elif [[ -n $dirty ]]; then
-        echo -e $RED
-    elif [[ -n $needs_push ]]; then
-        echo -e $MAGENTA
-    else
-        echo -e $BLUE
-    fi
-}
-
-git_prompt() {
-    # First, get the branch name...
-    local branch=$(git_branch)
-    # Empty output? Then we're not in a Git repository, so bypass the rest
-    # of the function, producing no output
-    if [[ -n $branch ]]; then
-        local state=$(git_status)
-        local color=$(git_color $state)
-        # Now output the actual code to insert the branch and status
-        echo -e "\x01$CYAN\x02git\x01$BLACK_BOLD\x02:\x01$color\x02$branch\x01$CLEAR\x02"
-    fi
-}
-
-show_chroot() {
-    echo -e "${debian_chroot:+($debian_chroot)}"
-}
-
-user_and_host() {
-    echo -e "\[$CYAN\]\u\[$BLACK_BOLD\]@\[$BLUE\]\h\[$CLEAR\]"
-}
-
-working_directory() {
-    echo -e "\[$CYAN\]files\[$BLACK_BOLD\]:\[$BLUE\]\w\[$CLEAR\]"
-}
-
-bash_version() {
-    echo -e "\[$CYAN\]bash\[$BLACK_BOLD\]:\[$BLUE\]\V\[$CLEAR\]"
-}
-
-show_jobs() {
-    echo -e "\[$CYAN\]jobs\[$BLACK_BOLD\]:\[$BLUE\]\j\[$CLEAR\]"
-}
-
-show_exit_status() {
-    echo -e "\[$CYAN\]status\[$BLACK_BOLD\]:\[$BLUE\]\$?\[$CLEAR\]"
-}
-
-prompt_symbol() {
-    echo -e "\[$BLACK_BOLD\]\$\[$CLEAR\]"
-}
-
-———() {
-    echo -e "\[$BLACK_BOLD\]———\[$CLEAR\]"
-}
-
-—() {
-    echo -e "\[$BLACK_BOLD\]—\[$CLEAR\]"
-}
-
-┌—() {
-    echo -e "\[$BLACK_BOLD\]┌—\[$CLEAR\]"
-}
-
-┌———() {
-    echo -e "\[$BLACK_BOLD\]┌———\[$CLEAR\]"
-}
-
-└() {
-    echo -e "\[$BLACK_BOLD\]└\[$CLEAR\]"
-}
-
-open_paren() {
-    echo -e "\[$BLACK_BOLD\](\[$CLEAR\]"
-}
-
-close_paren() {
-    echo -e "\[$BLACK_BOLD\])\[$CLEAR\]"
-}
-
-open_braces() {
-    echo -e "\[$BLACK_BOLD\][\[$CLEAR\]"
-}
-
-close_braces() {
-    echo -e "\[$BLACK_BOLD\]]\[$CLEAR\]"
-}
-
-TERMINAL_EMULATOR=$(basename $(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d' ' -f 4) | tail -1 | sed 's/ .*$//'))
-
-CURSOR_UNDERSCORE=3
-cursor_style(){
-    echo -e "\[\e[?${CURSOR_UNDERSCORE} q\]"
-}
-
-# Remove color in the prompt if terminal emulator is xterm*
-case "$TERMINAL_EMULATOR" in
-   xterm | xterm-256color )
-       DEFAULT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '"
-       LONG_PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
-       SHORT_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\$ '"
-       WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)${debian_chroot:+($debian_chroot)}\w\$ '"
-       ;;
-   * )
-       DEFAULT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(user_and_host) $(working_directory)$(prompt_symbol) '"
-       LONG_PROMPT_COMMAND="PS1='$(cursor_style)$(┌—)$(open_paren)$(show_chroot)$(user_and_host)$(close_paren)$(—)$(open_braces)$(working_directory)\
-$(close_braces)$(—)$(open_braces)$(git_prompt)$(close_braces)$(—)$(open_braces)$(bash_version)$(close_braces)$(—)$(open_braces)$(show_jobs)$(close_braces)$(—)\
-$(open_braces)$(show_exit_status)$(close_braces)$(———)\n$(└)$(prompt_symbol) '"
-       SHORT_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(prompt_symbol) '"
-       WORKING_DIR_PROMPT_COMMAND="PS1='$(cursor_style)$(show_chroot)$(working_directory)$(prompt_symbol) '"
-       ;;
-esac
-
-PROMPT_COMMAND=$SHORT_PROMPT_COMMAND
-
-# Set default prompt
-dp() {
-    PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
-}
-
-# Set long prompt
-lp() {
-    PROMPT_COMMAND=$LONG_PROMPT_COMMAND
-}
-
-# Set short prompt
-sp() {
-    PROMPT_COMMAND=$SHORT_PROMPT_COMMAND
-}
-
-# Set short prompt
-wdp() {
-    PROMPT_COMMAND=$WORKING_DIR_PROMPT_COMMAND
-}
-
-yt() {
-	mpv "https://youtu.be/$1"
-}
-
-tw() {
-	mpv "https://twitch.tv/$1"
-}
-
-ddg() {
-	# Bad urlencode
-	SEARCH="$(echo $* | sed 's|\ |%20|g')"
-	lynx "https://lite.duckduckgo.com/lite/?kd=-1&kp=-1&q=${SEARCH}"
-}
-
-sb() {
-    source ~/.bashrc
-}
-
-st() {
-    source ~/.tmux.conf
-}
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -281,4 +60,45 @@ fi
 
 set bell-style none
 
-echo -ne "\e[3 q"
+DEFAULT_PROMPT_COMMAND="PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '"
+SHORT_PROMPT_COMMAND="PS1='${debian_chroot:+($debian_chroot)}\$ '"
+
+PROMPT_COMMAND=$SHORT_PROMPT_COMMAND
+
+CURSOR_SHAPE=3
+
+# Set default prompt
+dp() {
+    echo -ne "\e[${CURSOR_SHAPE} q"
+    PROMPT_COMMAND=$DEFAULT_PROMPT_COMMAND
+}
+
+# Set short prompt
+sp() {
+    echo -ne "\e[${CURSOR_SHAPE} q"
+    PROMPT_COMMAND=$SHORT_PROMPT_COMMAND
+}
+
+yt() {
+    mpv "https://youtu.be/$1"
+}
+
+tw() {
+    mpv "https://twitch.tv/$1"
+}
+
+ddg() {
+    # Bad urlencode
+    SEARCH="$(echo $* | sed 's|\ |%20|g')"
+    lynx "https://lite.duckduckgo.com/lite/?kd=-1&kp=-1&q=${SEARCH}"
+}
+
+sb() {
+    source ~/.bashrc
+}
+
+st() {
+    source ~/.tmux.conf
+}
+
+echo -ne "\e[${CURSOR_SHAPE} q"
