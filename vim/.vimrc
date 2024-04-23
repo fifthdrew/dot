@@ -505,6 +505,8 @@ function! PrintSyntaxGroup() abort
 endfunction
 
 function! SetCursorShape()
+    " echo -ne "\e[3 q" > /dev/null 2>&1
+    "call system('bash -c "cursor 3 > /dev/null 2>&1"')
     call system('bash -c "echo -ne "\e[3 q" > /dev/null 2>&1"')
 endfunction
 
@@ -533,7 +535,7 @@ augroup END
 
 augroup cursor
     autocmd!
-    autocmd VimLeave * call SetCursorShape()
+    autocmd VimLeave * !SetCursorShape()
 augroup END
 
 " autocmd BufWritePost *.md silent !toemoji %
