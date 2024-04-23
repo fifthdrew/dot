@@ -1,0 +1,168 @@
+{
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily",
+        "editor.fontSize"
+    ],
+    "workbench.colorCustomizations": {
+        "[Solarized Sharp Dark]": {
+            "editorGutter.background": "#003c4b",
+            "activityBar.background": "#004456",
+            "statusBar.background": "#004456",
+            "statusBar.foreground": "#839496",
+            "breadcrumb.background": "#003c4b",
+            "tab.activeBorder": "#002B36",
+            "editorLineNumber.activeForeground": "#839496",
+            "editor.lineHighlightBackground": "#003c4b",
+            "editor.lineHighlightBorder": "#003c4b",
+            "editorBracketHighlight.foreground1": "#839496",
+            "editorBracketHighlight.foreground2": "#839496",
+            "editorBracketHighlight.foreground3": "#839496",
+            "editorBracketHighlight.foreground4": "#839496",
+            "editorBracketHighlight.foreground5": "#839496",
+            "editorBracketHighlight.foreground6": "#839496",
+            "editorBracketHighlight.unexpectedBracket.foreground": "#839496"
+        },
+    },
+    "workbench.startupEditor": "none",
+
+    "breadcrumbs.enabled": false,
+
+    "window.menuBarVisibility": "toggle",
+
+    "explorer.confirmDelete": false,
+
+    "editor.fontFamily": "'Hack', 'Menlo', 'monospace', monospace",
+    "editor.fontSize": 12,
+    "editor.tokenColorCustomizations": {
+        "[Solarized Sharp Dark]": {
+            //"keywords": "#FF0000", 
+            "textMateRules": 
+            [
+                {
+                    "scope": "constant.numeric",
+                    "settings": {
+                        "fontStyle": "bold"
+                    }
+                },
+            ],
+        },
+
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.language.colorizedBracketPairs": null,
+    "editor.minimap.autohide": false,
+    "editor.minimap.enabled": false,
+    "editor.minimap.side": "right",
+    "editor.minimap.scale": 1,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.size": "fit",
+    "editor.minimap.showSlider": "mouseover",
+
+    "aws.telemetry": false,
+    
+    "zowe.ds.history": {
+        "persistence": true,
+        "favorites": [],
+        "history": [],
+        "sessions": [
+            "LearnCOBOL.zosmf",
+            "zosmf"
+        ],
+        "templates": [],
+        "fileHistory": [
+            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB23)",
+            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB22)",
+            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB21)",
+            "[ZOSMF]: ZXP.PUBLIC.DB2.SQL(SELECT)",
+            "[ZOSMF]: ZXP.PUBLIC.JCL(VSCJCL)",
+            "[ZOSMF]: Z48410.README"
+        ],
+        "searchHistory": [
+            "Z48410,ZXP.PUBLIC",
+            "Z48410,ZXP",
+            "Z48410"
+        ]
+    },
+    "zowe.uss.history": {
+        "persistence": true,
+        "favorites": [],
+        "history": [],
+        "sessions": [
+            "LearnCOBOL.zosmf",
+            "rse",
+            "zosmf"
+        ],
+        "templates": [],
+        "fileHistory": [],
+        "searchHistory": []
+    },
+    "zowe.jobs.history": {
+        "persistence": true,
+        "favorites": [],
+        "history": [],
+        "sessions": [
+            "LearnCOBOL.zosmf",
+            "zosmf"
+        ],
+        "templates": [],
+        "fileHistory": [],
+        "searchHistory": []
+    },
+    "zowe.settings.version": 2,
+
+    "files.associations": {
+        "*.COBOL*": "cobol",
+        "*.COB*": "cobol",
+        "*.COBCOPY*": "cobol",
+        "*.COPYBOOK*": "cobol",
+        "*.COPY*": "cobol",
+        "*.PL1*": "pl1",
+        "*.PLI*": "pl1",
+        "*.INC*": "pl1",
+        "*.INCLUDE*": "pl1",
+        "*.JCL*": "jcl",
+        "*.ASM*": "hlasm",
+        "*.ASSEMBLE*": "hlasm",
+        "*.HLASM*": "hlasm",
+        "*.HLA*": "hlasm",
+        "*.MACLIB*": "hlasm",
+        "*.EXEC*": "rexx",
+        "*.REXX*": "rexx",
+        "*.REXXINC*": "rexx",
+        "*.rex": "rexx",
+        "*.rexx": "rexx"
+    },
+
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/zapp.json"
+            ],
+            "url": "file:///home/vandito/.vscode-oss/extensions/ibm.zopeneditor-4.1.0-universal/resources/zapp-schema-1.1.0.json"
+        },
+        {
+            "fileMatch": [
+                "/zcodeformat.json"
+            ],
+            "url": "file:///home/vandito/.vscode-oss/extensions/ibm.zopeneditor-4.1.0-universal/resources/zcodeformat-schema-0.0.1.json"
+        }
+    ],
+    
+    "[cobol]": {
+        "files.autoGuessEncoding": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            0,
+            6,
+            7,
+            11,
+            72
+        ],
+        "editor.tabSize": 3,
+        "editor.useTabStops": false,
+        "editor.snippetSuggestions": "bottom",
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+        "editor.defaultFormatter": "IBM.zopeneditor",
+        "editor.guides.indentation": false
+    }
+}
