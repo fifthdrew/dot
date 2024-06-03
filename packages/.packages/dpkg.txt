@@ -105,6 +105,7 @@ wget
 wine
 xautolock
 xclip
+xdotool
 xonsh
 xournalpp
 zeal
