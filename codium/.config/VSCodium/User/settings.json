@@ -70,17 +70,23 @@
         ],
         "templates": [],
         "fileHistory": [
-            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB23)",
-            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB22)",
             "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB21)",
             "[ZOSMF]: ZXP.PUBLIC.DB2.SQL(SELECT)",
-            "[ZOSMF]: ZXP.PUBLIC.JCL(VSCJCL)",
-            "[ZOSMF]: Z48410.README"
+            "[ZOSMF]: ZXP.PUBLIC.DB2.SQL(DB2TBLS)",
+            "[ZOSMF]: ZXP.PUBLIC.DB2.SQL(CRE1)",
+            "[ZOSMF]: ZXP.PUBLIC.SOURCE(PYTHON1)",
+            "[ZOSMF]: ZXP.PUBLIC.SOURCE(NODE1)",
+            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL($README)",
+            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB23)",
+            "[ZOSMF]: ZXP.PUBLIC.DB2.CBL(CBLDB22)",
+            "[ZOSMF]: ZXP.PUBLIC.JCL(VSCJCL)"
         ],
         "searchHistory": [
+            "ZA1819.CBL",
+            "ZA1819",
+            "ZA1819.JLC",
             "Z48410,ZXP.PUBLIC",
-            "Z48410,ZXP",
-            "Z48410"
+            "Z48410,ZXP"
         ]
     },
     "zowe.uss.history": {
