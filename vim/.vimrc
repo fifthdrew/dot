@@ -23,8 +23,7 @@ set expandtab
 set smarttab
 set shiftwidth=4
 
-" Allow backspacing over everything
-" in INSERT mode
+" Allow backspacing over everything in INSERT mode
 set backspace=indent,eol,start
 
 " Set indentation
@@ -35,13 +34,11 @@ set autoindent
 set ignorecase
 set smartcase
 
-" Set partial search and result
-" highlighting
+" Set partial search and result highlighting
 set hlsearch
 set incsearch
 
-" Ensure that Vim will search all
-" project files
+" Ensure that Vim will search all project files
 set path+=.,**
 
 " Set command line completion
@@ -71,7 +68,7 @@ set mouse=a
 set encoding=utf-8
 
 " Set terminal colors
-if exists('+termguicolors')
+if exists('+termguicolors') && $TERM == "xterm-256color"
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
@@ -84,8 +81,7 @@ set nomodeline
 set showcmd
 set ruler
 
-" Improve Control-x + Control-o
-" auto complete function
+" Improve Control-x + Control-o auto complete function
 set omnifunc=syntaxcomplete#Complete
 
 " Set spelling check
@@ -93,21 +89,23 @@ set nospell
 set spelllang=en_us
 
 " Minimize the delay when hitting esc in insert mode
-set noesckeys
+if !has('nvim')
+    set noesckeys
+endif
 set ttimeout
 set ttimeoutlen=0
 
 " Character used on vertical splits
 " NOTE: https://pt.piliapp.com/symbol/line/
 " Options:▕ │ ▏
-set fillchars+=vert:\▕
+set fillchars+=vert:▕
 
 " Removes '~' chars in the end of file
-" set fillchars+=eob:\  
+" set fillchars+=eob: 
 
 " Change the characters used in the folding
-" set fillchars+=fold:\—
-set fillchars+=fold:\—
+" set fillchars+=fold:—
+set fillchars+=fold:—
 
 " Invisible characters
 " set listchars=tab:→\ ,space:·,trail:·,eol:↲,nbsp:␣
@@ -167,6 +165,7 @@ set showmatch
 set shellcmdflag=-ic
 
 set splitright
+set splitbelow
 
 " }}}
 "{{{ DEFINE AND SET VARIABLES
@@ -272,7 +271,7 @@ let &t_EI = "\<Esc>[2 q"
 
 "}}}
 " {{{ UTILITY FUNCTIONS
-function! SetFoldText()
+function! SetFoldText() 
    let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
    let lines_count = v:foldend - v:foldstart + 1
    let lines_count_text = printf("%10s", lines_count . ' lines ')
@@ -283,7 +282,7 @@ function! SetFoldText()
    let foldtextend = lines_count_text . repeat(foldchar, 5)
    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
    return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . ' ' . foldtextend
-endfunction
+endfunction 
 
 function! ActivateAllComponentsDisplay()
     tabdo windo set laststatus=2
@@ -485,15 +484,17 @@ function! FZF() abort
 endfunction
 
 function! OpenRanger()
-	let l:tempname = tempname()
+	"let l:tempname = tempname()
 	" ranger --choosefile=file
-	execute 'silent !ranger --choosefile=' . fnameescape(l:tempname)
-	try
-		execute 'cfile ' . l:tempname
-		redraw!
-	finally
-		call delete(l:tempname)
-	endtry
+	"execute 'silent !ranger --choosefile=' . fnameescape(l:tempname)
+	execute 'silent :enew'
+	execute 'silent !ranger'
+	"try
+		" execute 'cfile ' . l:tempname
+		" redraw!
+	" finally
+		" call delete(l:tempname)
+	" endtry
 endfunction
 
 " Print the syntax group of the text where the cursor is
@@ -513,7 +514,7 @@ endfunction
 " }}}
 " {{{ CUSTOM COMMANDS
 
-command! FZF call FZF()
+"command! FZF call FZF()
 command! Ranger call OpenRanger()
 command! PrintSyntaxGroup call PrintSyntaxGroup()
 command! SaveSession call SaveSession()
@@ -563,13 +564,17 @@ nnoremap <Leader>; A;<Esc>
 nnoremap <Leader>b :ls<CR>:b<Space>
 
 " List buffers and ask for the target buffer (with completion mode)
-nnoremap <leader>B :buffer <C-z><S-Tab>
+nnoremap <Leader>B :buffer <C-z><S-Tab>
+
+" Navigate to next and previous buffers
+nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bp :bprevious<CR>
 
 " List marks and ask for the target mark
 nnoremap <Leader>m :marks<CR>:'
 
 " Open builtin terminal
-nmap <Leader>t :term<CR>
+nmap <Leader>t :term<Space>
 
 " Quick fix operations
 nmap <Leader>qq :call ToggleQuickfix()<CR>
@@ -583,7 +588,7 @@ nmap <Leader>sp :set spell!<CR>
 nmap <Leader>sl :call ToggleSpellLang()<CR>
 
 " Open file explorer (Netrw) on the current directory
-nnoremap <Leader>ee :call :OpenRanger<CR>
+nnoremap <Leader>ee :call OpenRanger()<CR>
 nmap <Leader>e :call ToggleExplore()<CR>
 
 " Clear the highlights from the search
@@ -717,15 +722,39 @@ filetype indent on
 " {{{ SYNTAX AND COLORS
 
 " Turn syntax highlighting on by default
-syntax on
+if exists('+termguicolors') && $TERM == "xterm-256color"
+    syntax on
+else
+    syntax off
+endif
 
 " Set my color theme
 colorscheme solarized8
-" colorscheme gruvbox
-" colorscheme tomorrow
 
 " prevent colors from syntax file from being overwritten when source .vimrc
 runtime! after/syntax/gitcommit.vim
 " }}}
-" {{{ PLUGINS
+"{{{ PLUGINS
+" {{{ Default optional plugins
+"packadd! editorconfig
+packadd! matchit
+"packadd comment
 " }}}
+" {{{ Install minPlug automatically using default vim packs 
+" TODO: Implement my on version of minPlug using vim9script
+if empty(glob(substitute(&packpath, ",.*", "", "")."/pack/default/opt/minPlug"))
+    call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".
+                \ substitute(&packpath, ",.*", "", "")."/pack/default/opt/minPlug")
+    autocmd VimEnter * silent! MinPlugInstall | echo "minPlug: INSTALLED"
+endif 
+packadd minPlug
+" }}}
+" {{{ 3rd party plugins
+MinPlug yegappan/lsp
+MinPlug francoiscabrol/ranger.vim
+MinPlug junegunn/fzf
+" Wiki
+MinPlug vimwiki/vimwiki
+"MinPlug lervag/wiki.vim
+" }}}
+"}}}
