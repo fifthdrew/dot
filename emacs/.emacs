@@ -47,12 +47,8 @@
 
 ;; Set font family and size
 (cond
- ((find-font (font-spec :name "Fantasque Sans Mono"))
-  (set-frame-font "Fantasque Sans Mono"))
- ((find-font (font-spec :name "Hack Nerd Font Mono"))
-  (set-frame-font "Hack Nerd Font Mono-14"))
- ((find-font (font-spec :name "Hack"))
-  (set-frame-font "Hack-14")))
+((find-font (font-spec :name "M PLUS Code Latin"))
+ (set-frame-font "M PLUS Code Latin 8" nil t)))
 
 ;; Enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -162,7 +158,7 @@
 (setq solarized-distinct-fringe-background t)
 
 ;; Don't change the font for some headings and titles
-;(setq solarized-use-variable-pitch nil)
+(setq solarized-use-variable-pitch nil)
 
 ;; make the modeline high contrast
 (setq solarized-high-contrast-mode-line t)
@@ -188,19 +184,6 @@
 (setq solarized-height-plus-2 1.0)
 (setq solarized-height-plus-3 1.0)
 (setq solarized-height-plus-4 1.0)
-
-;; TODO: Customize my default theme
-;; Reference: https://www.reddit.com/r/emacs/comments/2yoi7k/help_with_color_schemes_in_the_terminal/
-;(if (display-graphic-p)
-;    ()
-;  (load-theme 'my-default t))
-
-;; TODO: Move to custom/helper/utility functions
-(defun on-after-init ()
-  (unless (display-graphic-p (selected-frame))
-    (setq solarized-high-contrast-mode-line t)
-    (load-theme 'solarized-light t)
-    (set-face-background 'default "undefined")))
 
 ; TODO: Move hooks to their own place
 (add-hook 'window-setup-hook 'on-after-init)
@@ -230,15 +213,13 @@
 (use-package solarized-theme
   :defer nil
   :config
-  (load-theme 'solarized-light t)
+  (load-theme 'solarized-dark t))
   (let ((line (face-attribute 'mode-line :underline)))
     (set-face-attribute 'mode-line          nil :overline   line)
-    ;; (set-face-attribute 'mode-line          nil :box        nil)
     (set-face-attribute 'mode-line          nil :background "#657B83")
     (set-face-attribute 'mode-line-inactive nil :overline   line)
     (set-face-attribute 'mode-line-inactive nil :box        nil)
     (set-face-attribute 'mode-line-inactive nil :underline  line)))
-    ;; (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
 
 ;; Compile packages, and use the newest version available
 (use-package auto-compile
@@ -273,13 +254,13 @@
   (evil-collection-init))
 
 ;; For the redo function to work correctly on evil-mode
-(use-package undo-tree
-  :after evil
-  :demand
-  :diminish
-  :config
-  (evil-set-undo-system 'undo-tree)
-  (global-undo-tree-mode 1))
+;; (use-package undo-tree
+;;   :after evil
+;;   :demand
+;;   :diminish
+;;   :config
+;;   (evil-set-undo-system 'undo-tree)
+;;   (global-undo-tree-mode 1))
 
 (use-package evil-surround
 	  :after evil
@@ -301,48 +282,27 @@
 
 (use-package rust-mode)
 
-(use-package typescript-mode)
+;(use-package typescript-mode)
 
 (use-package vimrc-mode)
 
-(use-package magit
-  :bind (("C-x g" . magit-status)
-         ("C-x C-g" . magit-status)))
+(use-package go-mode)
 
-(use-package eglot)
+;; (use-package magit
+;;   :bind (("C-x g" . magit-status)
+;;          ("C-x C-g" . magit-status)))
 
-;; (use-package moody
-;;   :defer nil
-;;   :config
-;;   (setq x-underline-at-descent-line t)
-;;   (moody-replace-mode-line-buffer-identification)
-;;   (moody-replace-vc-mode)
-;;   (moody-replace-eldoc-minibuffer-message-function))
+;; (use-package eglot)
 
 (use-package diminish
   :init
-  (diminish 'emacs-lisp-mode "p"))
+  (diminish 'emacs-lisp-mode "p")
+  (diminish 'gcmh-mode ""))
 
 (use-package rainbow-delimiters
   :hook ((emacs-lisp-mode lisp-mode racket-mode) . rainbow-delimiters-mode))
 
 (use-package dired-ranger)
-(use-package all-the-icons)
-
-(use-package all-the-icons-dired
-  :config
-  :hook (dired-mode . (lambda ()
-                       (interactive)
-                       (unless (file-remote-p default-directory)
-                         (all-the-icons-dired-mode)))))
-
-
-(use-package dired-subtree
-  :config
-  (advice-add 'dired-subtree-toggle :after (lambda ()
-                                             (interactive)
-                                             (when all-the-icons-dired-mode
-                                               (revert-buffer)))))
 
 ;; Trigger garbage collection when idle for five seconds and memory usage is over 16 MB.
 ;; This package replaces the instructions on 'general stuff' section.
