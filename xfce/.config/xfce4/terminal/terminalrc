@@ -1,5 +1,6 @@
 [Configuration]
-FontName=Terminus Medium 8
+FontName=M PLUS Code Latin 8
+#FontName=Monospace 8
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingUnlimited=TRUE
 ColorForeground=#839496
