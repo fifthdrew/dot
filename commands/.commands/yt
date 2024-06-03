@@ -1,0 +1,2 @@
+#!/bin/bash
+mpv --ytdl-format=bestvideo+bestaudio/best "https://youtu.be/$1"

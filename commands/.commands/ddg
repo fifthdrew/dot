@@ -1,0 +1,4 @@
+#!/bin/bash
+# Bad urlencode
+SEARCH="$(echo $* | sed 's|\ |%20|g')"
+lynx "https://lite.duckduckgo.com/lite/?kd=-1&kp=-1&q=${SEARCH}"
