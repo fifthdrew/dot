@@ -7,8 +7,8 @@ alias l='ls -Ch'
 alias gst='git status'
 
 # Midnight Commander
-# alias mc="mc --nocolor"
-alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
+alias mc="mc --nocolor"
+#alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
 
 # rm
 alias rm='rm -i'
@@ -20,3 +20,6 @@ alias vif='vi $(fzf)'
 
 # tmux
 alias ta='tmux a -t Default'
+
+#ed
+alias ed='ed -p\:'
