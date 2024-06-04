@@ -1,7 +1,0 @@
-configuration {
- theme: "default";
- modi: "combi";
- font: "Hack 10";
- combi-modi: "window,drun";
- show-icons: true;
-}

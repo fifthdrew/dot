@@ -1,0 +1,5 @@
+configuration {
+ modi: "window,run,drun,filebrowser,combi";
+ combi-modi: "window,run,drun,filebrowser";
+}
+@theme "dmenu"

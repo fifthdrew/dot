@@ -1,0 +1,42 @@
+/* dmenu based theme */
+* {
+    background-color: #222222;
+    border-color: #bbbbbb;
+    text-color: #bbbbbb;
+    font: "M PLUS Code Latin 50 7";
+}
+window {
+    anchor: south;
+    location: south;
+    width: 100%;
+    padding: 0px;
+    children: [ horibox ];
+}
+horibox {
+    orientation: horizontal;
+    children: [ entry, listview ];
+}
+entry {
+    expand: false;
+    width: 10em;
+    placeholder: " search";
+}
+listview {
+    layout: horizontal;
+    spacing: 5px;
+    lines: 100;
+}
+element {
+    padding: 0px;
+}
+element selected {
+    background-color: #285577;
+}
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}
+element-icon {
+  size: 1.0em ;
+}
+/* vim:ft=css */
