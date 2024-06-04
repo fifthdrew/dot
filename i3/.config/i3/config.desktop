@@ -276,7 +276,7 @@ mode "$mode_exit_i3" {
     bindsym l exec i3-msg exit
     bindsym r exec systemctl reboot
     bindsym s exec systemctl poweroff
-    bindsym k exec --no-startup-id i3lock -i $wallpaper , mode "default"
+    bindsym k exec --no-startup-id i3lock -i $wallpaper, mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"

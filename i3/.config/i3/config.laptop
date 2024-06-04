@@ -3,11 +3,13 @@ set $super Mod4
 set $alt Mod1
 
 # Dmenu options
-set $dmenu_op -fn 'Terminus:Medium:pixelsize=10' -b -p 'search:'
-set $dmenu_co -nb '#000000' -sf '#bbbbbb' -sb '#000000' -nf '#333333'
+set $dmenu_op -fn 'M PLUS Code Latin:pixelsize=10' -b -p 'search:'
+#set $dmenu_op -fn 'Monospace:pixelsize=8' -b -p 'search:'
+set $dmenu_co -nb '#222222' -sf '#bbbbbb' -sb '#285577' -nf '#888888'
 
 # Rofi options
-set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "Terminus Medium 10"
+set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "M PLUS Code Latin 10"
+#set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "Monospace 8"
 set $rofi_drun -modi drun -show drun
 set $rofi_combi -modi combi -show combi -combi-modi window#drun
 set $rofi_filebrowser -modi filebrowser -show filebrowser
@@ -58,8 +60,8 @@ set $red_1   #900000
 set $black_1 #222222
 
 # Font for window titles
-# NOTE: hack to remove titles completely use 0
-font pango:Terminus Medium 7
+font pango:M PLUS Code Latin 5
+#font pango:Monospace 6
 
 # Windows and workspaces colors
 client.background       $white_b
@@ -245,7 +247,7 @@ set $mode_redshift Set colour temperature: [a]uto, [r]eset, [2]500K, [3]000K, [4
 set $kill_redshift pkill -9 redshift;
 set $set_auto_temp redshift -P -t
 set $reset_temp redshift -j
-set $set_temp redshift -P -O 
+set $set_temp redshift -P -O
 mode "$mode_redshift" {
     bindsym a exec --no-startup-id "$kill_redshift $set_auto_temp 5000:4000", mode "default"
     bindsym r exec --no-startup-id "$kill_redshift $reset_temp", mode "default"
@@ -309,15 +311,16 @@ exec xautolock -time 5 -locker '$lock_screen'
 
 # Add shadows and transparence effects
 #exec --no-startup-id compiz --replace
-exec --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends -CGb
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends -CGb
 
 # Display Wallpaper
-exec --no-startup-id feh --bg-fill $wallpaper
+exec_always --no-startup-id feh --bg-fill $wallpaper
 
 # Start i3bar to display a workspace bar
 bar {
     # Set status bar font
-    font pango:Terminus Medium 8
+    font pango:M PLUS Code Latin 6
+    #font pango:Monospace 7
 
     # Set status bar infos
     status_command python3 ~/.config/i3/status.py
@@ -326,8 +329,8 @@ bar {
     # Set character showed between infos
     separator_symbol "  "
 
-    # NOTE: hack to fit status bar with non-patched dmenu
-    padding -1px 0 -4px 0
+    # Set padding for i3bar
+    padding -1px 0 -1px 0
 
     # Set padding for tray icons
     tray_padding 0
@@ -338,7 +341,7 @@ bar {
         separator  $white
         #class             border   bground  text
         inactive_workspace $black_b $black_1 $gray_1
-        binding_mode       $black   $black   $white
+        binding_mode       $black_b $black_1 $gray_1
         active_workspace   $black_b $gray_3  $white
         focused_workspace  $blue_1  $blue_3  $white
         urgent_workspace   $gray_4  $red_1   $white_b
