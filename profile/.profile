@@ -30,14 +30,6 @@ if [ -d "/opt/firefox/firefox" ] ; then
     PATH="/opt/firefox/firefox:$PATH"
 fi
 
-if [ -d "$HOME/.commands" ] ; then
-    PATH="$HOME/.commands:$PATH"
-fi
-
-if [ -d "$HOME/.scripts" ] ; then
-    PATH="$HOME/.scripts:$PATH"
-fi
-
 if [ -d "$HOME/.cargo/bin/mprocs" ] ; then
     PATH="$HOME/.cargo/bin/mprocs:$PATH"
 fi
