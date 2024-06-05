@@ -2,17 +2,11 @@
 set $super Mod4
 set $alt Mod1
 
-# Dmenu options
-set $dmenu_op -fn 'M PLUS Code Latin:pixelsize=10' -b -p 'search:'
-#set $dmenu_op -fn 'Monospace:pixelsize=8' -b -p 'search:'
-set $dmenu_co -nb '#222222' -sf '#bbbbbb' -sb '#285577' -nf '#888888'
-
 # Rofi options
-set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "M PLUS Code Latin 10"
-#set $rofi_op -theme "default" -show-icons -icon-theme "Moka" -font "Monospace 8"
-set $rofi_drun -modi drun -show drun
-set $rofi_combi -modi combi -show combi -combi-modi window#drun
-set $rofi_filebrowser -modi filebrowser -show filebrowser
+set $run -show run
+set $drun -show drun -show-icons
+set $files -show filebrowser -show-icons
+set $dmenu -dmenu -i -b
 
 # To use in i3lock and feh
 set $wallpaper ~/Pictures/wallpaper_1366x768.png
@@ -78,12 +72,12 @@ focus_follows_mouse no
 # Borders settings
 default_border normal 1
 default_floating_border normal 1
-for_window [class="XTerm"] border none
-for_window [class="XTerm" floating_from="user"] border normal
-for_window [class="Zathura"] border none
-for_window [class="Zathura" floating_from="user"] border normal
-for_window [class="qutebrowser"] border none
-for_window [class="qutebrowser" floating_from="user"] border normal
+#for_window [class="XTerm"] border none
+#for_window [class="XTerm" floating_from="user"] border normal
+#for_window [class="Zathura"] border none
+#for_window [class="Zathura" floating_from="user"] border normal
+#for_window [class="qutebrowser"] border none
+#for_window [class="qutebrowser" floating_from="user"] border normal
 
 # Gaps settings
 gaps inner 0
@@ -110,27 +104,14 @@ bindsym $super+Return exec xterm
 # kill focused window
 bindsym $super+Shift+q kill
 
-# Start i3-dmenu-desktop which only displays applications with a .desktop file
-bindsym $super+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu $dmenu_op $dmenu_co"
-
-# Start j4-dmenu-desktop more performatic version of i3-dmenu-desktop
-bindsym $alt+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu $dmenu_op $dmenu_co"
-
-# Start dmenu (a program launcher)
-bindsym $super+Shift+d exec --no-startup-id dmenu_run $dmenu_op $dmenu_co
-
-# Start dmenu + fzf
-#bindsym $super+d exec --no-startup-id termite -t 'fzf' -e 'i3-dmenu-desktop --dmenu=fzf'
-#for_window [title="fzf"] floating enable
-
 # Start rofi (a program laucher) in drun modi
-bindsym $super+Control+r exec --no-startup-id rofi $rofi_op $rofi_drun
+bindsym $super+d exec --no-startup-id rofi $drun
 
-# Start rofi (a program laucher) in combined drun and window modis
-bindsym $super+Control+c exec --no-startup-id rofi $rofi_op $rofi_combi
+# Start rofi (a program laucher) in run modi
+bindsym $super+Shift+d exec --no-startup-id rofi $run
 
 # Start rofi (a program laucher) in filebrowser modi
-bindsym $super+Control+f exec --no-startup-id rofi $rofi_op $rofi_filebrowser
+bindsym $super+Shift+f exec --no-startup-id rofi $files
 
 # Change focus
 bindsym $super+h focus left
