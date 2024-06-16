@@ -68,7 +68,7 @@ set mouse=a
 set encoding=utf-8
 
 " Set terminal colors
-if exists('+termguicolors') && $TERM == "xterm-256color"
+if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
@@ -722,11 +722,7 @@ filetype indent on
 " {{{ SYNTAX AND COLORS
 
 " Turn syntax highlighting on by default
-if exists('+termguicolors') && $TERM == "xterm-256color"
-    syntax on
-else
-    syntax off
-endif
+syntax on
 
 " Set my color theme
 colorscheme solarized8

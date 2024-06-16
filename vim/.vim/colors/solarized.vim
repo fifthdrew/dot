@@ -9,7 +9,7 @@ if &background ==# "light"
   hi Normal cterm=NONE gui=NONE ctermfg=11 guifg=#657b83 ctermbg=15 guibg=#fdf6e3
 
   hi ColorColumn cterm=NONE gui=NONE ctermfg=NONE guifg=NONE ctermbg=7 guibg=#eee8d5
-  hi Comment cterm=NONE gui=italic ctermfg=14 guifg=#93a1a1 ctermbg=NONE guibg=NONE
+  hi Comment cterm=italic gui=italic ctermfg=14 guifg=#93a1a1 ctermbg=NONE guibg=NONE
   hi ConId cterm=NONE gui=NONE ctermfg=3 guifg=#b58900 ctermbg=NONE guibg=NONE
   hi Conceal cterm=NONE gui=NONE ctermfg=4 guifg=#268bd2 ctermbg=NONE guibg=NONE
   hi Constant cterm=NONE gui=NONE ctermfg=6 guifg=#2aa198 ctermbg=NONE guibg=NONE
@@ -223,7 +223,7 @@ else
   hi Normal cterm=NONE gui=NONE ctermfg=12 guifg=#839496 ctermbg=8 guibg=#002732
 
   hi ColorColumn cterm=NONE gui=NONE ctermfg=NONE guifg=NONE ctermbg=0 guibg=#073642
-  hi Comment cterm=NONE gui=italic ctermfg=10 guifg=#586e75 ctermbg=NONE guibg=NONE
+  hi Comment cterm=italic gui=italic ctermfg=10 guifg=#586e75 ctermbg=NONE guibg=NONE
   hi ConId cterm=NONE gui=NONE ctermfg=3 guifg=#b58900 ctermbg=NONE guibg=NONE
   hi Conceal cterm=NONE gui=NONE ctermfg=4 guifg=#268bd2 ctermbg=NONE guibg=NONE
   hi Constant cterm=NONE gui=NONE ctermfg=6 guifg=#2aa198 ctermbg=NONE guibg=NONE
@@ -257,7 +257,7 @@ else
   hi QuickFixLine cterm=NONE gui=NONE ctermfg=NONE guifg=NONE ctermbg=0 guibg=#073642
   hi Search cterm=reverse gui=reverse ctermfg=3 guifg=#b58900 ctermbg=NONE guibg=NONE
   hi SignColumn cterm=NONE gui=NONE ctermfg=12 guifg=#839496 ctermbg=0 guibg=#073642
-  hi Special cterm=NONE gui=NONE ctermfg=1 guifg=#dc322f ctermbg=NONE guibg=NONE
+  hi Special cterm=NONE gui=NONE ctermfg=1 guifg=#cb4b16 ctermbg=NONE guibg=NONE
   hi SpecialKey cterm=bold gui=bold ctermfg=11 guifg=#657b83 ctermbg=0 guibg=#073642
   hi SpellBad cterm=underline gui=undercurl ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE guisp=#dc322f
   hi SpellCap cterm=underline gui=undercurl ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE guisp=#6c71c4
@@ -283,7 +283,7 @@ else
   hi cPreCondit cterm=NONE gui=NONE ctermfg=9 guifg=#cb4b16 ctermbg=NONE guibg=NONE
 
   hi gitcommitBranch cterm=bold gui=bold ctermfg=5 guifg=#d33682 ctermbg=NONE guibg=NONE
-  hi gitcommitComment cterm=NONE gui=italic ctermfg=10 guifg=#586e75 ctermbg=NONE guibg=NONE
+  hi gitcommitComment cterm=italic gui=italic ctermfg=10 guifg=#586e75 ctermbg=NONE guibg=NONE
   hi gitcommitDiscardedFile cterm=bold gui=bold ctermfg=1 guifg=#dc322f ctermbg=NONE guibg=NONE
   hi gitcommitDiscardedType cterm=NONE gui=NONE ctermfg=1 guifg=#dc322f ctermbg=NONE guibg=NONE
   hi gitcommitFile cterm=bold gui=bold ctermfg=12 guifg=#839496 ctermbg=NONE guibg=NONE
@@ -337,7 +337,7 @@ else
   hi pandocCitationDelim cterm=NONE gui=NONE ctermfg=5 guifg=#d33682 ctermbg=NONE guibg=NONE
   hi pandocCitationID cterm=underline gui=underline ctermfg=5 guifg=#d33682 ctermbg=NONE guibg=NONE
   hi pandocCitationRef cterm=NONE gui=NONE ctermfg=5 guifg=#d33682 ctermbg=NONE guibg=NONE
-  hi pandocComment cterm=NONE gui=italic ctermfg=10 guifg=#586e75 ctermbg=NONE guibg=NONE
+  hi pandocComment cterm=italic gui=italic ctermfg=10 guifg=#586e75 ctermbg=NONE guibg=NONE
   hi pandocDefinitionBlock cterm=NONE gui=NONE ctermfg=13 guifg=#6c71c4 ctermbg=NONE guibg=NONE
   hi pandocDefinitionIndctr cterm=bold gui=bold ctermfg=13 guifg=#6c71c4 ctermbg=NONE guibg=NONE
   hi pandocDefinitionTerm cterm=bold,reverse gui=bold,reverse ctermfg=13 guifg=#6c71c4 ctermbg=NONE guibg=NONE
@@ -431,8 +431,11 @@ else
   hi vimIsCommand cterm=NONE gui=NONE ctermfg=11 guifg=#657b83 ctermbg=NONE guibg=NONE
   hi vimSynMtchOpt cterm=NONE gui=NONE ctermfg=3 guifg=#b58900 ctermbg=NONE guibg=NONE
   hi vimSynType cterm=NONE gui=NONE ctermfg=6 guifg=#2aa198 ctermbg=NONE guibg=NONE
-
+  
 endif
+
+hi! link shFunction Text
+hi! link bashSpecialVariables Text
 
 hi! link diffAdded Statement
 hi! link diffLine Identifier
