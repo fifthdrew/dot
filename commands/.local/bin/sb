@@ -1,2 +1,4 @@
 #!/bin/bash
-source ~/.bashrc
+sb() {
+    source $HOME/.bashrc
+}

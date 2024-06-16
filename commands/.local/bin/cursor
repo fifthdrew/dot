@@ -1,2 +1,4 @@
 #!/bin/bash
-echo -ne "\e[${1} q"
+cursor() {
+    echo -ne "\e[${1} q"
+}

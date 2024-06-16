@@ -1,0 +1,9 @@
+#!/bin/bash
+vmod() {
+    if [ -d "/usr/bin/vim" ] ; then
+        export VISUAL=vim
+    else
+        export VISUAL=vi
+    fi
+    set -o vi
+}

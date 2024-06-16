@@ -1,2 +1,4 @@
 #!/bin/bash
-mpv "https://twitch.tv/$1"
+tw() {
+    mpv "https://twitch.tv/$1"
+}

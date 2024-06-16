@@ -1,0 +1,7 @@
+#!/bin/bash
+emod() {
+    if [ -d "/usr/bin/emacs" ] ; then
+        export VISUAL=emacs
+    fi
+    set -o emacs 
+}

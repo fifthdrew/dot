@@ -1,2 +1,4 @@
 #!/bin/bash
-source ~/.tmux.conf
+st() {
+    source $HOME/.tmux.conf
+}

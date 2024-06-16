@@ -1,3 +1,4 @@
 #!/bin/bash
-
-PROMPT_COMMAND="PS1='\$ '"
+sp() {
+    PROMPT_COMMAND="PS1='\$ '"
+}

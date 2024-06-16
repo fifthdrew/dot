@@ -1,3 +1,8 @@
 #!/bin/bash
-
-PROMPT_COMMAND=="PS1='\u@\h:\w\$ '"
+_CYAN_() { echo -e '\[$(tput setaf 6)\]'; }
+_CLEAR_() { echo -e '\[$(tput sgr0)\]'; }
+_BLUE_() { echo -e '\[$(tput setaf 4)\]'; }
+dp(){
+    #PROMPT_COMMAND="PS1='\u@\h:\w\$ '"
+    export PS1="$(_CYAN_)\u@\h$(_CLEAR_):$(_BLUE_)\w$(_CLEAR_)\$ "
+}
