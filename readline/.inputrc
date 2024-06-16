@@ -1,0 +1,30 @@
+# Reload with `bind -f ~/.inputrc`.
+set convert-meta on
+set keyseq-timeout 10
+set bell-style none
+set visible-stats on
+set colored-stats on 
+set skip-completed-text on
+set completion-ignore-case on 
+set completion-prefix-display-length 3
+set mark-symlinked-directories on 
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Set default editing mode
+set editing-mode vi 
+set show-mode-in-prompt on
+
+# Emacs mode settings 
+set emacs-mode-string "\1\e[3 q\2"
+
+# Vi mode settings 
+set vi-ins-mode-string "\1\e[5 q\2"
+set vi-cmd-mode-string "\1\e[1 q\2"
+
+# rebind interrupt character from Control+c to Control+]
+#stty intr ^]
+
+# Vi mode keybinds
+#bind -m vi-command '"diw":"bde"'
+#bind -m vi-insert '"\C-c":"\e"'
