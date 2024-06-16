@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=URxvt
+GenericName=Terminal
+Comment=Rxvt for Unicode environments
+TryExec=urxvt
+Exec=urxvt
+Icon=xterm-color
+Type=Application
+Categories=System;Utility;TerminalEmulator;
+StartupNotify=true
+Keywords=shell;prompt;command;commandline;cmd;
+StartupWMClass=URxvt

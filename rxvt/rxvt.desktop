@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Rxvt
+GenericName=Terminal
+Comment=Rxvt terminal emulator
+TryExec=rxvt
+Exec=rxvt
+Icon=xterm-color
+Type=Application
+Categories=System;Utility;TerminalEmulator;
+StartupNotify=true
+Keywords=shell;prompt;command;commandline;cmd;
+StartupWMClass=Rxvt
