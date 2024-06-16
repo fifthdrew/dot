@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=XTerm
+GenericName=Terminal
+Comment=standard terminal emulator for the X window system
+TryExec=xterm
+Exec=xterm
+Terminal=false
+Type=Application
+Icon=xterm-color
+Categories=System;Utility;TerminalEmulator;
+Keywords=shell;prompt;command;commandline;cmd;
+StartupWMClass=XTerm
+X-Desktop-File-Install-Version=0.26

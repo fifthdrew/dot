@@ -1,0 +1,59 @@
+XTerm*title: XTerm
+XTerm*geometry: 90x30
+XTerm*transparent: false
+XTerm*fading: 0
+XTerm*urgentOnBell: false
+XTerm*visualBell: false
+XTerm*loginShell: true
+XTerm*saveLines: 50
+XTerm*internalBorder: 0
+XTerm*iso14755: false
+XTerm*urlLauncher: $BROWSER
+XTerm*underlineURLs: true
+XTerm*selectToClipboard: true
+
+! Fonts
+XTerm*font: xft:M PLUS Code Latin 50
+XTerm*boldFont: xft:M PLUS Code Latin 50
+XTerm*italicFont: xft:M PLUS Code Latin 50
+XTerm*cutchars: "'*,<>[]{}|-_@:/()"
+XTerm*renderFont: true
+XTerm*intensityStyles: false
+XTerm*skipBuiltinGlyphs: true
+XTerm*allowBoldFonts: false
+XTerm*allowItalicFonts: true
+XTerm*lineSpace: 0
+XTerm*letterSpace: 0
+
+! Cursor
+XTerm*cursorBlink: false
+XTerm*cursorUnderline: false
+
+! Pointer
+XTerm*pointerBlank: true
+
+! Scrollbar
+XTerm*scrollBar: false
+XTerm*scrollBar_right: false
+
+!! for the font size funcion
+XTerm*VT100.faceSize1: 8
+XTerm*VT100.faceSize2: 10
+XTerm*VT100.faceSize3: 12
+XTerm*VT100.faceSize4: 14
+XTerm*VT100.faceSize5: 16
+XTerm*VT100.faceSize6: 18
+XTerm*VT100.faceSize7: 20
+
+! Keybindings
+XTerm*VT100.Translations: #override \n\
+Shift Ctrl<Key>C: copy-selection(CLIPBOARD) \n\
+Shift Ctrl<Key>V: insert-selection(CLIPBOARD) \n\
+Shift Ctrl<Key>V: insert-selection(PRIMARY) \n\
+Shift<Btn1Down>: select-start() \n\
+Shift<Btn1Motion>: select-extend() \n\
+Shift<Btn1Up>: select-end(CLIPBOARD) \n\
+Ctrl <Key>-: smaller-vt-font() \n\
+Ctrl <Key>+: larger-vt-font() \n\
+Ctrl <Key>0: set-vt-font(d) \n\
+

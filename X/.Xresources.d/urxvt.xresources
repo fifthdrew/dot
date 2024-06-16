@@ -1,0 +1,86 @@
+URxvt.title: URxvt
+URxvt.geometry: 90x30
+URxvt.transparent: false
+URxvt.fading: 0
+URxvt.urgentOnBell: false
+URxvt.visualBell: false
+URxvt.loginShell: true
+URxvt.saveLines: 50
+URxvt.internalBorder: 0
+URxvt.iso14755: false
+URxvt.urlLauncher: $BROWSER
+URxvt.underlineURLs: true
+
+! Icons
+!URxvt.iconFile: /usr/share/icons/Faba/48x48/apps/utilities-terminal.svg
+
+! Fonts
+URxvt.font: xft:M PLUS Code Latin 50
+URxvt.boldFont: xft:M PLUS Code Latin 50
+URxvt.italicFont: xft:M PLUS Code Latin 50
+URxvt.cutchars: "'*,<>[]{}|-_@:/()"
+URxvt.renderFont: true
+URxvt.intensityStyles: false
+URxvt.skipBuiltinGlyphs: true
+URxvt.allowBoldFonts: false
+URxvt.allowItalicFonts: true
+URxvt.lineSpace: 0
+URxvt.letterSpace: 1
+
+! Cursor
+URxvt.cursorBlink: false
+URxvt.cursorUnderline: false
+
+! Pointer
+URxvt.pointerBlank: true
+
+! Scrollbar
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+
+! Colors (solarized)
+URxvt*background: #002732
+URxvt*foreground: #839496
+URxvt*cursorColor: #839496
+!! black dark/light
+URxvt*.color0: #073642
+URxvt*.color8: #586E75
+!! red dark/light
+URxvt*.color1: #dc322f
+URxvt*.color9: #dc322f
+!! green dark/light
+URxvt*.color2: #859900
+URxvt*.color10: #859900
+!! yellow dark/light
+URxvt*.color3: #b58900
+URxvt*.color11: #b58900
+!! blue dark/light
+URxvt*.color4: #268bd2
+URxvt*.color12: #268bd2
+!! magenta dark/light
+URxvt*.color5: #d33682
+URxvt*.color13: #d33682
+!! cyan dark/light
+URxvt*.color6: #2aa198
+URxvt*.color14: #2aa198
+!! white dark/light
+URxvt*.color7: #839496
+URxvt*.color15: #93a1a1
+
+! Perl extensions
+URxvt.perl-ext-common: default,resize-font
+!! resize-font
+URxvt.resize-font.step: 1
+
+! Keybindings
+!! change copy and past keybindings
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+URxvt.keysym.Control-Shift-V: eval:paste_clipboard
+URxvt.keysym.Control-Shift-C: eval:selection_to_clipboard
+!! keybindings for resize-font extension
+URxvt.keysym.Control-minus: resize-font:smaller
+URxvt.keysym.Control-plus: resize-font:bigger
+URxvt.keysym.Control-equal: resize-font:reset
+
+URxvt.keysym.Control-question: resize-font:show

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=UXTerm
+GenericName=Terminal
+Comment=Xterm wrapper for Unicode environments
+TryExec=uxterm
+Exec=uxterm
+Terminal=false
+Icon=xterm-color
+Type=Application
+Categories=System;Utility;TerminalEmulator;
+Keywords=shell;prompt;command;commandline;cmd;
+StartupWMClass=UXTerm
+X-Desktop-File-Install-Version=0.26
