@@ -1,45 +1,44 @@
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
 
 # if running bash
+# load ~/.bashrc if it exists
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+	    . "$HOME/.bashrc"
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# load ~/.local/bin bins if they exist
+# for cmd in "$HOME"/.local/bin/* ; do
+    # [ -e "$cmd" ] || continue
+    # . "$cmd"
+# done
+# unset -v cmd 
 
-# set PATH so it includes user's private bin if it exists
+PATH=""
+
+# add user's private bins to path
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    PATH="$HOME/.local/bin"
+fi
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$PATH:$HOME/.cargo/bin"
 fi
 
-if [ -d "/opt/firefox/firefox" ] ; then
-    PATH="/opt/firefox/firefox:$PATH"
+# add all-users bins to path
+if [ -d "/usr/local/bin" ] ; then
+    PATH="$PATH:/usr/local/bin"
 fi
-
-if [ -d "$HOME/.cargo/bin/mprocs" ] ; then
-    PATH="$HOME/.cargo/bin/mprocs:$PATH"
-fi
-
-if [ -d "/usr/local/bin/aws" ] ; then
-    PATH="/usr/local/bin/aws:$PATH"
-fi
-
 if [ -d "/usr/local/go/bin" ] ; then
-    PATH="/usr/local/go/bin:$PATH"
+    PATH="$PATH:/usr/local/go/bin"
+fi
+if [ -d "/usr/bin" ] ; then
+    PATH="$PATH:/usr/bin"
+fi
+if [ -d "/bin" ] ; then
+    PATH="$PATH:/bin"
 fi
 
 export PATH
@@ -61,12 +60,15 @@ fi
 # This loads Node Version Manager bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export EDITOR=/usr/bin/vim
+# Use ed as our line editor and vi as our visual editor
+export EDITOR=ed
+export VISUAL=vim
 
 # Editor to be used with the 'sudoedit' command
-export SUDO_EDITOR=$EDITOR
+export SUDO_EDITOR=$VISUAL
 
-export TERM=xterm-256color
+# Use less as my pager
+export PAGER=less
 
 # fzf command
 #export FZF_DEFAULT_COMMAND="find . -type f -o -type d -name '.*' -print 2>/dev/null | sed 1d"
@@ -75,6 +77,9 @@ export FZF_DEFAULT_OPTS="--prompt='' --pointer=' ❯' --color=16 --info=hidden"
 
 # bat command
 export BAT_THEME="Solarized (dark)"
+
+# Use lynx as our terminal browser
+export BROWSER=lynx
 
 # sdkman command
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
