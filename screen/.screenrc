@@ -1,3 +1,6 @@
+# terminal emulator name
+term 'screen-256color'
+
 # Turn off the welcome message
 startup_message off
 
