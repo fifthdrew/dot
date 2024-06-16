@@ -1,6 +1,5 @@
 [Configuration]
-FontName=M PLUS Code Latin 8
-#FontName=Monospace 8
+FontName=M PLUS Code Latin 50 8
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingUnlimited=TRUE
 ColorForeground=#839496
@@ -39,7 +38,7 @@ ColorBold=#839496
 ColorBoldUseDefault=FALSE
 TabActivityColor=#DC322F
 TitleInitial=Xfce Terminal
-TitleMode=TERMINAL_TITLE_PREPEND
+TitleMode=TERMINAL_TITLE_HIDE
 FontAllowBold=FALSE
 ColorSelectionUseDefault=FALSE
 ShortcutsNoMenukey=TRUE
