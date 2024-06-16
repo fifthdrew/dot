@@ -9,7 +9,7 @@ window {
     anchor: south;
     location: south;
     width: 100%;
-    padding: 0px;
+    padding: 1px;
     children: [ horibox ];
 }
 horibox {
