@@ -54,7 +54,7 @@ set $red_1   #900000
 set $black_1 #222222
 
 # Font for window titles
-font pango:M PLUS Code Latin 5
+font pango:M PLUS 1 Code 6
 #font pango:Monospace 6
 
 # Windows and workspaces colors
@@ -300,7 +300,7 @@ exec_always --no-startup-id feh --bg-fill $wallpaper
 # Start i3bar to display a workspace bar
 bar {
     # Set status bar font
-    font pango:M PLUS Code Latin 6
+    font pango:M PLUS 1 Code 7
     #font pango:Monospace 7
 
     # Set status bar infos
@@ -311,7 +311,7 @@ bar {
     separator_symbol "  "
 
     # Set padding for i3bar
-    padding -1px 0 -1px 0
+    padding -2px 0 -2px 0
 
     # Set padding for tray icons
     tray_padding 0
