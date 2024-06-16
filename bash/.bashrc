@@ -38,14 +38,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Disable bell
-if [ -n "$DISPLAY" ]; then
-    xset b off
-fi
-
-set bell-style none
-
-CURSOR_SHAPE=3
-#cursor ${CURSOR_SHAPE}
-echo -ne "\e[${CURSOR_SHAPE} q"
-PROMPT_COMMAND="PS1='\u@\h:\w\$ '"
+_CYAN_() { echo -e '\[$(tput setaf 6)\]'; }
+_CLEAR_() { echo -e '\[$(tput sgr0)\]'; }
+_BLUE_() { echo -e '\[$(tput setaf 4)\]'; }
+export PS1="$(_CYAN_)\u@\h$(_CLEAR_):$(_BLUE_)\w$(_CLEAR_)\$ "

@@ -1,4 +1,5 @@
 # ls
+alias ls='ls --color'
 alias ll='ls -alh'
 alias la='ls -Ah'
 alias l='ls -Ch'
@@ -8,18 +9,16 @@ alias gst='git status'
 
 # Midnight Commander
 alias mc="mc --nocolor"
-#alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
 
 # rm
 alias rm='rm -i'
 
 # vi(m)
-alias vi='nvi'
-#alias vim='nvim'
-alias vif='vi $(fzf)'
+alias vi='echo -ne "\e[2 q"; nvi'
+alias vim='echo -ne "\e[2 q"; vim'
 
 # tmux
 alias ta='tmux a -t Default'
 
 #ed
-alias ed='ed -p\:'
+alias ed='echo -ne "\e[3 q"; ed -v -p\*'
