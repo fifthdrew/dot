@@ -316,9 +316,9 @@ endfunction
 
 function! ActivateRelativeNumber()
   if &number=='nonumber'
-    tabdo windo set norelativenumber
+    set norelativenumber
   else
-    tabdo windo set relativenumber
+    set relativenumber
   endif
 endfunction
 
