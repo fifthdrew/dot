@@ -11,7 +11,7 @@ env:
   # Note that some xterm terminfo databases don't declare support for italics.
   # You can verify this by checking for the presence of `smso` and `sitm` in
   # `infocmp xterm-256color`.
-  TERM: xterm-256color
+  TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -31,7 +31,7 @@ window:
     y: 0 
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: true
+  dynamic_padding: false
 
   # Window decorations
   #
@@ -67,27 +67,27 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: Iosevka 
-    #    style: Normal
+    family: M PLUS 1 Code
+    style: Normal
 
   # The bold font face
   bold:
-    family: Iosevka 
-    #style: Bold
+    family: M PLUS 1 Code
+    style: Normal
 
   # The italic font face
   italic:
-    family: Iosevka 
-    #style: Italic
+    family: M PLUS 1 Code
+    style: Normal
 
   # Point size of the font
-  size: 13
+  size: 8
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: 0
-    y: 0 
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
@@ -117,42 +117,42 @@ draw_bold_text_with_bright_colors: false
 
 schemes:
 
-  # Colors (default)
-  default: &default
+  # Colors (solarized)
+  default: &solarized
 
     # Default colors
     primary:
-      background: "0x222222"
-      foreground: "0xffffff"
+      background: "#002732"
+      foreground: "#839496"
 
     # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
-      text: '0x000000'
-      cursor: '0xffffff'
+      text: '#002732'
+      cursor: '#839496'
 
     # Normal colors
     normal:
-      black:   '0x222222'
-      red:     '0xFF7777'
-      green:   '0x77FF77'
-      yellow:  '0xFFFF77'
-      blue:    '0x7777FF'
-      magenta: '0xFF77FF'
-      cyan:    '0x77ffff'
-      white:   '0xFFFFFF'
+      black:   '#073642'
+      red:     '#dc322f'
+      green:   '#859900'
+      yellow:  '#b58900'
+      blue:    '#268bd2'
+      magenta: '#d33682'
+      cyan:    '#2aa198'
+      white:   '#839496'
 
     # Bright colors
     bright:
-      black:   '0x7F7F7F'
-      red:     '0xFFAAAA'
-      green:   '0x77FFAA'
-      yellow:  '0xFFFFAA'
-      blue:    '0x77AAFF'
-      magenta: '0xFFAAFF'
-      cyan:    '0xAAFFFF'
-      white:   '0xFFFFFF'
+      black:   '#586E75'
+      red:     '#dc322f'
+      green:   '#859900'
+      yellow:  '#b58900'
+      blue:    '#268bd2'
+      magenta: '#d33682'
+      cyan:    '#2aa198'
+      white:   '#93a1a1'
 
-colors: *default
+colors: *solarized
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
@@ -186,7 +186,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.90
+window.opacity: 1.00
 
 # Key bindings
 #
@@ -409,7 +409,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Block
+  #style: Block
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
