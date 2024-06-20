@@ -6,6 +6,7 @@ alias l='ls -Ch'
 
 # git
 alias gst='git status'
+alias gcm='git commit -v'
 
 # Midnight Commander
 alias mc="mc --nocolor"
