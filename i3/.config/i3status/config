@@ -1,0 +1,88 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+    colors = true
+    interval = 1
+}
+
+# Shows CPU usage %
+order += "cpu_usage"
+cpu_usage {
+    format = "CPU: %usage"
+}
+
+# Shows CPU temperature
+order += "cpu_temperature all"
+cpu_temperature all {
+    format = "TMP: %degrees °C"
+    #path = "/sys/devices/platform/coretemp.0/temp1_input"
+}
+
+# Shows RAM usage %
+order += "memory"
+memory {
+    # format = "RAM: %used [%available]"
+    format = "RAM: %used"
+}
+
+# Shows disk usage of /media/vandito/home
+order += "disk /media/vandito/home/"
+disk "/media/vandito/home/" {
+    format = "SSD2: %used / %total [%avail]" 
+}
+
+# Shows disk usage of /
+order += "disk /"
+disk "/" {
+    format = "SSD1: %used / %total [%avail]"
+}
+
+# Shows default sink volume
+order += "volume master"
+volume master {
+    format = "VOL: %volume"
+    format_muted = "VOL: muted"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+order += "wireless _first_"
+wireless _first_ {
+    # format_up = "wln: (%quality at %essid) %ip"
+    format_up = "WLN: %ip"
+    format_down = "WLN: down"
+}
+
+order += "ethernet _first_"
+ethernet _first_ {
+    # format_up = "eth: %ip (%speed)"
+    format_up = "ETH: %ip"
+    format_down = "ETH: down"
+}
+
+order += "battery all"
+battery all {
+        # format = "BAT: %status %percentage %remaining %emptytime"
+        format = "BAT: %remaining [%status]"
+        format_down = ""
+        status_chr = "chr"
+        status_bat = "bat"
+        status_unk = "unk"
+        status_full = "full"
+        # status_idle = "idle"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+order += "tztime local"
+tztime local {
+        # format = "%d-%m-%Y %H:%M:%S "
+        format="%a %-d %b %X "
+}

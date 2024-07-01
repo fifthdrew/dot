@@ -54,7 +54,7 @@ set $red_1   #900000
 set $black_1 #222222
 
 # Font for window titles
-font pango:M PLUS 1 Code 6
+font pango:M PLUS 1 Code 4
 #font pango:Monospace 6
 
 # Windows and workspaces colors
@@ -95,7 +95,7 @@ floating_minimum_size $min_window_size
 #for_window [class=".*"] title_format "%class"
 for_window [class=".*"] title_format "<big>%title</big>"
 for_window [all] title_window_icon on
-for_window [all] title_window_icon padding 0px
+for_window [all] title_window_icon padding 1px
 
 # Start a terminal
 #bindsym $super+Return exec i3-sensible-terminal
@@ -300,18 +300,18 @@ exec_always --no-startup-id feh --bg-fill $wallpaper
 # Start i3bar to display a workspace bar
 bar {
     # Set status bar font
-    font pango:M PLUS 1 Code 7
+    font pango:M PLUS 1 Code 5
     #font pango:Monospace 7
 
     # Set status bar infos
-    status_command python3 ~/.config/i3/status.py
-    #status_command i3status
+    #status_command python3 ~/.config/i3status/config.py
+    status_command i3status
 
     # Set character showed between infos
     separator_symbol "  "
 
     # Set padding for i3bar
-    padding -2px 0 -2px 0
+    padding -1px 0 -1px 0
 
     # Set padding for tray icons
     tray_padding 0
