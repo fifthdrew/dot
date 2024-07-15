@@ -7,8 +7,11 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-    colors = true
     interval = 1
+    colors = true
+    color_good="#00bb00"
+    color_degraded="#bbbb00"
+    color_bad="#bb0000"
 }
 
 # Shows CPU usage %
@@ -69,20 +72,20 @@ ethernet _first_ {
 
 order += "battery all"
 battery all {
-        # format = "BAT: %status %percentage %remaining %emptytime"
-        format = "BAT: %remaining [%status]"
-        format_down = ""
-        status_chr = "chr"
-        status_bat = "bat"
-        status_unk = "unk"
-        status_full = "full"
-        # status_idle = "idle"
-        path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 10
+    # format = "BAT: %status %percentage %remaining %emptytime"
+    format = "BAT: %remaining [%status]"
+    format_down = ""
+    status_chr = "chr"
+    status_bat = "bat"
+    status_unk = "unk"
+    status_full = "full"
+    # status_idle = "idle"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 10
 }
 
 order += "tztime local"
 tztime local {
-        # format = "%d-%m-%Y %H:%M:%S "
-        format="%a %-d %b %X "
+    # format = "%d-%m-%Y %H:%M:%S "
+    format="%a %-d %b %X "
 }

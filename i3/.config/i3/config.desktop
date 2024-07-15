@@ -23,25 +23,13 @@ set $small 800px 600px
 
 # TODO: get this colors directly from .Xresources
 # using this 'set_from_resource $white color7'
-# Colors X
+# Custom colors X
 set $black     #000000
 set $black_b   #333333
-set $red       #bb0000
-set $red_b     #ff3333
-set $green     #00bb00
-set $green_b   #33ff33
-set $yellow    #bbbb00
-set $blue      #0000bb
-set $yellow_b  #ffff33
-set $blue_b    #3333ff
-set $magenta   #bb00bb
-set $magenta_b #ff33ff
-set $cyan      #00bbbb
-set $cyan_b    #33ffff
 set $white     #bbbbbb
 set $white_b   #ffffff
 
-# Colors i3
+# i3wm default colors
 set $gray    #484E50
 set $gray_1  #888888
 set $gray_2  #292D2E
@@ -54,8 +42,7 @@ set $red_1   #900000
 set $black_1 #222222
 
 # Font for window titles
-font pango:M PLUS 1 Code 4
-#font pango:Monospace 6
+font pango:MPLUS1Code 4
 
 # Windows and workspaces colors
 client.background       $white_b
@@ -213,9 +200,10 @@ bindsym $super+Shift+c reload
 bindsym $super+Shift+r restart
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screen brightness controls
 #bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -271,11 +259,13 @@ mode "$mode_gaps_size" {
 bindsym $super+g mode "$mode_gaps_size"
 
 # Exit i3 modes
-set $mode_exit_i3 Exit: [l]ogout, [r]eboot, [s]hutdown, loc[k]
+set $mode_exit_i3 Exit: [l]ogout, [r]eboot, [s]uspend, [h]ibernate, [p]oweroff, loc[k]
 mode "$mode_exit_i3" {
     bindsym l exec i3-msg exit
     bindsym r exec systemctl reboot
-    bindsym s exec systemctl poweroff
+    bindsym s exec systemctl suspend
+    bindsym h exec systemctl hibernate
+    bindsym p exec systemctl poweroff
     bindsym k exec --no-startup-id i3lock -i $wallpaper, mode "default"
 
     bindsym Escape mode "default"
@@ -287,8 +277,14 @@ bindsym $super+x mode "$mode_exit_i3"
 exec xset r rate 200 50
 exec xset b off
 
+# Network Manager gui
+exec --no-startup-id nm-applet
+
 # Locks the screen when it goes to sleep
-exec xautolock -time 5 -locker '$lock_screen'
+exec --no-startup-id xss-lock --transfer-sleep-lock -- '$lock_screen' --nofork
+
+# Locks the screen when it goes inactive
+exec --no-startup-id xautolock -time 5 -locker '$lock_screen'
 
 # Add shadows and transparence effects
 #exec --no-startup-id compiz --replace
@@ -300,11 +296,9 @@ exec_always --no-startup-id feh --bg-fill $wallpaper
 # Start i3bar to display a workspace bar
 bar {
     # Set status bar font
-    font pango:M PLUS 1 Code 5
-    #font pango:Monospace 7
+    font pango:MPLUS1Code 5
 
     # Set status bar infos
-    #status_command python3 ~/.config/i3status/config.py
     status_command i3status
 
     # Set character showed between infos
