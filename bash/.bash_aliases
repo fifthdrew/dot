@@ -19,6 +19,7 @@ alias vi='echo -ne "\e[2 q"; nvi'
 alias vim='echo -ne "\e[2 q"; vim'
 
 # tmux
+alias t='tmux'
 alias ta='tmux a -t Default'
 
 #ed
