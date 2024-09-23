@@ -51,6 +51,11 @@ set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=tags
 set wildignore+=*.tar.*
 
+" This set the char used to behave like Tab in selection menus
+" This is useful for mappings like:
+" nnoremap <leader>b :buffer <C-n>
+set wildcharm=<C-n>
+
 " Allow load a buffer in a window that
 " currently has a modified buffer
 set hidden
@@ -139,11 +144,6 @@ set ttyfast
 " http://bugs.debian.org/608242
 " set t_RV=
 
-" Automatically invoke completion mode in mappings
-" This is necessary for the following:
-" nnoremap <leader>B :buffer <C-z><S-Tab>
-set wildcharm=<C-z>
-
 " Set the working directory to wherever the open file lives
 set autochdir
 
@@ -191,6 +191,9 @@ let g:netrw_fastbrowse = 0
 " Explore
 let g:explore_is_open = 0
 
+" Quickfix
+let g:quickfix_is_open = 0
+
 " Value used in colorcolumn option
 let g:limit_column_start = 81
 let g:limit_column_end = g:limit_column_start * 2
@@ -231,9 +234,6 @@ let g:gruvbox_improved_warnings = 0
 " Define leader key
 let mapleader="\<space>"
 let maplocalleader=","
-
-" Quickfix
-let g:quickfix_is_open = 0
 
 " Comment characters for each language
 " SOURCE: https://stackoverflow.com/questions/1676632
@@ -414,23 +414,6 @@ function! FilePath() abort
     return '▏' . l:path . '/' . expand('%:t')
 endfunction
 
-function! SaveSession()
-    execute 'mksession! /tmp/session.vim'
-endfunction
-
-function! RestoreSession()
-    if filereadable('/tmp/session.vim')
-        execute 'so /tmp/session.vim'
-        if bufexists(1)
-            for l in range(1, bufnr('$'))
-                if bufwinnr(l) == -1
-                    exec 'sbuffer ' . l
-                endif
-            endfor
-        endif
-    endif
-endfunction
-
 function! IsNotDiff()
   return expand('%:e') != 'diff'
 endfunction
@@ -553,18 +536,16 @@ augroup END
 nmap <Leader>v :edit $MYVIMRC<CR>
 nmap <Leader>s :source $MYVIMRC<CR>
 
-" Create and source my session file
-nmap <Leader>cs :mksession! /tmp/session.vim<CR>
-nmap <Leader>ls :source /tmp/session.vim<CR>
-
 " Put a semicolon at the and of the actual line
 nnoremap <Leader>; A;<Esc>
 
 " List buffers and ask for the target buffer
-nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Leader>B :ls<CR>:b<Space>
 
 " List buffers and ask for the target buffer (with completion mode)
-nnoremap <Leader>B :buffer <C-z><S-Tab>
+" <C-n> is set to behave like <Tab> using the 'wildcharm' option
+nnoremap <Leader>b :buffer <C-n>
+nnoremap <Leader>bb :buffer <C-n>
 
 " Navigate to next and previous buffers
 nnoremap <Leader>bn :bnext<CR>
@@ -574,7 +555,8 @@ nnoremap <Leader>bp :bprevious<CR>
 nnoremap <Leader>m :marks<CR>:'
 
 " Open builtin terminal
-nmap <Leader>t :term<Space>
+nmap <Leader>t :term ++curwin<Space>
+nmap <Leader>tt :term ++curwin<Space>
 
 " Quick fix operations
 nmap <Leader>qq :call ToggleQuickfix()<CR>
@@ -613,12 +595,6 @@ nmap <Leader>* :grep -R <cword> * --exclude-dir={.git,tmp,log,node_modules}<CR><
 
 " Open a new fresh tab
 nmap <Leader>tn :tabnew<CR>
-
-" Split window vertically
-nmap <Leader>sv :call SplitVertically()<CR>
-
-" Split window horizontally
-nmap <Leader>sh :call SplitHorizontally()<CR>
 
 " Re-size windows
 nmap <Down> :resize +10<CR>
