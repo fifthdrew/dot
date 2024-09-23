@@ -1,0 +1,3 @@
+keymap f COMMAND "RESHAPE ; LINK_BEGIN ; GOTO_LINK"
+keymap F COMMAND "RESHAPE ; LINK_BEGIN ; TAB_LINK"
+keymap i COMMAND "SET_OPTION display_image=toggle ; RESHAPE"
