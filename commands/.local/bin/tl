@@ -1,0 +1,5 @@
+#!/bin/bash
+tl() {
+    SEARCH="$1"
+    $BROWSER "https://context.reverso.net/translation/english-portuguese/${SEARCH}"
+}
