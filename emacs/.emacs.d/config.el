@@ -1,6 +1,13 @@
-;;--------------------------------------------------------------------
-;;                         Global Variables
-;;--------------------------------------------------------------------
+(defun fixed-native-compile-async-skip-p
+        (native-compile-async-skip-p file load selector)
+    (let* ((naive-elc-file (file-name-with-extension file "elc"))
+           (elc-file       (replace-regexp-in-string
+                               "\\.el\\.elc$" ".elc" naive-elc-file)))
+        (or (gethash elc-file comp--no-native-compile)
+            (funcall native-compile-async-skip-p file load selector))))
+
+(advice-add 'native-compile-async-skip-p
+    :around 'fixed-native-compile-async-skip-p)
 
 (setq my/custom-file (expand-file-name "custom.el" user-emacs-directory))
 
@@ -12,11 +19,6 @@
         "~/Documents/")))
 
 (setq my/org-directory (expand-file-name "second-brain" my/cloud-synced-directory))
-
-
-;;--------------------------------------------------------------------
-;;                         General Stuff
-;;--------------------------------------------------------------------
 
 ;; Remove unnecessary ui things
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -47,8 +49,8 @@
 
 ;; Set font family and size
 (cond
-((find-font (font-spec :name "M PLUS Code Latin"))
- (set-frame-font "M PLUS Code Latin 8" nil t)))
+((find-font (font-spec :name "MPLUS1Code"))
+ (set-frame-font "MPLUS1Code 8" nil t)))
 
 ;; Enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -136,26 +138,14 @@
 
 (show-paren-mode 1)
 
-;; Minimize garbage collection during startup
-;(setq gc-cons-threshold most-positive-fixnum)
-
-;; Lower threshold back to 8 MiB (default is 800kB)
-;; TODO: Move hooks to their own place
-;(add-hook 'emacs-startup-hook
-;          (lambda ()
-;            (setq gc-cons-threshold (expt 2 23))))
-
 ; Remove borders from mode-line
 ;(set-face-attribute 'mode-line nil :box nil)
 ;(set-face-attribute 'mode-line-inactive nil :box nil)
 
-
-;;--------------------------------------------------------------------
-;;                               Theme
-;;--------------------------------------------------------------------
+(fringe-mode 0)
 
 ;; make the fringe stand out from the background
-(setq solarized-distinct-fringe-background t)
+;;(setq solarized-distinct-fringe-background t)
 
 ;; Don't change the font for some headings and titles
 (setq solarized-use-variable-pitch nil)
@@ -186,11 +176,7 @@
 (setq solarized-height-plus-4 1.0)
 
 ; TODO: Move hooks to their own place
-(add-hook 'window-setup-hook 'on-after-init)
-
-;;--------------------------------------------------------------------
-;;                            Packages
-;;--------------------------------------------------------------------
+;(add-hook 'window-setup-hook 'on-after-init)
 
 ;; Initialize package sources
 (require 'package)
@@ -213,59 +199,13 @@
 (use-package solarized-theme
   :defer nil
   :config
-  (load-theme 'solarized-dark t))
+  (load-theme 'solarized-dark t)
   (let ((line (face-attribute 'mode-line :underline)))
     (set-face-attribute 'mode-line          nil :overline   line)
     (set-face-attribute 'mode-line          nil :background "#657B83")
     (set-face-attribute 'mode-line-inactive nil :overline   line)
     (set-face-attribute 'mode-line-inactive nil :box        nil)
     (set-face-attribute 'mode-line-inactive nil :underline  line)))
-
-;; Compile packages, and use the newest version available
-(use-package auto-compile
-  :demand t
-  :config (auto-compile-on-load-mode))
-(setq load-prefer-newer t)
-
-;; Install system package if needed
-;; NOTE: Must add new package managers
-(use-package use-package-ensure-system-package
-  :demand t
-  :custom
-  (system-packages-package-manager 'apt))
-
-(use-package evil
-    :demand
-    :init
-    (progn
-      ;(setq evil-want-keybinding nil)
-      (setq evil-want-C-u-scroll t)
-      (setq evil-want-fine-undo t)
-      ; Undo character by character
-      ;(advice-add 'undo-auto--last-boundary-amalgamating-number
-      ;      :override #'ignore)
-      (setq evil-mode-line-format nil)
-      (evil-mode 1)))
-
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
-;; For the redo function to work correctly on evil-mode
-;; (use-package undo-tree
-;;   :after evil
-;;   :demand
-;;   :diminish
-;;   :config
-;;   (evil-set-undo-system 'undo-tree)
-;;   (global-undo-tree-mode 1))
-
-(use-package evil-surround
-	  :after evil
-		:config
-		(global-evil-surround-mode 1))
 
 (use-package command-log-mode)
 
@@ -275,14 +215,9 @@
   :config
   (which-key-mode))
 
-(use-package markdown-mode
-  :ensure t
-  :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown"))
+(use-package markdown-mode)
 
 (use-package rust-mode)
-
-;(use-package typescript-mode)
 
 (use-package vimrc-mode)
 
@@ -294,29 +229,10 @@
 
 ;; (use-package eglot)
 
-(use-package diminish
-  :init
-  (diminish 'emacs-lisp-mode "p")
-  (diminish 'gcmh-mode ""))
+(use-package diminish)
 
 (use-package rainbow-delimiters
   :hook ((emacs-lisp-mode lisp-mode racket-mode) . rainbow-delimiters-mode))
-
-(use-package dired-ranger)
-
-;; Trigger garbage collection when idle for five seconds and memory usage is over 16 MB.
-;; This package replaces the instructions on 'general stuff' section.
-(use-package gcmh
-		:demand t
-		:init
-		(setq gcmh-idle-delay 5
-					gcmh-high-cons-threshold (* 16 1024 1024))
-		:config
-		(gcmh-mode))
-
-;;--------------------------------------------------------------------
-;;                          Utility Functions
-;;--------------------------------------------------------------------
 
 (defun toggle-top-menu ()
   "Run toggle-menu-bar-mode-from-frame and toggle-tool-bar-mode-from-frame"
@@ -359,11 +275,6 @@
      (concat "Hidden Mode Line Mode enabled.  "
              "Use M-x hidden-mode-line-mode to make the mode-line appear."))))
 
-
-;;--------------------------------------------------------------------
-;;                                 Keys
-;;--------------------------------------------------------------------
-
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -374,3 +285,8 @@
 (global-set-key (kbd "<f8>") 'hidden-mode-line-mode)
 (global-set-key (kbd "<f9>") 'toggle-line-numbering)
 
+;; Increase/Decrease font size
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
