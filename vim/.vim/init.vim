@@ -614,6 +614,10 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Generate tags file on the current directory
 nmap <Leader>gt :!ctags -R .<CR>
 
+" Generate list of files in the current directory and sub-directories
+" Useful for index
+imap <Leader>gi <C-R>=glob('**/*')<CR>
+
 " Utilities
 vnoremap <Leader>, :call ToggleComment()<CR>
 nnoremap <Leader>, :call ToggleComment()<CR>
@@ -726,7 +730,6 @@ MinPlug yegappan/lsp
 MinPlug francoiscabrol/ranger.vim
 MinPlug junegunn/fzf
 " Wiki
-MinPlug vimwiki/vimwiki
 "MinPlug lervag/wiki.vim
 " }}}
 "}}}
