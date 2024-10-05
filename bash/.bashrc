@@ -38,7 +38,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-_CYAN_() { echo -e '\[$(tput setaf 6)\]'; }
-_CLEAR_() { echo -e '\[$(tput sgr0)\]'; }
-_BLUE_() { echo -e '\[$(tput setaf 4)\]'; }
-export PS1="$(_CYAN_)\u@\h$(_CLEAR_):$(_BLUE_)\w$(_CLEAR_)\$ "
+_CYAN_() { echo -e '$(tput setaf 6)'; }
+_CLEAR_() { echo -e '$(tput sgr0)'; }
+_BLUE_() { echo -e '$(tput setaf 4)'; }
+PS1="$(_CYAN_)\u@\h$(_CLEAR_):$(_BLUE_)\w$(_CLEAR_)\$ "
