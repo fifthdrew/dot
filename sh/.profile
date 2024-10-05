@@ -4,11 +4,11 @@
 
 # if running bash
 # load ~/.bashrc if it exists
-if [ -n "$BASH_VERSION" ]; then
-    if [ -f "$HOME/.bashrc" ]; then
-	    . "$HOME/.bashrc"
-    fi
-fi
+# if [ -n "$BASH_VERSION" ]; then
+    # if [ -f "$HOME/.bashrc" ]; then
+	    # . "$HOME/.bashrc"
+    # fi
+# fi
 
 # load ~/.local/bin bins if they exist
 # for cmd in "$HOME"/.local/bin/* ; do
@@ -49,20 +49,9 @@ if [ -d "$HOME/.cargo/env" ] ; then
     . "$HOME/.cargo/env"
 fi
 
-# export Node Version Manager
-if [ -d "$HOME/.nvm" ] ; then
-    export NVM_DIR="$HOME/.nvm"
-fi
-
-# This loads Node Version Manager
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# This loads Node Version Manager bash_completion
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
 # Use ed as our line editor and vi as our visual editor
 export EDITOR=ed
-export VISUAL=vim
+export VISUAL=vi
 
 # Editor to be used with the 'sudoedit' command
 export SUDO_EDITOR=$VISUAL
@@ -70,18 +59,10 @@ export SUDO_EDITOR=$VISUAL
 # Use less as my pager
 export PAGER=less
 
+# Use lynx as our terminal browser
+export BROWSER=w3m
+
 # fzf command
 #export FZF_DEFAULT_COMMAND="find . -type f -o -type d -name '.*' -print 2>/dev/null | sed 1d"
 export FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -type f -print'
 export FZF_DEFAULT_OPTS="--prompt='' --pointer=' ❯' --color=16 --info=hidden"
-
-# bat command
-export BAT_THEME="Solarized (dark)"
-
-# Use lynx as our terminal browser
-export BROWSER=lynx
-
-# sdkman command
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
