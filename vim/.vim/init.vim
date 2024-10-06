@@ -232,7 +232,7 @@ let g:gruvbox_invert_selection = 0
 let g:gruvbox_improved_warnings = 0
 
 " Define leader key
-let mapleader="\<space>"
+let mapleader="\<Space>"
 let maplocalleader=","
 
 " Comment characters for each language
@@ -455,29 +455,29 @@ endfunction
 " Call the fuzzy finder command inside vim
 " SOURCE: https://www.reddit.com/r/vim/comments/orfpbd/interactive_fuzzy_finder_in_vim_without_plugins/
 function! FZF() abort
-	let l:tempname = tempname()
-	" fzf | awk '{ print $1":1:0" }' > file
-	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
-	try
-		execute 'cfile ' . l:tempname
-		redraw!
-	finally
-		call delete(l:tempname)
-	endtry
+    let l:tempname = tempname()
+    " fzf | awk '{ print $1":1:0" }' > file
+    execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
+    try
+        execute 'cfile ' . l:tempname
+        redraw!
+    finally
+        call delete(l:tempname)
+    endtry
 endfunction
 
 function! OpenRanger()
-	"let l:tempname = tempname()
-	" ranger --choosefile=file
-	"execute 'silent !ranger --choosefile=' . fnameescape(l:tempname)
-	execute 'silent :enew'
-	execute 'silent !ranger'
-	"try
-		" execute 'cfile ' . l:tempname
-		" redraw!
-	" finally
-		" call delete(l:tempname)
-	" endtry
+    "let l:tempname = tempname()
+    " ranger --choosefile=file
+    "execute 'silent !ranger --choosefile=' . fnameescape(l:tempname)
+    execute 'silent :enew'
+    execute 'silent !ranger'
+    "try
+        " execute 'cfile ' . l:tempname
+        " redraw!
+    " finally
+        " call delete(l:tempname)
+    " endtry
 endfunction
 
 " Print the syntax group of the text where the cursor is
@@ -532,12 +532,13 @@ augroup END
 " vnoremap y "+y
 " nnoremap p "+p
 
-" Open and source my configuration file respectively
-nmap <Leader>v :edit $MYVIMRC<CR>
-nmap <Leader>s :source $MYVIMRC<CR>
+" Open my configuration file
+nnoremap <Leader>v :edit $MYVIMRC<CR>
+nnoremap <Leader>vv :edit $MYVIMRC<CR>
 
-" Put a semicolon at the and of the actual line
-nnoremap <Leader>; A;<Esc>
+" Source my configuration file
+nnoremap <Leader>s :source $MYVIMRC<CR>
+nnoremap <Leader>ss :source $MYVIMRC<CR>
 
 " List buffers and ask for the target buffer
 nnoremap <Leader>B :ls<CR>:b<Space>
@@ -555,29 +556,29 @@ nnoremap <Leader>bp :bprevious<CR>
 nnoremap <Leader>m :marks<CR>:'
 
 " Open builtin terminal
-nmap <Leader>t :term ++curwin<Space>
-nmap <Leader>tt :term ++curwin<Space>
+nnoremap <Leader>t :term<Space>
+nnoremap <Leader>tt :term<Space>
 
 " Quick fix operations
-nmap <Leader>qq :call ToggleQuickfix()<CR>
-nmap <Leader>qn :cnext<CR>
-nmap <Leader>qp :cprevious<CR>
+nnoremap <Leader>qq :call ToggleQuickfix()<CR>
+nnoremap <Leader>qn :cnext<CR>
+nnoremap <Leader>qp :cprevious<CR>
 
 " Toggle the spell checking
-nmap <Leader>sp :set spell!<CR>
+nnoremap <Leader>sp :set spell!<CR>
 
 " Toggle the spell language between Portuguese and English
-nmap <Leader>sl :call ToggleSpellLang()<CR>
+nnoremap <Leader>sl :call ToggleSpellLang()<CR>
 
 " Open file explorer (Netrw) on the current directory
 nnoremap <Leader>ee :call OpenRanger()<CR>
-nmap <Leader>e :call ToggleExplore()<CR>
+nnoremap <Leader>e :call ToggleExplore()<CR>
 
 " Clear the highlights from the search
-nmap <Leader>ns :nohlsearch<CR>
+nnoremap <Leader>ns :nohlsearch<CR>
 
 " Re-apply the syntax highlight
-nmap <Leader>sy :syntax sync fromstart<CR>
+nnoremap <Leader>sy :syntax sync fromstart<CR>
 
 " Open search on the current directory
 nnoremap <Leader>ff :FZF<CR>
@@ -591,16 +592,16 @@ nnoremap <leader>Vf :vert sfind <C-R>=expand('%:h').'/*'<CR>
 nnoremap <leader>Tf :tabfind <C-R>=expand('%:h').'/*'<CR>
 
 " Find all occurrences of a word in all project files
-nmap <Leader>* :grep -R <cword> * --exclude-dir={.git,tmp,log,node_modules}<CR><CR>
+nnoremap <Leader>* :grep -R <cword> * --exclude-dir={.git,tmp,log,node_modules}<CR><CR>
 
 " Open a new fresh tab
-nmap <Leader>tn :tabnew<CR>
+nnoremap <Leader>tn :tabnew<CR>
 
 " Re-size windows
-nmap <Down> :resize +10<CR>
-nmap <Up> :resize -10<CR>
-nmap <Right> :vertical resize -10<CR>
-nmap <Left> :vertical resize +10<CR>
+nnoremap <Down> :resize +10<CR>
+nnoremap <Up> :resize -10<CR>
+nnoremap <Right> :vertical resize -10<CR>
+nnoremap <Left> :vertical resize +10<CR>
 
 " Move lines up and down
 " SOURCE: https://github.com/noopkat/dotfiles/blob/master/.vimrc
@@ -612,11 +613,11 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Generate tags file on the current directory
-nmap <Leader>gt :!ctags -R .<CR>
+nnoremap <Leader>gt :!ctags -R .<CR>
 
 " Generate list of files in the current directory and sub-directories
 " Useful for index
-imap <Leader>gi <C-R>=glob('**/*')<CR>
+inoremap <LocalLeader>gi <C-R>=glob('**/*')<CR>
 
 " Utilities
 vnoremap <Leader>, :call ToggleComment()<CR>
@@ -628,7 +629,7 @@ nnoremap <Leader>w :call ToggleWrapLines()<CR>
 nnoremap <F4> :PrintSyntaxGroup<CR>
 
 " Shortcut for typing commands
-nnoremap ; :
+nnoremap ;; :
 
 " Shortcut for close all windows
 nnoremap ;q :qa
@@ -658,12 +659,12 @@ onoremap b /return<CR>
 " }}}
 " {{{ KEYBOARD SHORTCUT MAPPINGS FOR DISPLAY SETTINGS
 
-nmap <F10> :call ToggleAllComponentsDisplay()<CR>
-nmap <F9> :call ToggleTabLineDisplay()<CR>
-nmap <F8> :call ToggleStatusBarDisplay()<CR>
-nmap <F7> :call ToggleColorColumnDisplay()<CR>
-nmap <F6> :tabdo windo set number!<CR>
-nmap <F5> :tabdo windo set relativenumber!<CR>
+nnoremap <F10> :call ToggleAllComponentsDisplay()<CR>
+nnoremap <F9> :call ToggleTabLineDisplay()<CR>
+nnoremap <F8> :call ToggleStatusBarDisplay()<CR>
+nnoremap <F7> :call ToggleColorColumnDisplay()<CR>
+nnoremap <F6> :tabdo windo set number!<CR>
+nnoremap <F5> :tabdo windo set relativenumber!<CR>
 
 " }}}
 " {{{ SNIPPETS
