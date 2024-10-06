@@ -212,9 +212,9 @@ let g:markdown_fenced_languages = [
             \   'vim'
             \ ]
 
+" Solarized themes configuration
 let g:solarized_termcolors = 256
 let g:solarized_italics = 1
-" Solarized themes configuration
 let g:solarized_bold = 1
 let g:solarized_underline = 1
 let g:solarized_visibility = 'low'
@@ -414,24 +414,6 @@ function! FilePath() abort
     return '▏' . l:path . '/' . expand('%:t')
 endfunction
 
-function! IsNotDiff()
-  return expand('%:e') != 'diff'
-endfunction
-
-function! IsNotCommitEditMsg()
-  return expand('%:t') != 'COMMIT_EDITMSG'
-endfunction
-
-function! SaveOrRestoreSession(event)
-  if IsNotDiff() && IsNotCommitEditMsg()
-    if a:event == 'VimLeave'
-      :SaveSession
-    elseif a:event == 'VimEnter'
-      :RestoreSession
-    endif
-  endif
-endfunction
-
 function! ToggleExplore()
     if g:explore_is_open
         let g:explore_is_open = 0
@@ -500,16 +482,9 @@ endfunction
 "command! FZF call FZF()
 command! Ranger call OpenRanger()
 command! PrintSyntaxGroup call PrintSyntaxGroup()
-command! SaveSession call SaveSession()
-command! RestoreSession call RestoreSession()
 
 " }}}
 " {{{ AUTOMATIC COMMANDS
-
-" augroup session
-  " autocmd VimLeave * call SaveOrRestoreSession('VimLeave')
-  " autocmd VimEnter * call SaveOrRestoreSession('VimEnter')
-" augroup END
 
 inoremap <C-c> <Esc>
 augroup number
