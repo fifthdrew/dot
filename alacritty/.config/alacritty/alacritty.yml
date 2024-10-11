@@ -67,18 +67,18 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-    family: M PLUS 1 Code
+    family: MPLUS1Code
     style: Normal
 
   # The bold font face
   bold:
-    family: M PLUS 1 Code
+    family: MPLUS1Code
     style: Normal
 
   # The italic font face
   italic:
-    family: M PLUS 1 Code
-    style: Normal
+    family: MPLUS1Code
+    style: Italic
 
   # Point size of the font
   size: 8
