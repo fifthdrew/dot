@@ -8,6 +8,7 @@
 " \/_/ \/__/    \/_/\/_/\/_/\/_/\/_/ \/____/
 
 "{{{ GENERAL SETTINGS
+set guioptions-=e
 
 setlocal foldmethod=marker
 
@@ -116,6 +117,9 @@ set fillchars+=fold:—
 " set listchars=tab:→\ ,space:·,trail:·,eol:↲,nbsp:␣
 set listchars=tab:→\ ,trail:·,eol:↲,nbsp:␣
 
+" Show statusline only when are more than one pane
+set laststatus=1
+
 " Start of default statusline
 set statusline=
 
@@ -124,6 +128,12 @@ set statusline=%<%{FilePath()}\ %h%w%m%r\
 
 " End of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P\ %)
+
+" Show  tabline only when are more than one tab
+set showtabline=1
+
+" Set appearance of tabline
+set tabline=%!MyTabLine()
 
 " Set appearance of text folded
 set foldtext=SetFoldText()
@@ -282,7 +292,45 @@ function! SetFoldText()
    let foldtextend = lines_count_text . repeat(foldchar, 5)
    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
    return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . ' ' . foldtextend
-endfunction 
+endfunction
+
+function MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    " select the highlighting
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+    " set the tab page number (for mouse clicks)
+    let s .= '%' . (i + 1) . 'T'
+
+    " the label is made by MyTabLabel()
+    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  endfor
+
+  " after the last tab fill with TabLineFill and reset tab page nr
+  let s .= '%#TabLineFill#%T'
+
+  " right-align the label to close the current tab page
+  if tabpagenr('$') > 1
+    let s .= '%=%#TabLine#%999X'
+  endif
+
+  return s
+endfunction
+
+function MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let file = bufname(buflist[winnr - 1])
+  if file == ''
+      return '[No Name]'
+  endif
+  return file
+endfunction
 
 function! ActivateAllComponentsDisplay()
     tabdo windo set laststatus=2
@@ -299,7 +347,7 @@ function! ToggleColorColumnDisplay()
 endfunction
 
 function! ToggleStatusBarDisplay()
-    if &laststatus == 2
+    if &laststatus == 2 || &laststatus == 1
         tabdo windo set laststatus=0
     else
         tabdo windo set laststatus=2
@@ -307,10 +355,10 @@ function! ToggleStatusBarDisplay()
 endfunction
 
 function! ToggleTabLineDisplay()
-  if &showtabline == 1
+  if &showtabline == 2 || &showtabline == 1
     tabdo windo set showtabline=0
   else
-    tabdo windo set showtabline=1
+    tabdo windo set showtabline=2
   endif
 endfunction
 
@@ -407,7 +455,7 @@ function! FilePath() abort
     if stridx(l:path, l:home) !=# -1
       let l:path = substitute(l:path, l:home, '~', "")
     endif
-    if winwidth(0) <= 80
+    if winwidth(0) <= 180
         " let l:path = pathshorten(l:path)
         return '▏' . expand('%:t')
     endif
@@ -417,10 +465,10 @@ endfunction
 function! ToggleExplore()
     if g:explore_is_open
         let g:explore_is_open = 0
-        :Rexplore
+        :Explore
     else
         let g:explore_is_open = 1
-        :Explore
+        :Rexplore
     endif
 endfunction
 
@@ -448,7 +496,7 @@ function! FZF() abort
     endtry
 endfunction
 
-function! OpenRanger()
+function! OpenExternalExplore()
     "let l:tempname = tempname()
     " ranger --choosefile=file
     "execute 'silent !ranger --choosefile=' . fnameescape(l:tempname)
@@ -480,7 +528,7 @@ endfunction
 " {{{ CUSTOM COMMANDS
 
 "command! FZF call FZF()
-command! Ranger call OpenRanger()
+command! Ranger call OpenExternalExplore()
 command! PrintSyntaxGroup call PrintSyntaxGroup()
 
 " }}}
@@ -546,14 +594,16 @@ nnoremap <Leader>sp :set spell!<CR>
 nnoremap <Leader>sl :call ToggleSpellLang()<CR>
 
 " Open file explorer (Netrw) on the current directory
-nnoremap <Leader>ee :call OpenRanger()<CR>
 nnoremap <Leader>e :call ToggleExplore()<CR>
+nnoremap <Leader>ee :call ToggleExplore()<CR>
+nnoremap <Leader>ex :call OpenExternalExplore()<CR>
+nnoremap <Leader>el :Lexplore<CR>
 
 " Clear the highlights from the search
-nnoremap <Leader>ns :nohlsearch<CR>
+nmap <Leader>ns :nohlsearch<CR>
 
 " Re-apply the syntax highlight
-nnoremap <Leader>sy :syntax sync fromstart<CR>
+nmap <Leader>sy :syntax sync fromstart<CR>
 
 " Open search on the current directory
 nnoremap <Leader>ff :FZF<CR>

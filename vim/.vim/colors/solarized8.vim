@@ -164,11 +164,13 @@ if &background ==# 'dark'
     hi VertSplit guifg=#073642 guibg=#586e75 gui=NONE cterm=NONE
   elseif get(g:, 'solarized_statusline', '') ==# 'flat'
     " hi StatusLine guifg=#073642 guibg=#eee8d5 gui=reverse cterm=reverse
-    hi StatusLine guifg=#073642 guibg=#657b83 gui=reverse cterm=reverse
+    hi StatusLine guifg=#073642 guibg=#93a1a1 gui=reverse cterm=reverse
     " hi StatusLineNC guifg=#073642 guibg=#93a1a1 gui=reverse cterm=reverse
-    hi StatusLineNC guifg=#073642 guibg=#002B36 gui=reverse cterm=reverse
-    hi TabLineSel guifg=#eee8d5 guibg=#073642 gui=NONE cterm=NONE
+    hi StatusLineNC guifg=#073642 guibg=#586e75 gui=reverse cterm=reverse
+    " hi TabLineSel guifg=#eee8d5 guibg=#073642 gui=NONE cterm=NONE
+    hi TabLineSel guifg=#93a1a1 guibg=NONE gui=NONE cterm=NONE
     hi TabLine guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
+    " hi TabLineFill guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
     hi TabLineFill guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
     " hi VertSplit guifg=#586e75 guibg=#073642 gui=NONE cterm=NONE
     hi VertSplit guifg=#073642 guibg=NONE gui=NONE cterm=NONE
@@ -180,13 +182,14 @@ if &background ==# 'dark'
     hi TabLineSel guifg=#839496 guibg=#073642 gui=reverse cterm=reverse
     hi VertSplit guifg=#073642 guibg=#586e75 gui=NONE cterm=NONE
   endif
-  " hi ColorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
-  hi ColorColumn guifg=NONE guibg=#002732 gui=NONE cterm=NONE
+  hi ColorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
+  " hi ColorColumn guifg=NONE guibg=#002732 gui=NONE cterm=NONE
   hi Conceal guifg=#268bd2 guibg=NONE gui=NONE cterm=NONE
   hi CursorColumn guifg=NONE guibg=#073642 gui=NONE cterm=NONE
   hi CursorLine guifg=NONE guibg=#073642 gui=NONE cterm=NONE
   hi Directory guifg=#268bd2 guibg=NONE gui=NONE cterm=NONE
-  hi EndOfBuffer guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+  "hi EndOfBuffer guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+  hi EndOfBuffer guifg=#586e75 guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
   hi ErrorMsg guifg=#dc322f guibg=#fdf6e3 gui=reverse cterm=reverse
   hi IncSearch guifg=#cb4b16 guibg=NONE gui=standout cterm=standout
   hi MatchParen guifg=#fdf6e3 guibg=#073642 gui=bold cterm=bold
