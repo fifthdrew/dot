@@ -21,7 +21,11 @@ set ifs "\n"
 set scrolloff 10
 
 # Enable Borders
-set drawbox
+#set drawbox
+#set borderfmt "\033[0m"
+
+# Prompt
+set promptfmt "\033[36;1m%u@%h\033[0m:\033[34;1m%d\033[0m\033[1m%f\033[0m"
 
 # use enter for shell commands
 map <enter> shell
