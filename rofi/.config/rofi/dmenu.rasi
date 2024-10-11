@@ -1,15 +1,14 @@
-/* dmenu based theme */
+/* i3wm based theme */
 * {
-    background-color: #222222;
-    border-color: #bbbbbb;
+    background-color: #000000;
     text-color: #bbbbbb;
-    font: "M PLUS Code Latin 50 7";
+    font: "M PLUS 1 Code 5";
 }
 window {
     anchor: south;
     location: south;
     width: 100%;
-    padding: 1px;
+    padding: 0px;
     children: [ horibox ];
 }
 horibox {
@@ -18,19 +17,29 @@ horibox {
 }
 entry {
     expand: false;
-    width: 10em;
-    placeholder: " search";
+    width: 0px;
+    padding: -20px;
 }
 listview {
     layout: horizontal;
-    spacing: 5px;
+    spacing: 1px;
     lines: 100;
 }
 element {
+    background-color: #222222;
+    text-color: #bbbbbb;
+    border:           1px;
+    border-radius:    0px ;
+    border-color:     #333333;
+    width: 200px;
     padding: 0px;
 }
 element selected {
+    text-color: #ffffff;
     background-color: #285577;
+    border:           1px;
+    border-radius:    0px ;
+    border-color:     #4c7899;
 }
 element-text, element-icon {
   background-color: inherit;
