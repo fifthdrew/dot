@@ -1,5 +1,9 @@
-! Apply changes in this file with `xrdb ~/.Xresources`
+! Apply changes in this file with `xrdb ~/.Xresources` or `rx` custom command
+!! Generic configurations
 #include ".Xresources.d/xft.xresources"
-#include ".Xresources.d/xterm.xresources"
+#include ".Xresources.d/xcursor.xresources"
+!! Terminal emulators configurations
+#include ".Xresources.d/uxterm.xresources"
 #include ".Xresources.d/urxvt.xresources"
 #include ".Xresources.d/zutty.xresources"
+#include ".Xresources.d/st.xresources"

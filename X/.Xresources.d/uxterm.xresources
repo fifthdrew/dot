@@ -1,0 +1,62 @@
+UXTerm*title: UXTerm
+UXTerm*geometry: 90x30
+UXTerm*transparent: false
+UXTerm*fading: 0
+UXTerm*urgentOnBell: false
+UXTerm*visualBell: false
+UXTerm*loginShell: true
+UXTerm*saveLines: 50
+UXTerm*internalBorder: 0
+UXTerm*iso14755: false
+UXTerm*urlLauncher: $BROWSER
+UXTerm*underlineURLs: true
+UXTerm*selectToClipboard: true
+
+! Fonts
+UXTerm*font: -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+UXTerm*cutchars: "'*,<>[]{}|-_@:/()"
+UXTerm*renderFont: true
+UXTerm*intensityStyles: false
+UXTerm*skipBuiltinGlyphs: true
+UXTerm*allowBoldFonts: false
+UXTerm*allowItalicFonts: true
+UXTerm*lineSpace: 0
+UXTerm*letterSpace: -1
+
+! Cursor
+UXTerm*cursorBlink: false
+UXTerm*cursorUnderline: false
+
+! Pointer
+UXTerm*pointerBlank: true
+
+! Scrollbar
+UXTerm*scrollBar: false
+UXTerm*scrollBar_right: false
+
+! Colors
+UXTerm*background: #000000
+UXTerm*foreground: #eeeeee
+UXTerm*colorMode: false
+
+!! for the font size funcion
+UXTerm*VT100.faceSize1: 8
+UXTerm*VT100.faceSize2: 10
+UXTerm*VT100.faceSize3: 12
+UXTerm*VT100.faceSize4: 14
+UXTerm*VT100.faceSize5: 16
+UXTerm*VT100.faceSize6: 18
+UXTerm*VT100.faceSize7: 20
+
+! Keybindings
+UXTerm*VT100.Translations: #override \n\
+Shift Ctrl<Key>C: copy-selection(CLIPBOARD) \n\
+Shift Ctrl<Key>V: insert-selection(CLIPBOARD) \n\
+Shift Ctrl<Key>V: insert-selection(PRIMARY) \n\
+Shift<Btn1Down>: select-start() \n\
+Shift<Btn1Motion>: select-extend() \n\
+Shift<Btn1Up>: select-end(CLIPBOARD) \n\
+Ctrl <Key>-: smaller-vt-font() \n\
+Ctrl <Key>+: larger-vt-font() \n\
+Ctrl <Key>0: set-vt-font(d) \n\
+

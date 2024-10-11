@@ -13,9 +13,7 @@ XTerm*underlineURLs: true
 XTerm*selectToClipboard: true
 
 ! Fonts
-XTerm*font: xft:M PLUS Code Latin 50
-XTerm*boldFont: xft:M PLUS Code Latin 50
-XTerm*italicFont: xft:M PLUS Code Latin 50
+XTerm*font: -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 XTerm*cutchars: "'*,<>[]{}|-_@:/()"
 XTerm*renderFont: true
 XTerm*intensityStyles: false
@@ -23,7 +21,7 @@ XTerm*skipBuiltinGlyphs: true
 XTerm*allowBoldFonts: false
 XTerm*allowItalicFonts: true
 XTerm*lineSpace: 0
-XTerm*letterSpace: 0
+XTerm*letterSpace: -1
 
 ! Cursor
 XTerm*cursorBlink: false
@@ -35,6 +33,11 @@ XTerm*pointerBlank: true
 ! Scrollbar
 XTerm*scrollBar: false
 XTerm*scrollBar_right: false
+
+! Colors
+XTerm*background: #000000
+XTerm*foreground: #eeeeee
+XTerm*colorMode: false
 
 !! for the font size funcion
 XTerm*VT100.faceSize1: 8
