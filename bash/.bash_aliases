@@ -18,9 +18,11 @@ alias rm='rm -i'
 alias vi='echo -ne "\e[2 q"; nvi'
 alias vim='echo -ne "\e[2 q"; vim'
 
-# tmux
+# tmux and tmate
 alias t='tmux'
 alias ta='tmux a -t Default'
+alias tt='tmate -S "/tmp/tmate.sock" new-session -d -s "Default"'
+alias tta='tmate -S "/tmp/tmate.sock" attach-session -t "Default"'
 
 #ed
 alias ed='echo -ne "\e[3 q"; ed -v -p\*'
