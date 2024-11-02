@@ -23,9 +23,10 @@ alias vim='echo -ne "\e[2 q"; vim'
 
 # Tmux and Tmate
 ## Creates a new tmux session named Default or attach to it if already exist
-alias t='tmux new -A -d -s Default'
-## Same that tmux, except that must pass the socket location explicitly
-alias tt='tmate -S "/tmp/tmate-1000/default" new -A -d -s Default'
+alias t='tmux new -A -s Default'
+## Creates a new tmate session named Default, must pass the socket location explicitly
+## if the default socket is not in the configuration file
+alias tt='tmate new -A -s Default'
 
 # Ed(1)
 ## Call ed with underline cursor and * prompt
