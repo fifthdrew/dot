@@ -144,13 +144,13 @@
             "fileMatch": [
                 "/zapp.json"
             ],
-            "url": "file:///home/vandito/.vscode-oss/extensions/ibm.zopeneditor-4.1.0-universal/resources/zapp-schema-1.1.0.json"
+            "url": "file:///home/vandito/.vscode-oss/extensions/ibm.zopeneditor-4.2.0-universal/resources/zapp-schema-1.1.1.json"
         },
         {
             "fileMatch": [
                 "/zcodeformat.json"
             ],
-            "url": "file:///home/vandito/.vscode-oss/extensions/ibm.zopeneditor-4.1.0-universal/resources/zcodeformat-schema-0.0.1.json"
+            "url": "file:///home/vandito/.vscode-oss/extensions/ibm.zopeneditor-4.2.0-universal/resources/zcodeformat-schema-0.0.1.json"
         }
     ],
     
