@@ -16,8 +16,12 @@
 
 ;; Set font family and size
 (cond
-((find-font (font-spec :name "MPLUS1Code"))
- (set-frame-font "MPLUS1Code 8" nil t)))
+ ((find-font (font-spec :name "MPLUS1Code"))
+  (set-face-attribute 'default nil :font "MPLUS1Code 8")
+  (set-face-attribute 'fixed-pitch nil :font "MPLUS1Code 8")))
+(cond
+ ((find-font (font-spec :name "MPLUS1"))
+  (set-face-attribute 'variable-pitch nil :font "MPLUS1 8")))
 
 ;; Enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -64,7 +68,7 @@
 (setq mode-line-percent-position nil)
 
 ;; Show line numbers by default
-;(setq-default display-line-numbers 'relative)
+                                        ;(setq-default display-line-numbers 'relative)
 
 ;; Set frame title, to show file or buffer name
 ;; SOURCE: https://github.com/bbatsov/emacs.d/blob/master/init.el
@@ -144,6 +148,52 @@
 (fringe-mode 0)
 
 ;(ido-mode 1)
+
+;; Org Mode
+(custom-set-faces
+ '(org-code ((t (:inherit (shadow fixed-pitch)))))
+ '(org-block ((t (:inherit fixed-pitch))))
+ '(org-table ((t (:inherit fixed-pitch))))
+ '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+ '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+ '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+ '(org-link ((t (:underline t))))
+ '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+ '(org-property-value ((t (:inherit fixed-pitch))))
+ '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+ '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+ '(org-table-number ((t (:inherit fixed-pitch))))
+ '(org-table-cell-field ((t (:inherit fixed-pitch))))
+ '(org-table-header-1 ((t (:inherit fixed-pitch :bold t))))
+ '(org-table-header-2 ((t (:inherit fixed-pitch :bold t))))
+ '(org-table-header-3 ((t (:inherit fixed-pitch :bold t))))
+ '(org-table-header-4 ((t (:inherit fixed-pitch :bold t))))
+ '(org-table-header-5 ((t (:inherit fixed-pitch :bold t))))
+ '(org-table-header-6 ((t (:inherit fixed-pitch :bold t))))
+ '(org-table-row ((t (:inherit fixed-pitch))))
+ '(org-table-cell ((t (:inherit fixed-pitch))))
+ '(org-table-hline ((t (:inherit fixed-pitch))))
+ '(org-table-hline-1 ((t (:inherit fixed-pitch))))
+ '(org-table-hline-2 ((t (:inherit fixed-pitch))))
+ '(org-table-hline-3 ((t (:inherit fixed-pitch))))
+ '(org-table-hline-4 ((t (:inherit fixed-pitch))))
+ '(org-table-hline-5 ((t (:inherit fixed-pitch))))
+ '(org-table-hline-6 ((t (:inherit fixed-pitch))))
+ '(org-table-first-column ((t (:inherit fixed-pitch))))
+ '(org-table-current-cell-highlight ((t (:inherit fixed-pitch))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background))))
+ '(org-table-cell-highlight ((t (:inherit fixed-pitch :background)))))
+
+
+(add-hook 'org-mode-hook 'turn-on-text-scale-mode)
+
+(add-hook 'org-mode-hook 'variable-pitch-mode)
 
 ;; make the fringe stand out from the background
 ;;(setq solarized-distinct-fringe-background t)
@@ -234,6 +284,8 @@
 
 (use-package rainbow-delimiters
   :hook ((emacs-lisp-mode lisp-mode racket-mode) . rainbow-delimiters-mode))
+
+(use-package mixed-pitch)
 
 (defun toggle-top-menu ()
   "Run toggle-menu-bar-mode-from-frame and toggle-tool-bar-mode-from-frame"
