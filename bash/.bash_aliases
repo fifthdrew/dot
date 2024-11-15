@@ -30,4 +30,6 @@ alias tt='tmate new -A -s Default'
 
 # Ed(1)
 ## Call ed with underline cursor and * prompt
-alias ed='echo -ne "\e[3 q"; ed -v -p\*'
+alias ed='echo -ne "\e[3 q"; ed -svE -p\*\  '
+## Call ed with rlwrap
+alias wed='clear;rlwrap -c ed -svE -p\*\  '
