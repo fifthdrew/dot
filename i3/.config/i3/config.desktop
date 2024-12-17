@@ -263,10 +263,10 @@ bindsym $super+g mode "$mode_gaps_size"
 set $mode_exit_i3 Exit: [l]ogout, [r]eboot, [s]uspend, [h]ibernate, [p]oweroff, loc[k]
 mode "$mode_exit_i3" {
     bindsym l exec i3-msg exit
-    bindsym r exec systemctl reboot
-    bindsym s exec systemctl suspend
-    bindsym h exec systemctl hibernate
-    bindsym p exec systemctl poweroff
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym s exec systemctl suspend, mode "default"
+    bindsym h exec systemctl hibernate, mode "default"
+    bindsym p exec systemctl poweroff, mode "default"
     bindsym k exec --no-startup-id i3lock -i $wallpaper, mode "default"
 
     bindsym Escape mode "default"
@@ -289,10 +289,10 @@ exec --no-startup-id xautolock -time 5 -locker '$lock_screen'
 
 # Add shadows and transparence effects
 #exec --no-startup-id compiz --replace
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends -CGb
+exec --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends -CGb
 
 # Display Wallpaper
-exec_always --no-startup-id feh --bg-fill $wallpaper
+exec --no-startup-id feh --bg-fill $wallpaper
 
 # Start i3bar to display a workspace bar
 bar {
