@@ -28,8 +28,12 @@ alias t='tmux new -A -s Default'
 ## if the default socket is not in the configuration file
 alias tt='tmate new -A -s Default'
 
+# Rlwrap (Readline Wrap)
+alias rlw='rlwrap -c'
+
 # Ed(1)
 ## Call ed with underline cursor and * prompt
-alias ed='echo -ne "\e[3 q"; ed -svE -p\*\  '
-## Call ed with rlwrap
-alias wed='clear;rlwrap -c ed -svE -p\*\  '
+alias ed='echo -ne "\e[3 q";rlwrap -c ed -svE -p\*\  '
+
+# fc
+alias r='fc -s'
