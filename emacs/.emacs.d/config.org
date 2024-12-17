@@ -31,11 +31,11 @@
 ;; Set font family and size
 (cond
  ((find-font (font-spec :name "MPLUS1Code"))
-  (set-face-attribute 'default nil :font "MPLUS1Code 8")
-  (set-face-attribute 'fixed-pitch nil :font "MPLUS1Code 8")))
+  (set-face-attribute 'default nil :font "MPLUS1Code 11")
+  (set-face-attribute 'fixed-pitch nil :font "MPLUS1Code 11")))
 (cond
  ((find-font (font-spec :name "MPLUS1"))
-  (set-face-attribute 'variable-pitch nil :font "MPLUS1 8")))
+  (set-face-attribute 'variable-pitch nil :font "MPLUS1 11")))
 
 ;; Enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -82,7 +82,7 @@
 (setq mode-line-percent-position nil)
 
 ;; Show line numbers by default
-                                        ;(setq-default display-line-numbers 'relative)
+;(setq-default display-line-numbers 'relative)
 
 ;; Set frame title, to show file or buffer name
 ;; SOURCE: https://github.com/bbatsov/emacs.d/blob/master/init.el
