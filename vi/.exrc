@@ -1,15 +1,5 @@
-set showmode
+" POSIX ex/vi settings
+set autoindent
+set report=0
 set showmatch
-set matchtime=1
-set ruler
-set shiftwidth=4
-set tabstop=4
-set wrapmargin=4
-set verbose
-set leftright
-set windowname
-set extended
-set tildeop
-set searchincr
-set cedit=^R
-set filec=^V
+"set showmode
